@@ -1,10 +1,10 @@
 <template>
     <header class="main-header">
-        <img src="../assets/svg/wix-logo.svg.svg" alt="" />
+        <img @click="goToHome" src="../assets/svg/wix-logo.svg.svg" alt="" />
 
         <div class="header-btns">
             <button>Log In</button>
-            <button>Get Started</button>
+            <button @click="goToTemplate" >Get Started</button>
         </div>
         
     </header>
@@ -17,7 +17,14 @@ export default {
         return {};
     },
     created() {},
-    methods: {},
+    methods: {
+        goToTemplate() {
+            this.$router.push("/templates");
+        },
+        goToHome() {
+            this.$router.push("/");
+        },
+    },
     components: {},
 };
 </script>

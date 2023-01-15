@@ -1,0 +1,33 @@
+.templates-container {
+    h1 {
+        font-size: 1.75rem;
+        font-weight: 800;
+        padding-inline: 80px;
+        padding-top: 60px;
+        text-align: center;
+        color: #1e1e1e;
+        font-family: Poppins;
+    }
+
+    .templates {
+        display: grid;
+        gap: 50px;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 300px));
+        padding: 60px 80px 80px;
+
+        .template {
+            aspect-ratio: 1/1.5;
+            background-color: #fff;
+            border-radius: 8px;
+            color: #1e1e1e;
+            box-shadow: 0 1px 4px #0003;
+
+            .edit-btn {
+            }
+        }
+        .template:hover {
+            background-color: #00c2a666;
+            outline: 4px solid #00c2a6;
+        }
+    }
+}
