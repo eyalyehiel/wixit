@@ -1,16 +1,17 @@
-@import url("//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css");
+@import url('//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css');
 
 //SETUP
-@import "./setup/variables";
-@import "./setup/mixins";
-@import "./setup/typography";
-@import "./setup/functions";
+@import './setup/variables';
+@import './setup/mixins';
+@import './setup/typography';
+@import './setup/functions';
 
 //BASE
 @import './base/base';
 
 //VIEWS
 @import './views/site-app';
+@import './views/home-view';
 
 //CMPS
 @import './cmps/app-header';

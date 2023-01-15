@@ -1,4 +1,6 @@
-* {
+*,
+*::before,
+*::after {
     box-sizing: border-box;
 }
 
@@ -7,22 +9,35 @@ html {
 }
 
 body {
+    // font-family: ;
+}
+
+* {
     margin: 0;
     padding: 0;
-    font-family: CerealReg;
+}
+
+input,
+textarea,
+button,
+a {
+    font-family: inherit;
+    font-size: 1rem;
 }
 
 button {
     cursor: pointer;
-    font-family: inherit;
+    border: 0;
+    background-color: inherit;
+    color: inherit;
 }
 
 a {
     color: inherit;
-    font-family: inherit;
+    text-decoration: none;
 }
 
-ul{
+ul {
     margin: 0;
     padding: 0;
 }
