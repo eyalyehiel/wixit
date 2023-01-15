@@ -10,21 +10,21 @@
         </section>
         <section class="one-platform">
             <h1>One platform, infinite possibilities</h1>
-            <div class="flex">
+            <div class="info-container">
                 <div class="info-preview">
-                    <h1>Unlimited creation</h1>
+                    <h4>Unlimited creation</h4>
                     <p>Create a website with a complete suite of advanced functionalities and bring your vision to life.
                     </p>
                 </div>
                 <div class="info-preview">
-                    <h1>Powerful infrastructure
-                    </h1>
+                    <h4>Powerful infrastructure
+                    </h4>
                     <p>Get an enterprise-grade foundation, engineered for your limitless scalability and peace of mind.
                     </p>
                 </div>
                 <div class="info-preview">
-                    <h1>The place for growth
-                    </h1>
+                    <h4>The place for growth
+                    </h4>
                     <p>Convert and scale seamlessly with built-in marketing and business solutions.
                     </p>
                 </div>
