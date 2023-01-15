@@ -1,7 +1,7 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
-import HomeView from '../views/HomeView.vue';
+import HomeView from '../views/home-view.vue';
 import siteApp from '../views/site-app.vue';
-import graphicDesignerHome from '../components/graphic-designer/graphic-designer-home';
+import graphicDesignerHome from '../components/graphic-designer/graphic-designer-home.vue';
 
 const router = createRouter({
     history: createWebHashHistory(import.meta.env.BASE_URL),

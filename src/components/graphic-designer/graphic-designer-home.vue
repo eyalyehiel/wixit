@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import greaphicDesignerHeader from './greaphic-designer-header.vue';
+import greaphicDesignerHeader from './graphic-designer-header.vue';
 export default {
     setup() {
 

@@ -2,24 +2,31 @@
     <section class="site-app">
         <nav class="site-nav">
             <ul>
-                <router-link to="#">
+                <button @click="toggleView('my-projects')">
                     <li><span> My Projects </span><arrow-right /></li>
-                </router-link>
-                <router-link to="#">
+                </button>
+                <button @click="toggleView('add-project')">
                     <li><span> Add Project </span><arrow-right /></li>
-                </router-link>
+                </button>
             </ul>
         </nav>
-        <section class="site-view"></section>
+        <section class="site-view">
+            <my-projects v-if="currView.value === 'my-projects'" />
+            <template-selector v-else />
+        </section>
     </section>
 </template>
 
-<script>
+<script setup>
+import myProjects from "../components/my-projects.vue"
+import templateSelector from "../components/template-selector.vue"
 import arrowRight from "../assets/svg/arrow-right-tiny.vue"
+import { ref, reactive } from "vue"
 
-export default {
-    components: {
-        arrowRight,
-    },
+// const view = ref("my-projects")
+const currView = reactive({ value: "my-projects" })
+
+function toggleView(value) {
+    currView.value = value
 }
 </script>
