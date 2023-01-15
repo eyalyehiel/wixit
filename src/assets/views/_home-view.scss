@@ -1,0 +1,19 @@
+.home-view {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+    .hero {
+        background-color: #2f40ad;
+        color: white;
+        padding: 50px 150px;
+
+        h1 {
+            font-size: em(92px, 16px);
+        }
+
+        h4 {
+            font-size: em(20px, 16px);
+        }
+    }
+}
