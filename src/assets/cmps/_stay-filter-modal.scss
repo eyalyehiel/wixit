@@ -1,0 +1,322 @@
+.form-filter {
+    background-color: #fff;
+    font-family: CerealReg;
+    max-width: 780px;
+    width: 100%;
+    position: fixed;
+    z-index: 22;
+    top: 0;
+    height: 85vh;
+    right: 50%;
+    transform: translate(50%, 10%);
+    box-shadow: #00000047 0 8px 28px;
+    border-radius: 12px;
+    overflow: hidden;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+
+    > * {
+        padding-inline: 24px;
+    }
+
+    .form-header {
+        display: flex;
+        align-items: center;
+        height: 64px;
+        border-bottom: 1px solid #dddddd;
+        justify-content: center;
+
+        h3 {
+            font-size: 1em;
+            margin: 0;
+        }
+    }
+
+    .close-filter {
+        position: absolute;
+        left: 20px;
+
+        img {
+            height: 16px;
+            cursor: pointer;
+        }
+    }
+
+    h2 {
+        font-size: em(22px, 16px);
+        margin: 0;
+        padding-bottom: 24px;
+
+        &:has(+ p) {
+            padding-block: 8px;
+        }
+    }
+
+    .form-wrapper {
+        position: relative;
+        overflow-y: auto;
+
+        > * {
+            padding-block: 32px;
+            border-bottom: 1px solid #dddddd;
+        }
+        .range-wrapper {
+            display: flex;
+            justify-content: center;
+            padding-top: 38px;
+            .irs-handle {
+                border: 1px solid #bababa;
+                &:hover {
+                    background-color: #ffffff;
+                }
+            }
+            .irs-grid-pol {
+                display: none;
+            }
+            .irs-from,
+            .irs-to {
+                display: none;
+            }
+        }
+
+        .form-price {
+            label {
+                font-size: em(12px, 16px);
+            }
+
+            .price-inner {
+                display: flex;
+                flex-direction: column;
+                box-shadow: #b0b0b0 0 0 0 1px inset;
+                height: 56px;
+                border-radius: 8px;
+                overflow: hidden;
+                justify-content: end;
+                box-sizing: border-box;
+                padding: 10px;
+                width: 47%;
+            }
+
+            .form-inputs {
+                display: flex;
+                justify-content: space-between;
+                width: 90%;
+                margin: auto;
+                padding-top: 0;
+            }
+            .form-input {
+                align-items: flex-end;
+            }
+
+            .between-prices {
+                margin: auto;
+            }
+
+            input {
+                border: none;
+                outline: none;
+            }
+        }
+
+        .place-types {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+
+            > * {
+                justify-self: start;
+            }
+
+            .place-type {
+                display: grid;
+                grid-template-columns: auto 1fr;
+
+                input[type='checkbox'] {
+                    height: 24px;
+                    width: 39px;
+                    align-self: flex-start;
+                    accent-color: #222222;
+
+                }
+                .label-p {
+                    display: grid;
+                    label {
+                        margin-top: 0;
+                    }
+                    p {
+                        margin: 0;
+                        padding-top: 10px;
+                        color: rgb(113, 113, 113);
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+        .form-rooms-and-beds {
+            input {
+                display: none;
+            }
+
+            #row1,
+            #row2,
+            #row3 {
+                display: flex;
+                flex-direction: row;
+                gap: 10px;
+                .btns-group {
+                    display: flex;
+                    flex-direction: row;
+                    gap: 10px;
+
+                    &:last-child {
+                        ::after {
+                            content: '+';
+                        }
+                    }
+                }
+            }
+
+            .btn-btn {
+                margin-right: 6px;
+                padding: 10px 20px;
+                border-radius: 30px;
+                min-width: 59px;
+                font-size: em(14px, 16px);
+                border: 1px solid rgb(221, 221, 221);
+                background-color: #fff;
+                text-align: center;
+                cursor: pointer;
+                transition: 0.3s;
+
+                &:hover {
+                    border: 1px solid #222222;
+                }
+            }
+            input:checked + .btn-btn {
+                color: white;
+                background-color: #222222;
+            }
+        }
+        .form-property-type {
+            input {
+                display: none;
+            }
+            .property-type {
+                border: 1px solid;
+                width: 165.75px;
+                height: 120px;
+                margin-right: 13px;
+                border-radius: 11px;
+                border: 1px solid rgba(176, 176, 176, 0.5);
+                position: relative;
+                cursor: pointer;
+                transition: 0.2s;
+                padding: 16px;
+
+                &:hover {
+                    border: 1px solid #222222;
+                }
+                img {
+                    max-height: 30px;
+                }
+                span {
+                    font-size: 13px;
+                    position: absolute;
+                    bottom: 20px;
+                    left: 17px;
+                    font-size: 16px;
+                }
+            }
+            input:checked + .property-type {
+                background-color: #f7f7f7;
+                border: 2px solid #222222;
+            }
+            .flex {
+                display: flex;
+            }
+        }
+        .amenities-container {
+            h2 {
+                margin-bottom: 24px;
+            }
+
+            .stay-amenities {
+                display: grid;
+                grid-template-columns: auto auto;
+
+                p {
+                    margin: 0;
+                }
+
+                div {
+                    input {
+                        width: 24px;
+                        height: 24px;
+                        cursor: pointer;
+                        accent-color: #222222;
+                    }
+
+                    label {
+                        display: flex;
+                        align-items: center;
+                    }
+
+                    padding-bottom: 16px;
+                }
+            }
+        }
+    }
+    .form-footer {
+        display: flex;
+        border-top: 1px solid rgb(235, 235, 235);
+        align-items: center;
+        justify-content: space-between;
+        height: 80px;
+        max-height: 80px;
+        background: white;
+
+        button {
+            text-decoration: underline;
+            font-size: 1em;
+            font-weight: 700;
+            cursor: pointer;
+            padding: 0;
+            background-color: transparent;
+            border: 0;
+
+            &:nth-child(2) {
+                text-decoration: none;
+                background: #222222;
+                padding: 8px;
+                border-radius: 6px;
+                text-align: center;
+                width: 161px;
+                height: 48px;
+                box-sizing: border-box;
+                color: #fff;
+                font-size: 1em;
+            }
+        }
+    }
+
+    .Type-of-place {
+        .first-tow {
+            display: flex;
+        }
+
+        .checkbox {
+            display: flex;
+            width: 550px;
+
+            input {
+                height: 24px;
+                width: 39px;
+            }
+
+            p {
+                margin-top: -4px;
+                color: #717171;
+                font-size: 14px;
+            }
+        }
+    }
+}

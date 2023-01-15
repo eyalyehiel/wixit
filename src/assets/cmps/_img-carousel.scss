@@ -1,0 +1,60 @@
+.stay-preview {
+    .carousel {
+        .carousel__slide {
+            width: 100% !important;
+        }
+
+        .carousel__pagination-button::after {
+            padding: 2px;
+            width: 0;
+            height: 0;
+            border-radius: 10em;
+            background-color: lightgray;
+        }
+
+        .carousel__pagination-button--active::after {
+            background-color: #fff;
+        }
+
+        .carousel__pagination {
+            padding: 0;
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        &:hover {
+            .carousel__prev,
+            .carousel__next {
+                background: #fff !important;
+                border-radius: 5em;
+                opacity: 85%;
+            }
+        }
+        .carousel__prev,
+        .carousel__next {
+            opacity: 0;
+            transition: opacity 0.4s;
+            margin: 0px 15px;
+
+            &:hover {
+                opacity: 1;
+                width: 31px;
+                height: 31px;
+                color: black;
+            }
+
+            .carousel__icon {
+                width: 20px;
+                height: 20px;
+            }
+        }
+        .carousel__next--disabled,
+        .carousel__prev--disabled {
+            cursor: auto;
+            pointer-events: none;
+            opacity: 0 !important;
+        }
+    }
+}

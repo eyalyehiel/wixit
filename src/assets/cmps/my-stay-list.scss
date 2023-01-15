@@ -1,0 +1,89 @@
+.my-stay-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+
+    .my-stay-list {
+        display: flex;
+        background-color: white;
+        flex-direction: column;
+        margin-top: 20px;
+        border: 1px solid rgb(202, 202, 202);
+        border-radius: 10px;
+        .my-stay-list-header {
+            display: grid;
+            grid-template-columns: 1.6fr 0.7fr 0.5fr 0.5fr 0.7fr 0.7fr;
+            background-color: white;
+            align-items: center;
+            padding-inline: 10px;
+            border-start-start-radius: 10px;
+            border-start-end-radius: 10px;
+            border-bottom: 1px solid #dddddd;
+        }
+
+        .my-stay-preview {
+            a {
+                text-decoration: none;
+                display: grid;
+                grid-template-columns: 1.6fr 0.7fr 0.5fr 0.5fr 0.7fr 0.7fr;
+                align-items: center;
+                background-color: white;
+                padding-inline: 10px;
+                padding-block: 5px;
+                border-bottom: 1px solid #dddddd;
+
+                .stay-actions {
+                    display: flex;
+                    gap: 5px;
+                    .update-btn {
+                        flex-grow: 1;
+                        background-color: lightblue;
+                        :first-child {
+                            padding-right: 5px;
+                        }
+                    }
+                    > * {
+                        border-radius: 5px;
+                        border: 0;
+                    }
+                    .elipsis-btn {
+                        position: relative;
+                        .delete-btn {
+                            position: absolute;
+                            top: 100%;
+                            border-radius: 5px;
+                            border: 1px solid #dddddd;
+                            padding: 5px 20px 5px 20px;
+                            background-color: red;
+                            display: flex;
+                            align-items: center;
+                            .fa-trash {
+                                padding-right: 5px;
+                                padding-top: 2px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.my-stay-else {
+    display: grid;
+    place-content: center;
+    border-radius: 20px;
+    background-color: white;
+    box-shadow: 0 1px 20px 13px rgb(0 0 0 / 8%), 0 4px 12px rgb(0 0 0 / 5%);
+    padding: 10px;
+    justify-content: center;
+
+    .stay-wrapper {
+        text-align: center;
+    }
+
+    button {
+        @include reserve-btn();
+        width: 300px;
+    }
+}

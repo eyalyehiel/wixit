@@ -1,0 +1,44 @@
+.search-modal-mobile {
+    display: none;
+    position: fixed;
+    inset: 0 0 0 0;
+    background-color: #f7f7f7;
+    @media (max-width: 400px) {
+        display: block;
+    }
+    .search-mobile-inputs {
+        display: grid;
+        > * {
+            padding: 15px;
+            outline: 0;
+            border: 0;
+            font-size: em(17px, 16px);
+        }
+        .back-btn {
+            background-color: white;
+            display: flex;
+            font-size: 1.2em;
+        }
+    }
+    .destination-modal {
+        position: relative;
+        padding: 10px;
+        grid-template-columns: 1fr;
+        border-radius: 0;
+        .common-search {
+            border: 0;
+            grid-template-rows: 1fr;
+            p {
+                display: none;
+            }
+            ul {
+                width: 100%;
+                margin: 0;
+                height: 100%;
+            }
+        }
+        .regions {
+            display: none;
+        }
+    }
+}

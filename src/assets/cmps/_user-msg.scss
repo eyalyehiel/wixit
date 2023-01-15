@@ -1,0 +1,55 @@
+
+
+.alert {
+    background-color: #f3f5f3;
+    border: 1px solid #cdcdcd;
+    box-shadow: 0 0 6px 0px #dddddd;
+    position: fixed;
+    bottom: 1em;
+    right: 0.5em;
+    display: flex;
+    align-items: center;
+    padding: 15px 25px;
+    font-family: CerealReg;
+    border-radius: 10px;
+    z-index: 8000;
+    p{
+        margin: 0;
+    }
+    i{
+        padding-right: 10px;
+    }
+    &.alert-success {
+        border: 1px solid rgb(15, 159, 15);
+        i {
+            color: rgb(15, 159, 15);
+        }
+    }
+
+    &.alert-error {
+        border: 1px solid rgb(236, 118, 118);
+        i{
+            color: red;
+        }
+    }
+
+    &.alert-Wishlist {
+        i {
+            color: #dd1616;
+        }
+    }
+}
+
+.user-msg-enter-active {
+    transition: all 0.3s ease-out;
+  }
+  
+  .user-msg-leave-active {
+    transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+  }
+  
+  .user-msg-enter-from,
+  .user-msg-leave-to {
+    transform: translateY(20px);
+    opacity: 0;
+  }

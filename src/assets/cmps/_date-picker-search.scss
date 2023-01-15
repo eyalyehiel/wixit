@@ -1,0 +1,78 @@
+.datePicker {
+    top: 160px !important;
+    left: 50% !important;
+    transform: translateX(-50%);
+
+    &.el-popper {
+        border-radius: 30px;
+        padding: 75px;
+    }
+
+    .el-picker-panel {
+        border-radius: 30px;
+        font-weight: bold;
+    }
+
+    .el-date-editor,
+    .el-date-editor.el-input__wrapper {
+        width: 200px !important;
+    }
+    .el-date-range-picker__content {
+        padding: 0 !important;
+    }
+    .el-date-range-picker__header {
+        font-family: CerealMd;
+    }
+
+    .el-date-table {
+        th {
+            font-family: CerealBd;
+        }
+
+        td {
+            height: 50px !important;
+            width: 50px !important;
+            padding: 0 !important;
+
+            &.in-range {
+                .el-date-table-cell {
+                    background-color: rgb(247, 247, 247) !important;
+                }
+            }
+        }
+    }
+
+    .el-date-table td.today .el-date-table-cell__text {
+        color: #ff385c !important;
+    }
+
+    .el-date-table td.end-date .el-date-table-cell__text,
+    .el-date-table td.start-date .el-date-table-cell__text {
+        background-color: black !important;
+    }
+
+    .el-date-table-cell {
+        height: 50px !important;
+        padding: 0 !important;
+
+        &:hover {
+            color: #606266 !important;
+        }
+    }
+
+    .el-date-table-cell__text {
+        width: 50px !important;
+        height: 50px !important;
+        display: grid !important;
+        place-items: center !important;
+        font-family: CerealMd;
+        &:hover {
+            border: 1px solid black;
+            color: #606266 !important;
+        }
+    }
+
+    .el-popper__arrow {
+        display: none;
+    }
+}

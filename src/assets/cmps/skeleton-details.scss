@@ -1,0 +1,27 @@
+.skeleton {
+    animation: skeleton-loading 1s linear infinite alternate;
+    border-radius: 10px;
+}
+.skeleton-details-container {
+    .skeleton-txt {
+
+        &.skeleton-desc {
+            width: 35%;
+        }
+
+        
+        &.skeleton-title {
+            margin-top: 21px;
+            margin-bottom: 21px;
+        }
+    }
+}
+
+@keyframes skeleton-loading {
+    0% {
+        background-color: hsl(0, 0%, 72%);
+    }
+    100% {
+        background-color: hsl(0, 0%, 92%);
+    }
+}

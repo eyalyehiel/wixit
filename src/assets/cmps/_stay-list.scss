@@ -1,0 +1,28 @@
+.stay-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
+    box-sizing: border-box;
+    gap: 30px 24px;
+    justify-content: space-between;
+
+    a {
+        all: unset;
+    }
+
+    @media (min-width: 550px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    @media (min-width: 950px) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    @media (min-width: 1127px) {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    @media (min-width: 1640px) {
+        grid-template-columns: repeat(5, 1fr);
+    }
+    @media (min-width: 1880px) {
+        grid-template-columns: repeat(6, 1fr);
+    }
+}
