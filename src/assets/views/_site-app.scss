@@ -1,15 +1,27 @@
-.site-app{
+.site-app {
     background-color: red;
-    .site-nav{
+    .site-nav {
         background-color: #131720;
-        ul{
+        ul {
             list-style-type: none;
             display: flex;
             padding-block: 10px;
-            li{
-                padding-left: 20px;
+            padding-left: 10px;
+            li {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                padding-inline: 10px;
                 color: #cfd0d2;
-                font-family:Helvetica, sans-serif;
+                font-family: Helvetica, sans-serif;
+
+                .arrow-right {
+                    width: 30px !important;
+                }
+
+                &:hover {
+                    color: white;
+                }
             }
         }
     }
