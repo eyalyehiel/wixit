@@ -1,13 +1,25 @@
 <template>
     <section class="site-app">
         <nav class="site-nav">
-          <ul>
-            <li>My Projects</li>
-            <li>Add Project</li>
-          </ul>
+            <ul>
+                <router-link to="#">
+                    <li><span> My Projects </span><arrow-right /></li>
+                </router-link>
+                <router-link to="#">
+                    <li><span> Add Project </span><arrow-right /></li>
+                </router-link>
+            </ul>
         </nav>
-        <section class="dashboard-view"></section>
+        <section class="site-view"></section>
     </section>
 </template>
 
-<script></script>
+<script>
+import arrowRight from "../assets/svg/arrow-right-tiny.vue"
+
+export default {
+    components: {
+        arrowRight,
+    },
+}
+</script>
