@@ -1,0 +1,16 @@
+.site-app{
+    background-color: red;
+    .site-nav{
+        background-color: #131720;
+        ul{
+            list-style-type: none;
+            display: flex;
+            padding-block: 10px;
+            li{
+                padding-left: 20px;
+                color: #cfd0d2;
+                font-family:Helvetica, sans-serif;
+            }
+        }
+    }
+}

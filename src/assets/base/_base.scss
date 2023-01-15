@@ -37,9 +37,14 @@ a {
     text-decoration: none;
 }
 
-#app {
-    min-height: 100vh;
-    display: grid;
-    position: relative;
-    grid-template-rows: 80px 1fr;
+ul {
+    margin: 0;
+    padding: 0;
 }
+//MAIN LAYOUT
+// #app {
+//     min-height: 100vh;
+//     display: grid;
+//     position: relative;
+//     grid-template-rows: 80px 1fr;
+// }

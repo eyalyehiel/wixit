@@ -6,43 +6,12 @@
 @import './setup/typography';
 @import './setup/functions';
 
-// BASE
+//BASE
 @import './base/base';
-@import './base/layout';
-@import './cmps/skeleton';
 
-// VIEWS
-@import './views/stay-app';
-@import './views/stay-details';
-@import './views/stay-edit';
-@import './views/user-dashboard';
+//VIEWS
+@import './views/site-app';
 @import './views/home-view';
 
-// CMPS
+//CMPS
 @import './cmps/app-header';
-@import './cmps/app-footer';
-@import './cmps/stay-list';
-@import './cmps/stay-preview';
-@import './cmps/stay-filter';
-@import './cmps/stay-filter-modal';
-@import './cmps/stay-search';
-@import './cmps/review-preview';
-@import './cmps/img-carousel';
-@import './cmps/review-totals';
-@import './cmps/reservation-success';
-@import './cmps/details-header';
-@import './cmps/user-msg';
-@import './cmps/order-list';
-@import './cmps/order-preview';
-@import './cmps/wish-stay-preview';
-@import './cmps/wish-stay-list';
-@import './cmps/trip-list';
-@import './cmps/details-map';
-@import './cmps/my-stay-list';
-//MODALS
-@import './cmps/search-modal';
-@import './cmps/destination-modal';
-@import './cmps/guests-modal.scss';
-@import './cmps/date-picker-search';
-@import './cmps/login-signup-modal';
-@import './cmps/search-modal-mobile';
