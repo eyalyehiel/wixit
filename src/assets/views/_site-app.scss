@@ -1,5 +1,7 @@
 .site-app {
-    background-color: red;
+    min-height: calc(100vh - 80px);
+    display: flex;
+    flex-direction: column;
     .site-nav {
         background-color: #131720;
         ul {
@@ -24,5 +26,10 @@
                 }
             }
         }
+    }
+    .site-view {
+        padding: 20px;
+        flex: 1;
+        display: grid;
     }
 }

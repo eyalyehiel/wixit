@@ -1,7 +1,7 @@
 <template>
-    <div>
-
-    </div>
+    <section class="my-projects"> 
+        my projectsasdasdasd22131
+    </section>
 </template>
 
 <script>
