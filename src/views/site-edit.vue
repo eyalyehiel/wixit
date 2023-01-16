@@ -1,5 +1,6 @@
 <template>
     <section class="site-edit">
+
         <nav class="editor-header">
 
             <div class="options">
@@ -20,20 +21,21 @@
                 </section>
 
             </div>
-
         </nav>
 
         <section class="editor-sidebar">
             <nav class="editor-nav"></nav>
         </section>
-    </section>
 
-    <section class="main-site-display">
+        <section class="main-site-display">
         <pre>
               {{ siteToEdit.cmps }}
-        </pre
-        >
+        </pre>
+       </section>
+
     </section>
+
+    
 
 </template>
 
