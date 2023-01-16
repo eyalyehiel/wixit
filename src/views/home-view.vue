@@ -7,7 +7,7 @@
                 design, manage and develop your web presence exactly the way you
                 want
             </h3>
-            <button>Get Started</button>
+            <button @click="navigate">Get Started</button>
             <p>Try Wix. No credit card required.</p>
             <img src="" alt="image" />
         </section>
@@ -36,7 +36,7 @@
                     </p>
                 </div>
             </div>
-            <button>Get Started</button>
+            <button @click="navigate">Get Started</button>
         </section>
         <section class="website-template">
             <h1>Website templates that set you up for success</h1>
@@ -46,10 +46,17 @@
                 every industry — or start from a blank canvas on our website
                 builder.
             </h4>
-            <button>Get Started</button>
+            <button @click="navigate">Get Started</button>
             <!-- carrousel -->
         </section>
     </main>
 </template>
 
-<script setup></script>
+<script setup>
+import { useRouter } from "vue-router"
+const router = useRouter()
+
+function navigate() {
+    router.push("/site")
+}
+</script>
