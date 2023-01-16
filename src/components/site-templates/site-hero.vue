@@ -1,9 +1,9 @@
 <template>
-    <section class="hero" :style="info.style">
+    <section class="hero" :style="cmp.style">
         <div class="main">
-            <h1>{{ info.title }}</h1>
-            <p>{{ info.subtitle }}</p>
-            <button>{{ info.btn }}</button>
+            <h1>{{ cmp.info.title }}</h1>
+            <p>{{ cmp.info.subtitle }}</p>
+            <button>{{ cmp.info.btn }}</button>
         </div>
     </section>
 </template>
@@ -11,5 +11,5 @@
 <script setup>
 import { defineProps } from 'vue';
 
-const { info } = defineProps({ info: Object })
+const { cmp } = defineProps({ cmp: Object })
 </script>

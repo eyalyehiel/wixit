@@ -1,7 +1,7 @@
 <template>
-    <div class="footer" :style="props.info.style">
-        <h1>{{ props.info.title }}</h1>
-        <p>{{ props.info.text || 'CoffeRights 2035 by. created with Wixit' }}</p>
+    <div class="footer" :style="cmp.info.style">
+        <h1>{{ cmp.info.title }}</h1>
+        <p>{{ cmp.info.text || 'CoffeRights 2035 by. created with Wixit' }}</p>
 
     </div>
 </template>
@@ -9,5 +9,5 @@
 <script setup>
 import { defineProps } from 'vue';
 
-const props = defineProps({ info: Object })
+const { cmp } = defineProps({ cmp: Object })
 </script>
