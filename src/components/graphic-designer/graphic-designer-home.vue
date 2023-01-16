@@ -1,5 +1,6 @@
 <template>
     <graphic-designer-header />
+    <graphic-designer-hero />
 </template>
 
 <script>
