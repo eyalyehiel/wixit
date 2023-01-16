@@ -1,5 +1,5 @@
 <template>
-    <section class="site-edit">
+    <section class="site-edit" :class="{open : isOpen.value}">
         <nav class="editor-header">
             <section class="options">
                 <button>
@@ -22,7 +22,7 @@
                 </button>
             </section>
             <section class="publish">
-                <input type="text" />
+                <p>http://127.0.0.1:5173/#/site/<span contenteditable="true">HamburgerShop</span></p>
                 <button>Preview</button>
                 <button>Publish</button>
             </section>
@@ -39,9 +39,9 @@
         </nav>
 
         <section class="editor-sidebar">
-            
+
             <nav class="editor-nav">
-                <button>
+                <button @click="toggleMenu()">
                     <img src="../assets/svg/plus-lg.svg" alt="" />
                 </button>
                 <button>
@@ -52,7 +52,7 @@
                 </button>
             </nav>
 
-            <section class="section-select">
+            <section class="section-select" :class="{open : isOpen.value}">
                 <h2 class="title">Section</h2>
                 <span>Header</span>
                 <span>Hero</span>
@@ -80,6 +80,7 @@ import { useRoute } from "vue-router";
 import { siteService } from "../services/site-service.js";
 
 let siteToEdit = ref({});
+let isOpen = reactive({value : false})
 const route = useRoute();
 
 onMounted(async () => {
@@ -89,4 +90,10 @@ onMounted(async () => {
         : siteService.getEmptySite();
     console.log("this.siteToEdit", siteToEdit);
 });
+
+function toggleMenu() {
+    isOpen.value = !isOpen.value
+    console.log(isOpen);
+}
+
 </script>
