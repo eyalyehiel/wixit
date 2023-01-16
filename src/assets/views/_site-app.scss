@@ -32,9 +32,5 @@
         flex: 1;
         display: grid;
 
-        .slide-in-enter-from,
-        .slide-in-leave-to {
-            transform: translateX(100%);
-        }
     }
 }
