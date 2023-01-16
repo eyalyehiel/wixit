@@ -11,13 +11,13 @@
                 <button>
                     <img src="../assets/svg/arrow-90deg-right.svg" alt="" />
                 </button>
-                <button>
+                <button @click="toggleDisplaySize('desktop')">
                     <img src="../assets/svg/display.svg" alt="" />
                 </button>
-                <button>
+                <button @click="toggleDisplaySize('tablet')">
                     <img src="../assets/svg/tablet.svg" alt="" />
                 </button>
-                <button>
+                <button @click="toggleDisplaySize('phone')">
                     <img src="../assets/svg/phone.svg" alt="" />
                 </button>
             </section>
@@ -32,16 +32,6 @@
                 </button>
                 <button>Publish</button>
             </section>
-            <!-- <div class="options"> -->
-            <!-- <section class="work-together gap"> -->
-            <!-- </section> -->
-
-            <!-- <section class="history-options gap"> -->
-            <!-- </section> -->
-
-            <!-- <section class="media-select gap"> -->
-            <!-- </section> -->
-            <!-- </div> -->
         </nav>
 
         <section class="editor-sidebar">
@@ -86,7 +76,7 @@
 
         </section>
 
-        <section class="main-site-display">
+        <section class="site-display" :class="displaySize">
             <pre>
               {{ siteToEdit.cmps }}
         </pre
@@ -96,23 +86,28 @@
 </template>
 
 <script setup>
-import { onMounted, reactive, ref } from "vue";
-import { useRoute } from "vue-router";
-import { siteService } from "../services/site-service.js";
+import { onMounted, reactive, computed, watch, ref } from "vue"
+import { useRoute } from "vue-router"
+import { siteService } from "../services/site-service.js"
 
-let siteToEdit = ref({});
-let isOpen = reactive({ value: false });
+let siteToEdit = ref({})
+let isOpen = reactive({ value: false })
+let displaySize = ref("desktop")
 let isColorOpen = reactive({ value: false });
 let colors = ref(getEditColors());
-const route = useRoute();
+
+function toggleDisplaySize(val) {
+    displaySize.value = val
+}
+const route = useRoute()
 
 onMounted(async () => {
-    const { id } = route.params;
+    const { id } = route.params
     siteToEdit.value = id
         ? await siteService.getById(id)
-        : siteService.getEmptySite();
-    console.log("this.siteToEdit", siteToEdit);
-});
+        : siteService.getEmptySite()
+    console.log("this.siteToEdit", siteToEdit)
+})
 
 function toggleMenu() {
     isOpen.value = !isOpen.value;
