@@ -3,22 +3,26 @@
         <section class="editor-nav"></section>
         <section class="editor-tools"></section>
         <section class="site-display">
-            {{ siteToEdit }}
+            <pre>
+              {{ siteToEdit }}
+            </pre>
         </section>
     </section>
 </template>
 
 <script setup>
-import { onMounted, reactive } from "vue"
+import { onMounted, reactive, ref } from "vue"
 import { useRoute } from "vue-router"
-import { siteService } from "../services/stay-service-local.js"
+import { siteService } from "../services/site-service.js"
 
-let siteToEdit = reactive({ site: "" })
+let siteToEdit = ref({})
 const route = useRoute()
 
 onMounted(async () => {
-    const { id } = route.query
-    siteToEdit = await siteService.getById(id)
-    console.log("siteToEdit", siteToEdit)
+    
+    const { id } = route.params
+    siteToEdit.value = id ? await siteService.getById(id) : siteService.getEmptySite()
+    console.log('this.siteToEdit', siteToEdit )
 })
+
 </script>
