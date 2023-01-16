@@ -23,7 +23,6 @@ import templateSelector from "../components/template-selector.vue"
 import arrowRight from "../assets/svg/arrow-right-tiny.vue"
 import { ref, reactive } from "vue"
 
-// const view = ref("my-projects")
 const currView = reactive({ value: "my-projects" })
 
 function toggleView(value) {

@@ -5,6 +5,7 @@
 </template>
 
 <script>
+import { siteService } from "../services/site-service.js";
 
 export default {
   props: {
@@ -15,9 +16,10 @@ export default {
       siteToEdit: null
     };
   },
-  created() {
+  async created() {
     const { id } = this.$route.params;
-    // this.siteToEdit = id ? await 
+    this.siteToEdit = id ? await siteService.getById(id) : siteService.getEmptySite()
+    console.log('this.siteToEdit', this.siteToEdit )
   },
   methods: {
     
