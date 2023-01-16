@@ -27,26 +27,31 @@ function getById(id) {
 
 function getEmptySite() {
     return {
-        type: '',
         name: '',
-        imgUrl: '',
-        cmps: [],
-        isPublic: false,
-        // createdBy: {
-        //     _id: "5e26e0b718a0891d4c995527",
-        //     fullname: "Hekro Special",
-        //     imgUrl: "img.jpg",
-        // },
-        // usersData: {
-        //     contacts: [
-        //         {
-        //             email: "user@user.com",
-        //             msg: "Please send me stuff",
-        //             at: 123,
-        //         },
-        //     ],
-        //     subscriptions: [{ email: "user@user.com", at: 123 }],
-        // },
+        imgUrls: [],
+        createdBy: {
+            _id: '',
+            fullname: '',
+            imgUrl: '',
+        },
+        cmps: [
+            {
+                id: 'wc02',
+                type: 'wap-header',
+                info: {
+                    title: 'HairDresser Baluta',
+                    subtitle: 'Your Hair is !(Who you Are)',
+                    btn: { label: 'Schedule Today!', link: '#wc03' },
+                },
+                theme: 'theme-header-happy',
+                style: {
+                    background: 'url()',
+                    font: 'Fontush',
+                    color: 'red',
+                },
+            },
+        ],
+        isPublic: true,
     };
 }
 

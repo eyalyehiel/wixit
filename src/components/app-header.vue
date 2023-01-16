@@ -19,7 +19,7 @@ export default {
     created() {},
     methods: {
         goToTemplate() {
-            this.$router.push("/templates");
+            this.$router.push("/site");
         },
         goToHome() {
             this.$router.push("/");

@@ -24,7 +24,7 @@
 <script setup>
 import { reactive, toRefs } from "vue"
 import { useRouter } from 'vue-router'
-import { siteService } from "../services/stay-service-local.js"
+import { siteService } from "../services/site-service.js"
 
 const router = useRouter()
 
