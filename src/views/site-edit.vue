@@ -1,5 +1,5 @@
 <template>
-    <section class="site-edit" :class="{open : isOpen.value}">
+    <section class="site-edit" :class="{ open: isOpen.value || isColorOpen.value }" >
         <nav class="editor-header">
             <section class="options">
                 <button>
@@ -22,8 +22,14 @@
                 </button>
             </section>
             <section class="publish">
-                <p>http://127.0.0.1:5173/#/site/<span contenteditable="true">HamburgerShop</span></p>
-                <button>Preview</button>
+                <p>
+                    http://127.0.0.1:5173/#/site/<span contenteditable="true"
+                        >HamburgerShop</span
+                    >
+                </p>
+                <button>
+                    <img style="height: 28px;" src="../assets/svg/eye.svg" alt="">
+                </button>
                 <button>Publish</button>
             </section>
             <!-- <div class="options"> -->
@@ -39,12 +45,11 @@
         </nav>
 
         <section class="editor-sidebar">
-
             <nav class="editor-nav">
                 <button @click="toggleMenu()">
                     <img src="../assets/svg/plus-lg.svg" alt="" />
                 </button>
-                <button>
+                <button @click="toggleColorPicker()">
                     <img src="../assets/svg/palette.svg" alt="" />
                 </button>
                 <button>
@@ -52,7 +57,7 @@
                 </button>
             </nav>
 
-            <section class="section-select" :class="{open : isOpen.value}">
+            <section class="section-select" :class="{ open: isOpen.value }">
                 <h2 class="title">Section</h2>
                 <span>Header</span>
                 <span>Hero</span>
@@ -63,6 +68,22 @@
                 <span>Contact</span>
                 <span>Video</span>
             </section>
+
+            <section class="cmp-editor" :class="{ open: isColorOpen.value }">
+                <div class="title">
+                    <h2>Edit</h2>
+                    <img src="../assets/svg/trash.svg" alt="" />
+                </div>
+
+                <div class="color-picker">
+                    <h4>BACKGROUND COLOR</h4>
+                    <section v-for="color in colors" :key="color">
+                        <div :style="{'background-color': color}" :value="color"></div>
+                    </section>
+                </div>
+
+            </section>
+
         </section>
 
         <section class="main-site-display">
@@ -80,7 +101,9 @@ import { useRoute } from "vue-router";
 import { siteService } from "../services/site-service.js";
 
 let siteToEdit = ref({});
-let isOpen = reactive({value : false})
+let isOpen = reactive({ value: false });
+let isColorOpen = reactive({ value: false });
+let colors = ref(getEditColors());
 const route = useRoute();
 
 onMounted(async () => {
@@ -92,8 +115,16 @@ onMounted(async () => {
 });
 
 function toggleMenu() {
-    isOpen.value = !isOpen.value
+    isOpen.value = !isOpen.value;
     console.log(isOpen);
 }
 
+function toggleColorPicker() {
+    isColorOpen.value = !isColorOpen.value;
+    console.log(isColorOpen);
+}
+
+function getEditColors(){
+    return ['#0400ff', '#0064ff', '#00ca84','#c400ff', '#864d01', '#ff9202', '#ef032a', '#263140','#faebd7']
+}
 </script>
