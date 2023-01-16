@@ -1,31 +1,24 @@
 <template>
-<p>edit</p>
-
-
+    <section class="site-edit">
+        <section class="editor-nav"></section>
+        <section class="editor-tools"></section>
+        <section class="site-display">
+            {{ siteToEdit }}
+        </section>
+    </section>
 </template>
 
-<script>
-import { siteService } from "../services/site-service.js";
+<script setup>
+import { onMounted, reactive } from "vue"
+import { useRoute } from "vue-router"
+import { siteService } from "../services/stay-service-local.js"
 
-export default {
-  props: {
-    
-  },
-  data() {
-    return {
-      siteToEdit: null
-    };
-  },
-  async created() {
-    const { id } = this.$route.params;
-    this.siteToEdit = id ? await siteService.getById(id) : siteService.getEmptySite()
-    console.log('this.siteToEdit', this.siteToEdit )
-  },
-  methods: {
-    
-  },
-  components: {
-   
-    },
-};
+let siteToEdit = reactive({ site: "" })
+const route = useRoute()
+
+onMounted(async () => {
+    const { id } = route.query
+    siteToEdit = await siteService.getById(id)
+    console.log("siteToEdit", siteToEdit)
+})
 </script>
