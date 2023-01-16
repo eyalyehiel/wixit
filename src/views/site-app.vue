@@ -11,10 +11,8 @@
             </ul>
         </nav>
         <section class="site-view">
-            <Transition name="slide-in">
-                <my-projects v-if="currView.value === 'my-projects'" />
-                <template-selector v-else />
-            </Transition>
+            <my-projects v-if="currView.value === 'my-projects'" />
+            <template-selector v-else />
         </section>
     </section>
 </template>
