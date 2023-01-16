@@ -10,8 +10,8 @@
                 </section>
 
                 <section class="history-options gap">
-                    <img src="../assets/svg/arrow-return-left.svg" alt="">
-                    <img src="../assets/svg/arrow-return-right.svg" alt="">
+                    <img src="../assets/svg/arrow-90deg-left.svg" alt="">
+                    <img src="../assets/svg/arrow-90deg-right.svg" alt="">
                 </section>
 
                 <section class="media-select gap">
@@ -24,7 +24,13 @@
         </nav>
 
         <section class="editor-sidebar">
-            <nav class="editor-nav"></nav>
+
+            <nav class="editor-nav">
+                <img src="../assets/svg/plus-lg.svg" alt="">
+                <img src="../assets/svg/palette.svg" alt="">
+                <img src="../assets/svg/file-richtext.svg" alt="">
+            </nav>
+            
         </section>
 
         <section class="main-site-display">

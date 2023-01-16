@@ -25,19 +25,17 @@
     }
     .editor-sidebar {
         .editor-nav {
-            border-right: 1px solid #eee;
             width: 71px;
             display: flex;
             flex-direction: column;
-            justify-content: flex-start;
-            align-items: center;
             position: absolute;
-            left: 0;
-            background-color: #fff;
-            z-index: 190;
-            height: 100%;
-            height: calc(102vh - 116px);
-            padding-top: 8px;
+           
+            img {
+                adding-block: 30px;
+                padding-inline: 14px;
+                margin: 4px;
+                height: 30px;
+            }
         }
     }
 
@@ -52,4 +50,3 @@
         overflow-x: hidden;
     }
 }
-
