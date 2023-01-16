@@ -1,6 +1,6 @@
 .site-edit {
-    padding-inline: 14px;
     .editor-header {
+        padding-inline: 14px;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -43,12 +43,12 @@
 }
 
 .main-site-display {
-    background-color: antiquewhite;
-    position: absolute;
-    height: calc(100vh - 135px);
-    right: 0;
-    left: 71px;
-    margin: auto;
-    overflow-y: hidden;
-    overflow-x: hidden;
+    // background-color: antiquewhite;
+    // position: absolute;
+    // height: calc(100vh - 135px);
+    // right: 0;
+    // left: 71px;
+    // margin: auto;
+    // overflow-y: hidden;
+    // overflow-x: hidden;
 }
