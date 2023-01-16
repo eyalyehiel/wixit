@@ -1,4 +1,5 @@
 <template>
+<p>edit</p>
 
 
 </template>
@@ -11,11 +12,12 @@ export default {
   },
   data() {
     return {
-      site: null
+      siteToEdit: null
     };
   },
   created() {
     const { id } = this.$route.params;
+    // this.siteToEdit = id ? await 
   },
   methods: {
     
