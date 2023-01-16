@@ -22,7 +22,7 @@
                 </button>
             </section>
             <section class="publish">
-                <input type="text" />
+                <p>http://127.0.0.1:5173/#/site/<span contenteditable="true">HamburgerShop</span></p>
                 <button>Preview</button>
                 <button>Publish</button>
             </section>

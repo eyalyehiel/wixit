@@ -1,5 +1,10 @@
 .site-edit {
+    display: grid;
+    grid-template-columns: 71px 1fr;
+    grid-template-rows: 56px 1fr;
+    height: calc(100vh - 60px);
     .editor-header {
+        grid-column: span 2;
         padding-inline: 14px;
         display: flex;
         align-items: center;
@@ -7,7 +12,7 @@
         border-bottom: 1px solid #eee;
         height: 56px;
         background-color: #fff;
-        padding-inline: 4px;
+        padding-inline: 20px;
 
         .options {
             height: 100%;
@@ -15,6 +20,7 @@
             display: flex;
             gap: 24px;
             button {
+                border-radius: 5em;
                 display: grid;
                 place-content: center;
                 height: 100%;
@@ -30,13 +36,16 @@
         .publish{
             display: flex;
             gap: 24px;
-            padding-right: 16px;
-            input[type=text]{
+            p{
+                padding-inline: 10px;
                 border-radius: 16px;
-                border: 2px solid #ddd;
-                outline: 0;
+                background-color: #ddd;
+                border: 2px solid rgb(178, 178, 178);
                 padding-block: 5px;
-                padding-left: 10px;
+                // padding-left: 10px;
+                span{
+                    background-color: white;
+                }
             }
         }
         // .gap {
@@ -49,7 +58,7 @@
             width: 71px;
             display: flex;
             flex-direction: column;
-            position: absolute;
+            // position: absolute;
            
             img {
                 margin: 22px;
@@ -59,13 +68,13 @@
     }
 
     .main-site-display {
-        background-color: antiquewhite;
-        position: absolute;
-        height: calc(100vh - 135px);
-        right: 0;
-        left: 71px;
-        margin: auto;
-        overflow-y: hidden;
-        overflow-x: hidden;
+        // background-color: antiquewhite;
+        // position: absolute;
+        // height: calc(100vh - 135px);
+        // right: 0;
+        // left: 71px;
+        // margin: auto;
+        // overflow-y: hidden;
+        // overflow-x: hidden;
     }
 }
