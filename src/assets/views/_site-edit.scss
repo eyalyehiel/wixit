@@ -10,18 +10,39 @@
         padding-inline: 4px;
 
         .options {
+            height: 100%;
+            align-items: center;
             display: flex;
             gap: 24px;
-
-            img {
-                height: 28px;
-                padding-inline: 14px;
+            button {
+                display: grid;
+                place-content: center;
+                height: 100%;
+                img {
+                    height: 28px;
+                    padding-inline: 14px;
+                }
+                &:hover {
+                    box-shadow: 0 0 2px 1px #ddd;
+                }
             }
         }
-        .gap {
+        .publish{
             display: flex;
-            gap: 16px;
+            gap: 24px;
+            padding-right: 16px;
+            input[type=text]{
+                border-radius: 16px;
+                border: 2px solid #ddd;
+                outline: 0;
+                padding-block: 5px;
+                padding-left: 10px;
+            }
         }
+        // .gap {
+        //     display: flex;
+        //     gap: 16px;
+        // }
     }
     .editor-sidebar {
         .editor-nav {
