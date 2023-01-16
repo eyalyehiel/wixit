@@ -12,6 +12,7 @@ export const siteService = {
     remove,
     save,
     getEmptySite,
+    getCoffeeSite,
 };
 
 async function query(filterBy) {
@@ -23,6 +24,88 @@ async function query(filterBy) {
 
 function getById(id) {
     return storageService.get(KEY, id);
+}
+
+function getCoffeeSite() {
+    return {
+        name: '',
+        imgUrls: [],
+        createdBy: {
+            _id: '',
+            fullname: '',
+            imgUrl: '',
+        },
+        cmps: [
+            {
+                id: 'wc02',
+                type: 'site-header',
+                info: {
+                    title: 'HairDresser Baluta',
+                    subtitle: 'Your Hair is !(Who you Are)',
+                    btn: { label: 'Schedule Today!', link: '#wc03' },
+                },
+                theme: 'theme-header-happy',
+                style: {
+                    background: 'url()',
+                    font: 'Fontush',
+                    color: 'red',
+                },
+            },
+            {
+                id: 'wc03',
+                type: 'site-hero',
+                info: {
+                    title: 'Unique Craft Cafe in NYC',
+                    subtitle:
+                        'Our coffee comes straight from the plantations of Brazil and Colombia, freshly picked and ground on site, with a smoky aroma and an intoxicating taste. We love coffee, people and good food.',
+                    btn: 'View Menu',
+                },
+                theme: 'theme-header-happy',
+                style: {
+                    background: 'url()',
+                    font: 'Fontush',
+                    color: 'red',
+                },
+            },
+            {
+                id: 'wc04',
+                type: 'site-section',
+                info: {
+                    title: 'Coffee & Cakes',
+                    paragraph1:
+                        'Our coffee is rich in flavor and the espresso is a perfect balance of sweetness and acidity that functions well in milk drinks.',
+                    paragraph2:
+                        'Quick can manor smart money hopes worth too. Comfort produce husband boy her had hearing. Law others theirs passed but wishes. You day real less till dear read. Considered use dispatched melancholy sympathize discretion led. Oh feel if up to till like.',
+                    images: [
+                        'https://robohash.org/1?set=set5',
+                        'https://robohash.org/2?set=set5',
+                    ],
+                },
+                theme: 'theme-header-happy',
+                style: {
+                    background: 'url()',
+                    font: 'Fontush',
+                    color: 'red',
+                },
+            },
+            {
+                id: 'wc05',
+                type: 'site-footer',
+                info: {
+                    title: 'COFFEE',
+                    subtitle:
+                        'CoffeRights 2035 by Pucoffe. Proudly created with Wicks.in',
+                },
+                theme: 'theme-header-happy',
+                style: {
+                    background: 'url()',
+                    font: 'Fontush',
+                    color: 'red',
+                },
+            },
+        ],
+        isPublic: true,
+    };
 }
 
 function getEmptySite() {
