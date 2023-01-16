@@ -39,15 +39,31 @@
         </nav>
 
         <section class="editor-sidebar">
-
+            
             <nav class="editor-nav">
-                <img src="../assets/svg/plus-lg.svg" alt="" />
-                <img src="../assets/svg/palette.svg" alt="" />
-                <img src="../assets/svg/file-richtext.svg" alt="" />
+                <button>
+                    <img src="../assets/svg/plus-lg.svg" alt="" />
+                </button>
+                <button>
+                    <img src="../assets/svg/palette.svg" alt="" />
+                </button>
+                <button>
+                    <img src="../assets/svg/file-richtext.svg" alt="" />
+                </button>
             </nav>
 
+            <section class="section-select">
+                <h2 class="title">Section</h2>
+                <span>Header</span>
+                <span>Hero</span>
+                <span>Section</span>
+                <span>Gallery</span>
+                <span>Cards</span>
+                <span>Testimonials</span>
+                <span>Contact</span>
+                <span>Video</span>
+            </section>
         </section>
-
 
         <section class="main-site-display">
             <pre>

@@ -27,11 +27,11 @@
                 }
             }
         }
-        .publish{
+        .publish {
             display: flex;
             gap: 24px;
             padding-right: 16px;
-            input[type=text]{
+            input[type="text"] {
                 border-radius: 16px;
                 border: 2px solid #ddd;
                 outline: 0;
@@ -50,11 +50,20 @@
             display: flex;
             flex-direction: column;
             position: absolute;
-           
+
             img {
                 margin: 22px;
                 height: 30px;
             }
+        }
+
+        .section-select {
+            width: 160px;
+            position: absolute;
+            background-color: #fff;
+            height: 85%;
+            z-index: 2;
+            left: 72px;
         }
     }
 
