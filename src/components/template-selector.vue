@@ -4,7 +4,7 @@
         <article>
             <section class="article-cover">
                 <div>
-                    <button class="edit-btn">Edit</button>
+                    <button class="edit-btn" @click="createSite()">Edit</button>
                 </div>
             </section>
             Empty
@@ -23,4 +23,18 @@
 
 <script setup>
 import { reactive, toRefs } from "vue"
+import { useRouter } from 'vue-router'
+import { siteService } from "../services/stay-service-local.js"
+
+const router = useRouter()
+
+async function createSite() {
+    try {
+        let newSite = siteService.getEmptySite()
+        newSite = await siteService.save(newSite)
+        router.push({name: 'edit', query:{ id: newSite._id} })
+    } catch (err) {
+        console.log('cannot create site',err)
+    }
+}
 </script>
