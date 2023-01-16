@@ -4,7 +4,7 @@
             <h2>D</h2>
         </div>
         <nav>
-            <a href="#">Home</a>
+            <a href="#">{}</a>
             <a href="#">Work</a>
             <a href="#">Profile</a>
             <a href="#">Contact</a>
@@ -13,4 +13,5 @@
 </template>
 
 <script>
+
 </script>
