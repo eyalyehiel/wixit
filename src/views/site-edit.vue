@@ -1,28 +1,55 @@
 <template>
     <section class="site-edit">
-        <section class="editor-nav"></section>
-        <section class="editor-tools"></section>
-        <section class="site-display">
-            <pre>
-              {{ siteToEdit }}
-            </pre>
+        <nav class="editor-header">
+
+            <div class="options">
+
+                <section class="work-together gap">
+                    <img src="../assets/svg/people.svg" alt="">
+                </section>
+
+                <section class="history-options gap">
+                    <img src="../assets/svg/arrow-return-left.svg" alt="">
+                    <img src="../assets/svg/arrow-return-right.svg" alt="">
+                </section>
+
+                <section class="media-select gap">
+                    <img src="../assets/svg/display.svg" alt="">
+                    <img src="../assets/svg/tablet.svg" alt="">
+                    <img src="../assets/svg/phone.svg" alt="">
+                </section>
+
+            </div>
+
+        </nav>
+
+        <section class="editor-sidebar">
+            <nav class="editor-nav"></nav>
         </section>
     </section>
+
+    <section class="main-site-display">
+        <pre>
+              {{ siteToEdit.cmps }}
+        </pre
+        >
+    </section>
+
 </template>
 
 <script setup>
-import { onMounted, reactive, ref } from "vue"
-import { useRoute } from "vue-router"
-import { siteService } from "../services/site-service.js"
+import { onMounted, reactive, ref } from "vue";
+import { useRoute } from "vue-router";
+import { siteService } from "../services/site-service.js";
 
-let siteToEdit = ref({})
-const route = useRoute()
+let siteToEdit = ref({});
+const route = useRoute();
 
 onMounted(async () => {
-    
-    const { id } = route.params
-    siteToEdit.value = id ? await siteService.getById(id) : siteService.getEmptySite()
-    console.log('this.siteToEdit', siteToEdit )
-})
-
+    const { id } = route.params;
+    siteToEdit.value = id
+        ? await siteService.getById(id)
+        : siteService.getEmptySite();
+    console.log("this.siteToEdit", siteToEdit);
+});
 </script>
