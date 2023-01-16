@@ -11,8 +11,10 @@
             </ul>
         </nav>
         <section class="site-view">
-            <my-projects v-if="currView.value === 'my-projects'" />
-            <template-selector v-else />
+            <Transition name="slide-in">
+                <my-projects v-if="currView.value === 'my-projects'" />
+                <template-selector v-else />
+            </Transition>
         </section>
     </section>
 </template>
@@ -23,7 +25,6 @@ import templateSelector from "../components/template-selector.vue"
 import arrowRight from "../assets/svg/arrow-right-tiny.vue"
 import { ref, reactive } from "vue"
 
-// const view = ref("my-projects")
 const currView = reactive({ value: "my-projects" })
 
 function toggleView(value) {
