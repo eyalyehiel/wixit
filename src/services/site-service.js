@@ -180,6 +180,41 @@ function getNewCmp(type) {
             },
         };
     }
+    if(type === 'site-cards'){
+        return {
+            id: _makeId(3),
+            type: 'site-cards',
+            info: [
+                {
+                    title: 'Card Header',
+                    paragraph1: 'Some text here 1',
+                    paragraph2: 'Some text here 1',
+                    paragraph3: 'Some text here 1',
+                    btn: 'Click Here',
+                },
+                {
+                    title: 'Card Header',
+                    paragraph1: 'Some text here 2',
+                    paragraph2: 'Some text here 2',
+                    paragraph3: 'Some text here 2',
+                    btn: 'Click Here',
+                },
+                {
+                    title: 'Card Header',
+                    paragraph1: 'Some text here 3',
+                    paragraph2: 'Some text here 3',
+                    paragraph3: 'Some text here 3',
+                    btn: 'Click Here',
+                },
+            ],
+            theme: 'theme-header-happy',
+            style: {
+                background: 'url()',
+                font: 'Fontush',
+                color: 'red',
+            },
+        }
+    }
 }
 
 function _add(site) {

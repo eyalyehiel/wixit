@@ -1,5 +1,9 @@
 <template>
-    <section v-if="siteToEdit" class="site-edit" :class="{ open: isCmpsOpen || isColorOpen }">
+    <section
+        v-if="siteToEdit"
+        class="site-edit"
+        :class="{ open: isCmpsOpen || isColorOpen }"
+    >
         <nav class="editor-header">
             <section class="options">
                 <button>
@@ -23,10 +27,16 @@
             </section>
             <section class="publish">
                 <p>
-                    http://127.0.0.1:5173/#/site/<span contenteditable="true">HamburgerShop</span>
+                    http://127.0.0.1:5173/#/site/<span contenteditable="true"
+                        >HamburgerShop</span
+                    >
                 </p>
                 <button>
-                    <img style="height: 28px" src="../assets/svg/eye.svg" alt="" />
+                    <img
+                        style="height: 28px"
+                        src="../assets/svg/eye.svg"
+                        alt=""
+                    />
                 </button>
                 <button>Publish</button>
             </section>
@@ -49,9 +59,9 @@
                 <h2 class="title">Section</h2>
                 <span @click="addCmp('site-header')">Header</span>
                 <span @click="addCmp('site-hero')">Hero</span>
-                <span @click="addCmp('section')">Section</span>
-                <span @click="addCmp('gallery')">Gallery</span>
-                <span @click="addCmp('cards')">Cards</span>
+                <span @click="addCmp('site-section')">Section</span>
+                <span @click="addCmp('site-gallery')">Gallery</span>
+                <span @click="addCmp('site-cards')">Cards</span>
                 <span @click="addCmp('testimonials')">Testimonials</span>
                 <span @click="addCmp('contact')">Contact</span>
                 <span @click="addCmp('video')">Video</span>
@@ -66,23 +76,25 @@
                 <div class="color-picker">
                     <h4>BACKGROUND COLOR</h4>
                     <section v-for="color in colors" :key="color">
-                        <div :style="{ 'background-color': color }" :value="color"></div>
+                        <div
+                            :style="{ 'background-color': color }"
+                            :value="color"
+                        ></div>
                     </section>
                 </div>
             </section>
         </section>
 
         <section class="site-display" :class="displaySize">
-            <component v-if="siteToEdit.cmps.length" v-for="cmp in siteToEdit.cmps" :is="cmpsToShow[cmp.type]"
-                :cmp="cmp" />
+            <component
+                v-if="siteToEdit.cmps.length"
+                v-for="cmp in siteToEdit.cmps"
+                :is="cmpsToShow[cmp.type]"
+                :cmp="cmp"
+            />
             <section v-else class="drag-area">
                 <h1>Place Element Here</h1>
             </section>
-            <!-- <pre>{{ siteToEdit }}</pre> -->
-
-            <!-- <component v-for="cmp in siteToEdit?.cmps" :is="cmp.type" :cmp="cmp" /> -->
-
-            <!-- v-if="siteToEdit.value" -->
         </section>
     </section>
 </template>
@@ -93,7 +105,8 @@ import siteFooter from "../components/site-templates/site-footer.vue"
 import siteHeader from "../components/site-templates/site-header.vue"
 import siteHero from "../components/site-templates/site-hero.vue"
 import siteImages from "../components/site-templates/site-images.vue"
-import siteSection from '../components/site-templates/site-section.vue'
+import siteSection from "../components/site-templates/site-section.vue"
+import siteCards from "../components/site-templates/site-cards.vue"
 
 import { onMounted, computed, ref, reactive, defineComponent } from "vue"
 import { useRoute } from "vue-router"
@@ -106,9 +119,9 @@ const cmpsToShow = {
     "site-footer": siteFooter,
     "site-section": siteSection,
     "site-contact": siteContact,
-    "site-images": siteImages
+    "site-images": siteImages,
+    "site-cards": siteCards,
 }
-
 
 let siteToEdit = ref(null)
 siteToEdit = ref(siteToEdit)
@@ -145,5 +158,4 @@ function addCmp(type) {
     let newCmp = siteService.getNewCmp(type)
     siteToEdit.value.cmps.push(newCmp)
 }
-
 </script>
