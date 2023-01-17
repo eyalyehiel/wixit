@@ -4,15 +4,23 @@
         <nav>
             <a :href="href" v-for="{ text, href } in cmp.info.links">{{ text }}</a>
         </nav>
+        <div @click="toggleMenu" class="menu-btn" :class="{open: isOpen}">
+            <div class="icon"></div>
+        </div>
     </header>
 </template>
 
 <script setup>
-import { onMounted, defineProps } from 'vue';
+import { onMounted, defineProps,ref } from 'vue';
 
 const { cmp } = defineProps({ cmp: Object })
-
 onMounted(() => {
     console.log(cmp)
 })
+
+let isOpen = ref(false)
+
+function toggleMenu() {
+    isOpen.value = !isOpen.value
+}
 </script>

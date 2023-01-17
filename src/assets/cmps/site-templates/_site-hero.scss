@@ -1,0 +1,23 @@
+.graphic-designer-hero{
+    height: 400px;
+    display: grid;
+    place-items: center;
+
+    main{
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        text-align: center;
+
+        p{
+            max-width: 700px;
+        }
+
+        button {
+            border-radius: 3em;
+            padding: 15px 35px;
+            align-self: center;
+            background-color: white;
+        }
+    }
+}
