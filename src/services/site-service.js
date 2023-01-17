@@ -4,6 +4,7 @@ import sitesJson from '../../data/site.json' assert { type: 'json' };
 
 let gSites;
 const KEY = 'sitesDB';
+// _createSites();
 export const siteService = {
     query,
     getById,
@@ -65,7 +66,9 @@ function getCoffeeSite() {
                 },
                 theme: 'theme-header-happy',
                 style: {
-                    background: 'url()',
+                    background:
+                        'url(https://res.cloudinary.com/airbxb/image/upload/v1670857731/photo5_oqy4lr.jpg) no-repeat',
+                    'background-size': 'cover',
                     font: 'Fontush',
                     color: 'red',
                 },
@@ -120,23 +123,7 @@ function getEmptySite() {
             fullname: '',
             imgUrl: '',
         },
-        cmps: [
-            {
-                id: 'wc02',
-                type: 'site-header',
-                info: {
-                    title: 'HairDresser Baluta',
-                    subtitle: 'Your Hair is !(Who you Are)',
-                    btn: { label: 'Schedule Today!', link: '#wc03' },
-                },
-                theme: 'theme-header-happy',
-                style: {
-                    background: 'url()',
-                    font: 'Fontush',
-                    color: 'red',
-                },
-            },
-        ],
+        cmps: [],
         isPublic: true,
     };
 }
@@ -167,6 +154,24 @@ function getNewCmp(type) {
                     { text: 'About', href: '#' },
                 ],
                 btn: { label: 'Schedule Today!', link: '#wc03' },
+            },
+            theme: 'theme-header-happy',
+            style: {
+                background: 'url()',
+                font: 'Fontush',
+                color: 'red',
+            },
+        };
+    }
+    if (type === 'site-hero') {
+        return {
+            id: _makeId(3),
+            type: 'site-hero',
+            info: {
+                title: 'Unique Craft Cafe in NYC',
+                subtitle:
+                    'Our coffee comes straight from the plantations of Brazil and Colombia, freshly picked and ground on site, with a smoky aroma and an intoxicating taste. We love coffee, people and good food.',
+                btn: 'View Menu',
             },
             theme: 'theme-header-happy',
             style: {

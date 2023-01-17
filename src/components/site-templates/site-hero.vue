@@ -1,10 +1,10 @@
 <template>
-    <section class="hero" :style="cmp.style">
-        <div class="main">
+    <section class="graphic-designer-hero" :style="cmp.style">
+        <main>
             <h1>{{ cmp.info.title }}</h1>
             <p>{{ cmp.info.subtitle }}</p>
             <button>{{ cmp.info.btn }}</button>
-        </div>
+        </main>
     </section>
 </template>
 

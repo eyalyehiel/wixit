@@ -58,7 +58,7 @@
             <section class="section-select" :class="{ open: isCmpsOpen }">
                 <h2 class="title">Section</h2>
                 <span @click="addCmp('site-header')">Header</span>
-                <span @click="addCmp('hero')">Hero</span>
+                <span @click="addCmp('site-hero')">Hero</span>
                 <span @click="addCmp('section')">Section</span>
                 <span @click="addCmp('gallery')">Gallery</span>
                 <span @click="addCmp('cards')">Cards</span>
@@ -92,16 +92,26 @@
             </section>
         </section>
 
+<<<<<<< HEAD
         <section
             class="site-display"
             :class="displaySize"
             style="background-color: aqua"
         >
+=======
+        <section class="site-display" :class="displaySize">
+            <component v-if="siteToEdit.cmps.length" v-for="cmp in siteToEdit.cmps" :is="cmpsToShow[cmp.type]"
+                :cmp="cmp" />
+            <section v-else class="drag-area">
+                <h1>Place Element Here</h1>
+            </section>
+>>>>>>> 9dd3af40d2fb4639d3e70d0c71dbcbc42170dc5e
             <!-- <pre>{{ siteToEdit }}</pre> -->
 
             <!-- <component v-for="cmp in siteToEdit?.cmps" :is="cmp.type" :cmp="cmp" /> -->
 
             <!-- v-if="siteToEdit.value" -->
+<<<<<<< HEAD
             <component
             v-for="cmp in siteToEdit.cmps"
             :is="cmpsToShow[cmp.type]"
@@ -109,11 +119,14 @@
             :style="{ 'background-color': cmp.style.color }"
             @click="setCmpToEdit(cmp)"
             />
+=======
+>>>>>>> 9dd3af40d2fb4639d3e70d0c71dbcbc42170dc5e
         </section>
     </section>
 </template>
 
 <script setup>
+<<<<<<< HEAD
 import siteContact from "../components/site-templates/site-contact.vue";
 import siteFooter from "../components/site-templates/site-footer.vue";
 import siteHeader from "../components/site-templates/site-header.vue";
@@ -123,13 +136,33 @@ import { onMounted, computed, ref, reactive, defineComponent } from "vue";
 import { useRoute } from "vue-router";
 import { siteService } from "../services/site-service.js";
 import { utilService } from "../services/utils-service.js";
+=======
+import siteContact from "../components/site-templates/site-contact.vue"
+import siteFooter from "../components/site-templates/site-footer.vue"
+import siteHeader from "../components/site-templates/site-header.vue"
+import siteHero from "../components/site-templates/site-hero.vue"
+import siteImages from "../components/site-templates/site-images.vue"
+import siteSection from '../components/site-templates/site-section.vue'
+
+import { onMounted, computed, ref, reactive, defineComponent } from "vue"
+import { useRoute } from "vue-router"
+import { siteService } from "../services/site-service.js"
+import { utilService } from "../services/utils-service.js"
+>>>>>>> 9dd3af40d2fb4639d3e70d0c71dbcbc42170dc5e
 
 const cmpsToShow = {
     "site-header": siteHeader,
     "site-hero": siteHero,
     "site-footer": siteFooter,
+<<<<<<< HEAD
     "site-section": siteHero,
 };
+=======
+    "site-section": siteSection,
+    "site-contact": siteContact,
+    "site-images": siteImages
+}
+>>>>>>> 9dd3af40d2fb4639d3e70d0c71dbcbc42170dc5e
 
 let siteToEdit = ref(null);
 siteToEdit = ref(siteToEdit);

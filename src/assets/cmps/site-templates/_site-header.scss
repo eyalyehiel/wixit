@@ -1,16 +1,61 @@
 .graphic-designer-header {
-    border-bottom: 1px solid black;
     padding-inline: 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 80px;
     background-color: #ddd;
+    position: relative;
     nav {
+        display: flex;
         gap: 50px;
         a {
+            font-weight: 600;
             background-color: transparent;
         }
+    }  
+    .menu-btn {
+        display: none;
+        @include btn(20px, 5px);
+
+        .icon {
+            @include icon(3px, 30px);
+
+            &:before {
+                @include icon-before(3px, 30px, -10px);
+            }
+
+            &:after {
+                @include icon-after(3px, 30px, 10px);
+            }
+        }
+
+        &.open {
+            .icon {
+                transition-duration: 0.5s;
+                background: transparent;
+
+                &:before {
+                    transform: rotateZ(45deg) scaleX(1.25) translate(6.5px, 6.5px);
+                }
+
+                &:after {
+                    transform: rotateZ(-45deg) scaleX(1.25) translate(6px, -6px);
+                }
+            }
+        }
+        &:hover {
+            cursor: pointer;
+        }
+    }
+    @media(max-width: 400px){
+            nav{
+                display: none;
+            }
+            .menu-btn{
+                display: block;
+            }
+        
     }
 }
 
