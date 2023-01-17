@@ -73,7 +73,8 @@
         </section>
 
         <section class="site-display" :class="displaySize">
-            <component v-if="siteToEdit.cmps.length" v-for="cmp in siteToEdit.cmps" :is="cmpsToShow[cmp.type]" :cmp="cmp" />
+            <component v-if="siteToEdit.cmps.length" v-for="cmp in siteToEdit.cmps" :is="cmpsToShow[cmp.type]"
+                :cmp="cmp" />
             <section v-else class="drag-area">
                 <h1>Place Element Here</h1>
             </section>
@@ -104,6 +105,8 @@ const cmpsToShow = {
     "site-hero": siteHero,
     "site-footer": siteFooter,
     "site-section": siteSection,
+    "site-contact": siteContact,
+    "site-images": siteImages
 }
 
 

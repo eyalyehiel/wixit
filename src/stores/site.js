@@ -2,16 +2,22 @@ import { ref, computed } from 'vue';
 import { defineStore } from 'pinia';
 import { siteService } from '../services/site-service';
 
-export const useSiteStore = defineStore('counter', () => {
+export const useSiteStore = defineStore('sites', () => {
     const sites = ref(null);
 
-    function loadTemplates() {
-        sites = siteService.query();
+    async function loadTemplates() {
+        sites.value = await siteService.query();
+    }
+
+    async function getById(id) {
+        return { ...(await siteService.getById(id)) };
     }
 
     function addCmp() {
-        sites.push(siteService.addCmp);
+        sites.value.push(siteService.addCmp);
     }
 
-    return { count, loadTemplates, addCmp };
+    const siteToShow = computed(() => sites);
+
+    return { sites, loadTemplates, addCmp, siteToShow, getById };
 });

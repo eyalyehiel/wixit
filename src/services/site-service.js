@@ -4,6 +4,7 @@ import sitesJson from '../../data/site.json' assert { type: 'json' };
 
 let gSites;
 const KEY = 'sitesDB';
+// _createSites();
 export const siteService = {
     query,
     getById,
@@ -64,7 +65,8 @@ function getCoffeeSite() {
                 },
                 theme: 'theme-header-happy',
                 style: {
-                    background: 'url(https://res.cloudinary.com/airbxb/image/upload/v1670857731/photo5_oqy4lr.jpg) no-repeat',
+                    background:
+                        'url(https://res.cloudinary.com/airbxb/image/upload/v1670857731/photo5_oqy4lr.jpg) no-repeat',
                     'background-size': 'cover',
                     font: 'Fontush',
                     color: 'red',
@@ -120,8 +122,7 @@ function getEmptySite() {
             fullname: '',
             imgUrl: '',
         },
-        cmps: [
-        ],
+        cmps: [],
         isPublic: true,
     };
 }
@@ -161,8 +162,8 @@ function getNewCmp(type) {
             },
         };
     }
-    if(type === 'site-hero'){
-        return{
+    if (type === 'site-hero') {
+        return {
             id: _makeId(3),
             type: 'site-hero',
             info: {
@@ -177,7 +178,7 @@ function getNewCmp(type) {
                 font: 'Fontush',
                 color: 'red',
             },
-        }
+        };
     }
 }
 
