@@ -1,5 +1,5 @@
 <template>
-    <header class="graphic-designer-header">
+    <header class="graphic-designer-header" :style="cmp.style">
         <h1>{{ cmp.info.title }}</h1>
         <nav>
             <a :href="href" v-for="{ text, href } in cmp.info.links">{{ text }}</a>

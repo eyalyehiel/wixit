@@ -4,7 +4,7 @@ import sitesJson from '../../data/site.json' assert { type: 'json' };
 
 let gSites;
 const KEY = 'sitesDB';
-// _createSites();
+_createSites();
 export const siteService = {
     query,
     getById,

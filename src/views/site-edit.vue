@@ -98,7 +98,6 @@
                 v-for="cmp in siteToEdit.cmps"
                 :is="cmpsToShow[cmp.type]"
                 :cmp="cmp"
-                style="background-color: aqua"
                 @click="setCmpToEdit(cmp)"
             />
             <section v-else class="drag-area">
@@ -166,16 +165,28 @@ function toggleColorPicker() {
 
 function addCmp(type) {
     let newCmp = siteService.getNewCmp(type)
+    cmpToEdit = newCmp
     siteToEdit.value.cmps.push(newCmp)
 }
 
-function setColor(va) {
-    console.log("va", va)
+function setColor(val) {
+    cmpToEdit.style["background-color"] = val
+    let updatedCmpIdx = siteToEdit.value.cmps.findIndex(
+        (cmp) => cmp.id === cmpToEdit.id
+    )
+    siteToEdit.value.cmps.splice(updatedCmpIdx, 1, cmpToEdit)
     console.log("siteToEdit", siteToEdit)
 }
 
 function setCmpToEdit(cmp) {
+    console.log('cmpToEdit',cmpToEdit)
+    if (cmpToEdit.id !== cmp.id) cmpToEdit.style["border"] = ""
+
     cmpToEdit = cmp
-    console.log("id", cmpToEdit)
+    cmpToEdit.style["border"] = "1px solid blue"
+    let updatedCmpIdx = siteToEdit.value.cmps.findIndex(
+        (cmp) => cmp.id === cmpToEdit.id
+    )
+    siteToEdit.value.cmps.splice(updatedCmpIdx, 1, cmpToEdit)
 }
 </script>
