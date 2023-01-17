@@ -120,7 +120,7 @@ onMounted(async () => {
     const { id } = route.params
     siteToEdit.value = id
         ? await siteService.getById(id)
-        : siteService.getEmptySite()
+        : siteService.getCoffeeSite()
 })
 
 function toggleMenu() {
