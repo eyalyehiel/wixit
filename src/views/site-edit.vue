@@ -48,7 +48,7 @@
             <section class="section-select" :class="{ open: isCmpsOpen }">
                 <h2 class="title">Section</h2>
                 <span @click="addCmp('site-header')">Header</span>
-                <span @click="addCmp('hero')">Hero</span>
+                <span @click="addCmp('site-hero')">Hero</span>
                 <span @click="addCmp('section')">Section</span>
                 <span @click="addCmp('gallery')">Gallery</span>
                 <span @click="addCmp('cards')">Cards</span>
