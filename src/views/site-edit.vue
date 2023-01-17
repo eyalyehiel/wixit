@@ -74,13 +74,20 @@
                 </div>
 
                 <div class="color-picker">
-                    <h4>BACKGROUND COLOR</h4>
+                    <h1>BACKGROUND COLOR</h1>
+
                     <section v-for="color in colors" :key="color">
                         <div
                             :style="{ 'background-color': color }"
                             :value="color"
+                            @click="setColor(color)"
                         ></div>
                     </section>
+                </div>
+
+                <div class="upload-img">
+                    <img src="../assets/svg/cloud-arrow-up-fill.svg" alt="" />
+                    <span>Drop file here or</span>
                 </div>
             </section>
         </section>
@@ -91,6 +98,8 @@
                 v-for="cmp in siteToEdit.cmps"
                 :is="cmpsToShow[cmp.type]"
                 :cmp="cmp"
+                style="background-color: aqua"
+                @click="setCmpToEdit(cmp)"
             />
             <section v-else class="drag-area">
                 <h1>Place Element Here</h1>
@@ -125,6 +134,7 @@ const cmpsToShow = {
 
 let siteToEdit = ref(null)
 siteToEdit = ref(siteToEdit)
+let cmpToEdit = ref(null)
 // let computedSite = computed(() => siteToEdit.value)
 let isCmpsOpen = ref(false)
 let isColorOpen = ref(false)
@@ -157,5 +167,15 @@ function toggleColorPicker() {
 function addCmp(type) {
     let newCmp = siteService.getNewCmp(type)
     siteToEdit.value.cmps.push(newCmp)
+}
+
+function setColor(va) {
+    console.log("va", va)
+    console.log("siteToEdit", siteToEdit)
+}
+
+function setCmpToEdit(cmp) {
+    cmpToEdit = cmp
+    console.log("id", cmpToEdit)
 }
 </script>

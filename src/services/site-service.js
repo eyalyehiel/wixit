@@ -50,6 +50,7 @@ function getCoffeeSite() {
                 theme: 'theme-header-happy',
                 style: {
                     background: 'url()',
+                    'background-color': 'red',
                     font: 'Fontush',
                     color: 'red',
                 },
