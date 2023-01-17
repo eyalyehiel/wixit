@@ -107,16 +107,21 @@
             flex-direction: column;
             width: 0;
             overflow: hidden;
+            height: 0;
+            &::-webkit-scrollbar {
+                display: none;
+            }
             &.open {
+                height: 100%;
                 flex: 1;
                 overflow: auto;
             }
             span {
-                margin: 4px;
-                padding: 18px 20px;
+                // margin: 4px;
+                padding: 22px 24px;
             }
             h2 {
-                margin: 4px;
+                // margin: 4px;
                 padding: 18px 20px;
             }
         }
@@ -127,7 +132,9 @@
             width: 0;
             overflow: hidden;
             gap: 65px;
+            height: 0;
             &.open {
+                height: 100%;
                 flex: 1;
                 overflow: auto;
             }
@@ -166,9 +173,9 @@
         justify-self: center;
         align-self: center;
         overflow: auto;
-        transition: all .4s;
+        transition: all 0.4s;
 
-        &::-webkit-scrollbar{
+        &::-webkit-scrollbar {
             display: none;
         }
 
@@ -186,22 +193,23 @@
         }
         &.phone,
         &.tablet {
-            outline: 4px solid black;
+            outline: 4px solid rgb(141, 141, 141);
+            box-shadow: 0px 0px 20px 14px #ddd;
             border-radius: 2em;
         }
 
-        .drag-area{
-            width: 90%;
-            height: 90%;
+        .drag-area {
+            width: 70%;
+            height: 70%;
             position: absolute;
             top: 50%;
             left: 50%;
             border-radius: 3em;
-            transform: translate(-50%,-50%);
+            transform: translate(-50%, -50%);
             border: 5px dashed #ddd;
             display: grid;
             place-content: center;
-            h1{
+            h1 {
                 font-size: 40px;
                 color: #ddd;
             }

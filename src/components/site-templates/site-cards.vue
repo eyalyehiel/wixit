@@ -1,5 +1,5 @@
 <template>
-    <section class="grapich-designer-cards">
+    <section class="grapich-designer-cards" :style="cmp.style">
         <article v-for="card in cmp.info">
             <h4>{{ card.title }}</h4>
             <p>{{ card.paragraph1 }}</p>
