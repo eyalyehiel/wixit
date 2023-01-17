@@ -13,7 +13,5 @@ import { onMounted, defineProps } from 'vue';
 const { cmp } = defineProps({ cmp: Object })
 
 onMounted(() => {
-    console.log('hi')
 })
-console.log(cmp)
 </script>

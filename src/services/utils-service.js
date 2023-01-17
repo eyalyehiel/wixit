@@ -9,6 +9,7 @@ export const utilService = {
     getDates,
     hoverEffect,
     format,
+    getEditColors,
 };
 
 function makeId(length = 6) {
@@ -195,4 +196,18 @@ function format(num) {
     let price = formatter.format(num);
     let dotIdx = price.indexOf('.');
     return price[dotIdx + 1] === '0' ? price.slice(0, dotIdx) : price;
+}
+
+function getEditColors() {
+    return [
+        "#0400ff",
+        "#0064ff",
+        "#00ca84",
+        "#c400ff",
+        "#864d01",
+        "#ff9202",
+        "#ef032a",
+        "#263140",
+        "#faebd7",
+    ]
 }

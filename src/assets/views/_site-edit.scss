@@ -7,6 +7,11 @@
     &.open {
         grid-template-columns: 200px 1fr;
     }
+    
+    @media (max-width: 1098px) {
+        grid-template-rows: 112px 1fr;
+
+    }
     .editor-header {
         grid-column: span 2;
         display: flex;
@@ -72,7 +77,7 @@
                 }
                 &:last-child {
                     background-color: lightgreen;
-                    &:hover{
+                    &:hover {
                         background-color: rgb(107, 185, 107);
                     }
                 }
@@ -162,7 +167,8 @@
             width: 375px;
             height: 500px;
         }
-        &.phone,&.tablet{
+        &.phone,
+        &.tablet {
             outline: 4px solid black;
             border-radius: 2em;
         }
