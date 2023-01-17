@@ -1,5 +1,9 @@
 <template>
-    <section v-if="siteToEdit" class="site-edit" :class="{ open: isCmpsOpen || isColorOpen }">
+    <section
+        v-if="siteToEdit"
+        class="site-edit"
+        :class="{ open: isCmpsOpen || isColorOpen }"
+    >
         <nav class="editor-header">
             <section class="options">
                 <button>
@@ -23,10 +27,16 @@
             </section>
             <section class="publish">
                 <p>
-                    http://127.0.0.1:5173/#/site/<span contenteditable="true">HamburgerShop</span>
+                    http://127.0.0.1:5173/#/site/<span contenteditable="true"
+                        >HamburgerShop</span
+                    >
                 </p>
                 <button>
-                    <img style="height: 28px" src="../assets/svg/eye.svg" alt="" />
+                    <img
+                        style="height: 28px"
+                        src="../assets/svg/eye.svg"
+                        alt=""
+                    />
                 </button>
                 <button>Publish</button>
             </section>
@@ -64,78 +74,107 @@
                 </div>
 
                 <div class="color-picker">
-                    <h4>BACKGROUND COLOR</h4>
+                    <h1>BACKGROUND COLOR</h1>
+
                     <section v-for="color in colors" :key="color">
-                        <div :style="{ 'background-color': color }" :value="color"></div>
+                        <div
+                            :style="{ 'background-color': color }"
+                            :value="color"
+                            @click="setColor(color)"
+                        ></div>
                     </section>
+                </div>
+
+                <div class="upload-img">
+                    <img src="../assets/svg/cloud-arrow-up-fill.svg" alt="" />
+                    <span>Drop file here or</span>
                 </div>
             </section>
         </section>
 
-        <section class="site-display" :class="displaySize">
+        <section
+            class="site-display"
+            :class="displaySize"
+            style="background-color: aqua"
+        >
             <!-- <pre>{{ siteToEdit }}</pre> -->
 
             <!-- <component v-for="cmp in siteToEdit?.cmps" :is="cmp.type" :cmp="cmp" /> -->
 
             <!-- v-if="siteToEdit.value" -->
-            <component v-for="cmp in siteToEdit.cmps" :is="cmpsToShow[cmp.type]" :cmp="cmp" />
+            <component
+            v-for="cmp in siteToEdit.cmps"
+            :is="cmpsToShow[cmp.type]"
+            :cmp="cmp"
+            :style="{ 'background-color': cmp.style.color }"
+            @click="setCmpToEdit(cmp)"
+            />
         </section>
     </section>
 </template>
 
 <script setup>
-import siteContact from "../components/site-templates/site-contact.vue"
-import siteFooter from "../components/site-templates/site-footer.vue"
-import siteHeader from "../components/site-templates/site-header.vue"
-import siteHero from "../components/site-templates/site-hero.vue"
-import siteImages from "../components/site-templates/site-images.vue"
-import { onMounted, computed, ref, reactive, defineComponent } from "vue"
-import { useRoute } from "vue-router"
-import { siteService } from "../services/site-service.js"
-import { utilService } from "../services/utils-service.js"
+import siteContact from "../components/site-templates/site-contact.vue";
+import siteFooter from "../components/site-templates/site-footer.vue";
+import siteHeader from "../components/site-templates/site-header.vue";
+import siteHero from "../components/site-templates/site-hero.vue";
+import siteImages from "../components/site-templates/site-images.vue";
+import { onMounted, computed, ref, reactive, defineComponent } from "vue";
+import { useRoute } from "vue-router";
+import { siteService } from "../services/site-service.js";
+import { utilService } from "../services/utils-service.js";
 
 const cmpsToShow = {
     "site-header": siteHeader,
     "site-hero": siteHero,
     "site-footer": siteFooter,
     "site-section": siteHero,
-}
+};
 
-
-let siteToEdit = ref(null)
-siteToEdit = ref(siteToEdit)
+let siteToEdit = ref(null);
+siteToEdit = ref(siteToEdit);
+let cmpToEdit = ref(null);
 // let computedSite = computed(() => siteToEdit.value)
-let isCmpsOpen = ref(false)
-let isColorOpen = ref(false)
-let displaySize = ref("desktop")
-let colors = ref(utilService.getEditColors())
+let isCmpsOpen = ref(false);
+let isColorOpen = ref(false);
+let displaySize = ref("desktop");
+let colors = ref(utilService.getEditColors());
 
-const route = useRoute()
+const route = useRoute();
 
 function toggleDisplaySize(val) {
-    displaySize.value = val
+    displaySize.value = val;
 }
 
 onMounted(async () => {
-    const { id } = route.params
+    const { id } = route.params;
     siteToEdit.value = id
         ? await siteService.getById(id)
-        : siteService.getEmptySite()
-})
+        : siteService.getEmptySite();
+});
 
 function toggleMenu() {
-    isCmpsOpen.value = !isCmpsOpen.value
-    if (isCmpsOpen.value) isColorOpen.value = false
+    isCmpsOpen.value = !isCmpsOpen.value;
+    if (isCmpsOpen.value) isColorOpen.value = false;
 }
 
 function toggleColorPicker() {
-    isColorOpen.value = !isColorOpen.value
-    if (isColorOpen.value) isCmpsOpen.value = false
+    isColorOpen.value = !isColorOpen.value;
+    if (isColorOpen.value) isCmpsOpen.value = false;
 }
 
 function addCmp(type) {
-    let newCmp = siteService.getNewCmp(type)
-    siteToEdit.value.cmps.push(newCmp)
+    let newCmp = siteService.getNewCmp(type);
+    siteToEdit.value.cmps.push(newCmp);
 }
 
+function setColor(va) {
+    console.log("va", va);
+    console.log("siteToEdit", siteToEdit);
+}
+
+function setCmpToEdit(cmp) {
+    cmpToEdit = cmp
+    console.log("id", cmpToEdit);
+}
 </script>
