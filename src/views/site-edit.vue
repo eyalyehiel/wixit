@@ -136,7 +136,7 @@ onMounted(async () => {
     const { id } = route.params
     siteToEdit.value = id
         ? await siteService.getById(id)
-        : siteService.getCoffeeSite()
+        : siteService.getEmptySite()
 })
 
 function toggleMenu() {
@@ -152,8 +152,7 @@ function toggleColorPicker() {
 function addCmp(type) {
     let newCmp = siteService.getNewCmp(type)
     siteToEdit.value.cmps.push(newCmp)
-    console.log('siteToEdit',siteToEdit)
-    console.log('computedSite.value',computedSite.value)
+
 }
 
 </script>
