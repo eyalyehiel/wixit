@@ -73,12 +73,15 @@
         </section>
 
         <section class="site-display" :class="displaySize">
+            <component v-if="siteToEdit.cmps.length" v-for="cmp in siteToEdit.cmps" :is="cmpsToShow[cmp.type]" :cmp="cmp" />
+            <section v-else class="drag-area">
+                <h1>Place Element Here</h1>
+            </section>
             <!-- <pre>{{ siteToEdit }}</pre> -->
 
             <!-- <component v-for="cmp in siteToEdit?.cmps" :is="cmp.type" :cmp="cmp" /> -->
 
             <!-- v-if="siteToEdit.value" -->
-            <component v-for="cmp in siteToEdit.cmps" :is="cmpsToShow[cmp.type]" :cmp="cmp" />
         </section>
     </section>
 </template>
@@ -89,6 +92,8 @@ import siteFooter from "../components/site-templates/site-footer.vue"
 import siteHeader from "../components/site-templates/site-header.vue"
 import siteHero from "../components/site-templates/site-hero.vue"
 import siteImages from "../components/site-templates/site-images.vue"
+import siteSection from '../components/site-templates/site-section.vue'
+
 import { onMounted, computed, ref, reactive, defineComponent } from "vue"
 import { useRoute } from "vue-router"
 import { siteService } from "../services/site-service.js"
@@ -98,7 +103,7 @@ const cmpsToShow = {
     "site-header": siteHeader,
     "site-hero": siteHero,
     "site-footer": siteFooter,
-    "site-section": siteHero,
+    "site-section": siteSection,
 }
 
 
@@ -120,7 +125,7 @@ onMounted(async () => {
     const { id } = route.params
     siteToEdit.value = id
         ? await siteService.getById(id)
-        : siteService.getCoffeeSite()
+        : siteService.getEmptySite()
 })
 
 function toggleMenu() {
