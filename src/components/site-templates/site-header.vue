@@ -2,7 +2,7 @@
     <header class="graphic-designer-header" :style="cmp.style">
         <h1>{{ cmp.info.title }}</h1>
         <nav>
-            <a :href="href" v-for="{ text, href } in cmp.info.links">{{ text }}</a>
+            <a v-for="{ text, href } in cmp.info.links">{{ text }}</a>
         </nav>
         <div @click="toggleMenu" class="menu-btn" :class="{open: isOpen}">
             <div class="icon"></div>
@@ -15,7 +15,6 @@ import { onMounted, defineProps,ref } from 'vue';
 
 const { cmp } = defineProps({ cmp: Object })
 onMounted(() => {
-    console.log(cmp)
 })
 
 let isOpen = ref(false)

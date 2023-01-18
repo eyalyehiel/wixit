@@ -108,6 +108,7 @@
             width: 0;
             overflow: hidden;
             height: 0;
+            padding-left: 5px;
             &::-webkit-scrollbar {
                 display: none;
             }
@@ -118,7 +119,12 @@
             }
             span {
                 // margin: 4px;
+                border-radius: 10px;
                 padding: 22px 24px;
+                &:hover {
+                    cursor: pointer;
+                    background-color: rgba(231, 231, 231, 0.475);
+                }
             }
             h2 {
                 // margin: 4px;
