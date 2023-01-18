@@ -127,6 +127,7 @@
             width: 0;
             overflow: hidden;
             gap: 65px;
+            border-right: 1px solid #eee;
             &.open {
                 flex: 1;
                 overflow: auto;
