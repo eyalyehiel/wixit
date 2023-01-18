@@ -16,6 +16,7 @@ export const templateService = {
 async function query(filterBy = { cmpName: '' }) {
     gTemplates = await storageService.query(KEY);
     let templates = _filter(filterBy);
+    console.log(templates);
     return templates || gTemplates;
 }
 
@@ -57,7 +58,7 @@ function _filter(filterBy) {
     if (cmpName) {
         return gTemplates
             .map(({ cmps }) =>
-                cmps.filter((cmp) => cmp.type === `template-${cmpName}`)
+                cmps.filter((cmp) => cmp.type === `site-${cmpName}`)
             )
             .flat();
     }

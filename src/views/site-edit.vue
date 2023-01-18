@@ -159,7 +159,6 @@ function toggleDisplaySize(val) {
 async function showCmps(cmpName) {
     await templateStore.loadFilteredCmps(cmpName)
     isTemplatesOpen.value = !isTemplatesOpen.value
-    console.log(templateStore.filteredCmps)
 }
 
 onMounted(async () => {
