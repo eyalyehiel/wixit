@@ -1,7 +1,7 @@
 <template>
-    <div class="images">
+    <section class="graphic-designer-gallery">
         <img v-for="img in cmp.info.imgs" :src="img" alt="">
-    </div>
+    </section>
 </template>
 
 <script setup>
