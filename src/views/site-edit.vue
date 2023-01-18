@@ -167,6 +167,7 @@ function setColor(val) {
 function setCmpToEdit(cmp) {
     cmpToEdit = cmp
     updateCmp()
+    console.log('cmpToEdit', cmpToEdit)
 }
 
 function updateCmp() {
