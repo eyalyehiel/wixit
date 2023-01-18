@@ -49,6 +49,7 @@
             <button @click="navigate">Get Started</button>
             <!-- carrousel -->
         </section>
+        
     </main>
 </template>
 

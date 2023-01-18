@@ -2,6 +2,7 @@
     {
         "_id": "hdu1i29y39",
         "name": "Cafe Baluta",
+        "background": "https://res.cloudinary.com/dirvusyaz/image/upload/v1674070871/coffe_har7o3.png",
         "imgUrls": [],
         
         "createdBy": {
@@ -14,11 +15,7 @@
                 "id": "123617823",
                 "type": "site-header",
                 "info": {
-<<<<<<< HEAD
                     "title": "Cafe Baluta",
-=======
-                    "title": { "text": "HairDresser Baluta", "style": {} },
->>>>>>> 9a076918f7e6bdc90b5d6d3c275761464c769fac
                     "links": [
                         { "text": "Home", "href": "#" },
                         { "text": "Shop", "href": "#" },
@@ -37,9 +34,9 @@
                 "id": "wc03",
                 "type": "site-hero",
                 "info": {
-                    "title": "Unique Craft Cafe in NYC",
+                    "title": "Start your day with a black Coffee",
                     "subtitle": "Our coffee comes straight from the plantations of Brazil and Colombia, freshly picked and ground on site, with a smoky aroma and an intoxicating taste. We love coffee, people and good food.",
-                    "btn": "View Menu"
+                    "btn": "BUY NOW"
                 },
                 "theme": "theme-header-happy",
                 "style": {
@@ -88,6 +85,7 @@
     {
         "_id": "u1i2312389",
         "name": "AUTONO",
+        "background": "https://res.cloudinary.com/dirvusyaz/image/upload/v1674079625/autono_fwbqr2.png",
         "imgUrls": [],
         "createdBy": {
             "_id": "",
@@ -191,7 +189,7 @@
                 },
                 "theme": "theme-header-happy",
                 "style": {
-                    "background": "url()",
+                    "logo": "/src/assets/svg/pet.svg",
                     "font": "Fontush",
                     "color": "#1A4E8D",
                     "background-color": "#ACD5DE"

@@ -1,6 +1,10 @@
 <template>
     <header class="graphic-designer-header" :style="cmp.style">
-        <h1 contenteditable @input="changeText($event, 'title')" @click="setTxtColor($event)">{{ cmp.info.title }}</h1>
+        <div>
+
+            <img :src="cmp.style.logo " alt="">
+            <h1 contenteditable @input="changeText($event, 'title')" @click="setTxtColor($event)">{{ cmp.info.title }}</h1>
+        </div>
         <nav>
             <a contenteditable @input="changeText($event, 'links')" v-for="{ text, href } in cmp.info.links">{{
                 text
@@ -10,6 +14,7 @@
             <div class="icon"></div>
         </div>
     </header>
+    
 </template>
 
 <script setup>
