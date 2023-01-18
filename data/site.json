@@ -3,7 +3,7 @@
         "_id": "hdu1i29y39",
         "name": "Cafe Baluta",
         "imgUrls": [],
-
+        "type": 2,
         "createdBy": {
             "_id": "",
             "fullname": "",
