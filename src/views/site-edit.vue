@@ -3,7 +3,8 @@
         v-if="siteToEdit"
         class="site-edit"
         :class="{
-            'cmps-open': isCmpsOpen || isColorOpen,
+            'colors-open': isColorOpen,
+            'cmps-open': isCmpsOpen,
             'templates-open': isTemplatesOpen,
         }"
     >
@@ -90,27 +91,32 @@
             </section>
 
             <section class="cmp-editor" :class="{ open: isColorOpen }">
-                <div class="title">
+                <section class="title">
                     <h2>Edit</h2>
                     <img src="../assets/svg/trash.svg" alt="" />
-                </div>
+                </section>
 
-                <div class="color-picker">
+                <section class="color-picker">
                     <h1>BACKGROUND COLOR</h1>
-
-                    <section v-for="color in colors" :key="color">
-                        <div
+                    <wrapper class="color-wrapper">
+                        <section
+                            v-for="color in colors"
+                            @click="setColor(color)"
+                            :style="{ 'background-color': color }"
+                            :key="color"
+                        ></section>
+                    </wrapper>
+                    <!-- <section
                             :style="{ 'background-color': color }"
                             :value="color"
                             @click="setColor(color)"
-                        ></div>
-                    </section>
-                </div>
+                        ></section> -->
+                </section>
 
-                <div class="upload-img">
+                <section class="upload-img">
                     <img src="../assets/svg/cloud-arrow-up-fill.svg" alt="" />
                     <span>Drop file here or</span>
-                </div>
+                </section>
             </section>
         </section>
 
