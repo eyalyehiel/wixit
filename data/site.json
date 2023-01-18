@@ -1,8 +1,9 @@
 [
     {
         "_id": "hdu1i29y39",
-        "name": "",
+        "name": "Cafe Baluta",
         "imgUrls": [],
+        
         "createdBy": {
             "_id": "",
             "fullname": "",
@@ -13,7 +14,7 @@
                 "id": "123617823",
                 "type": "site-header",
                 "info": {
-                    "title": "HairDresser Baluta",
+                    "title": "Cafe Baluta",
                     "links": [
                         { "text": "Home", "href": "#" },
                         { "text": "Shop", "href": "#" },
@@ -24,7 +25,8 @@
                 "style": {
                     "background": "url()",
                     "font": "Fontush",
-                    "color": "red"
+                    "color": "#fff",
+                    "background-color": "rgba(20, 2, 0, 0.8)"
                 }
             },
             {
@@ -39,7 +41,7 @@
                 "style": {
                     "background": "url(https://res.cloudinary.com/dirvusyaz/image/upload/v1674042414/header-bg.jpg_ajhisz.webp)",
                     "font": "Fontush",
-                    "color": "red"
+                    "color": "#fff"
                 }
             },
             {
@@ -50,15 +52,16 @@
                     "paragraph1": "Our coffee is rich in flavor and the espresso is a perfect balance of sweetness and acidity that functions well in milk drinks.",
                     "paragraph2": "Quick can manor smart money hopes worth too. Comfort produce husband boy her had hearing. Law others theirs passed but wishes. You day real less till dear read. Considered use dispatched melancholy sympathize discretion led. Oh feel if up to till like.",
                     "images": [
-                        "https://robohash.org/1?set=set5",
-                        "https://robohash.org/2?set=set5"
+                        "https://res.cloudinary.com/dirvusyaz/image/upload/v1674045504/b2.jpg_v16hmf.webp",
+                        "https://res.cloudinary.com/dirvusyaz/image/upload/v1674045504/b1.jpg_n3fxam.webp"
                     ]
                 },
                 "theme": "theme-header-happy",
                 "style": {
                     "background": "url()",
                     "font": "Fontush",
-                    "color": "red"
+                    "color": "rgba(20, 2, 0, 0.8)",
+                    "background-color": "#fff"
                 }
             },
             {
@@ -80,7 +83,7 @@
     },
     {
         "_id": "u1i2312389",
-        "name": "",
+        "name": "AUTONO",
         "imgUrls": [],
         "createdBy": {
             "_id": "",
@@ -92,52 +95,54 @@
                 "id": "123617823",
                 "type": "site-header",
                 "info": {
-                    "title": "HairDresser Baluta",
+                    "title": "AUTONO",
                     "links": [
-                        { "text": "Home", "href": "#" },
-                        { "text": "Shop", "href": "#" },
-                        { "text": "About", "href": "#" }
+                        { "text": "Technology", "href": "#" },
+                        { "text": "About", "href": "#" },
+                        { "text": "Careers", "href": "#" }
                     ]
                 },
                 "theme": "theme-header-happy",
                 "style": {
                     "background": "url()",
                     "font": "Fontush",
-                    "color": "red"
+                    "color": "#000000",
+                    "background-color": "#a7b6c7"
                 }
             },
             {
                 "id": "wc03",
                 "type": "site-hero",
                 "info": {
-                    "title": "Unique Craft Cafe in NYC",
-                    "subtitle": "Our coffee comes straight from the plantations of Brazil and Colombia, freshly picked and ground on site, with a smoky aroma and an intoxicating taste. We love coffee, people and good food.",
+                    "title": "THE FUTURE OF  MOBILITY IS HERE",
+                    "subtitle": "Discover the safest self-driving experience with Autono.",
                     "btn": "View Menu"
                 },
                 "theme": "theme-header-happy",
                 "style": {
-                    "background": "url(https://res.cloudinary.com/dirvusyaz/image/upload/v1674042414/header-bg.jpg_ajhisz.webp)",
+                    "background": "url(https://res.cloudinary.com/dirvusyaz/image/upload/v1674062221/c837a6_02de7d4c43d44b7b890854049ed75da8f000_atfm5c.webp)",
                     "font": "Fontush",
-                    "color": "red"
+                    "color": "#000000"
                 }
             },
             {
                 "id": "wc04",
                 "type": "site-section",
                 "info": {
-                    "title": "Coffee & Cakes",
-                    "paragraph1": "Our coffee is rich in flavor and the espresso is a perfect balance of sweetness and acidity that functions well in milk drinks.",
-                    "paragraph2": "Quick can manor smart money hopes worth too. Comfort produce husband boy her had hearing. Law others theirs passed but wishes. You day real less till dear read. Considered use dispatched melancholy sympathize discretion led. Oh feel if up to till like.",
+                    "title": "VISION",
+                    "paragraph1": "We’re Changing the Way the World Thinks About Cars",
+                    "paragraph2": "I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me to add your own content and make changes to the font. I’m a great place for you to tell a story and let your users know a little more about you.",
                     "images": [
-                        "https://robohash.org/1?set=set5",
-                        "https://robohash.org/2?set=set5"
+            "https://res.cloudinary.com/dirvusyaz/image/upload/v1674062701/84770f_3cc097e7503b4ed498e350c6618ef956_mv2_purofg.webp"
+                        
                     ]
                 },
                 "theme": "theme-header-happy",
                 "style": {
-                    "background": "url(https://res.cloudinary.com/dirvusyaz/image/upload/v1674042414/header-bg.jpg_ajhisz.webp)",
+                    "background": "url()",
                     "font": "Fontush",
-                    "color": "red"
+                    "color": "#000",
+                    "background-color": "#fff"
                 }
             },
             {
@@ -151,7 +156,8 @@
                 "style": {
                     "background": "url()",
                     "font": "Fontush",
-                    "color": "red"
+                    "color": "red",
+                    "background-color": "#fff"
                 }
             }
         ],
@@ -159,7 +165,8 @@
     },
     {
         "_id": "1234190912",
-        "name": "",
+        "name": "Ponto Pet",
+        "background": "https://res.cloudinary.com/dirvusyaz/image/upload/v1674064175/55_kmt26b.png",
         "imgUrls": [],
         "createdBy": {
             "_id": "",
@@ -171,10 +178,10 @@
                 "id": "123617823",
                 "type": "site-header",
                 "info": {
-                    "title": "HairDresser Baluta",
+                    "title": "Ponto Pet",
                     "links": [
                         { "text": "Home", "href": "#" },
-                        { "text": "Shop", "href": "#" },
+                        { "text": "Services", "href": "#" },
                         { "text": "About", "href": "#" }
                     ]
                 },
@@ -182,22 +189,24 @@
                 "style": {
                     "background": "url()",
                     "font": "Fontush",
-                    "color": "red"
+                    "color": "#1A4E8D",
+                    "background-color": "#ACD5DE"
                 }
             },
             {
                 "id": "wc03",
                 "type": "site-hero",
                 "info": {
-                    "title": "Unique Craft Cafe in NYC",
-                    "subtitle": "Our coffee comes straight from the plantations of Brazil and Colombia, freshly picked and ground on site, with a smoky aroma and an intoxicating taste. We love coffee, people and good food.",
+                    "title": "The Best Pet Groomers in Town ",
+                    "subtitle": "For a pawfect look and feel.",
                     "btn": "View Menu"
                 },
                 "theme": "theme-header-happy",
                 "style": {
-                    "background": "url(https://res.cloudinary.com/dirvusyaz/image/upload/v1674042414/header-bg.jpg_ajhisz.webp)",
+            "background":"url(https://res.cloudinary.com/dirvusyaz/image/upload/v1674063447/44.png_m5mjxc.webp)",
                     "font": "Fontush",
-                    "color": "red"
+                    "color": "#1A4E8D",
+                    "background-color": "#ACD5DE"
                 }
             },
             {

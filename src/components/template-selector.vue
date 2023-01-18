@@ -2,14 +2,14 @@
     <h2>Choose a template for your website</h2>
     <section v-if="storeSite.sites" class="template-selector">
         <article>
-            <section class="article-cover">
+            <section class="article-cover" style="background-color: antiquewhite;">
                 <div>
                     <button class="edit-btn" @click="createSite()">Edit</button>
                 </div>
             </section>
             Empty
         </article>
-        <article v-for="site in storeSite.siteToShow.value">
+        <article v-for="site in storeSite.siteToShow.value" :style="{'background-image': `url( ${site.background})`}">
             <section class="article-cover">
                 <div>
                     <button @click="() => router.push(`site/${site._id}`)" class="preview-btn">Preview</button>

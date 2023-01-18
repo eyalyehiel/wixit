@@ -1,5 +1,5 @@
 <template>
-    <section class="graphic-designer-section">
+    <section class="graphic-designer-section" :style="cmp.style" style="background-size: cover;">
         <h2>{{cmp.info.title}}</h2>
         <p>{{cmp.info.paragraph1}}</p>
         <p>{{cmp.info.paragraph2}}</p>
