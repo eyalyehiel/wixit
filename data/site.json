@@ -13,7 +13,7 @@
                 "id": "123617823",
                 "type": "site-header",
                 "info": {
-                    "title": "HairDresser Baluta",
+                    "title": { "text": "HairDresser Baluta", "style": {} },
                     "links": [
                         { "text": "Home", "href": "#" },
                         { "text": "Shop", "href": "#" },
