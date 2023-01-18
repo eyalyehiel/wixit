@@ -1,7 +1,7 @@
 <template>
     <header class="main-header">
         <img @click="goToHome" src="../assets/svg/wix-logo.svg.svg" alt="" />
-
+        <!-- <p><span>w</span>ixit</p> -->
         <div class="header-btns">
             <button>Log In</button>
             <button @click="goToTemplate" >Get Started</button>
