@@ -99,6 +99,8 @@
                 :is="cmpsToShow[cmp.type]"
                 :cmp="cmp"
                 @click="setCmpToEdit(cmp)"
+                @onSetTxtColor="TxtColor"
+                
             />
             <section v-else class="drag-area">
                 <h1>Place Element Here</h1>
@@ -137,6 +139,7 @@ let cmpToEdit = ref(null)
 // let computedSite = computed(() => siteToEdit.value)
 let isCmpsOpen = ref(false)
 let isColorOpen = ref(false)
+let changeColor = ref(false)
 let displaySize = ref("desktop")
 let colors = ref(utilService.getEditColors())
 
@@ -173,15 +176,19 @@ function addCmp(type) {
 }
 
 function setColor(val) {
-    cmpToEdit.style["background-color"] = val
+    if(changeColor.value){
+        cmpToEdit.style["background-color"] = val
+    }else{
+        cmpToEdit.style["color"] = val
+    }
     let updatedCmpIdx = siteToEdit.value.cmps.findIndex(
         (cmp) => cmp.id === cmpToEdit.id
     )
     siteToEdit.value.cmps.splice(updatedCmpIdx, 1, cmpToEdit)
 }
 
-function setCmpToEdit(cmp) {
-    console.log('cmpToEdit',cmpToEdit)
+function setCmpToEdit(cmp, ev) {
+    
     if (cmpToEdit.id !== cmp.id) cmpToEdit.style["border"] = ""
 
     cmpToEdit = cmp
@@ -190,5 +197,11 @@ function setCmpToEdit(cmp) {
         (cmp) => cmp.id === cmpToEdit.id
     )
     siteToEdit.value.cmps.splice(updatedCmpIdx, 1, cmpToEdit)
+}
+
+function TxtColor(el){
+    console.log('el', el.style)
+    changeColor.value = !changeColor.value
+    console.log('changeColor.value',changeColor.value)
 }
 </script>
