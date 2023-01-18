@@ -147,7 +147,7 @@ function getNewCmp(type) {
             id: _makeId(3),
             type: 'site-header',
             info: {
-                title: 'HairDresser Baluta',
+                title: 'Cafe Baluta',
                 links: [
                     { text: 'Home', href: '#' },
                     { text: 'Shop', href: '#' },
@@ -159,7 +159,8 @@ function getNewCmp(type) {
             style: {
                 background: 'url()',
                 font: 'Fontush',
-                color: 'red',
+                color: '#fff',
+                'background-color': "rgba(20, 2, 0, 0.8)"
             },
         };
     }
@@ -175,9 +176,9 @@ function getNewCmp(type) {
             },
             theme: 'theme-header-happy',
             style: {
-                background: 'url()',
+                background: 'url(https://res.cloudinary.com/dirvusyaz/image/upload/v1674042414/header-bg.jpg_ajhisz.webp)',
                 font: 'Fontush',
-                color: 'red',
+                color: '#fff',
             },
         };
     }

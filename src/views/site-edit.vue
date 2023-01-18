@@ -187,6 +187,7 @@ function setCmpToEdit(cmp) {
     cmpToEdit = cmp
     // cmpToEdit.style["border"] = "1px solid blue"
     updateCmp()
+    console.log('cmpToEdit', cmpToEdit)
 }
 
 function updateCmp(){
