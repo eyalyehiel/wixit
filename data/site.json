@@ -4,7 +4,7 @@
         "name": "Cafe Baluta",
         "background": "https://res.cloudinary.com/dirvusyaz/image/upload/v1674070871/coffe_har7o3.png",
         "imgUrls": [],
-        
+        "type": 2,
         "createdBy": {
             "_id": "",
             "fullname": "",
@@ -94,7 +94,7 @@
         },
         "cmps": [
             {
-                "id": "123617823",
+                "id": "asdas12312",
                 "type": "site-header",
                 "info": {
                     "title": "AUTONO",
@@ -135,8 +135,7 @@
                     "paragraph1": "We’re Changing the Way the World Thinks About Cars",
                     "paragraph2": "I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me to add your own content and make changes to the font. I’m a great place for you to tell a story and let your users know a little more about you.",
                     "images": [
-            "https://res.cloudinary.com/dirvusyaz/image/upload/v1674062701/84770f_3cc097e7503b4ed498e350c6618ef956_mv2_purofg.webp"
-                        
+                        "https://res.cloudinary.com/dirvusyaz/image/upload/v1674062701/84770f_3cc097e7503b4ed498e350c6618ef956_mv2_purofg.webp"
                     ]
                 },
                 "theme": "theme-header-happy",
@@ -177,7 +176,7 @@
         },
         "cmps": [
             {
-                "id": "123617823",
+                "id": "1344356341q2",
                 "type": "site-header",
                 "info": {
                     "title": "Ponto Pet",
@@ -205,7 +204,7 @@
                 },
                 "theme": "theme-header-happy",
                 "style": {
-            "background":"url(https://res.cloudinary.com/dirvusyaz/image/upload/v1674063447/44.png_m5mjxc.webp)",
+                    "background": "url(https://res.cloudinary.com/dirvusyaz/image/upload/v1674063447/44.png_m5mjxc.webp)",
                     "font": "Fontush",
                     "color": "#1A4E8D",
                     "background-color": "#ACD5DE"
@@ -258,7 +257,7 @@
         },
         "cmps": [
             {
-                "id": "123617823",
+                "id": "325435631",
                 "type": "site-header",
                 "info": {
                     "title": "HairDresser Baluta",
