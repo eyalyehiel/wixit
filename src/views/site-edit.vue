@@ -1,9 +1,5 @@
 <template>
-    <section
-        v-if="siteToEdit"
-        class="site-edit"
-        :class="{ open: isCmpsOpen || isColorOpen }"
-    >
+    <section v-if="siteToEdit" class="site-edit" :class="{ open: isCmpsOpen || isColorOpen }">
         <nav class="editor-header">
             <section class="options">
                 <button>
@@ -27,16 +23,10 @@
             </section>
             <section class="publish">
                 <p>
-                    http://127.0.0.1:5173/#/site/<span contenteditable="true"
-                        >HamburgerShop</span
-                    >
+                    http://127.0.0.1:5173/#/site/<span contenteditable="true">HamburgerShop</span>
                 </p>
                 <button>
-                    <img
-                        style="height: 16px"
-                        src="../assets/svg/eye.svg"
-                        alt=""
-                    />
+                    <img style="height: 16px" src="../assets/svg/eye.svg" alt="" />
                 </button>
                 <button>Publish</button>
             </section>
@@ -77,11 +67,7 @@
                     <h1>BACKGROUND COLOR</h1>
 
                     <section v-for="color in colors" :key="color">
-                        <div
-                            :style="{ 'background-color': color }"
-                            :value="color"
-                            @click="setColor(color)"
-                        ></div>
+                        <div :style="{ 'background-color': color }" :value="color" @click="setColor(color)"></div>
                     </section>
                 </div>
 
@@ -93,16 +79,9 @@
         </section>
 
         <section class="site-display" :class="displaySize">
-            <component
-                v-if="siteToEdit.cmps.length"
-                v-for="cmp in siteToEdit.cmps"
-                :is="cmpsToShow[cmp.type]"
-                :cmp="cmp"
-                :class="{'cmp-selected': cmpToEdit?.id === cmp.id}"
-                @click="setCmpToEdit(cmp)"
-                @onSetTxtColor="TxtColor"
-                
-            />
+            <component v-if="siteToEdit.cmps.length" v-for="cmp in siteToEdit.cmps" :is="cmpsToShow[cmp.type]"
+                :cmp="cmp" :class="{ 'cmp-selected': cmpToEdit?.id === cmp.id }" @click="setCmpToEdit(cmp)"
+                @onSetTxtColor="TxtColor" @onChangeText="changeText" />
             <section v-else class="drag-area">
                 <h1>Place Element Here</h1>
             </section>
@@ -171,10 +150,14 @@ function addCmp(type) {
     siteToEdit.value.cmps.push(newCmp)
 }
 
+function changeText(text, key) {
+    cmpToEdit.info[key] = text
+}
+
 function setColor(val) {
-    if(changeColor.value){
+    if (changeColor.value) {
         cmpToEdit.style["background-color"] = val
-    }else{
+    } else {
         cmpToEdit.style["color"] = val
     }
     updateCmp()
@@ -187,16 +170,16 @@ function setCmpToEdit(cmp) {
     console.log('cmpToEdit', cmpToEdit)
 }
 
-function updateCmp(){
-        let updatedCmpIdx = siteToEdit.value.cmps.findIndex(
+function updateCmp() {
+    let updatedCmpIdx = siteToEdit.value.cmps.findIndex(
         (cmp) => cmp.id === cmpToEdit.id
     )
     siteToEdit.value.cmps.splice(updatedCmpIdx, 1, cmpToEdit)
 }
 
-function TxtColor(el){
-    console.log('el', el.style)
+function TxtColor(el) {
+    // console.log('el', el.style)
     changeColor.value = !changeColor.value
-    console.log('changeColor.value',changeColor.value)
+    // console.log('changeColor.value', changeColor.value)
 }
 </script>

@@ -14,7 +14,11 @@
                 "id": "123617823",
                 "type": "site-header",
                 "info": {
+<<<<<<< HEAD
                     "title": "Cafe Baluta",
+=======
+                    "title": { "text": "HairDresser Baluta", "style": {} },
+>>>>>>> 9a076918f7e6bdc90b5d6d3c275761464c769fac
                     "links": [
                         { "text": "Home", "href": "#" },
                         { "text": "Shop", "href": "#" },
