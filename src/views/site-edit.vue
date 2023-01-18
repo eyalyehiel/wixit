@@ -168,7 +168,6 @@ function toggleColorPicker() {
 
 function addCmp(type) {
     let newCmp = siteService.getNewCmp(type)
-    // cmpToEdit = newCmp
     siteToEdit.value.cmps.push(newCmp)
 }
 
@@ -183,9 +182,7 @@ function setColor(val) {
 
 
 function setCmpToEdit(cmp) {
-    // if (cmpToEdit.id !== cmp.id) cmpToEdit.style["border"] = ""
     cmpToEdit = cmp
-    // cmpToEdit.style["border"] = "1px solid blue"
     updateCmp()
     console.log('cmpToEdit', cmpToEdit)
 }
