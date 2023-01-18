@@ -16,7 +16,7 @@ export const templateService = {
 async function query(filterBy = { cmpName: '' }) {
     gTemplates = await storageService.query(KEY);
     let templates = _filter(filterBy);
-    return Object.values(templates || gTemplates);
+    return templates || gTemplates;
 }
 
 async function getTemplateById(id) {
@@ -46,7 +46,7 @@ function _createTemplates() {
     var templates = utilService.loadFromStorage(KEY);
     if (!templates || !templates.length) {
         templates = templatesJson;
-        utilService.saveToStorage(KEY, templates.slice(0, 100));
+        utilService.saveToStorage(KEY, templates);
     }
     gTemplates = templates;
     return templates;

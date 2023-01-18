@@ -2,7 +2,7 @@ import { ref, computed } from 'vue';
 import { defineStore } from 'pinia';
 import { templateService } from '../services/template-service';
 
-export const useSiteStore = defineStore('sites', () => {
+export const useTemplateStore = defineStore('template', () => {
     const templates = ref(null);
     const filteredCmps = ref(null);
 
@@ -15,7 +15,11 @@ export const useSiteStore = defineStore('sites', () => {
     }
 
     async function getById(id) {
-        return { ...(await templateService.getById(id)) };
+        return { ...(await templateService.getTemplateById(id)) };
+    }
+
+    function getEmptySite(id) {
+        return { ...templateService.getEmptyTemplate() };
     }
 
     async function getCmpByTemplate(cmpId, templateId) {
@@ -30,6 +34,7 @@ export const useSiteStore = defineStore('sites', () => {
         templates,
         filteredCmps,
         getById,
+        getEmptySite,
         loadTemplates,
         loadFilteredCmps,
         getCmpByTemplate,
