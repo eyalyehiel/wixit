@@ -1,5 +1,12 @@
 <template>
-    <section v-if="siteToEdit" class="site-edit" :class="{ open: isCmpsOpen || isColorOpen }">
+    <section
+        v-if="siteToEdit"
+        class="site-edit"
+        :class="{
+            'cmps-open': isCmpsOpen || isColorOpen,
+            'templates-open': isTemplatesOpen,
+        }"
+    >
         <nav class="editor-header">
             <section class="options">
                 <button>
@@ -23,10 +30,16 @@
             </section>
             <section class="publish">
                 <p>
-                    http://127.0.0.1:5173/#/site/<span contenteditable="true">HamburgerShop</span>
+                    http://127.0.0.1:5173/#/site/<span contenteditable="true"
+                        >HamburgerShop</span
+                    >
                 </p>
                 <button>
-                    <img style="height: 16px" src="../assets/svg/eye.svg" alt="" />
+                    <img
+                        style="height: 16px"
+                        src="../assets/svg/eye.svg"
+                        alt=""
+                    />
                 </button>
                 <button>Publish</button>
             </section>
@@ -68,9 +81,11 @@
                 <span @click="showCmps('contact')">Contact</span>
                 <span @click="showCmps('video')">Video</span>
             </section>
-
-            <section class="section-select" :class="{ open: isCmpsOpen }">
-                <h2 class="title">Section</h2>
+            <section
+                class="section-select section-templates"
+                :class="{ open: isTemplatesOpen }"
+            >
+                <!-- <h2 class="title">Choose </h2> -->
                 <span v-for="cmp in storeSite.filteredCmps">{{ cmp.id }}</span>
             </section>
 
@@ -84,7 +99,11 @@
                     <h1>BACKGROUND COLOR</h1>
 
                     <section v-for="color in colors" :key="color">
-                        <div :style="{ 'background-color': color }" :value="color" @click="setColor(color)"></div>
+                        <div
+                            :style="{ 'background-color': color }"
+                            :value="color"
+                            @click="setColor(color)"
+                        ></div>
                     </section>
                 </div>
 
@@ -96,9 +115,16 @@
         </section>
 
         <section class="site-display" :class="displaySize">
-            <component v-if="siteToEdit.cmps.length" v-for="cmp in siteToEdit.cmps" :is="cmpsToShow[cmp.type]"
-                :cmp="cmp" :class="{ 'cmp-selected': cmpToEdit?.id === cmp.id }" @click="setCmpToEdit(cmp)"
-                @onSetTxtColor="TxtColor" @onChangeText="changeText" />
+            <component
+                v-if="siteToEdit.cmps.length"
+                v-for="cmp in siteToEdit.cmps"
+                :is="cmpsToShow[cmp.type]"
+                :cmp="cmp"
+                :class="{ 'cmp-selected': cmpToEdit?.id === cmp.id }"
+                @click="setCmpToEdit(cmp)"
+                @onSetTxtColor="TxtColor"
+                @onChangeText="changeText"
+            />
             <section v-else class="drag-area">
                 <h1>Place Element Here</h1>
             </section>
@@ -119,7 +145,7 @@ import { onMounted, computed, ref, reactive, defineComponent } from "vue"
 import { useRoute } from "vue-router"
 import { siteService } from "../services/site-service.js"
 import { utilService } from "../services/utils-service.js"
-import { useSiteStore } from '../stores/site.js'
+import { useSiteStore } from "../stores/site.js"
 
 const cmpsToShow = {
     "site-header": siteHeader,
@@ -135,6 +161,7 @@ let siteToEdit = ref(null)
 siteToEdit = ref(siteToEdit)
 let cmpToEdit = ref(null)
 let isCmpsOpen = ref(false)
+let isTemplatesOpen = ref(false)
 let isColorOpen = ref(false)
 let changeColor = ref(false)
 let displaySize = ref("desktop")
@@ -149,6 +176,7 @@ function toggleDisplaySize(val) {
 
 async function showCmps(cmpName) {
     await storeSite.loadFilteredCmps(cmpName)
+    isTemplatesOpen.value = !isTemplatesOpen.value
     console.log(storeSite.filteredCmps)
 }
 
@@ -161,12 +189,16 @@ onMounted(async () => {
 
 function toggleMenu() {
     isCmpsOpen.value = !isCmpsOpen.value
+    isTemplatesOpen.value = false
     if (isCmpsOpen.value) isColorOpen.value = false
 }
 
 function toggleColorPicker() {
     isColorOpen.value = !isColorOpen.value
-    if (isColorOpen.value) isCmpsOpen.value = false
+    if (isColorOpen.value) {
+        isCmpsOpen.value = false
+        isTemplatesOpen.value = false
+    }
 }
 
 function addCmp(type) {
@@ -187,11 +219,10 @@ function setColor(val) {
     updateCmp()
 }
 
-
 function setCmpToEdit(cmp) {
     cmpToEdit = cmp
     updateCmp()
-    console.log('cmpToEdit', cmpToEdit)
+    console.log("cmpToEdit", cmpToEdit)
 }
 
 function updateCmp() {
