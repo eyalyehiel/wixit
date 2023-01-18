@@ -7,7 +7,8 @@ const KEY = 'sitesDB';
 _createSites();
 export const siteService = {
     query,
-    getById,
+    getSiteById,
+    getCmpBySite,
     remove,
     save,
     getNewCmp,
@@ -17,13 +18,20 @@ export const siteService = {
 
 async function query(filterBy) {
     gSites = await storageService.query(KEY);
-    // let sites = _filter(filterBy);
-    return Object.values(gSites);
+    console.log(gSites);
+    let sites = _filter(filterBy);
+    console.log(sites);
+    return Object.values(sites);
     // return storageService.query(KEY);
 }
 
-function getById(id) {
-    return storageService.get(KEY, id);
+async function getSiteById(id) {
+    return await storageService.get(KEY, id);
+}
+
+async function getCmpBySite(cmpId, siteId) {
+    let site = await getSiteById(siteId);
+    return site.cmps.find((cmp) => cmp._id === cmpId);
 }
 
 function getCoffeeSite() {
@@ -114,6 +122,16 @@ function getCoffeeSite() {
     };
 }
 
+function remove(id) {
+    return storageService.remove(KEY, id);
+}
+
+function save(site) {
+    return site._id
+        ? storageService.put(KEY, site)
+        : storageService.post(KEY, site);
+}
+
 function getEmptySite() {
     return {
         name: '',
@@ -128,17 +146,17 @@ function getEmptySite() {
     };
 }
 
-function remove(id) {
-    return storageService.remove(KEY, id);
+function _add(site) {
+    site._id = utilService.makeId();
+    site.createdAt = Date.now();
+    gSites.push(site);
+    return site;
 }
 
-function save(site) {
-    // return site._id ? storageService.put(KEY, site)  : storageService.post(KEY, site);
-    if (site._id) {
-        return storageService.put(KEY, site);
-    } else {
-        return storageService.post(KEY, site);
-    }
+function _update(site) {
+    const idx = gSites.findIndex((currsite) => currsite._id === site._id);
+    gSites.splice(idx, 1, site);
+    return site;
 }
 
 function getNewCmp(type) {
@@ -160,7 +178,7 @@ function getNewCmp(type) {
                 background: 'url()',
                 font: 'Fontush',
                 color: '#fff',
-                'background-color': "rgba(20, 2, 0, 0.8)"
+                'background-color': 'rgba(20, 2, 0, 0.8)',
             },
         };
     }
@@ -176,13 +194,14 @@ function getNewCmp(type) {
             },
             theme: 'theme-header-happy',
             style: {
-                background: 'url(https://res.cloudinary.com/dirvusyaz/image/upload/v1674042414/header-bg.jpg_ajhisz.webp)',
+                background:
+                    'url(https://res.cloudinary.com/dirvusyaz/image/upload/v1674042414/header-bg.jpg_ajhisz.webp)',
                 font: 'Fontush',
                 color: '#fff',
             },
         };
     }
-    if(type === 'site-cards'){
+    if (type === 'site-cards') {
         return {
             id: _makeId(3),
             type: 'site-cards',
@@ -215,21 +234,8 @@ function getNewCmp(type) {
                 font: 'Fontush',
                 color: 'red',
             },
-        }
+        };
     }
-}
-
-function _add(site) {
-    site._id = utilService.makeId();
-    site.createdAt = Date.now();
-    gSites.push(site);
-    return site;
-}
-
-function _update(site) {
-    const idx = gSites.findIndex((currsite) => currsite._id === site._id);
-    gSites.splice(idx, 1, site);
-    return site;
 }
 
 function _createSites() {
@@ -252,58 +258,11 @@ function _createSite(title, price) {
 }
 
 function _filter(filterBy) {
-    const {
-        name,
-        labels,
-        Amenities,
-        type,
-        maxPrice,
-        minPrice,
-        destination,
-        guests,
-    } = filterBy;
-    const regex = new RegExp(name, 'i');
-    let filteredSites = gSites.filter((site) => {
-        return regex.test(site.name);
-    });
-
-    if (labels && labels.length) {
-        filteredSites = filteredSites.filter((site) => {
-            return labels.some((l) => site.labels.includes(l));
-        });
-    }
-
-    if (Amenities && Amenities.length) {
-        filteredSites = filteredSites.filter((site) => {
-            return Amenities.some((a) => site.amenities.includes(a));
-        });
-    }
-
-    if (type && type.length) {
-        filteredSites = filteredSites.filter((site) => {
-            return type.some((t) => site.type.includes(t));
-        });
-    }
-
-    if (destination && destination.length) {
-        filteredSites = filteredSites.filter(
-            (site) => site.loc.country === destination
-        );
-    }
-
-    if (guests) {
-        filteredSites = filteredSites.filter((site) => site.capacity >= guests);
-    }
-
-    const searchMin = minPrice ? minPrice : 0;
-    filteredSites = filteredSites.filter((site) => {
-        return site.price > searchMin;
-    });
-
-    const searchMax = maxPrice ? maxPrice : Infinity;
-    filteredSites = filteredSites.filter((site) => {
-        return site.price < searchMax;
-    });
+    const { cmpName } = filterBy;
+    // const regex = new RegExp(cmpName, 'i');
+    let filteredSites = gSites
+        .map(({ cmps }) => cmps.filter((cmp) => cmp.type === `site-${cmpName}`))
+        .flat();
 
     return filteredSites;
 }

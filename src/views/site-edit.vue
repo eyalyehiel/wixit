@@ -45,7 +45,7 @@
                 </button>
             </nav>
 
-            <section class="section-select" :class="{ open: isCmpsOpen }">
+            <!-- <section class="section-select" :class="{ open: isCmpsOpen }">
                 <h2 class="title">Section</h2>
                 <span @click="addCmp('site-header')">Header</span>
                 <span @click="addCmp('site-hero')">Hero</span>
@@ -55,6 +55,23 @@
                 <span @click="addCmp('testimonials')">Testimonials</span>
                 <span @click="addCmp('contact')">Contact</span>
                 <span @click="addCmp('video')">Video</span>
+            </section> -->
+
+            <section class="section-select" :class="{ open: isCmpsOpen }">
+                <h2 class="title">Section</h2>
+                <span @click="showCmps('header')">Header</span>
+                <span @click="showCmps('hero')">Hero</span>
+                <span @click="showCmps('section')">Section</span>
+                <span @click="showCmps('gallery')">Gallery</span>
+                <span @click="showCmps('cards')">Cards</span>
+                <span @click="showCmps('testimonials')">Testimonials</span>
+                <span @click="showCmps('contact')">Contact</span>
+                <span @click="showCmps('video')">Video</span>
+            </section>
+
+            <section class="section-select" :class="{ open: isCmpsOpen }">
+                <h2 class="title">Section</h2>
+                <span v-for="cmp in storeSite.filteredCmps">{{ cmp.id }}</span>
             </section>
 
             <section class="cmp-editor" :class="{ open: isColorOpen }">
@@ -102,6 +119,7 @@ import { onMounted, computed, ref, reactive, defineComponent } from "vue"
 import { useRoute } from "vue-router"
 import { siteService } from "../services/site-service.js"
 import { utilService } from "../services/utils-service.js"
+import { useSiteStore } from '../stores/site.js'
 
 const cmpsToShow = {
     "site-header": siteHeader,
@@ -122,16 +140,22 @@ let changeColor = ref(false)
 let displaySize = ref("desktop")
 let colors = ref(utilService.getEditColors())
 
+const storeSite = useSiteStore()
 const route = useRoute()
 
 function toggleDisplaySize(val) {
     displaySize.value = val
 }
 
+async function showCmps(cmpName) {
+    await storeSite.loadFilteredCmps(cmpName)
+    console.log(storeSite.filteredCmps)
+}
+
 onMounted(async () => {
     const { id } = route.params
     siteToEdit.value = id
-        ? await siteService.getById(id)
+        ? await siteService.getSiteById(id)
         : siteService.getEmptySite()
 })
 
