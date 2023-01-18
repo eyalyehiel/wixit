@@ -4,7 +4,7 @@
     grid-template-rows: 56px 1fr;
     height: calc(100vh - 60px);
     transition: all 0.6s;
-
+    background-color: #ddd;
     &.open {
         grid-template-columns: 300px 1fr;
     }
@@ -89,6 +89,7 @@
         // }
     }
     .editor-sidebar {
+        background-color: #fff;
         display: flex;
         .editor-nav {
             width: 71px;
@@ -108,7 +109,7 @@
             width: 0;
             overflow: hidden;
             height: 0;
-            padding-left: 5px;
+            padding-inline: 5px;
             &::-webkit-scrollbar {
                 display: none;
             }
@@ -205,19 +206,19 @@
         }
 
         .drag-area {
-            width: 70%;
-            height: 70%;
+            width: 90%;
+            height: 90%;
             position: absolute;
             top: 50%;
             left: 50%;
             border-radius: 3em;
             transform: translate(-50%, -50%);
-            border: 5px dashed #ddd;
+            border: 3px dashed rgb(188, 188, 188);
             display: grid;
             place-content: center;
             h1 {
                 font-size: 40px;
-                color: #ddd;
+                color: rgb(175, 175, 175);
             }
         }
     }

@@ -33,7 +33,7 @@
                 </p>
                 <button>
                     <img
-                        style="height: 28px"
+                        style="height: 16px"
                         src="../assets/svg/eye.svg"
                         alt=""
                     />
@@ -98,6 +98,7 @@
                 v-for="cmp in siteToEdit.cmps"
                 :is="cmpsToShow[cmp.type]"
                 :cmp="cmp"
+                :class="{'cmp-selected': cmpToEdit?.id === cmp.id}"
                 @click="setCmpToEdit(cmp)"
                 @onSetTxtColor="TxtColor"
                 
@@ -110,13 +111,13 @@
 </template>
 
 <script setup>
-import siteContact from "../components/site-templates/site-contact.vue"
-import siteFooter from "../components/site-templates/site-footer.vue"
 import siteHeader from "../components/site-templates/site-header.vue"
 import siteHero from "../components/site-templates/site-hero.vue"
-import siteImages from "../components/site-templates/site-images.vue"
 import siteSection from "../components/site-templates/site-section.vue"
 import siteCards from "../components/site-templates/site-cards.vue"
+import siteGallery from "../components/site-templates/site-gallery.vue"
+import siteContact from "../components/site-templates/site-contact.vue"
+import siteFooter from "../components/site-templates/site-footer.vue"
 
 import { onMounted, computed, ref, reactive, defineComponent } from "vue"
 import { useRoute } from "vue-router"
@@ -126,17 +127,16 @@ import { utilService } from "../services/utils-service.js"
 const cmpsToShow = {
     "site-header": siteHeader,
     "site-hero": siteHero,
-    "site-footer": siteFooter,
     "site-section": siteSection,
-    "site-contact": siteContact,
-    "site-images": siteImages,
     "site-cards": siteCards,
+    "site-gallery": siteGallery,
+    "site-contact": siteContact,
+    "site-footer": siteFooter,
 }
 
 let siteToEdit = ref(null)
 siteToEdit = ref(siteToEdit)
 let cmpToEdit = ref(null)
-// let computedSite = computed(() => siteToEdit.value)
 let isCmpsOpen = ref(false)
 let isColorOpen = ref(false)
 let changeColor = ref(false)
@@ -168,10 +168,7 @@ function toggleColorPicker() {
 
 function addCmp(type) {
     let newCmp = siteService.getNewCmp(type)
-    // console.log(cmpToEdit);
-    // if(cmpToEdit.value && cmpToEdit.id !== newCmp.id) cmpToEdit.value.style["border"] = ""
-    // cmpToEdit.style["border"] = ""
-    cmpToEdit = newCmp
+    // cmpToEdit = newCmp
     siteToEdit.value.cmps.push(newCmp)
 }
 
@@ -181,19 +178,19 @@ function setColor(val) {
     }else{
         cmpToEdit.style["color"] = val
     }
-    let updatedCmpIdx = siteToEdit.value.cmps.findIndex(
-        (cmp) => cmp.id === cmpToEdit.id
-    )
-    siteToEdit.value.cmps.splice(updatedCmpIdx, 1, cmpToEdit)
+    updateCmp()
 }
 
-function setCmpToEdit(cmp, ev) {
-    
-    if (cmpToEdit.id !== cmp.id) cmpToEdit.style["border"] = ""
 
+function setCmpToEdit(cmp) {
+    // if (cmpToEdit.id !== cmp.id) cmpToEdit.style["border"] = ""
     cmpToEdit = cmp
-    cmpToEdit.style["border"] = "1px solid blue"
-    let updatedCmpIdx = siteToEdit.value.cmps.findIndex(
+    // cmpToEdit.style["border"] = "1px solid blue"
+    updateCmp()
+}
+
+function updateCmp(){
+        let updatedCmpIdx = siteToEdit.value.cmps.findIndex(
         (cmp) => cmp.id === cmpToEdit.id
     )
     siteToEdit.value.cmps.splice(updatedCmpIdx, 1, cmpToEdit)
