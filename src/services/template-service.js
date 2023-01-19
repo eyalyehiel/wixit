@@ -16,7 +16,6 @@ export const templateService = {
 async function query(filterBy = { cmpName: '' }) {
     gTemplates = await storageService.query(KEY);
     let templates = _filter(filterBy);
-    console.log(templates);
     return templates || gTemplates;
 }
 
