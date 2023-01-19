@@ -6,29 +6,31 @@
     }">
         <nav class="editor-header">
             <section class="options">
-                <button>
+                <!-- <button>
                     <img src="../assets/svg/people.svg" alt="" />
-                </button>
-                <button>
+                </button> -->
+                <!-- <button>
                     <img src="../assets/svg/arrow-90deg-left.svg" alt="" />
-                </button>
-                <button>
+                </button> -->
+                <!-- <button>
                     <img src="../assets/svg/arrow-90deg-right.svg" alt="" />
-                </button>
+                </button> -->
                 <button @click="toggleDisplaySize('desktop')">
                     <img src="../assets/svg/display.svg" alt="" />
                 </button>
-                <button @click="toggleDisplaySize('tablet')">
+                <!-- <button @click="toggleDisplaySize('tablet')">
                     <img src="../assets/svg/tablet.svg" alt="" />
-                </button>
+                </button> -->
                 <button @click="toggleDisplaySize('phone')">
                     <img src="../assets/svg/phone.svg" alt="" />
                 </button>
             </section>
-            <section class="publish">
+            <section class="url">
                 <p>
                     http://127.0.0.1:5173/#/site/<span contenteditable="true">HamburgerShop</span>
                 </p>
+            </section>
+            <section class="publish">
                 <button>
                     <img style="height: 16px" src="../assets/svg/eye.svg" alt="" />
                 </button>
