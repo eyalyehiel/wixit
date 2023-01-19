@@ -157,6 +157,7 @@
             height: 0;
             &.open {
                 padding: 5px;
+                padding-top: 15px;
                 height: 100%;
                 flex: 1;
                 overflow: auto;
@@ -172,7 +173,7 @@
                 display: flex;
                 flex-direction: column;
                 gap: 12px;
-                wrapper {
+                .color-wrapper {
                     display: grid;
                     grid-template-columns: repeat(5, 1fr);
                     row-gap: 10px;
