@@ -3,7 +3,7 @@
         <img @click="goToHome" src="../assets/svg/wix-logo.svg.svg" alt="" />
         <!-- <p><span>w</span>ixit</p> -->
         <div class="header-btns">
-            <button>Log In</button>
+            <button @click="goToLogin">Log In</button>
             <button @click="goToTemplate" >Get Started</button>
         </div>
         
@@ -23,6 +23,9 @@ export default {
         },
         goToHome() {
             this.$router.push("/");
+        },
+        goToLogin() {
+            this.$router.push("/login");
         },
     },
     components: {},

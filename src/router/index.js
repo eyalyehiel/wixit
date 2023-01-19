@@ -2,6 +2,7 @@ import { createRouter, createWebHashHistory } from 'vue-router';
 import HomeView from '../views/home-view.vue';
 import siteApp from '../views/site-app.vue';
 import siteEdit from '../views/site-edit.vue'
+import siteLogin from '../components/login.vue'
 // import graphicDesignerHome from '../components/graphic-designer/graphic-designer-home.vue';
 
 
@@ -12,6 +13,11 @@ const router = createRouter({
             path: '/',
             name: 'home',
             component: HomeView,
+        },
+        {
+            path: '/login',
+            name: 'login',
+            component: siteLogin,
         },
         {
             path: '/site',

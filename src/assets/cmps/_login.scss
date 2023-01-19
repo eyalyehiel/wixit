@@ -1,0 +1,20 @@
+.main-login-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .main-txt {
+        color: #20303c;
+        h2 {
+            font-size: 56px;
+        }
+        h1 {
+            font-size: 18px;
+            font-weight: 400;
+        }
+        span {
+            color: #116dff;
+            cursor: pointer;
+            
+        }
+    }
+}
