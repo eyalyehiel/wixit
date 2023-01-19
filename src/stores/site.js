@@ -1,6 +1,7 @@
 import { ref, computed } from 'vue';
 import { defineStore } from 'pinia';
 import { siteService } from '../services/site-service';
+import { utilService } from '../services/utils-service';
 
 export const useSiteStore = defineStore('sites', () => {
     const sites = ref(null);
@@ -20,6 +21,7 @@ export const useSiteStore = defineStore('sites', () => {
 
     async function addCmp(cmp) {
         // await siteService.addCmp(cmp);
+        cmp._id = utilService.makeId();
         site.value.cmps.push(cmp);
     }
 

@@ -4,7 +4,6 @@
         "name": "Cafe Baluta",
         "background": "https://res.cloudinary.com/dirvusyaz/image/upload/v1674070871/coffe_har7o3.png",
         "imgUrls": [],
-        "type": 2,
         "createdBy": {
             "_id": "",
             "fullname": "",
@@ -12,7 +11,6 @@
         },
         "cmps": [
             {
-                "id": "123617823",
                 "type": "site-header",
                 "info": {
                     "title": "Cafe Baluta",
@@ -31,7 +29,6 @@
                 }
             },
             {
-                "id": "wc03",
                 "type": "site-hero",
                 "info": {
                     "title": "Start your day with a black Coffee",
@@ -46,7 +43,6 @@
                 }
             },
             {
-                "id": "wc04",
                 "type": "site-section",
                 "info": {
                     "title": "Coffee & Cakes",
@@ -66,7 +62,6 @@
                 }
             },
             {
-                "id": "wc05",
                 "type": "site-footer",
                 "info": {
                     "title": "COFFEE",
@@ -94,7 +89,6 @@
         },
         "cmps": [
             {
-                "id": "asdas12312",
                 "type": "site-header",
                 "info": {
                     "title": "AUTONO",
@@ -113,7 +107,6 @@
                 }
             },
             {
-                "id": "wc03",
                 "type": "site-hero",
                 "info": {
                     "title": "THE FUTURE OF  MOBILITY IS HERE",
@@ -128,7 +121,6 @@
                 }
             },
             {
-                "id": "wc04",
                 "type": "site-section",
                 "info": {
                     "title": "VISION",
@@ -147,7 +139,6 @@
                 }
             },
             {
-                "id": "wc05",
                 "type": "site-footer",
                 "info": {
                     "title": "COFFEE",
@@ -176,7 +167,6 @@
         },
         "cmps": [
             {
-                "id": "1344356341q2",
                 "type": "site-header",
                 "info": {
                     "title": "Ponto Pet",
@@ -195,7 +185,6 @@
                 }
             },
             {
-                "id": "wc03",
                 "type": "site-hero",
                 "info": {
                     "title": "The Best Pet Groomers in Town ",
@@ -211,7 +200,6 @@
                 }
             },
             {
-                "id": "wc04",
                 "type": "site-section",
                 "info": {
                     "title": "Coffee & Cakes",
@@ -230,7 +218,6 @@
                 }
             },
             {
-                "id": "wc05",
                 "type": "site-footer",
                 "info": {
                     "title": "COFFEE",
@@ -257,7 +244,6 @@
         },
         "cmps": [
             {
-                "id": "325435631",
                 "type": "site-header",
                 "info": {
                     "title": "HairDresser Baluta",
@@ -275,7 +261,6 @@
                 }
             },
             {
-                "id": "wc03",
                 "type": "site-hero",
                 "info": {
                     "title": "Unique Craft Cafe in NYC",
@@ -290,7 +275,6 @@
                 }
             },
             {
-                "id": "wc04",
                 "type": "site-section",
                 "info": {
                     "title": "Coffee & Cakes",
@@ -309,7 +293,6 @@
                 }
             },
             {
-                "id": "wc05",
                 "type": "site-footer",
                 "info": {
                     "title": "COFFEE",
