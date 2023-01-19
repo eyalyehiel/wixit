@@ -1,7 +1,7 @@
 .site-edit {
     display: grid;
     grid-template-columns: 71px 1fr;
-    grid-template-rows: 56px 1fr;
+    grid-template-rows: 44px 1fr;
     height: calc(100vh - 60px);
     transition: all 0.6s;
     background-color: #ddd;
@@ -22,27 +22,27 @@
     .editor-header {
         grid-column: span 2;
         display: flex;
-        flex-wrap: wrap;
-        // align-items: center;
-        justify-content: space-between;
         border-bottom: 1px solid #eee;
-        // height: 56px;
         background-color: #fff;
-        padding-inline: 20px;
 
         @media (max-width: 1098px) {
             height: 112px;
             justify-content: center;
         }
 
+        > *:not(:last-child) {
+            border-right: 1px solid rgba(217, 225, 232, 0.6);
+        }
+
         .options {
-            // height: 100%;
             align-items: center;
             display: flex;
             gap: 24px;
+
             @media (max-width: 600px) {
                 gap: 0;
             }
+
             button {
                 border-radius: 5em;
                 display: grid;
@@ -57,6 +57,21 @@
                 }
             }
         }
+        .url {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            p {
+                font-size: em(14px, 16px);
+                padding: 7px 18px;
+                border-radius: 30px;
+                width: 98%;
+                background-color: #f7f8f8;
+            }
+        }
+
         .publish {
             display: flex;
             gap: 24px;
