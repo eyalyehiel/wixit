@@ -9,12 +9,6 @@
                 <!-- <button>
                     <img src="../assets/svg/people.svg" alt="" />
                 </button> -->
-                <!-- <button>
-                    <img src="../assets/svg/arrow-90deg-left.svg" alt="" />
-                </button> -->
-                <!-- <button>
-                    <img src="../assets/svg/arrow-90deg-right.svg" alt="" />
-                </button> -->
                 <button @click="toggleDisplaySize('desktop')">
                     <img src="../assets/svg/display.svg" alt="" />
                 </button>
@@ -29,6 +23,14 @@
                 <p>
                     http://127.0.0.1:5173/#/site/<span contenteditable="true">HamburgerShop</span>
                 </p>
+            </section>
+            <section class="actions">
+                <button>
+                    <img src="../assets/svg/arrow-90deg-left.svg" alt="" />
+                </button>
+                <button>
+                    <img src="../assets/svg/arrow-90deg-right.svg" alt="" />
+                </button>
             </section>
             <section class="publish">
                 <button>

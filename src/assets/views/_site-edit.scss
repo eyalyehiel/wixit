@@ -37,23 +37,28 @@
         .options {
             align-items: center;
             display: flex;
-            gap: 24px;
+            gap: 3px;
+            padding: 5px;
 
             @media (max-width: 600px) {
                 gap: 0;
             }
 
             button {
-                border-radius: 5em;
+                border-radius: 5px;
+                padding: 5px;
                 display: grid;
                 place-content: center;
                 height: 100%;
                 img {
                     height: 28px;
-                    padding-inline: 14px;
+                    // padding-inline: 14px;
                 }
                 &:hover {
                     box-shadow: 0 0 2px 1px #ddd;
+                    img {
+                        fill: #116dff;
+                    }
                 }
             }
         }
@@ -105,10 +110,13 @@
                 }
             }
         }
-        // .gap {
-        //     display: flex;
-        //     gap: 16px;
-        // }
+        .actions {
+            padding: 10px;
+            display: flex;
+            button {
+                padding: 10px;
+            }
+        }
     }
     .editor-sidebar {
         background-color: #fff;
