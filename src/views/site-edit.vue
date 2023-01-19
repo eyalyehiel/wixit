@@ -85,10 +85,10 @@
 
                 <section class="color-picker">
                     <h1>BACKGROUND COLOR</h1>
-                    <wrapper class="color-wrapper">
+                    <section class="color-wrapper">
                         <section v-for="color in colors" @click="setColor(color)" :style="{ 'background-color': color }"
                             :key="color"></section>
-                    </wrapper>
+                    </section>
                     <!-- <section
                             :style="{ 'background-color': color }"
                             :value="color"
