@@ -1,5 +1,5 @@
 <template>
-    <section v-if="siteToEdit" class="site-edit" :class="{
+    <section v-if="siteStore.siteToShow" class="site-edit" :class="{
         'colors-open': isColorOpen,
         'cmps-open': isCmpsOpen,
         'templates-open': isTemplatesOpen,
@@ -74,7 +74,7 @@
             </section>
             <section class="section-select section-templates" :class="{ open: isTemplatesOpen }">
                 <!-- <h2 class="title">Choose </h2> -->
-                <span v-for="cmp in templateStore.filteredCmps">{{ cmp.id }}</span>
+                <span v-for="cmp in templateStore.filteredCmps" @click="onAddCmp(cmp)">{{ cmp.type }}</span>
             </section>
 
             <section class="cmp-editor" :class="{ open: isColorOpen }">
@@ -104,9 +104,9 @@
         </section>
 
         <section class="site-display" :class="displaySize">
-            <component v-if="siteToEdit.cmps.length" v-for="cmp in siteToEdit.cmps" :is="cmpsToShow[cmp.type]"
-                :cmp="cmp" :class="{ 'cmp-selected': cmpToEdit?.id === cmp.id }" @click="setCmpToEdit(cmp)"
-                @onSetTxtColor="TxtColor" @onChangeText="changeText" />
+            <component v-if="siteStore.siteToShow?.cmps?.length" v-for="cmp in siteStore.siteToShow.cmps"
+                :is="cmpsToShow[cmp.type]" :cmp="cmp" :class="{ 'cmp-selected': cmpToEdit?.id === cmp.id }"
+                @click="setCmpToEdit(cmp)" @onSetTxtColor="TxtColor" @onChangeText="changeText" />
             <section v-else class="drag-area">
                 <h1>Place Element Here</h1>
             </section>
@@ -123,11 +123,11 @@ import siteGallery from "../components/site-templates/site-gallery.vue"
 import siteContact from "../components/site-templates/site-contact.vue"
 import siteFooter from "../components/site-templates/site-footer.vue"
 
-import { onMounted, computed, ref, reactive, defineComponent } from "vue"
+import { onMounted, ref } from "vue"
 import { useRoute } from "vue-router"
-import { siteService } from "../services/site-service.js"
 import { utilService } from "../services/utils-service.js"
 import { useTemplateStore } from "../stores/template.js"
+import { useSiteStore } from "../stores/site.js"
 
 const cmpsToShow = {
     "site-header": siteHeader,
@@ -139,8 +139,6 @@ const cmpsToShow = {
     "site-footer": siteFooter,
 }
 
-let siteToEdit = ref(null)
-siteToEdit = ref(siteToEdit)
 let cmpToEdit = ref(null)
 let isCmpsOpen = ref(false)
 let isTemplatesOpen = ref(false)
@@ -150,6 +148,7 @@ let displaySize = ref("desktop")
 let colors = ref(utilService.getEditColors())
 
 const templateStore = useTemplateStore()
+const siteStore = useSiteStore()
 const route = useRoute()
 
 function toggleDisplaySize(val) {
@@ -159,14 +158,14 @@ function toggleDisplaySize(val) {
 async function showCmps(cmpName) {
     await templateStore.loadFilteredCmps(cmpName)
     isTemplatesOpen.value = !isTemplatesOpen.value
-    console.log(templateStore.filteredCmps)
 }
 
 onMounted(async () => {
     const { id } = route.params
-    siteToEdit.value = id
+    let site = id
         ? await templateStore.getById(id)
         : templateStore.getEmptySite()
+    siteStore.setSite(site)
 })
 
 function toggleMenu() {
@@ -183,9 +182,8 @@ function toggleColorPicker() {
     }
 }
 
-function addCmp(type) {
-    let newCmp = siteService.getNewCmp(type)
-    siteToEdit.value.cmps.push(newCmp)
+function onAddCmp(cmp) {
+    siteStore.addCmp(cmp)
 }
 
 function changeText(text, key) {
@@ -204,7 +202,6 @@ function setColor(val) {
 function setCmpToEdit(cmp) {
     cmpToEdit = cmp
     updateCmp()
-    console.log("cmpToEdit", cmpToEdit)
 }
 
 function updateCmp() {

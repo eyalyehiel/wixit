@@ -57,7 +57,7 @@ function _filter(filterBy) {
     if (cmpName) {
         return gTemplates
             .map(({ cmps }) =>
-                cmps.filter((cmp) => cmp.type === `template-${cmpName}`)
+                cmps.filter((cmp) => cmp.type === `site-${cmpName}`)
             )
             .flat();
     }
