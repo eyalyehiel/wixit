@@ -2,7 +2,7 @@
     <section v-if="siteStore.siteToShow" class="site-edit" :class="{
         'colors-open': isColorOpen,
         'cmps-open': isCmpsOpen,
-        'templates-open': isTemplatesOpen,
+        'templates-open': isTemplatesOpen
     }">
         <nav class="editor-header">
             <section class="options">

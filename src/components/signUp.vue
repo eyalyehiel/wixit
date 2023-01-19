@@ -1,14 +1,16 @@
 <template>
-    <main class="main-login-container">
+    <main class="main-signUp-container">
         <div class="main-txt">
-            <h2>Log In</h2>
-            <h1>Don't have an account? <span @click="openSignUp()" >Sign Up</span></h1>
+            <h2>Sign Up</h2>
+            <h1>Already have an account? <span>Log In</span></h1>
         </div>
 
         <section class="signin-section">
             <div class="signin-with-email">
                 <input type="email" placeholder="email" />
-                <button>Continue with Email</button>
+                <input type="email" placeholder="UserName" />
+                <input type="Password" placeholder="Password" />
+                <button>Sign Up</button>
             </div>
 
             <div class="divider-container">
@@ -33,18 +35,14 @@
                     <span>Continue with Facebook</span>
                 </button>
 
-                <button>
-                    <div class="buttonIcon last">
-                        <img src="../assets/svg/apple-logo.svg" alt="" />
-                    </div>
-                    <span>Continue with Apple</span>
-                </button>
+                
             </div>
         </section>
     </main>
 </template>
 
 <script>
+
 import { inject } from 'vue';
 
 export default {
@@ -70,9 +68,6 @@ export default {
                 return null;
             }
         },
-        openSignUp(){
-            this.$router.push("/signup");
-        }
     },
     components: {},
 };

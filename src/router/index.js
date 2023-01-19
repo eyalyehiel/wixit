@@ -3,6 +3,7 @@ import HomeView from '../views/home-view.vue';
 import siteApp from '../views/site-app.vue';
 import siteEdit from '../views/site-edit.vue'
 import siteLogin from '../components/login.vue'
+import siteSignup from '../components/signUp.vue'
 // import graphicDesignerHome from '../components/graphic-designer/graphic-designer-home.vue';
 
 
@@ -18,6 +19,11 @@ const router = createRouter({
             path: '/login',
             name: 'login',
             component: siteLogin,
+        },
+        {
+            path: '/signup',
+            name: 'signup',
+            component: siteSignup,
         },
         {
             path: '/site',
