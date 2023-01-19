@@ -1,16 +1,17 @@
 import { ref, computed } from 'vue';
 import { defineStore } from 'pinia';
 import { siteService } from '../services/site-service';
+import { utilService } from '../services/utils-service';
 
 export const useSiteStore = defineStore('sites', () => {
     const sites = ref(null);
-    const filteredCmps = ref(null);
+    const site = ref(null);
 
-    async function loadFilteredCmps(cmpName) {
-        filteredCmps.value = await siteService.query({ cmpName });
+    function setSite(newSite) {
+        site.value = newSite;
     }
 
-    async function loadTemplates() {
+    async function loadSites() {
         sites.value = await siteService.query();
     }
 
@@ -18,28 +19,28 @@ export const useSiteStore = defineStore('sites', () => {
         return { ...(await siteService.getById(id)) };
     }
 
-    async function addCmp(type) {
-        let newCmp = siteService.getNewCmp(type);
-        await siteService.addCmp(newCmp);
-        // sites.value.push(siteService.addCmp);
+    async function addCmp(cmp) {
+        // await siteService.addCmp(cmp);
+        cmp._id = utilService.makeId();
+        site.value.cmps.push(cmp);
     }
 
     async function removeCmp(id) {
-        await siteService.remove(id);
-        const idx = sites.value.findIndex(({ cmps }) => cmps.find());
-        sites.value.push(siteService.addCmp);
+        // await siteService.remove(id);
+        const idx = site.value.cmps.findIndex((cmp) => cmp.id === id);
+        sites.value.splice(idx, 1);
     }
 
-    const siteToShow = computed(() => sites);
+    const siteToShow = computed(() => site.value);
 
     return {
         sites,
-        filteredCmps,
-        loadTemplates,
-        loadFilteredCmps,
+        site,
+        loadSites,
         addCmp,
         removeCmp,
-        siteToShow,
         getById,
+        setSite,
+        siteToShow,
     };
 });

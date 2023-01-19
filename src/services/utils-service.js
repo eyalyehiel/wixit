@@ -209,5 +209,6 @@ function getEditColors() {
         "#ef032a",
         "#263140",
         "#faebd7",
+        "#ffffff",
     ]
 }

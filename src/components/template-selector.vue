@@ -1,22 +1,23 @@
 <template>
     <h2>Choose a template for your website</h2>
-    <section v-if="storeSite.sites" class="template-selector">
+    <section v-if="templateStore.templates" class="template-selector">
         <article>
             <section class="article-cover" style="background-color: antiquewhite;">
                 <div>
-                    <button class="edit-btn" @click="createSite()">Edit</button>
+                    <button class="edit-btn" @click="() => router.push(`site/edit`)">Edit</button>
                 </div>
             </section>
             Empty
         </article>
-        <article v-for="site in storeSite.siteToShow.value" :style="{'background-image': `url( ${site.background})`}">
+        <article v-for="template in templateStore.templateToShow.value"
+            :style="{ 'background-image': `url( ${template.background})` }">
             <section class="article-cover">
                 <div>
-                    <button @click="() => router.push(`site/${site._id}`)" class="preview-btn">Preview</button>
-                    <button @click="() => router.push(`site/edit/${site._id}`)" class="edit-btn">Edit</button>
+                    <button @click="() => router.push(`site/${template._id}`)" class="preview-btn">Preview</button>
+                    <button @click="() => router.push(`site/edit/${template._id}`)" class="edit-btn">Edit</button>
                 </div>
             </section>
-            {{ site.name || 'coffee shop' }}
+            {{ template.name || 'coffee shop' }}
         </article>
     </section>
 </template>
@@ -25,23 +26,13 @@
 import { onMounted } from "vue"
 import { useRouter } from 'vue-router'
 import { siteService } from "../services/site-service.js"
-import { useSiteStore } from '../stores/site.js'
+import { useTemplateStore } from '../stores/template.js'
 
 const router = useRouter()
 
-const storeSite = useSiteStore()
+const templateStore = useTemplateStore()
 
 onMounted(() => {
-    storeSite.loadTemplates()
+    templateStore.loadTemplates()
 })
-
-async function createSite() {
-    try {
-        let newSite = siteService.getEmptySite()
-        newSite = await siteService.save(newSite)
-        router.push({ name: 'edit', query: { id: newSite._id } })
-    } catch (err) {
-        console.log('cannot create site', err)
-    }
-}
 </script>
