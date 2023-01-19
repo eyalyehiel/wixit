@@ -1,7 +1,6 @@
 <template>
-    <header class="graphic-designer-header" :style="cmp.style">
-        <div>
-
+    <header class="graphic-designer-header" :style="cmp.style" >
+        <div class="logo-title">
             <img :src="cmp.style.logo " alt="">
             <h1 contenteditable @input="changeText($event, 'title')" @click="setTxtColor($event)">{{ cmp.info.title }}</h1>
         </div>

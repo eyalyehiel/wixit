@@ -24,6 +24,7 @@
                 },
                 "theme": "theme-header-happy",
                 "style": {
+                    "logo": "/src/assets/imgs/coffe.png",
                     "background": "url()",
                     "font": "Fontush",
                     "color": "#fff",

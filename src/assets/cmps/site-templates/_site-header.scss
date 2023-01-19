@@ -13,7 +13,16 @@
             font-weight: 600;
             background-color: transparent;
         }
-    }  
+    }
+    .logo-title {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img {
+            height: 50px;
+        }
+        
+    }
     .menu-btn {
         display: none;
         @include btn(20px, 5px);
@@ -36,7 +45,8 @@
                 background: transparent;
 
                 &:before {
-                    transform: rotateZ(45deg) scaleX(1.25) translate(6.5px, 6.5px);
+                    transform: rotateZ(45deg) scaleX(1.25)
+                        translate(6.5px, 6.5px);
                 }
 
                 &:after {
@@ -48,14 +58,12 @@
             cursor: pointer;
         }
     }
-    @media(max-width: 400px){
-            nav{
-                display: none;
-            }
-            .menu-btn{
-                display: block;
-            }
-        
+    @media (max-width: 400px) {
+        nav {
+            display: none;
+        }
+        .menu-btn {
+            display: block;
+        }
     }
 }
-
