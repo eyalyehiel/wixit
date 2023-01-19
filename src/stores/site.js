@@ -8,6 +8,7 @@ export const useSiteStore = defineStore('sites', () => {
     const site = ref(null);
 
     function setSite(newSite) {
+        newSite.cmps.forEach((cmp) => (cmp._id = utilService.makeId()));
         site.value = newSite;
     }
 
@@ -19,16 +20,19 @@ export const useSiteStore = defineStore('sites', () => {
         return { ...(await siteService.getById(id)) };
     }
 
-    async function addCmp(cmp) {
-        // await siteService.addCmp(cmp);
+    function addCmp(cmp) {
         cmp._id = utilService.makeId();
         site.value.cmps.push(cmp);
     }
 
-    async function removeCmp(id) {
-        // await siteService.remove(id);
+    function updateCmp(cmp) {
+        const idx = site.value.cmps.findIndex(({ _id }) => _id === cmp._id);
+        site.value.cmps.splice(idx, 1, cmp);
+    }
+
+    function removeCmp(id) {
         const idx = site.value.cmps.findIndex((cmp) => cmp.id === id);
-        sites.value.splice(idx, 1);
+        site.value.cmps.splice(idx, 1);
     }
 
     const siteToShow = computed(() => site.value);
@@ -39,6 +43,7 @@ export const useSiteStore = defineStore('sites', () => {
         loadSites,
         addCmp,
         removeCmp,
+        updateCmp,
         getById,
         setSite,
         siteToShow,

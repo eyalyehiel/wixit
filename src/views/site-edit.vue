@@ -105,7 +105,7 @@
 
         <section class="site-display" :class="displaySize">
             <component v-if="siteStore.siteToShow?.cmps?.length" v-for="cmp in siteStore.siteToShow.cmps"
-                :is="cmpsToShow[cmp.type]" :cmp="cmp" :class="{ 'cmp-selected': cmpToEdit?.id === cmp.id }"
+                :is="cmpsToShow[cmp.type]" :cmp="cmp" :class="{ 'cmp-selected': cmpToEdit?._id === cmp._id }"
                 @click="setCmpToEdit(cmp)" @onSetTxtColor="TxtColor" @onChangeText="changeText" />
             <section v-else class="drag-area">
                 <h1>Place Element Here</h1>
@@ -151,15 +151,6 @@ const templateStore = useTemplateStore()
 const siteStore = useSiteStore()
 const route = useRoute()
 
-function toggleDisplaySize(val) {
-    displaySize.value = val
-}
-
-async function showCmps(cmpName) {
-    await templateStore.loadFilteredCmps(cmpName)
-    isTemplatesOpen.value = !isTemplatesOpen.value
-}
-
 onMounted(async () => {
     const { id } = route.params
     let site = id
@@ -167,6 +158,17 @@ onMounted(async () => {
         : templateStore.getEmptySite()
     siteStore.setSite(site)
 })
+
+function toggleDisplaySize(val) {
+    displaySize.value = val
+}
+
+async function showCmps(cmpName) {
+    await templateStore.loadFilteredCmps(cmpName)
+    if (isTemplatesOpen.value) return templateStore.loadFilteredCmps(cmpName)
+    isTemplatesOpen.value = !isTemplatesOpen.value
+}
+
 
 function toggleMenu() {
     isCmpsOpen.value = !isCmpsOpen.value
@@ -176,18 +178,20 @@ function toggleMenu() {
 
 function toggleColorPicker() {
     isColorOpen.value = !isColorOpen.value
-    if (isColorOpen.value) {
-        isCmpsOpen.value = false
-        isTemplatesOpen.value = false
-    }
+    if (!isColorOpen.value) return cmpToEdit.value = null
+    isCmpsOpen.value = false
+    isTemplatesOpen.value = false
+
 }
 
 function onAddCmp(cmp) {
     siteStore.addCmp(cmp)
 }
 
-function changeText(text, key) {
-    cmpToEdit.info[key] = text
+function changeText(text, key, idx) {
+    (typeof (cmpToEdit.value.info[key]) === Array)
+        ? cmpToEdit.value.info[key][idx] = text
+        : cmpToEdit.value.info[key] = text
 }
 
 function setColor(val) {
@@ -196,19 +200,17 @@ function setColor(val) {
     } else {
         cmpToEdit.style["color"] = val
     }
-    updateCmp()
+    // updateCmp()
 }
 
 function setCmpToEdit(cmp) {
-    cmpToEdit = cmp
-    updateCmp()
+    cmpToEdit.value = cmp
+    if (isColorOpen.value) return
+    toggleColorPicker()
 }
 
 function updateCmp() {
-    let updatedCmpIdx = siteToEdit.value.cmps.findIndex(
-        (cmp) => cmp.id === cmpToEdit.id
-    )
-    siteToEdit.value.cmps.splice(updatedCmpIdx, 1, cmpToEdit)
+    siteStore.updateCmp(cmpToEdit.value)
 }
 
 function TxtColor(el) {
