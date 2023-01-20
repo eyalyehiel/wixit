@@ -250,6 +250,12 @@
         //     }
         // }
 
+        > *:hover {
+            background-color: #6e56f91c !important;
+            box-shadow: inset 3px 3px 0 0 #6e56f961,
+                inset -3px -3px 0 0 #6e56f961;
+        }
+
         &::-webkit-scrollbar {
             display: none;
         }
