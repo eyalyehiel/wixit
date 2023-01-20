@@ -2,11 +2,11 @@
     <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 29 29"
-        class="symbol symbol-redo_NewWorkspace btn-symbol"
+        class="symbol symbol-undo_NewWorkspace btn-symbol"
     >
         <path
             fill="currentColor"
-            d="M15 11h7.17l-3-3.33.72-.67L24 11.51 19.89 16l-.74-.68L22.2 12H15a5 5 0 000 10h2v1h-2a6 6 0 110-12z"
+            d="M14 11H6.83l3-3.33L9.11 7 5 11.51 9.11 16l.74-.68L6.8 12H14a5 5 0 010 10h-2v1h2a6 6 0 100-12z"
         />
     </svg>
 </template>

@@ -28,14 +28,17 @@
                     http://127.0.0.1:5173/#/site/<span contenteditable="true"
                         >HamburgerShop</span
                     >
+                    <tooltip :text="'Change the name of your site'" />
                 </p>
             </section>
             <section class="actions">
                 <button>
                     <redoBtn class="action-btn" />
+                    <tooltip :text="'Undo'" />
                 </button>
                 <button>
                     <undoBtn class="action-btn" />
+                    <tooltip :text="'Redo'" />
                 </button>
             </section>
             <section class="publish">
@@ -133,8 +136,8 @@ import siteGallery from "../components/site-templates/site-gallery.vue"
 import siteContact from "../components/site-templates/site-contact.vue"
 import siteFooter from "../components/site-templates/site-footer.vue"
 import tooltip from "../components/tooltip.vue"
-import redoBtn from "../assets/svg/redo.vue"
-import undoBtn from "../assets/svg/undo.vue"
+import undoBtn from "../assets/svg/redo.vue"
+import redoBtn from "../assets/svg/undo.vue"
 import desktopBtn from "../assets/svg/desktop.vue"
 import phoneBtn from "../assets/svg/phone.vue"
 import plusBtn from '../assets/svg/plus.vue'
