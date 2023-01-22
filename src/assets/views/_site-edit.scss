@@ -1,25 +1,22 @@
 .site-edit {
     display: grid;
-    grid-template-columns: 71px 1fr;
+    grid-template-columns: auto 1fr;
     grid-template-rows: 44px 1fr;
     height: calc(100vh - 60px);
     transition: all 0.6s;
     background-color: #ddd;
-    &.cmp-editor-open {
-        grid-template-columns: 300px 1fr;
-    }
-    &.cmps-open {
-        grid-template-columns: 221px 1fr;
+    // &.cmps-open {
+    //     grid-template-columns: 221px 1fr;
 
-        &.templates-open {
-            grid-template-columns: 475px 1fr;
-        }
-    }
+    //     &.templates-open {
+    //         grid-template-columns: 475px 1fr;
+    //     }
+    // }
 
     @media (max-width: 1098px) {
         grid-template-rows: 44px 1fr;
     }
-    
+
     .editor-header {
         grid-column: span 2;
         display: flex;
@@ -71,7 +68,7 @@
             align-items: center;
             justify-content: center;
 
-            @media (max-width: 880px){
+            @media (max-width: 880px) {
                 display: none;
             }
             p {
@@ -170,15 +167,21 @@
     .editor-sidebar {
         background-color: #fff;
         display: flex;
+        box-shadow: 1px 1px 0 0 black;
+        > * {
+            transition: width 0.5s;
+        }
+
         .editor-nav {
-            width: 71px;
+            width: 60px;
             display: flex;
             flex-direction: column;
             border-right: 1px solid #eee;
+            padding-block: 15px;
 
             button {
                 position: relative;
-                padding: 16px;
+                padding-inline: 9px;
                 .plus-btn {
                     width: 28px;
                     height: 28px;
@@ -252,11 +255,12 @@
             overflow: hidden;
             gap: 20px;
             height: 0;
+
             &.open {
                 padding: 5px;
                 padding-top: 15px;
                 height: 100%;
-                flex: 1;
+                width: 300px;
                 overflow: auto;
             }
             .title {
@@ -325,7 +329,8 @@
         // }
         > *:hover {
             background-color: #6e56f91c !important;
-            box-shadow: inset 3px 3px 0 0 #6e56f961, inset -3px -3px 0 0 #6e56f961;
+            box-shadow: inset 3px 3px 0 0 #6e56f961,
+                inset -3px -3px 0 0 #6e56f961;
         }
 
         &::-webkit-scrollbar {
