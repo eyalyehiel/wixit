@@ -2,7 +2,10 @@
     <main class="main-login-container">
         <div class="main-txt">
             <h2>Log In</h2>
-            <h1>Don't have an account? <span @click="openSignUp()" >Sign Up</span></h1>
+            <h1>
+                Don't have an account?
+                <span @click="openSignUp()">Sign Up</span>
+            </h1>
         </div>
 
         <section class="signin-section">
@@ -19,6 +22,7 @@
 
             <div class="social-signin">
                 <!-- <h1>is initialize:{{ Vue3GoogleOauth.isInit }}</h1> -->
+                <!-- <h1>is initialize:{{ Vue3GoogleOauth }}</h1> -->
                 <button @click="signIn()">
                     <div class="buttonIcon">
                         <img src="../assets/svg/google-logo.svg" alt="" />
@@ -26,7 +30,7 @@
                     <span>Continue with Google</span>
                 </button>
 
-                <button>
+                <button @click="loginWithFacebook()">
                     <div class="buttonIcon">
                         <img src="../assets/svg/facebook-logo.svg" alt="" />
                     </div>
@@ -45,7 +49,9 @@
 </template>
 
 <script>
-import { inject } from 'vue';
+import { initFbsdk } from "../services/facebook_oAuth.js";
+import { inject } from "vue";
+import axios from "axios";
 
 export default {
     props: {},
@@ -54,9 +60,12 @@ export default {
     },
     setup() {
         const Vue3GoogleOauth = inject("Vue3GoogleOauth");
-        return{
-            Vue3GoogleOauth
-        }
+        return {
+            Vue3GoogleOauth,
+        };
+    },
+    mounted() {
+        initFbsdk();
     },
     created() {},
     methods: {
@@ -70,9 +79,27 @@ export default {
                 return null;
             }
         },
-        openSignUp(){
+        openSignUp() {
             this.$router.push("/signup");
-        }
+        },
+       
+        async loginWithFacebook() {
+            console.log("hey");
+            try {
+                const { authResponse } = await new Promise(FB.login);
+                if (!authResponse) return router.push({ path: "/" });
+
+                const accessToken = authResponse.accessToken;
+                const response = await axios.facebookAuth(accessToken);
+
+                console.log('response',response )
+                // localStorage.setItem("token", response.token);
+                // localStorage.setItem("refreshToken", response.refreshToken);
+                // localStorage.setItem("user", response.User._id);
+            } catch (error) {
+                console.log(error);
+            }
+        },
     },
     components: {},
 };
