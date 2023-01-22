@@ -1,51 +1,13 @@
 <template>
-    <<<<<<< HEAD <!-- :class="{
+    <!-- :class="{
         'cmp-editor-open': isCmpEditorOpen,
         'cmps-open': isCmpsOpen,
         'templates-open': isTemplatesOpen,
     }" -->
-        <section v-if="siteStore.siteToShow" class="site-edit">
-            <site-edit-header @onChangeDisplay="toggleDisplaySize" />
-            =======
-            <section v-if="siteStore.siteToShow" class="site-edit" :class="{
-                'cmp-editor-open': isCmpEditorOpen,
-                'cmps-open': isCmpsOpen,
-                'templates-open': isTemplatesOpen,
-            }">
-                <nav class="editor-header">
-                    <section class="options">
-                        <button :class="{ selected: displaySize === 'desktop' }" @click="toggleDisplaySize('desktop')">
-                            <desktopBtn class="action-btn" />
-                        </button>
-                        <button :class="{ selected: displaySize === 'phone' }" @click="toggleDisplaySize('phone')">
-                            <phoneBtn class="action-btn" />
-                        </button>
-                    </section>
-                    <section class="url">
-                        <p>
-                            http://127.0.0.1:5173/#/site/<span contenteditable="true">HamburgerShop</span>
-                            <tooltip :text="'Change the name of your site'" />
-                        </p>
-                    </section>
-                    <section class="actions">
-                        <button>
-                            <redoBtn class="action-btn" />
-                            <tooltip :text="'Undo'" />
-                        </button>
-                        <button>
-                            <undoBtn class="action-btn" />
-                            <tooltip :text="'Redo'" />
-                        </button>
-                        <button @click="toggleScale" class="scaling">100%</button>
-                    </section>
-                    <section class="publish">
-                        <button>Preview</button>
-                        <button>Publish</button>
-                    </section>
-                </nav>
-                >>>>>>> 4aeda3835f60601c91123905b07ca852fcc111a0
+    <section v-if="siteStore.siteToShow" class="site-edit">
+        <site-edit-header @onChangeDisplay="toggleDisplaySize" />
 
-                <!-- <section class="editor-sidebar">
+        <!-- <section class="editor-sidebar">
             <nav class="editor-nav">
                 <button @click="toggleMenu()">
                     <img src="../assets/svg/plus-lg.svg" alt="" />
@@ -116,20 +78,20 @@
             </section>
         </section> -->
 
-                <site-edit-sidebar :cmpEditorOpen="cmpEditorOpen" @onToggleCmpEditor="toggleCmpEditor"
-                    @onToggleMenu="toggleMenu" @onAddCmp="addCmp" />
+        <site-edit-sidebar :cmpEditorOpen="cmpEditorOpen" @onToggleCmpEditor="toggleCmpEditor"
+            @onToggleMenu="toggleMenu" @onAddCmp="addCmp" />
 
-                <section class="site-display" :class="displaySize">
-                    <component v-if="siteStore.siteToShow?.cmps?.length" v-for="cmp in siteStore.siteToShow.cmps"
-                        :is="cmpsToShow[cmp.type]" :cmp="cmp" :class="{ 'cmp-selected': cmpToEdit?._id === cmp._id }"
-                        @click="setCmpToEdit(cmp)" @editElement="editElement" @onSetTxtColor="TxtColor"
-                        @onChangeText="changeText">
-                    </component>
-                    <section v-else class="drag-area">
-                        <h1>Place Element Here</h1>
-                    </section>
-                </section>
+        <section class="site-display" :class="displaySize">
+            <component v-if="siteStore.siteToShow?.cmps?.length" v-for="cmp in siteStore.siteToShow.cmps"
+                :is="cmpsToShow[cmp.type]" :cmp="cmp" :class="{ 'cmp-selected': cmpToEdit?._id === cmp._id }"
+                @click="setCmpToEdit(cmp)" @editElement="editElement" @onSetTxtColor="TxtColor"
+                @onChangeText="changeText">
+            </component>
+            <section v-else class="drag-area">
+                <h1>Place Element Here</h1>
             </section>
+        </section>
+    </section>
 </template>
 
 <script setup>
