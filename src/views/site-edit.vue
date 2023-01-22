@@ -3,7 +3,7 @@
         v-if="siteStore.siteToShow"
         class="site-edit"
         :class="{
-            'colors-open': isColorOpen,
+            'cmp-editor-open': isCmpEditorOpen,
             'cmps-open': isCmpsOpen,
             'templates-open': isTemplatesOpen,
         }"
@@ -55,7 +55,7 @@
                     <img src="../assets/svg/plus-lg.svg" alt="" />
                     <tooltip :text="'Add Elements'" />
                 </button>
-                <button @click="toggleColorPicker()">
+                <button @click="toggleCmpEditor()">
                     <img src="../assets/svg/palette.svg" alt="" />
                     <tooltip :text="'Edit Element'" />
                 </button>
@@ -86,7 +86,7 @@
                 >
             </section>
 
-            <section class="cmp-editor" :class="{ open: isColorOpen }">
+            <section class="cmp-editor" :class="{ open: isCmpEditorOpen }">
                 <section class="title">
                     <h2>Edit</h2>
                     <img src="../assets/svg/trash.svg" alt="" />
@@ -162,7 +162,7 @@ const cmpsToShow = {
 let cmpToEdit = ref(null)
 let isCmpsOpen = ref(false)
 let isTemplatesOpen = ref(false)
-let isColorOpen = ref(false)
+let isCmpEditorOpen = ref(false)
 let changeColor = ref(false)
 let displaySize = ref("desktop")
 let colors = ref(utilService.getEditColors())
@@ -192,12 +192,12 @@ async function showCmps(cmpName) {
 function toggleMenu() {
     isCmpsOpen.value = !isCmpsOpen.value
     isTemplatesOpen.value = false
-    if (isCmpsOpen.value) isColorOpen.value = false
+    if (isCmpsOpen.value) isCmpEditorOpen.value = false
 }
 
-function toggleColorPicker() {
-    isColorOpen.value = !isColorOpen.value
-    if (!isColorOpen.value) return (cmpToEdit.value = null)
+function toggleCmpEditor() {
+    isCmpEditorOpen.value = !isCmpEditorOpen.value
+    if (!isCmpEditorOpen.value) return (cmpToEdit.value = null)
     isCmpsOpen.value = false
     isTemplatesOpen.value = false
 }
@@ -208,24 +208,21 @@ function onAddCmp(cmp) {
 
 function changeText(text, key, idx) {
     typeof cmpToEdit.value.info[key] === Array
-        ? (cmpToEdit.value.info[key][idx] = text)
-        : (cmpToEdit.value.info[key] = text)
+        ? (cmpToEdit.value.info[key][idx].text = text)
+        : (cmpToEdit.value.info[key].text = text)
+        updateCmp()
 }
 
 function setColor(val) {
     console.log(cmpToEdit.value);
     cmpToEdit.value.style["background-color"] = val
-    // if (changeColor.value) {
-    // } else {
-    //     cmpToEdit.style["color"] = val
-    // }
-    // updateCmp()
+    updateCmp()
 }
 
 function setCmpToEdit(cmp) {
     cmpToEdit.value = cmp
-    if (isColorOpen.value) return
-    toggleColorPicker()
+    if (isCmpEditorOpen.value) return
+    toggleCmpEditor()
 }
 
 function updateCmp() {

@@ -25,6 +25,6 @@ const emit = defineEmits(["onChangeText"])
 const { cmp } = defineProps({ cmp: Object })
 
 function changeText(ev, key) {
-    emit("onChangeText", ev, key)
+    emit("onChangeText", ev.target.innerText, key)
 }
 </script>

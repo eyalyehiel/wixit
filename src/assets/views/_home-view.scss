@@ -87,11 +87,13 @@
     .website-template {
         display: flex;
         flex-direction: column;
+        justify-content: center;
         align-items: center;
         background-color: black;
         color: white;
-        padding-block: 90px;
-        padding-inline: 125px;
+        min-height: 96vh;
+        // padding-block: 90px;
+        // padding-inline: 125px;
         text-align: center;
 
         h1 {
