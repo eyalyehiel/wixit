@@ -1,39 +1,48 @@
 <template>
-    <section v-if="siteStore.siteToShow" class="site-edit" :class="{
-        'colors-open': isColorOpen,
-        'cmps-open': isCmpsOpen,
-        'templates-open': isTemplatesOpen
-    }">
+    <section
+        v-if="siteStore.siteToShow"
+        class="site-edit"
+        :class="{
+            'colors-open': isColorOpen,
+            'cmps-open': isCmpsOpen,
+            'templates-open': isTemplatesOpen,
+        }"
+    >
         <nav class="editor-header">
             <section class="options">
-                <!-- <button>
-                    <img src="../assets/svg/people.svg" alt="" />
-                </button> -->
-                <!-- <button>
-                    <img src="../assets/svg/arrow-90deg-left.svg" alt="" />
-                </button> -->
-                <!-- <button>
-                    <img src="../assets/svg/arrow-90deg-right.svg" alt="" />
-                </button> -->
-                <button @click="toggleDisplaySize('desktop')">
-                    <img src="../assets/svg/display.svg" alt="" />
+                <button
+                    :class="{ selected: displaySize === 'desktop' }"
+                    @click="toggleDisplaySize('desktop')"
+                >
+                    <desktopBtn class="action-btn" />
                 </button>
-                <!-- <button @click="toggleDisplaySize('tablet')">
-                    <img src="../assets/svg/tablet.svg" alt="" />
-                </button> -->
-                <button @click="toggleDisplaySize('phone')">
-                    <img src="../assets/svg/phone.svg" alt="" />
+                <button
+                    :class="{ selected: displaySize === 'phone' }"
+                    @click="toggleDisplaySize('phone')"
+                >
+                    <phoneBtn class="action-btn" />
                 </button>
             </section>
             <section class="url">
                 <p>
-                    http://127.0.0.1:5173/#/site/<span contenteditable="true">HamburgerShop</span>
+                    http://127.0.0.1:5173/#/site/<span contenteditable="true"
+                        >HamburgerShop</span
+                    >
+                    <tooltip :text="'Change the name of your site'" />
                 </p>
             </section>
-            <section class="publish">
+            <section class="actions">
                 <button>
-                    <img style="height: 16px" src="../assets/svg/eye.svg" alt="" />
+                    <redoBtn class="action-btn" />
+                    <tooltip :text="'Undo'" />
                 </button>
+                <button>
+                    <undoBtn class="action-btn" />
+                    <tooltip :text="'Redo'" />
+                </button>
+            </section>
+            <section class="publish">
+                <button>Preview</button>
                 <button>Publish</button>
             </section>
         </nav>
@@ -41,28 +50,19 @@
         <section class="editor-sidebar">
             <nav class="editor-nav">
                 <button @click="toggleMenu()">
+                    <!-- <plusBtn class="plus-btn"/> -->
                     <img src="../assets/svg/plus-lg.svg" alt="" />
+                    <tooltip :text="'Add Elements'" />
                 </button>
                 <button @click="toggleColorPicker()">
                     <img src="../assets/svg/palette.svg" alt="" />
+                    <tooltip :text="'Edit Element'" />
                 </button>
                 <button>
                     <img src="../assets/svg/file-richtext.svg" alt="" />
+                    <tooltip :text="'Change Theme'" />
                 </button>
             </nav>
-
-            <!-- <section class="section-select" :class="{ open: isCmpsOpen }">
-                <h2 class="title">Section</h2>
-                <span @click="addCmp('site-header')">Header</span>
-                <span @click="addCmp('site-hero')">Hero</span>
-                <span @click="addCmp('site-section')">Section</span>
-                <span @click="addCmp('site-gallery')">Gallery</span>
-                <span @click="addCmp('site-cards')">Cards</span>
-                <span @click="addCmp('testimonials')">Testimonials</span>
-                <span @click="addCmp('contact')">Contact</span>
-                <span @click="addCmp('video')">Video</span>
-            </section> -->
-
             <section class="section-select" :class="{ open: isCmpsOpen }">
                 <h2 class="title">Section</h2>
                 <span @click="showCmps('header')">Header</span>
@@ -74,9 +74,15 @@
                 <span @click="showCmps('contact')">Contact</span>
                 <span @click="showCmps('video')">Video</span>
             </section>
-            <section class="section-select section-templates" :class="{ open: isTemplatesOpen }">
-                <!-- <h2 class="title">Choose </h2> -->
-                <span v-for="cmp in templateStore.filteredCmps" @click="onAddCmp(cmp)">{{ cmp.type }}</span>
+            <section
+                class="section-select section-templates"
+                :class="{ open: isTemplatesOpen }"
+            >
+                <span
+                    v-for="cmp in templateStore.filteredCmps"
+                    @click="onAddCmp(cmp)"
+                    >{{ cmp.type }}</span
+                >
             </section>
 
             <section class="cmp-editor" :class="{ open: isColorOpen }">
@@ -88,16 +94,14 @@
                 <section class="color-picker">
                     <h1>BACKGROUND COLOR</h1>
                     <section class="color-wrapper">
-                        <section v-for="color in colors" @click="setColor(color)" :style="{ 'background-color': color }"
-                            :key="color"></section>
-                    </section>
-                    <!-- <section
-                            :style="{ 'background-color': color }"
-                            :value="color"
+                        <section
+                            v-for="color in colors"
                             @click="setColor(color)"
-                        ></section> -->
+                            :style="{ 'background-color': color }"
+                            :key="color"
+                        ></section>
+                    </section>
                 </section>
-
                 <section class="upload-img">
                     <img src="../assets/svg/cloud-arrow-up-fill.svg" alt="" />
                     <span>Drop file here or</span>
@@ -106,9 +110,16 @@
         </section>
 
         <section class="site-display" :class="displaySize">
-            <component v-if="siteStore.siteToShow?.cmps?.length" v-for="cmp in siteStore.siteToShow.cmps"
-                :is="cmpsToShow[cmp.type]" :cmp="cmp" :class="{ 'cmp-selected': cmpToEdit?._id === cmp._id }"
-                @click="setCmpToEdit(cmp)" @onSetTxtColor="TxtColor" @onChangeText="changeText" />
+            <component
+                v-if="siteStore.siteToShow?.cmps?.length"
+                v-for="cmp in siteStore.siteToShow.cmps"
+                :is="cmpsToShow[cmp.type]"
+                :cmp="cmp"
+                :class="{ 'cmp-selected': cmpToEdit?._id === cmp._id }"
+                @click="setCmpToEdit(cmp)"
+                @onSetTxtColor="TxtColor"
+                @onChangeText="changeText"
+            />
             <section v-else class="drag-area">
                 <h1>Place Element Here</h1>
             </section>
@@ -124,6 +135,12 @@ import siteCards from "../components/site-templates/site-cards.vue"
 import siteGallery from "../components/site-templates/site-gallery.vue"
 import siteContact from "../components/site-templates/site-contact.vue"
 import siteFooter from "../components/site-templates/site-footer.vue"
+import tooltip from "../components/tooltip.vue"
+import undoBtn from "../assets/svg/redo.vue"
+import redoBtn from "../assets/svg/undo.vue"
+import desktopBtn from "../assets/svg/desktop.vue"
+import phoneBtn from "../assets/svg/phone.vue"
+import plusBtn from '../assets/svg/plus.vue'
 
 import { onMounted, ref } from "vue"
 import { useRoute } from "vue-router"
@@ -171,7 +188,6 @@ async function showCmps(cmpName) {
     isTemplatesOpen.value = !isTemplatesOpen.value
 }
 
-
 function toggleMenu() {
     isCmpsOpen.value = !isCmpsOpen.value
     isTemplatesOpen.value = false
@@ -180,10 +196,9 @@ function toggleMenu() {
 
 function toggleColorPicker() {
     isColorOpen.value = !isColorOpen.value
-    if (!isColorOpen.value) return cmpToEdit.value = null
+    if (!isColorOpen.value) return (cmpToEdit.value = null)
     isCmpsOpen.value = false
     isTemplatesOpen.value = false
-
 }
 
 function onAddCmp(cmp) {
@@ -191,9 +206,9 @@ function onAddCmp(cmp) {
 }
 
 function changeText(text, key, idx) {
-    (typeof (cmpToEdit.value.info[key]) === Array)
-        ? cmpToEdit.value.info[key][idx] = text
-        : cmpToEdit.value.info[key] = text
+    typeof cmpToEdit.value.info[key] === Array
+        ? (cmpToEdit.value.info[key][idx] = text)
+        : (cmpToEdit.value.info[key] = text)
 }
 
 function setColor(val) {
