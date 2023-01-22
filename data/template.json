@@ -1,0 +1,54 @@
+// Header template
+{
+    "type": "site-header",
+    "info": {
+        "title": "",
+        "links": [
+            { "text": "", "href": "#" },
+            { "text": "", "href": "#" },
+            { "text": "", "href": "#" }
+        ]
+    },
+    "theme": "",
+    "style": {
+        "logo": "",
+        "background": "",
+        "font": "",
+        "color": ""
+    }
+}
+
+{
+    "type": "site-hero",
+    "info": {
+        "title": "",
+        "subtitle": "",
+        "btn": ""
+    },
+    "theme": "",
+    "style": {
+        "background": "",
+        "font": "",
+        "color": ""
+    }
+},
+
+{
+    "type": "site-section",
+    "info": {
+        "title": "",
+        "paragraph1": "",
+        "paragraph2": "",
+        "images": [
+            "https://res.cloudinary.com/dirvusyaz/image/upload/v1674045504/b2.jpg_v16hmf.webp",
+            "https://res.cloudinary.com/dirvusyaz/image/upload/v1674045504/b1.jpg_n3fxam.webp"
+        ]
+    },
+    "theme": "",
+    "style": {
+        "background": "",
+        "font": "",
+        "color": "",
+        "background-color": ""
+    }
+},

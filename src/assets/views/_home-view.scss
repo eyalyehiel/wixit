@@ -4,31 +4,37 @@
 
     .hero {
         text-align: center;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        gap: 40px;
         background-color: #2f40ad;
         color: white;
-        padding: 50px 150px;
+        min-height: 76vh;
+        padding-block: 50px;
 
         h1 {
             font-size: em(92px, 16px);
-            margin-bottom: 30px;
+            // padding-bottom: 30px;
         }
 
         h3 {
             font-size: em(20px, 16px);
-            margin-bottom: 30px;
+            // padding-bottom: 30px;
         }
 
         p {
-            margin-bottom: 45px;
+            // padding-bottom: 45px;
         }
 
         button {
+            align-self: center;
             padding: 17px 50px;
             border-radius: 100px;
             background-color: #fff;
             color: black;
             font-size: em(24px, 16px);
-            margin-bottom: 20px;
+            // padding-bottom: 20px;
         }
     }
 
@@ -36,14 +42,16 @@
         padding: 100px 80px;
         h1 {
             font-size: em(64px, 16px);
-            width: 18ch;
+            // width: 18ch;
             margin-bottom: 47px;
         }
 
         .info-container {
             display: flex;
+            flex-wrap: wrap;
             gap: 70px;
             margin-bottom: 75px;
+            justify-content: baseline;
 
             .info-preview {
                 padding-top: 20px;
@@ -88,7 +96,7 @@
 
         h1 {
             font-size: em(64px, 16px);
-            width: 25ch;
+            // width: 25ch;
             margin-bottom: 30px;
         }
 
