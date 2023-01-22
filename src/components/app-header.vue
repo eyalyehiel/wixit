@@ -1,33 +1,33 @@
 <template>
     <header class="main-header">
-        <img @click="goToHome" src="../assets/svg/wix-logo.svg.svg" alt="" />
+        <img
+            @click="navigate('/')"
+            src="../assets/svg/wix-logo.svg.svg"
+            alt=""
+        />
         <!-- <p><span>w</span>ixit</p> -->
         <div class="header-btns">
-            <button @click="goToLogin">Log In</button>
-            <button @click="goToTemplate" >Get Started</button>
+            <button v-if="!isLoginPath" @click="navigate('/login')">Log In</button>
+            <button @click="navigate('/site')">Get Started</button>
         </div>
-        
     </header>
 </template>
 
-<script>
-export default {
-    props: {},
-    data() {
-        return {};
-    },
-    created() {},
-    methods: {
-        goToTemplate() {
-            this.$router.push("/site");
-        },
-        goToHome() {
-            this.$router.push("/");
-        },
-        goToLogin() {
-            this.$router.push("/login");
-        },
-    },
-    components: {},
-};
+<script setup>
+import { watch, ref } from "vue"
+import { useRouter, useRoute } from "vue-router"
+
+const router = useRouter()
+const route = useRoute()
+const isLoginPath = ref(false)
+
+function navigate(to) {
+    router.push(to)
+}
+
+watch(route, () => {
+    if (route.path === "/login" || route.path === "/signup") isLoginPath.value = true
+    else isLoginPath.value = false
+    console.log(isLoginPath.value);
+})
 </script>

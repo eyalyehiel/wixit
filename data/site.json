@@ -32,9 +32,18 @@
             {
                 "type": "site-hero",
                 "info": {
-                    "title": "Start your day with a black Coffee",
-                    "subtitle": "Our coffee comes straight from the plantations of Brazil and Colombia, freshly picked and ground on site, with a smoky aroma and an intoxicating taste. We love coffee, people and good food.",
-                    "btn": "BUY NOW"
+                    "title": {
+                        "text": "Start your day with a black Coffee",
+                        "style": {}
+                    },
+                    "subtitle": {
+                        "text": "Our coffee comes straight from the plantations of Brazil and Colombia, freshly picked and ground on site, with a smoky aroma and an intoxicating taste. We love coffee, people and good food.",
+                        "style": {}
+                    },
+                    "btn": {
+                        "text": "BUY NOW",
+                        "style": {}
+                    }
                 },
                 "theme": "theme-header-happy",
                 "style": {

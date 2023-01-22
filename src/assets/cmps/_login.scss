@@ -26,6 +26,11 @@
     .signin-section {
         display: flex;
         flex-direction: row;
+        
+        @media(max-width: 800px){
+            gap: 2em;
+            flex-direction: column;
+        }
         .signin-with-email {
             display: flex;
             flex-direction: column;

@@ -40,6 +40,7 @@
                     <undoBtn class="action-btn" />
                     <tooltip :text="'Redo'" />
                 </button>
+                <button @click="toggleScale" class="scaling">100%</button>
             </section>
             <section class="publish">
                 <button>Preview</button>
@@ -140,9 +141,9 @@ import undoBtn from "../assets/svg/redo.vue"
 import redoBtn from "../assets/svg/undo.vue"
 import desktopBtn from "../assets/svg/desktop.vue"
 import phoneBtn from "../assets/svg/phone.vue"
-import plusBtn from '../assets/svg/plus.vue'
+import plusBtn from "../assets/svg/plus.vue"
 
-import { onMounted, ref } from "vue"
+import { onMounted, ref,computed } from "vue"
 import { useRoute } from "vue-router"
 import { utilService } from "../services/utils-service.js"
 import { useTemplateStore } from "../stores/template.js"
@@ -212,11 +213,12 @@ function changeText(text, key, idx) {
 }
 
 function setColor(val) {
-    if (changeColor.value) {
-        cmpToEdit.style["background-color"] = val
-    } else {
-        cmpToEdit.style["color"] = val
-    }
+    console.log(cmpToEdit.value);
+    cmpToEdit.value.style["background-color"] = val
+    // if (changeColor.value) {
+    // } else {
+    //     cmpToEdit.style["color"] = val
+    // }
     // updateCmp()
 }
 
