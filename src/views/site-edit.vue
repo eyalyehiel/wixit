@@ -10,24 +10,16 @@
     >
         <nav class="editor-header">
             <section class="options">
-                <button
-                    :class="{ selected: displaySize === 'desktop' }"
-                    @click="toggleDisplaySize('desktop')"
-                >
+                <button :class="{ selected: displaySize === 'desktop' }" @click="toggleDisplaySize('desktop')">
                     <desktopBtn class="action-btn" />
                 </button>
-                <button
-                    :class="{ selected: displaySize === 'phone' }"
-                    @click="toggleDisplaySize('phone')"
-                >
+                <button :class="{ selected: displaySize === 'phone' }" @click="toggleDisplaySize('phone')">
                     <phoneBtn class="action-btn" />
                 </button>
             </section>
             <section class="url">
                 <p>
-                    http://127.0.0.1:5173/#/site/<span contenteditable="true"
-                        >HamburgerShop</span
-                    >
+                    http://127.0.0.1:5173/#/site/<span contenteditable="true">HamburgerShop</span>
                     <tooltip :text="'Change the name of your site'" />
                 </p>
             </section>
@@ -75,15 +67,8 @@
                 <span @click="showCmps('contact')">Contact</span>
                 <span @click="showCmps('video')">Video</span>
             </section>
-            <section
-                class="section-select section-templates"
-                :class="{ open: isTemplatesOpen }"
-            >
-                <span
-                    v-for="cmp in templateStore.filteredCmps"
-                    @click="onAddCmp(cmp)"
-                    >{{ cmp.type }}</span
-                >
+            <section class="section-select section-templates" :class="{ open: isTemplatesOpen }">
+                <span v-for="cmp in templateStore.filteredCmps" @click="onAddCmp(cmp)">{{ cmp.type }}</span>
             </section>
 
             <section class="cmp-editor" :class="{ open: isCmpEditorOpen }">
@@ -95,12 +80,8 @@
                 <section class="color-picker">
                     <h1>BACKGROUND COLOR</h1>
                     <section class="color-wrapper">
-                        <section
-                            v-for="color in colors"
-                            @click="setColor(color)"
-                            :style="{ 'background-color': color }"
-                            :key="color"
-                        ></section>
+                        <section v-for="color in colors" @click="setColor(color)" :style="{ 'background-color': color }"
+                            :key="color"></section>
                     </section>
                 </section>
                 <section class="upload-img">
@@ -111,16 +92,11 @@
         </section>
 
         <section class="site-display" :class="displaySize">
-            <component
-                v-if="siteStore.siteToShow?.cmps?.length"
-                v-for="cmp in siteStore.siteToShow.cmps"
-                :is="cmpsToShow[cmp.type]"
-                :cmp="cmp"
-                :class="{ 'cmp-selected': cmpToEdit?._id === cmp._id }"
-                @click="setCmpToEdit(cmp)"
-                @onSetTxtColor="TxtColor"
-                @onChangeText="changeText"
-            />
+            <component v-if="siteStore.siteToShow?.cmps?.length" v-for="cmp in siteStore.siteToShow.cmps"
+                :is="cmpsToShow[cmp.type]" :cmp="cmp" :class="{ 'cmp-selected': cmpToEdit?._id === cmp._id }"
+                @click="setCmpToEdit(cmp)" @onSetTxtColor="TxtColor" @onChangeText="changeText">
+
+            </component>
             <section v-else class="drag-area">
                 <h1>Place Element Here</h1>
             </section>
