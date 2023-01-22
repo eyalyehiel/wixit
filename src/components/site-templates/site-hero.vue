@@ -7,7 +7,7 @@
         <main>
             <h1
                 :style="cmp.info.title.style"
-                @click="onEditElement($event,'title')"
+                @click="onEditElement($event, 'title')"
                 @input="changeText($event, 'title')"
                 contenteditable="true"
             >
@@ -15,7 +15,7 @@
             </h1>
             <p
                 :style="cmp.info.title.style"
-                @focus="onEditElement($event,'subtitle')"
+                @focus="onEditElement($event, 'subtitle')"
                 @input="changeText($event, 'subtitle')"
                 contenteditable="true"
             >
@@ -23,7 +23,7 @@
             </p>
             <button
                 :style="cmp.info.title.style"
-                @focus="onEditElement($event,'btn')"
+                @focus="onEditElement($event, 'btn')"
                 @input="changeText($event, 'btn')"
                 contenteditable="true"
             >
@@ -38,7 +38,7 @@ import { defineProps, defineEmits } from "vue"
 const emit = defineEmits(["onChangeText", "editElement"])
 
 const { cmp } = defineProps({ cmp: Object })
-function onEditElement(ev,key) {
+function onEditElement(ev, key) {
     emit("editElement", key)
 }
 function changeText(ev, key) {
