@@ -1,9 +1,4 @@
 <template>
-    <!-- :class="{
-        'cmp-editor-open': isCmpEditorOpen,
-        'cmps-open': isCmpsOpen,
-        'templates-open': isTemplatesOpen,
-    }" -->
     <section v-if="siteStore.siteToShow" class="site-edit">
         <site-edit-header @onChangeDisplay="toggleDisplaySize" />
 
