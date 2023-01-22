@@ -4,85 +4,147 @@
         "name": "Cafe Baluta",
         "background": "https://res.cloudinary.com/dirvusyaz/image/upload/v1674070871/coffe_har7o3.png",
         "imgUrls": [],
-        "createdBy": {
-            "_id": "",
-            "fullname": "",
-            "imgUrl": ""
-        },
+        "createdBy": { "_id": "", "fullname": "", "imgUrl": "" },
         "cmps": [
             {
                 "type": "site-header",
                 "info": {
-                    "title": "Cafe Baluta",
+                    "title": {
+                        "text": "Cafe Baluta",
+                        "style": {
+                            "color": "",
+                            "font-family": "",
+                            "font-size": ""
+                        }
+                    },
                     "links": [
-                        { "text": "Home", "href": "#" },
-                        { "text": "Shop", "href": "#" },
-                        { "text": "About", "href": "#" }
+                        {
+                            "text": "Home",
+                            "href": "#",
+                            "style": {
+                                "color": "",
+                                "font-family": "",
+                                "font-size": ""
+                            }
+                        },
+                        {
+                            "text": "Shop",
+                            "href": "#",
+                            "style": {
+                                "color": "",
+                                "font-family": "",
+                                "font-size": ""
+                            }
+                        },
+                        {
+                            "text": "About",
+                            "href": "#",
+                            "style": {
+                                "color": "",
+                                "font-family": "",
+                                "font-size": ""
+                            }
+                        }
                     ]
                 },
                 "theme": "theme-header-happy",
-                "style": {
-                    "logo": "/src/assets/imgs/coffe.png",
-                    "background": "url()",
-                    "font": "Fontush",
-                    "color": "#fff",
-                    "background-color": "rgba(20, 2, 0, 0.8)"
-                }
+                "style": { "background": "" }
             },
             {
                 "type": "site-hero",
                 "info": {
                     "title": {
-                        "text": "Start your day with a black Coffee",
-                        "style": {}
+                        "text": {
+                            "text": "Start your day with a black Coffee",
+                            "style": {}
+                        },
+                        "style": {
+                            "color": "",
+                            "font-family": "",
+                            "font-size": ""
+                        }
                     },
                     "subtitle": {
-                        "text": "Our coffee comes straight from the plantations of Brazil and Colombia, freshly picked and ground on site, with a smoky aroma and an intoxicating taste. We love coffee, people and good food.",
-                        "style": {}
+                        "text": {
+                            "text": "Our coffee comes straight from the plantations of Brazil and Colombia, freshly picked and ground on site, with a smoky aroma and an intoxicating taste. We love coffee, people and good food.",
+                            "style": {}
+                        },
+                        "style": {
+                            "color": "",
+                            "font-family": "",
+                            "font-size": ""
+                        }
                     },
                     "btn": {
-                        "text": "BUY NOW",
-                        "style": {}
+                        "text": { "text": "BUY NOW", "style": {} },
+                        "style": {
+                            "color": "",
+                            "font-family": "",
+                            "font-size": ""
+                        },
+                        "href": ""
                     }
                 },
                 "theme": "theme-header-happy",
-                "style": {
-                    "background": "url(https://res.cloudinary.com/dirvusyaz/image/upload/v1674042414/header-bg.jpg_ajhisz.webp)",
-                    "font": "Fontush",
-                    "color": "#fff"
-                }
+                "style": { "background": "" }
             },
             {
                 "type": "site-section",
                 "info": {
-                    "title": "Coffee & Cakes",
-                    "paragraph1": "Our coffee is rich in flavor and the espresso is a perfect balance of sweetness and acidity that functions well in milk drinks.",
-                    "paragraph2": "Quick can manor smart money hopes worth too. Comfort produce husband boy her had hearing. Law others theirs passed but wishes. You day real less till dear read. Considered use dispatched melancholy sympathize discretion led. Oh feel if up to till like.",
+                    "title": {
+                        "text": "Coffee & Cakes",
+                        "style": {
+                            "color": "",
+                            "font-family": "",
+                            "font-size": ""
+                        }
+                    },
+                    "paragraph1": {
+                        "text": "Our coffee is rich in flavor and the espresso is a perfect balance of sweetness and acidity that functions well in milk drinks.",
+                        "style": {
+                            "color": "",
+                            "font-family": "",
+                            "font-size": ""
+                        }
+                    },
+                    "paragraph2": {
+                        "text": "Quick can manor smart money hopes worth too. Comfort produce husband boy her had hearing. Law others theirs passed but wishes. You day real less till dear read. Considered use dispatched melancholy sympathize discretion led. Oh feel if up to till like.",
+                        "style": {
+                            "color": "",
+                            "font-family": "",
+                            "font-size": ""
+                        }
+                    },
                     "images": [
                         "https://res.cloudinary.com/dirvusyaz/image/upload/v1674045504/b2.jpg_v16hmf.webp",
                         "https://res.cloudinary.com/dirvusyaz/image/upload/v1674045504/b1.jpg_n3fxam.webp"
                     ]
                 },
                 "theme": "theme-header-happy",
-                "style": {
-                    "background": "url()",
-                    "font": "Fontush",
-                    "color": "rgba(20, 2, 0, 0.8)",
-                    "background-color": "#fff"
-                }
+                "style": { "background": "" }
             },
             {
                 "type": "site-footer",
                 "info": {
-                    "title": "COFFEE",
-                    "subtitle": "CoffeRights 2035 by Pucoffe. Proudly created with Wicks.in"
+                    "title": {
+                        "text": "COFFEE",
+                        "style": {
+                            "color": "",
+                            "font-family": "",
+                            "font-size": ""
+                        }
+                    },
+                    "subtitle": {
+                        "text": "CoffeRights 2035 by Pucoffe. Proudly created with Wicks.in",
+                        "style": {
+                            "color": "",
+                            "font-family": "",
+                            "font-size": ""
+                        }
+                    }
                 },
                 "theme": "theme-header-happy",
-                "style": {
-                    "background": "url()",
-                    "font": "Fontush",
-                    "color": "red"
-                }
+                "style": { "background": "" }
             }
         ],
         "isPublic": true
@@ -92,75 +154,140 @@
         "name": "AUTONO",
         "background": "https://res.cloudinary.com/dirvusyaz/image/upload/v1674079625/autono_fwbqr2.png",
         "imgUrls": [],
-        "createdBy": {
-            "_id": "",
-            "fullname": "",
-            "imgUrl": ""
-        },
+        "createdBy": { "_id": "", "fullname": "", "imgUrl": "" },
         "cmps": [
             {
                 "type": "site-header",
                 "info": {
-                    "title": "AUTONO",
+                    "title": {
+                        "text": "AUTONO",
+                        "style": {
+                            "color": "",
+                            "font-family": "",
+                            "font-size": ""
+                        }
+                    },
                     "links": [
-                        { "text": "Technology", "href": "#" },
-                        { "text": "About", "href": "#" },
-                        { "text": "Careers", "href": "#" }
+                        {
+                            "text": "Technology",
+                            "href": "#",
+                            "style": {
+                                "color": "",
+                                "font-family": "",
+                                "font-size": ""
+                            }
+                        },
+                        {
+                            "text": "About",
+                            "href": "#",
+                            "style": {
+                                "color": "",
+                                "font-family": "",
+                                "font-size": ""
+                            }
+                        },
+                        {
+                            "text": "Careers",
+                            "href": "#",
+                            "style": {
+                                "color": "",
+                                "font-family": "",
+                                "font-size": ""
+                            }
+                        }
                     ]
                 },
                 "theme": "theme-header-happy",
-                "style": {
-                    "background": "url()",
-                    "font": "Fontush",
-                    "color": "#000000",
-                    "background-color": "#a7b6c7"
-                }
+                "style": { "background": "" }
             },
             {
                 "type": "site-hero",
                 "info": {
-                    "title": "THE FUTURE OF  MOBILITY IS HERE",
-                    "subtitle": "Discover the safest self-driving experience with Autono.",
-                    "btn": "View Menu"
+                    "title": {
+                        "text": "THE FUTURE OF  MOBILITY IS HERE",
+                        "style": {
+                            "color": "",
+                            "font-family": "",
+                            "font-size": ""
+                        }
+                    },
+                    "subtitle": {
+                        "text": "Discover the safest self-driving experience with Autono.",
+                        "style": {
+                            "color": "",
+                            "font-family": "",
+                            "font-size": ""
+                        }
+                    },
+                    "btn": {
+                        "text": "View Menu",
+                        "style": {
+                            "color": "",
+                            "font-family": "",
+                            "font-size": ""
+                        },
+                        "href": ""
+                    }
                 },
                 "theme": "theme-header-happy",
-                "style": {
-                    "background": "url(https://res.cloudinary.com/dirvusyaz/image/upload/v1674062221/c837a6_02de7d4c43d44b7b890854049ed75da8f000_atfm5c.webp)",
-                    "font": "Fontush",
-                    "color": "#000000"
-                }
+                "style": { "background": "" }
             },
             {
                 "type": "site-section",
                 "info": {
-                    "title": "VISION",
-                    "paragraph1": "We’re Changing the Way the World Thinks About Cars",
-                    "paragraph2": "I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me to add your own content and make changes to the font. I’m a great place for you to tell a story and let your users know a little more about you.",
+                    "title": {
+                        "text": "VISION",
+                        "style": {
+                            "color": "",
+                            "font-family": "",
+                            "font-size": ""
+                        }
+                    },
+                    "paragraph1": {
+                        "text": "We’re Changing the Way the World Thinks About Cars",
+                        "style": {
+                            "color": "",
+                            "font-family": "",
+                            "font-size": ""
+                        }
+                    },
+                    "paragraph2": {
+                        "text": "I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me to add your own content and make changes to the font. I’m a great place for you to tell a story and let your users know a little more about you.",
+                        "style": {
+                            "color": "",
+                            "font-family": "",
+                            "font-size": ""
+                        }
+                    },
                     "images": [
                         "https://res.cloudinary.com/dirvusyaz/image/upload/v1674062701/84770f_3cc097e7503b4ed498e350c6618ef956_mv2_purofg.webp"
                     ]
                 },
                 "theme": "theme-header-happy",
-                "style": {
-                    "background": "url()",
-                    "font": "Fontush",
-                    "color": "#000",
-                    "background-color": "#fff"
-                }
+                "style": { "background": "" }
             },
             {
                 "type": "site-footer",
                 "info": {
-                    "title": "COFFEE",
-                    "subtitle": "CoffeRights 2035 by Pucoffe. Proudly created with Wicks.in"
+                    "title": {
+                        "text": "COFFEE",
+                        "style": {
+                            "color": "",
+                            "font-family": "",
+                            "font-size": ""
+                        }
+                    },
+                    "subtitle": {
+                        "text": "CoffeRights 2035 by Pucoffe. Proudly created with Wicks.in",
+                        "style": {
+                            "color": "",
+                            "font-family": "",
+                            "font-size": ""
+                        }
+                    }
                 },
                 "theme": "theme-header-happy",
-                "style": {
-                    "background": "url()",
-                    "font": "Fontush",
-                    "color": "red",
-                    "background-color": "#fff"
-                }
+                "style": { "background": "" }
             }
         ],
         "isPublic": true
@@ -170,75 +297,141 @@
         "name": "Ponto Pet",
         "background": "https://res.cloudinary.com/dirvusyaz/image/upload/v1674064175/55_kmt26b.png",
         "imgUrls": [],
-        "createdBy": {
-            "_id": "",
-            "fullname": "",
-            "imgUrl": ""
-        },
+        "createdBy": { "_id": "", "fullname": "", "imgUrl": "" },
         "cmps": [
             {
                 "type": "site-header",
                 "info": {
-                    "title": "Ponto Pet",
+                    "title": {
+                        "text": "Ponto Pet",
+                        "style": {
+                            "color": "",
+                            "font-family": "",
+                            "font-size": ""
+                        }
+                    },
                     "links": [
-                        { "text": "Home", "href": "#" },
-                        { "text": "Services", "href": "#" },
-                        { "text": "About", "href": "#" }
+                        {
+                            "text": "Home",
+                            "href": "#",
+                            "style": {
+                                "color": "",
+                                "font-family": "",
+                                "font-size": ""
+                            }
+                        },
+                        {
+                            "text": "Services",
+                            "href": "#",
+                            "style": {
+                                "color": "",
+                                "font-family": "",
+                                "font-size": ""
+                            }
+                        },
+                        {
+                            "text": "About",
+                            "href": "#",
+                            "style": {
+                                "color": "",
+                                "font-family": "",
+                                "font-size": ""
+                            }
+                        }
                     ]
                 },
                 "theme": "theme-header-happy",
-                "style": {
-                    "logo": "/src/assets/svg/pet.svg",
-                    "font": "Fontush",
-                    "color": "#1A4E8D",
-                    "background-color": "#ACD5DE"
-                }
+                "style": { "background": "" }
             },
             {
                 "type": "site-hero",
                 "info": {
-                    "title": "The Best Pet Groomers in Town ",
-                    "subtitle": "For a pawfect look and feel.",
-                    "btn": "View Menu"
+                    "title": {
+                        "text": "The Best Pet Groomers in Town ",
+                        "style": {
+                            "color": "",
+                            "font-family": "",
+                            "font-size": ""
+                        }
+                    },
+                    "subtitle": {
+                        "text": "For a pawfect look and feel.",
+                        "style": {
+                            "color": "",
+                            "font-family": "",
+                            "font-size": ""
+                        }
+                    },
+                    "btn": {
+                        "text": "View Menu",
+                        "style": {
+                            "color": "",
+                            "font-family": "",
+                            "font-size": ""
+                        },
+                        "href": ""
+                    }
                 },
                 "theme": "theme-header-happy",
-                "style": {
-                    "background": "url(https://res.cloudinary.com/dirvusyaz/image/upload/v1674063447/44.png_m5mjxc.webp)",
-                    "font": "Fontush",
-                    "color": "#1A4E8D",
-                    "background-color": "#ACD5DE"
-                }
+                "style": { "background": "" }
             },
             {
                 "type": "site-section",
                 "info": {
-                    "title": "Coffee & Cakes",
-                    "paragraph1": "Our coffee is rich in flavor and the espresso is a perfect balance of sweetness and acidity that functions well in milk drinks.",
-                    "paragraph2": "Quick can manor smart money hopes worth too. Comfort produce husband boy her had hearing. Law others theirs passed but wishes. You day real less till dear read. Considered use dispatched melancholy sympathize discretion led. Oh feel if up to till like.",
+                    "title": {
+                        "text": "Coffee & Cakes",
+                        "style": {
+                            "color": "",
+                            "font-family": "",
+                            "font-size": ""
+                        }
+                    },
+                    "paragraph1": {
+                        "text": "Our coffee is rich in flavor and the espresso is a perfect balance of sweetness and acidity that functions well in milk drinks.",
+                        "style": {
+                            "color": "",
+                            "font-family": "",
+                            "font-size": ""
+                        }
+                    },
+                    "paragraph2": {
+                        "text": "Quick can manor smart money hopes worth too. Comfort produce husband boy her had hearing. Law others theirs passed but wishes. You day real less till dear read. Considered use dispatched melancholy sympathize discretion led. Oh feel if up to till like.",
+                        "style": {
+                            "color": "",
+                            "font-family": "",
+                            "font-size": ""
+                        }
+                    },
                     "images": [
                         "https://robohash.org/1?set=set5",
                         "https://robohash.org/2?set=set5"
                     ]
                 },
                 "theme": "theme-header-happy",
-                "style": {
-                    "background": "url()",
-                    "font": "Fontush",
-                    "color": "red"
-                }
+                "style": { "background": "" }
             },
             {
                 "type": "site-footer",
                 "info": {
-                    "title": "COFFEE",
-                    "subtitle": "CoffeRights 2035 by Pucoffe. Proudly created with Wicks.in"
+                    "title": {
+                        "text": "COFFEE",
+                        "style": {
+                            "color": "",
+                            "font-family": "",
+                            "font-size": ""
+                        }
+                    },
+                    "subtitle": {
+                        "text": "CoffeRights 2035 by Pucoffe. Proudly created with Wicks.in",
+                        "style": {
+                            "color": "",
+                            "font-family": "",
+                            "font-size": ""
+                        }
+                    }
                 },
                 "theme": "theme-header-happy",
-                "style": {
-                    "background": "url()",
-                    "font": "Fontush",
-                    "color": "red"
-                }
+                "style": { "background": "" }
             }
         ],
         "isPublic": true
@@ -247,73 +440,141 @@
         "_id": "12836123",
         "name": "",
         "imgUrls": [],
-        "createdBy": {
-            "_id": "",
-            "fullname": "",
-            "imgUrl": ""
-        },
+        "createdBy": { "_id": "", "fullname": "", "imgUrl": "" },
         "cmps": [
             {
                 "type": "site-header",
                 "info": {
-                    "title": "HairDresser Baluta",
+                    "title": {
+                        "text": "HairDresser Baluta",
+                        "style": {
+                            "color": "",
+                            "font-family": "",
+                            "font-size": ""
+                        }
+                    },
                     "links": [
-                        { "text": "Home", "href": "#" },
-                        { "text": "Shop", "href": "#" },
-                        { "text": "About", "href": "#" }
+                        {
+                            "text": "Home",
+                            "href": "#",
+                            "style": {
+                                "color": "",
+                                "font-family": "",
+                                "font-size": ""
+                            }
+                        },
+                        {
+                            "text": "Shop",
+                            "href": "#",
+                            "style": {
+                                "color": "",
+                                "font-family": "",
+                                "font-size": ""
+                            }
+                        },
+                        {
+                            "text": "About",
+                            "href": "#",
+                            "style": {
+                                "color": "",
+                                "font-family": "",
+                                "font-size": ""
+                            }
+                        }
                     ]
                 },
                 "theme": "theme-header-happy",
-                "style": {
-                    "background": "url()",
-                    "font": "Fontush",
-                    "color": "red"
-                }
+                "style": { "background": "" }
             },
             {
                 "type": "site-hero",
                 "info": {
-                    "title": "Unique Craft Cafe in NYC",
-                    "subtitle": "Our coffee comes straight from the plantations of Brazil and Colombia, freshly picked and ground on site, with a smoky aroma and an intoxicating taste. We love coffee, people and good food.",
-                    "btn": "View Menu"
+                    "title": {
+                        "text": "Unique Craft Cafe in NYC",
+                        "style": {
+                            "color": "",
+                            "font-family": "",
+                            "font-size": ""
+                        }
+                    },
+                    "subtitle": {
+                        "text": "Our coffee comes straight from the plantations of Brazil and Colombia, freshly picked and ground on site, with a smoky aroma and an intoxicating taste. We love coffee, people and good food.",
+                        "style": {
+                            "color": "",
+                            "font-family": "",
+                            "font-size": ""
+                        }
+                    },
+                    "btn": {
+                        "text": "View Menu",
+                        "style": {
+                            "color": "",
+                            "font-family": "",
+                            "font-size": ""
+                        },
+                        "href": ""
+                    }
                 },
                 "theme": "theme-header-happy",
-                "style": {
-                    "background": "url(https://res.cloudinary.com/dirvusyaz/image/upload/v1674042414/header-bg.jpg_ajhisz.webp)",
-                    "font": "Fontush",
-                    "color": "red"
-                }
+                "style": { "background": "" }
             },
             {
                 "type": "site-section",
                 "info": {
-                    "title": "Coffee & Cakes",
-                    "paragraph1": "Our coffee is rich in flavor and the espresso is a perfect balance of sweetness and acidity that functions well in milk drinks.",
-                    "paragraph2": "Quick can manor smart money hopes worth too. Comfort produce husband boy her had hearing. Law others theirs passed but wishes. You day real less till dear read. Considered use dispatched melancholy sympathize discretion led. Oh feel if up to till like.",
+                    "title": {
+                        "text": "Coffee & Cakes",
+                        "style": {
+                            "color": "",
+                            "font-family": "",
+                            "font-size": ""
+                        }
+                    },
+                    "paragraph1": {
+                        "text": "Our coffee is rich in flavor and the espresso is a perfect balance of sweetness and acidity that functions well in milk drinks.",
+                        "style": {
+                            "color": "",
+                            "font-family": "",
+                            "font-size": ""
+                        }
+                    },
+                    "paragraph2": {
+                        "text": "Quick can manor smart money hopes worth too. Comfort produce husband boy her had hearing. Law others theirs passed but wishes. You day real less till dear read. Considered use dispatched melancholy sympathize discretion led. Oh feel if up to till like.",
+                        "style": {
+                            "color": "",
+                            "font-family": "",
+                            "font-size": ""
+                        }
+                    },
                     "images": [
                         "https://robohash.org/1?set=set5",
                         "https://robohash.org/2?set=set5"
                     ]
                 },
                 "theme": "theme-header-happy",
-                "style": {
-                    "background": "url()",
-                    "font": "Fontush",
-                    "color": "red"
-                }
+                "style": { "background": "" }
             },
             {
                 "type": "site-footer",
                 "info": {
-                    "title": "COFFEE",
-                    "subtitle": "CoffeRights 2035 by Pucoffe. Proudly created with Wicks.in"
+                    "title": {
+                        "text": "COFFEE",
+                        "style": {
+                            "color": "",
+                            "font-family": "",
+                            "font-size": ""
+                        }
+                    },
+                    "subtitle": {
+                        "text": "CoffeRights 2035 by Pucoffe. Proudly created with Wicks.in",
+                        "style": {
+                            "color": "",
+                            "font-family": "",
+                            "font-size": ""
+                        }
+                    }
                 },
                 "theme": "theme-header-happy",
-                "style": {
-                    "background": "url()",
-                    "font": "Fontush",
-                    "color": "red"
-                }
+                "style": { "background": "" }
             }
         ],
         "isPublic": true

@@ -1,13 +1,51 @@
 <template>
-    <!-- :class="{
+    <<<<<<< HEAD <!-- :class="{
         'cmp-editor-open': isCmpEditorOpen,
         'cmps-open': isCmpsOpen,
         'templates-open': isTemplatesOpen,
     }" -->
-    <section v-if="siteStore.siteToShow" class="site-edit">
-        <site-edit-header @onChangeDisplay="toggleDisplaySize" />
+        <section v-if="siteStore.siteToShow" class="site-edit">
+            <site-edit-header @onChangeDisplay="toggleDisplaySize" />
+            =======
+            <section v-if="siteStore.siteToShow" class="site-edit" :class="{
+                'cmp-editor-open': isCmpEditorOpen,
+                'cmps-open': isCmpsOpen,
+                'templates-open': isTemplatesOpen,
+            }">
+                <nav class="editor-header">
+                    <section class="options">
+                        <button :class="{ selected: displaySize === 'desktop' }" @click="toggleDisplaySize('desktop')">
+                            <desktopBtn class="action-btn" />
+                        </button>
+                        <button :class="{ selected: displaySize === 'phone' }" @click="toggleDisplaySize('phone')">
+                            <phoneBtn class="action-btn" />
+                        </button>
+                    </section>
+                    <section class="url">
+                        <p>
+                            http://127.0.0.1:5173/#/site/<span contenteditable="true">HamburgerShop</span>
+                            <tooltip :text="'Change the name of your site'" />
+                        </p>
+                    </section>
+                    <section class="actions">
+                        <button>
+                            <redoBtn class="action-btn" />
+                            <tooltip :text="'Undo'" />
+                        </button>
+                        <button>
+                            <undoBtn class="action-btn" />
+                            <tooltip :text="'Redo'" />
+                        </button>
+                        <button @click="toggleScale" class="scaling">100%</button>
+                    </section>
+                    <section class="publish">
+                        <button>Preview</button>
+                        <button>Publish</button>
+                    </section>
+                </nav>
+                >>>>>>> 4aeda3835f60601c91123905b07ca852fcc111a0
 
-        <!-- <section class="editor-sidebar">
+                <!-- <section class="editor-sidebar">
             <nav class="editor-nav">
                 <button @click="toggleMenu()">
                     <img src="../assets/svg/plus-lg.svg" alt="" />
@@ -33,8 +71,15 @@
                 <span @click="showCmps('contact')">Contact</span>
                 <span @click="showCmps('video')">Video</span>
             </section>
-            <section class="section-select section-templates" :class="{ open: isTemplatesOpen }">
-                <span v-for="cmp in templateStore.filteredCmps" @click="onAddCmp(cmp)">{{ cmp.type }}</span>
+            <section
+                class="section-select section-templates"
+                :class="{ open: isTemplatesOpen }"
+            >
+                <span
+                    v-for="cmp in templateStore.filteredCmps"
+                    @click="onAddCmp(cmp)"
+                    >{{ cmp.type }}</span
+                >
             </section>
 
             <section class="cmp-editor" :class="{ open: isCmpEditorOpen }">
@@ -46,9 +91,23 @@
                 <section class="color-picker">
                     <h1>BACKGROUND COLOR</h1>
                     <section class="color-wrapper">
-                        <section v-for="color in colors" @click="setColor(color)" :style="{ 'background-color': color }"
-                            :key="color"></section>
+                        <section
+                            v-for="color in colors"
+                            @click="setBgColor(color)"
+                            :style="{ 'background-color': color }"
+                            :key="color"
+                        ></section>
                     </section>
+                </section>
+                <section v-if="focusedElement" class="text-editor">
+                    <input
+                        @change="changeFontSize"
+                        type="range"
+                        min="0"
+                        value="16"
+                        max="100"
+                        id=""
+                    />
                 </section>
                 <section class="upload-img">
                     <img src="../assets/svg/cloud-arrow-up-fill.svg" alt="" />
@@ -57,20 +116,20 @@
             </section>
         </section> -->
 
-        <site-edit-sidebar :cmpEditorOpen="cmpEditorOpen" @onToggleCmpEditor="toggleCmpEditor"
-            @onToggleMenu="toggleMenu" @onAddCmp="addCmp" />
+                <site-edit-sidebar :cmpEditorOpen="cmpEditorOpen" @onToggleCmpEditor="toggleCmpEditor"
+                    @onToggleMenu="toggleMenu" @onAddCmp="addCmp" />
 
-        <section class="site-display" :class="displaySize">
-            <component v-if="siteStore.siteToShow?.cmps?.length" v-for="cmp in siteStore.siteToShow.cmps"
-                :is="cmpsToShow[cmp.type]" :cmp="cmp" :class="{ 'cmp-selected': cmpToEdit?._id === cmp._id }"
-                @click="setCmpToEdit(cmp)" @onSetTxtColor="TxtColor" @onChangeText="changeText">
-
-            </component>
-            <section v-else class="drag-area">
-                <h1>Place Element Here</h1>
+                <section class="site-display" :class="displaySize">
+                    <component v-if="siteStore.siteToShow?.cmps?.length" v-for="cmp in siteStore.siteToShow.cmps"
+                        :is="cmpsToShow[cmp.type]" :cmp="cmp" :class="{ 'cmp-selected': cmpToEdit?._id === cmp._id }"
+                        @click="setCmpToEdit(cmp)" @editElement="editElement" @onSetTxtColor="TxtColor"
+                        @onChangeText="changeText">
+                    </component>
+                    <section v-else class="drag-area">
+                        <h1>Place Element Here</h1>
+                    </section>
+                </section>
             </section>
-        </section>
-    </section>
 </template>
 
 <script setup>
@@ -110,6 +169,7 @@ let cmpToEdit = ref(null)
 // let isCmpsOpen = ref(false)
 // let isTemplatesOpen = ref(false)
 let isCmpEditorOpen = ref(false)
+let focusedElement = ref(false)
 let changeColor = ref(false)
 let displaySize = ref("desktop")
 // let colors = ref(utilService.getEditColors())
@@ -162,8 +222,8 @@ function changeText(text, key, idx) {
     updateCmp()
 }
 
-function setColor(val) {
-    console.log(cmpToEdit.value);
+function setBgColor(val) {
+    console.log(cmpToEdit.value)
     cmpToEdit.value.style["background-color"] = val
     updateCmp()
 }
@@ -180,12 +240,16 @@ function setCmpToEdit(cmp) {
 function updateCmp() {
     siteStore.updateCmp(cmpToEdit.value)
 }
-
-function TxtColor(el) {
-    // console.log('el', el.style)
-    changeColor.value = !changeColor.value
-    // console.log('changeColor.value', changeColor.value)
+function editElement(key) {
+    focusedElement.value = key
 }
 
-const cmpEditorOpen = computed(() => isCmpEditorOpen) 
+const cmpEditorOpen = computed(() => isCmpEditorOpen)
+function changeFontSize(ev) {
+    const { value } = ev.target
+    cmpToEdit.value.info[focusedElement.value].style["font-size"] = value + 'px'
+    updateCmp()
+}
+
+function TxtColor(el) { }
 </script>
