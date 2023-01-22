@@ -72,8 +72,9 @@
         .social-signin {
             display: flex;
             flex-direction: column;
+            justify-content: center;
             button {
-                height: 56px;
+                height: 48px;
                 width: 328px;
                 margin-bottom: 10px;
                 color: #fff;
@@ -87,7 +88,7 @@
                     border: 1px solid #4285f1;
                     border-radius: 1px;
                     float: left;
-                    padding: 15px;
+                    padding: 11px;
                     
                     img {
                         width: 20px;
