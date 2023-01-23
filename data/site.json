@@ -62,10 +62,7 @@
                         }
                     },
                     "subtitle": {
-                        "text": {
-                            "text": "Our coffee comes straight from the plantations of Brazil and Colombia, freshly picked and ground on site, with a smoky aroma and an intoxicating taste. We love coffee, people and good food.",
-                            "style": {}
-                        },
+                        "text": "Our coffee comes straight from the plantations of Brazil and Colombia, freshly picked and ground on site, with a smoky aroma and an intoxicating taste. We love coffee, people and good food.",
                         "style": {
                             "color": "",
                             "font-family": "",
@@ -73,7 +70,7 @@
                         }
                     },
                     "btn": {
-                        "text": { "text": "BUY NOW", "style": {} },
+                        "text": "BUY NOW",
                         "style": {
                             "color": "",
                             "font-family": "",
@@ -132,7 +129,7 @@
                         }
                     },
                     "subtitle": {
-                        "text": "CoffeRights 2035 by Pucoffe. Proudly created with Wicks.in",
+                        "text": "CoffeRights 2035 by Pucoffe. Proudly created with Wixit",
                         "style": {
                             "color": "",
                             "font-family": "",
