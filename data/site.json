@@ -54,10 +54,7 @@
                 "type": "site-hero",
                 "info": {
                     "title": {
-                        "text": {
-                            "text": "Start your day with a black Coffee",
-                            "style": {}
-                        },
+                        "text": "Start your day with a black Coffee",
                         "style": {
                             "color": "",
                             "font-family": "",
