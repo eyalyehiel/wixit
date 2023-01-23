@@ -1,0 +1,56 @@
+<template>
+    <section class="site-display" :class="displaySize">
+        <component v-if="siteStore.siteToShow?.cmps?.length" v-for="cmp in siteStore.siteToShow.cmps"
+            :is="cmpsToShow[cmp.type]" :cmp="cmp" :class="{ 'cmp-selected': cmpToEdit?._id === cmp._id }"
+            @click="setCmpToEdit(cmp)" @editElement="editElement" @onChangeText="changeText">
+            <!-- @onSetTxtColor="TxtColor" -->
+        </component>
+        <section v-else class="drag-area">
+            <h1>Place Element Here</h1>
+        </section>
+    </section>
+</template>
+
+<script setup>
+import siteFooter from "../site-templates/site-footer.vue"
+import siteContact from "../site-templates/site-contact.vue"
+import siteCards from "../site-templates/site-cards.vue"
+import siteGallery from "../site-templates/site-gallery.vue"
+import siteSection from "../site-templates/site-section.vue"
+import siteHero from "../site-templates/site-hero.vue"
+import siteHeader from "../site-templates/site-header.vue"
+
+import { useSiteStore } from "../../stores/site"
+
+const cmpsToShow = {
+    "site-header": siteHeader,
+    "site-hero": siteHero,
+    "site-section": siteSection,
+    "site-cards": siteCards,
+    "site-gallery": siteGallery,
+    "site-contact": siteContact,
+    "site-footer": siteFooter,
+}
+
+const siteStore = useSiteStore()
+
+const cmpToEdit = ref(null)
+const focusedElement = ref(null)
+const isCmpEditorOpen = ref(false)
+
+function setCmpToEdit(cmp) {
+    cmpToEdit.value = cmp
+    isCmpEditorOpen.value = !isCmpEditorOpen.value
+}
+
+function editElement(key) {
+    focusedElement.value = key
+}
+
+function changeText(text, key, idx) {
+    typeof cmpToEdit.value.info[key] === Array
+        ? (cmpToEdit.value.info[key][idx].text = text)
+        : (cmpToEdit.value.info[key].text = text)
+    updateCmp()
+}
+</script>

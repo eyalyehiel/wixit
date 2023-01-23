@@ -26,7 +26,7 @@
             <button @click="toggleScale" class="scaling">100%</button>
         </section>
         <section class="publish">
-            <button>Preview</button>
+            <button @click="$router.push(`${params.id}/preview`)">Preview</button>
             <button>Publish</button>
         </section>
     </header>
@@ -40,7 +40,10 @@ import desktopBtn from "../../assets/svg/desktop.vue"
 import phoneBtn from "../../assets/svg/phone.vue"
 
 import { ref, defineEmits } from "vue"
+import { useRouter, useRoute } from "vue-router"
 
+const router = useRouter()
+const { params } = useRoute()
 const emit = defineEmits(['onChangeDisplay'])
 let displaySize = ref("desktop")
 
