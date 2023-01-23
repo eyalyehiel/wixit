@@ -9,11 +9,11 @@
                 <tooltip :text="'Add Elements'" />
             </button>
             <button @click="toggleCmpEditor()">
-                <img src="../../../assets/svg/palette.svg" alt="" />
+                <img src="../../assets/svg/palette.svg" alt="" />
                 <tooltip :text="'Edit Element'" />
             </button>
             <button>
-                <img src="../../../assets/svg/file-richtext.svg" alt="" />
+                <img src="../../assets/svg/file-richtext.svg" alt="" />
                 <tooltip :text="'Change Theme'" />
             </button>
         </nav>
@@ -54,12 +54,12 @@
 </template>
 
 <script setup>
-import tooltip from "../../tooltip.vue";
-import plus from "../../../assets/svg/plus.vue";
-import blackCircle from '../../../assets/svg/black-circle.vue'
+import tooltip from "../tooltip.vue";
+import plus from "../../assets/svg/plus.vue";
+import blackCircle from '../../assets/svg/black-circle.vue'
 
-import { useTemplateStore } from "../../../stores/template";
-import { utilService } from "../../../services/utils-service";
+import { useTemplateStore } from "../../stores/template";
+import { utilService } from "../../services/utils-service";
 
 import { ref, defineEmits, onUpdated, watch } from "vue";
 

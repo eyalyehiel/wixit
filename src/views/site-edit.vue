@@ -90,8 +90,8 @@
 </template>
 
 <script setup>
-import siteEditHeader from "../components/site-templates/site-edit/site-edit-header.vue"
-import siteEditSidebar from "../components/site-templates/site-edit/site-edit-sidebar.vue"
+import siteEditHeader from "../components/site-edit/site-edit-header.vue"
+import siteEditSidebar from "../components/site-edit/site-edit-sidebar.vue"
 import siteHeader from "../components/site-templates/site-header.vue"
 import siteHero from "../components/site-templates/site-hero.vue"
 import siteSection from "../components/site-templates/site-section.vue"

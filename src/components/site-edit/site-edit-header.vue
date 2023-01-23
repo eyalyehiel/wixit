@@ -33,10 +33,10 @@
 </template>
 
 <script setup>
-import undoBtn from "../../../assets/svg/redo.vue"
-import redoBtn from "../../../assets/svg/undo.vue"
-import desktopBtn from "../../../assets/svg/desktop.vue"
-import phoneBtn from "../../../assets/svg/phone.vue"
+import undoBtn from "../../assets/svg/redo.vue"
+import redoBtn from "../../assets/svg/undo.vue"
+import desktopBtn from "../../assets/svg/desktop.vue"
+import phoneBtn from "../../assets/svg/phone.vue"
 // import plusBtn from "../../../assets/svg/plus.vue"
 
 import { ref, defineEmits } from "vue"
