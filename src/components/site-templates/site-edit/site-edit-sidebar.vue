@@ -61,7 +61,7 @@ import blackCircle from '../../../assets/svg/black-circle.vue'
 import { useTemplateStore } from "../../../stores/template";
 import { utilService } from "../../../services/utils-service";
 
-import { ref, defineEmits, onMounted, onUpdated, watch } from "vue";
+import { ref, defineEmits, onUpdated, watch } from "vue";
 
 let isCmpsOpen = ref(false)
 let isTemplatesOpen = ref(false)
@@ -77,10 +77,6 @@ async function showCmps(cmpName) {
     if (isTemplatesOpen.value) return templateStore.loadFilteredCmps(cmpName)
     isTemplatesOpen.value = !isTemplatesOpen.value
 }
-
-onUpdated(() => {
-    console.log(cmpEditorOpen)
-})
 
 function toggleMenu() {
     // emit('onToggleMenu')
