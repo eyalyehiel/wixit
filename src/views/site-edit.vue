@@ -172,6 +172,7 @@ function setCmpToEdit(cmp) {
 
 function updateCmp() {
     siteStore.updateCmp(cmpToEdit.value)
+    console.log(siteStore.siteToShow)
 }
 function editElement(key) {
     focusedElement.value = key
