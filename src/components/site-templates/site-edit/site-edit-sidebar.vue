@@ -52,6 +52,8 @@
 </template>
 
 <script setup>
+import tooltip from "../../tooltip.vue";
+
 import { useTemplateStore } from "../../../stores/template";
 import { utilService } from "../../../services/utils-service";
 

@@ -99,16 +99,9 @@ import siteCards from "../components/site-templates/site-cards.vue"
 import siteGallery from "../components/site-templates/site-gallery.vue"
 import siteContact from "../components/site-templates/site-contact.vue"
 import siteFooter from "../components/site-templates/site-footer.vue"
-import tooltip from "../components/tooltip.vue"
-// import undoBtn from "../assets/svg/redo.vue"
-// import redoBtn from "../assets/svg/undo.vue"
-// import desktopBtn from "../assets/svg/desktop.vue"
-// import phoneBtn from "../assets/svg/phone.vue"
-// import plusBtn from "../assets/svg/plus.vue"
 
 import { onMounted, ref, computed } from "vue"
 import { useRoute } from "vue-router"
-import { utilService } from "../services/utils-service.js"
 import { useTemplateStore } from "../stores/template.js"
 import { useSiteStore } from "../stores/site.js"
 
@@ -123,13 +116,10 @@ const cmpsToShow = {
 }
 
 let cmpToEdit = ref(null)
-// let isCmpsOpen = ref(false)
-// let isTemplatesOpen = ref(false)
 let isCmpEditorOpen = ref(false)
 let focusedElement = ref(false)
 let changeColor = ref(false)
 let displaySize = ref("desktop")
-// let colors = ref(utilService.getEditColors())
 
 const templateStore = useTemplateStore()
 const siteStore = useSiteStore()
@@ -146,18 +136,6 @@ onMounted(async () => {
 function toggleDisplaySize(val) {
     displaySize.value = val
 }
-
-// async function showCmps(cmpName) {
-//     await templateStore.loadFilteredCmps(cmpName)
-//     if (isTemplatesOpen.value) return templateStore.loadFilteredCmps(cmpName)
-//     isTemplatesOpen.value = !isTemplatesOpen.value
-// }
-
-// function toggleMenu() {
-//     isCmpsOpen.value = !isCmpsOpen.value
-//     isTemplatesOpen.value = false
-//     if (isCmpsOpen.value) isCmpEditorOpen.value = false
-// }
 
 function toggleCmpEditor(val) {
     console.log(isCmpEditorOpen.value, val)
@@ -180,14 +158,12 @@ function changeText(text, key, idx) {
 }
 
 function setBgColor(val) {
-    console.log(cmpToEdit.value)
     cmpToEdit.value.style["background-color"] = val
     updateCmp()
 }
 
 function setCmpToEdit(cmp) {
     cmpToEdit.value = cmp
-    // console.log(isCmpEditorOpen.value)
     // if (isCmpEditorOpen.value) return
     isCmpEditorOpen.value = !isCmpEditorOpen.value
     // if (isCmpEditorOpen.value) return
@@ -202,6 +178,7 @@ function editElement(key) {
 }
 
 const cmpEditorOpen = computed(() => isCmpEditorOpen)
+
 function changeFontSize(ev) {
     const { value } = ev.target
     cmpToEdit.value.info[focusedElement.value].style["font-size"] = value + 'px'
