@@ -177,40 +177,64 @@
             display: flex;
             flex-direction: column;
             border-right: 1px solid #eee;
-            padding-block: 15px;
+            padding: 15px 9px;
+            gap: 15px;
 
             button {
                 position: relative;
-                padding-inline: 9px;
-                .plus-btn {
-                    width: 28px;
-                    height: 28px;
-                    padding: 3px;
-                    color: white !important;
-                    background-color: #2d3034;
-                    border-radius: 50%;
-                }
-                img {
-                    // margin: 22px;
-                    height: 30px;
-                }
-                .tooltip {
-                    display: none;
-                    position: absolute;
-                    box-shadow: 1px 1px 4px 1px #cdcdcd;
-                    top: 50%;
-                    left: 120%;
-                    border-radius: 5px;
-                    transform: translateY(-50%);
-                    padding: 10px;
-                    z-index: 10;
-                    background-color: white;
-                    width: max-content;
-                }
+                width: 42px;
+                aspect-ratio: 1/1;
+                border-radius: 50%;
+
                 &:hover {
+                    background-color: #ebf2ff;
+
+                    img,
+                    svg {
+                        color: #116dff !important;
+                    }
+
+                    .plus-btn {
+                        color: white !important;
+                    }
+
                     .tooltip {
                         display: block;
                     }
+                }
+
+                svg,
+                img {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    transform: translate(50%, 50%);
+                    height: 50%;
+                    width: 50%;
+                    color: #2d3034;
+                }
+                .plus-btn {
+                    height: 40%;
+                    width: 40%;
+                    transform: translate(75%, 75%) !important;
+                    color: white !important;
+                }
+
+                .tooltip {
+                    display: none;
+                    position: absolute;
+                    box-shadow: 0 3px 5px -1px rgb(0 0 0 / 15%),
+                        0 6px 10px 0 rgb(0 0 0 / 10%),
+                        0 1px 18px 0 rgb(0 0 0 / 8%);
+                    top: 50%;
+                    left: 150%;
+                    border-radius: 4px;
+                    transform: translateY(-50%);
+                    padding: 10px 15px;
+                    z-index: 10;
+                    background-color: white;
+                    width: max-content;
+                    font-size: em(14px, 16px);
                 }
             }
         }
