@@ -157,10 +157,6 @@ function changeText(text, key, idx) {
     updateCmp()
 }
 
-function setBgColor(val) {
-    cmpToEdit.value.style["background-color"] = val
-    updateCmp()
-}
 
 function setCmpToEdit(cmp) {
     cmpToEdit.value = cmp
@@ -178,7 +174,10 @@ function editElement(key) {
     focusedElement.value = key
 }
 
-const cmpEditorOpen = computed(() => isCmpEditorOpen)
+function setBgColor(val) {
+    cmpToEdit.value.style["background-color"] = val
+    updateCmp()
+}
 
 function changeFontSize(ev) {
     const { value } = ev.target
@@ -186,5 +185,9 @@ function changeFontSize(ev) {
     updateCmp()
 }
 
-function TxtColor(el) { }
+function changeTextColor(color, key) {
+
+}
+
+const cmpEditorOpen = computed(() => isCmpEditorOpen)
 </script>
