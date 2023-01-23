@@ -95,10 +95,6 @@ function changeText(text, key, idx) {
     updateCmp()
 }
 
-function setBgColor(val) {
-    cmpToEdit.value.style["background-color"] = val
-    updateCmp()
-}
 
 function setCmpToEdit(cmp) {
     cmpToEdit.value = cmp
@@ -108,9 +104,15 @@ function setCmpToEdit(cmp) {
 function updateCmp() {
     siteStore.updateCmp(cmpToEdit.value)
 }
+
 function editElement(key) {
     focusedElement.value = key
 }
+
+// function setBgColor(val) {
+//     cmpToEdit.value.style["background-color"] = val
+//     updateCmp()
+// }
 
 // function changeFontSize(ev) {
 //     const { value } = ev.target
