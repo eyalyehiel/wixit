@@ -4,6 +4,7 @@
 
         <site-edit-sidebar
             :cmpEditorOpen="cmpEditorOpen"
+            :isElementFocused="isElementFocused"
             @onToggleCmpEditor="toggleCmpEditor"
             @onAddCmp="addCmp"
         />
@@ -60,6 +61,7 @@ let isCmpEditorOpen = ref(false)
 let focusedElement = ref(false)
 let changeColor = ref(false)
 let displaySize = ref("desktop")
+const isElementFocused = computed(() => focusedElement)
 const cmpEditorOpen = computed(() => isCmpEditorOpen)
 
 const templateStore = useTemplateStore()
@@ -94,7 +96,6 @@ function changeText(text, key, idx) {
         : (cmpToEdit.value.info[key].text = text)
     updateCmp()
 }
-
 
 function setCmpToEdit(cmp) {
     cmpToEdit.value = cmp

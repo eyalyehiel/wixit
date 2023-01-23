@@ -5,7 +5,6 @@
             src="../assets/svg/wix-logo.svg.svg"
             alt=""
         />
-        <!-- <p><span>w</span>ixit</p> -->
         <div class="header-btns">
             <button v-if="!isLoginPath" @click="navigate('/login')">Log In</button>
             <button @click="navigate('/site')">Get Started</button>
@@ -28,6 +27,5 @@ function navigate(to) {
 watch(route, () => {
     if (route.path === "/login" || route.path === "/signup") isLoginPath.value = true
     else isLoginPath.value = false
-    console.log(isLoginPath.value);
 })
 </script>

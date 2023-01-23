@@ -57,8 +57,11 @@
                 </section>
             </section>
             <section class="upload-img">
-                <img src="../../../assets/svg/cloud-arrow-up-fill.svg" alt="" />
+                <img src="../../assets/svg/cloud-arrow-up-fill.svg" alt="" />
                 <span>Drop file here or</span>
+            </section>
+            <section v-if="isElementFocused.value" class="font-picker">
+                he
             </section>
         </section>
     </section>
@@ -81,7 +84,10 @@ let colors = ref(utilService.getEditColors())
 
 const templateStore = useTemplateStore()
 const emit = defineEmits(["onAddCmp", "onToggleMenu", "onToggleCmpEditor"])
-const { cmpEditorOpen } = defineProps({ cmpEditorOpen: Object })
+const { cmpEditorOpen, isElementFocused } = defineProps({
+    cmpEditorOpen: Object,
+    isElementFocused: Object,
+})
 
 async function showCmps(cmpName) {
     await templateStore.loadFilteredCmps(cmpName)
@@ -105,8 +111,10 @@ function onAddCmp(cmp) {
     emit("onAddCmp", cmp)
 }
 
+watch(isElementFocused, () => {
+    console.log(isElementFocused.value);
+})
 watch(cmpEditorOpen, () => {
     toggleCmpEditor()
 })
-
 </script>
