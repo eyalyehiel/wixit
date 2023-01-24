@@ -5,7 +5,7 @@
             <h1 :style="cmp.info.title.style" contenteditable @input="changeText($event, 'title')" @click="setTxtColor($event)">{{ cmp.info.title.text }}
             </h1>
         </div>
-        <nav>
+        <nav class="nav">
             <a :style="style" contenteditable :href="href" @input="changeText($event, 'links', idx)"
                 v-for="({ text,style, href }, idx) in cmp.info.links">
                 {{ text }}

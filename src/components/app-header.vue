@@ -1,11 +1,11 @@
 <template>
     <header class="main-header">
-        <img
+        <!-- <img
             @click="navigate('/')"
             src="../assets/svg/wix-logo.svg.svg"
             alt=""
-        />
-        <!-- <p><span>w</span>ixit</p> -->
+        /> -->
+        <p>w<span>ixit</span></p>
         <div class="header-btns">
             <button v-if="!isLoginPath" @click="navigate('/login')">Log In</button>
             <button @click="navigate('/site')">Get Started</button>

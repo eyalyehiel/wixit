@@ -21,7 +21,6 @@
         img {
             height: 50px;
         }
-        
     }
     .menu-btn {
         display: none;
@@ -58,12 +57,17 @@
             cursor: pointer;
         }
     }
+
     @media (max-width: 400px) {
-        nav {
-            display: none;
+        .graphic-designer-header {
+            .nav {
+                display: none;
+            }
         }
+
         .menu-btn {
             display: block;
         }
     }
+   
 }
