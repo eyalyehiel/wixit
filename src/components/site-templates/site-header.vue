@@ -2,12 +2,13 @@
     <header class="graphic-designer-header" :style="cmp.style">
         <div class="logo-title">
             <img :src="cmp.style.logo" alt="">
-            <h1 :style="cmp.info.title.style" contenteditable @input="changeText($event, 'title')" @click="setTxtColor($event)">{{ cmp.info.title.text }}
+            <h1 :style="cmp.info.title.style" contenteditable @input="changeText($event, 'title')"
+                @click="setTxtColor($event)">{{ cmp.info.title.text }}
             </h1>
         </div>
         <nav>
             <a :style="style" contenteditable :href="href" @input="changeText($event, 'links', idx)"
-                v-for="({ text,style, href }, idx) in cmp.info.links">
+                v-for="({ text, style, href }, idx) in cmp.info.links">
                 {{ text }}
             </a>
         </nav>
@@ -21,7 +22,13 @@
 <script setup>
 import { onMounted, defineProps, ref, defineEmits } from "vue";
 
-const { cmp } = defineProps({ cmp: Object });
+const { cmp, isPreview } = defineProps({
+    cmp: Object,
+    isPreview: {
+        type: Boolean,
+        default: true
+    }
+});
 const emit = defineEmits(['onSetTxtColor', 'onChangeText'])
 
 let isOpen = ref(false);

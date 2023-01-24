@@ -4,6 +4,7 @@ import siteApp from '../views/site-app.vue';
 import siteEdit from '../views/site-edit.vue';
 import siteLogin from '../components/login.vue';
 import siteSignup from '../components/signUp.vue';
+import siteEditDisplay from '../components/site-edit/site-edit-display.vue';
 
 const router = createRouter({
     history: createWebHashHistory(import.meta.env.BASE_URL),
@@ -36,7 +37,7 @@ const router = createRouter({
         {
             path: '/site/edit/:id/preview',
             name: 'editPreview',
-            // component: siteDisplay,
+            component: siteEditDisplay,
         },
     ],
 });

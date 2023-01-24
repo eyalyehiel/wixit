@@ -2,25 +2,14 @@
     <section v-if="siteStore.siteToShow" class="site-edit">
         <site-edit-header @onChangeDisplay="toggleDisplaySize" />
 
-        <site-edit-sidebar
-            :cmpEditorOpen="cmpEditorOpen"
-            :isElementFocused="isElementFocused"
-            @onToggleCmpEditor="toggleCmpEditor"
-            @onAddCmp="addCmp"
-        />
+        <site-edit-sidebar :cmpEditorOpen="cmpEditorOpen" :isElementFocused="isElementFocused"
+            @onToggleCmpEditor="toggleCmpEditor" @onAddCmp="addCmp" />
         <!-- @onToggleMenu="toggleMenu" -->
 
         <section class="site-display" :class="displaySize">
-            <component
-                v-if="siteStore.siteToShow?.cmps?.length"
-                v-for="cmp in siteStore.siteToShow.cmps"
-                :is="cmpsToShow[cmp.type]"
-                :cmp="cmp"
-                :class="{ 'cmp-selected': cmpToEdit?._id === cmp._id }"
-                @click="setCmpToEdit(cmp)"
-                @editElement="editElement"
-                @onChangeText="changeText"
-            >
+            <component v-if="siteStore.siteToShow?.cmps?.length" v-for="cmp in siteStore.siteToShow.cmps"
+                :is="cmpsToShow[cmp.type]" :cmp="cmp" :class="{ 'cmp-selected': cmpToEdit?._id === cmp._id }"
+                @click="setCmpToEdit(cmp)" @editElement="editElement" @onChangeText="changeText">
                 <!-- @onSetTxtColor="TxtColor" -->
             </component>
             <section v-else class="drag-area">
@@ -74,6 +63,7 @@ onMounted(async () => {
         ? await templateStore.getById(id)
         : templateStore.getEmptySite()
     siteStore.setSite(site)
+    console.log(siteStore.siteToShow)
 })
 
 function toggleDisplaySize(val) {
