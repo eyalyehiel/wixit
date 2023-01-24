@@ -28,6 +28,5 @@ function navigate(to) {
 watch(route, () => {
     if (route.path === "/login" || route.path === "/signup") isLoginPath.value = true
     else isLoginPath.value = false
-    console.log(isLoginPath.value);
 })
 </script>

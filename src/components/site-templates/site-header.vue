@@ -1,13 +1,15 @@
 <template>
     <header class="graphic-designer-header" :style="cmp.style">
         <div class="logo-title">
-            <img :src="cmp.style.logo" alt="">
-            <h1 :style="cmp.info.title.style" contenteditable @input="changeText($event, 'title')" @click="setTxtColor($event)">{{ cmp.info.title.text }}
+            <img :src="cmp.style.logo">
+            <h1 :style="cmp.info.title.style" :contenteditable="isPreview" @input="changeText($event, 'title')">{{
+                cmp.info.title.text
+            }}
             </h1>
         </div>
-        <nav class="nav">
-            <a :style="style" contenteditable :href="href" @input="changeText($event, 'links', idx)"
-                v-for="({ text,style, href }, idx) in cmp.info.links">
+        <nav>
+            <a :style="style" :contenteditable="isPreview" :href="href" @input="changeText($event, 'links', idx)"
+                v-for="({ text, style, href }, idx) in cmp.info.links">
                 {{ text }}
             </a>
         </nav>
@@ -15,13 +17,18 @@
             <div class="icon"></div>
         </div>
     </header>
-
 </template>
 
 <script setup>
-import { onMounted, defineProps, ref, defineEmits } from "vue";
+import { watch, ref, defineProps, defineEmits, onMounted } from "vue";
 
-const { cmp } = defineProps({ cmp: Object });
+const { cmp, isPreview } = defineProps({
+    cmp: Object,
+    isPreview: {
+        type: Boolean,
+        default: true
+    }
+});
 const emit = defineEmits(['onSetTxtColor', 'onChangeText'])
 
 let isOpen = ref(false);
@@ -31,11 +38,9 @@ function toggleMenu() {
 }
 
 function changeText(ev, key, idx) {
+    if (isPreview) return
     emit('onChangeText', ev.target.innerText, key, idx)
 }
 
-function setTxtColor(ev) {
-    emit('onSetTxtColor', ev.target)
-}
 
 </script>

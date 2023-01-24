@@ -1,11 +1,10 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
 import HomeView from '../views/home-view.vue';
 import siteApp from '../views/site-app.vue';
-import siteEdit from '../views/site-edit.vue'
-import siteLogin from '../components/login.vue'
-import siteSignup from '../components/signUp.vue'
-// import graphicDesignerHome from '../components/graphic-designer/graphic-designer-home.vue';
-
+import siteEdit from '../views/site-edit.vue';
+import siteLogin from '../components/login.vue';
+import siteSignup from '../components/signUp.vue';
+import siteEditDisplay from '../components/site-edit/site-edit-display.vue';
 
 const router = createRouter({
     history: createWebHashHistory(import.meta.env.BASE_URL),
@@ -30,15 +29,15 @@ const router = createRouter({
             name: 'site',
             component: siteApp,
         },
-        // {
-        //     path: '/site/:id',
-        //     name: 'sitePreview',
-        //     component: graphicDesignerHome,
-        // },
         {
-            path: "/site/edit/:id?",
-            name: "edit",
+            path: '/site/edit/:id?',
+            name: 'edit',
             component: siteEdit,
+        },
+        {
+            path: '/site/edit/:id/preview',
+            name: 'editPreview',
+            component: siteEditDisplay,
         },
     ],
 });
