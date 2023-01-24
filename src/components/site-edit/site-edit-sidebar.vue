@@ -28,15 +28,8 @@
             <span @click="showCmps('contact')">Contact</span>
             <span @click="showCmps('video')">Video</span>
         </section>
-        <section
-            class="section-select section-templates"
-            :class="{ open: isTemplatesOpen }"
-        >
-            <span
-                v-for="cmp in templateStore.filteredCmps"
-                @click="onAddCmp(cmp)"
-                >{{ cmp.type }}</span
-            >
+        <section class="section-select section-templates" :class="{ open: isTemplatesOpen }">
+            <span v-for="cmp in templateStore.filteredCmps" @click="onAddCmp(cmp)">{{ cmp.type }}</span>
         </section>
 
         <section class="cmp-editor" :class="{ open: isCmpEditorOpen }">
@@ -48,20 +41,16 @@
             <section class="color-picker">
                 <h1>BACKGROUND COLOR</h1>
                 <section class="color-wrapper">
-                    <section
-                        v-for="color in colors"
-                        @click="setColor(color)"
-                        :style="{ 'background-color': color }"
-                        :key="color"
-                    ></section>
+                    <section v-for="color in colors" @click="setColor(color)" :style="{ 'background-color': color }"
+                        :key="color"></section>
                 </section>
             </section>
             <section class="upload-img">
                 <img src="../../assets/svg/cloud-arrow-up-fill.svg" alt="" />
                 <span>Drop file here or</span>
             </section>
-            <section v-if="isElementFocused.value" class="font-picker">
-                he
+            <section v-if="isElementFocused" class="font-picker">
+                {{ isElementFocused }}
             </section>
         </section>
     </section>

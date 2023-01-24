@@ -1,12 +1,9 @@
 <template>
     <section class="site-display" :class="displaySize">
         <component v-if="siteStore.siteToShow?.cmps?.length" v-for="cmp in siteStore.siteToShow.cmps"
-            :is="cmpsToShow[cmp.type]" :cmp="cmp" :class="{ 'cmp-selected': cmpToEdit?._id === cmp._id }"
-            @click="setCmpToEdit(cmp)" @editElement="editElement" @onChangeText="changeText" :isPreview="isPreview">
-            <!-- @onSetTxtColor="TxtColor" -->
-        </component>
-        <section v-else class="drag-area">
-            <h1>Place Element Here</h1>
+            :is="cmpsToShow[cmp.type]" :cmp="cmp" />
+        <section v-else>
+            <h1>No Site Found please try again later</h1>
         </section>
     </section>
 </template>
@@ -21,7 +18,6 @@ import siteHero from "../site-templates/site-hero.vue"
 import siteHeader from "../site-templates/site-header.vue"
 
 import { useSiteStore } from "../../stores/site"
-import { onMounted, ref, watch, onUpdated } from "vue"
 import { useRoute } from "vue-router"
 
 const cmpsToShow = {
@@ -37,10 +33,10 @@ const cmpsToShow = {
 const siteStore = useSiteStore()
 const route = useRoute()
 
-const cmpToEdit = ref(null)
-const focusedElement = ref(null)
-const isCmpEditorOpen = ref(false)
-const isPreview = ref(false)
+// const cmpToEdit = ref(null)
+// const focusedElement = ref(null)
+// const isCmpEditorOpen = ref(false)
+// const isPreview = ref(false)
 
 onMounted(() => {
     console.log(siteStore.siteToShow)
@@ -51,19 +47,19 @@ watch(route, () => {
     isPreview.value = route.path.includes('preview')
 })
 
-function setCmpToEdit(cmp) {
-    cmpToEdit.value = cmp
-    isCmpEditorOpen.value = !isCmpEditorOpen.value
-}
+// function setCmpToEdit(cmp) {
+//     cmpToEdit.value = cmp
+//     isCmpEditorOpen.value = !isCmpEditorOpen.value
+// }
 
-function editElement(key) {
-    focusedElement.value = key
-}
+// function editElement(key) {
+//     focusedElement.value = key
+// }
 
-function changeText(text, key, idx) {
-    typeof cmpToEdit.value.info[key] === Array
-        ? (cmpToEdit.value.info[key][idx].text = text)
-        : (cmpToEdit.value.info[key].text = text)
-    updateCmp()
-}
+// function changeText(text, key, idx) {
+//     typeof cmpToEdit.value.info[key] === Array
+//         ? (cmpToEdit.value.info[key][idx].text = text)
+//         : (cmpToEdit.value.info[key].text = text)
+//     updateCmp()
+// }
 </script>
