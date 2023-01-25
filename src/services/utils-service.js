@@ -10,6 +10,7 @@ export const utilService = {
     hoverEffect,
     format,
     getEditColors,
+    getFonts,
 };
 
 function makeId(length = 6) {
@@ -210,5 +211,15 @@ function getEditColors() {
         "#263140",
         "#faebd7",
         "#ffffff",
+    ]
+}
+
+function getFonts(){
+    return [
+        {code: 'Aa', full: 'Arial'},
+        {code: 'Aa', full: 'Arial'},
+        {code: 'Aa', full: 'Arial'},
+        {code: 'Aa', full: 'Arial'},
+        {code: 'Aa', full: 'Arial'},
     ]
 }

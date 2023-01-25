@@ -28,8 +28,15 @@
             <span @click="showCmps('contact')">Contact</span>
             <span @click="showCmps('video')">Video</span>
         </section>
-        <section class="section-select section-templates" :class="{ open: isTemplatesOpen }">
-            <span v-for="cmp in templateStore.filteredCmps" @click="onAddCmp(cmp)">{{ cmp.type }}</span>
+        <section
+            class="section-select section-templates"
+            :class="{ open: isTemplatesOpen }"
+        >
+            <span
+                v-for="cmp in templateStore.filteredCmps"
+                @click="onAddCmp(cmp)"
+                >{{ cmp.type }}</span
+            >
         </section>
 
         <section class="cmp-editor" :class="{ open: isCmpEditorOpen }">
@@ -38,19 +45,41 @@
                 <img src="../../assets/svg/trash.svg" alt="" />
             </section>
 
-            <section class="color-picker">
+            <section v-if="!cElementFocused" class="color-picker">
                 <h1>BACKGROUND COLOR</h1>
                 <section class="color-wrapper">
-                    <section v-for="color in colors" @click="setColor(color)" :style="{ 'background-color': color }"
-                        :key="color"></section>
+                    <section
+                        v-for="color in colors"
+                        @click="setColor(color)"
+                        :style="{ 'background-color': color }"
+                        :key="color"
+                    ></section>
                 </section>
             </section>
-            <section class="upload-img">
+            <section v-if="!cElementFocused" class="upload-img">
                 <img src="../../assets/svg/cloud-arrow-up-fill.svg" alt="" />
                 <span>Drop file here or</span>
             </section>
-            <section v-if="isElementFocused" class="font-picker">
-                {{ isElementFocused }}
+            <section v-if="cElementFocused" class="font-color-picker">
+                <h1>TEXT COLOR</h1>
+                <section class="color-wrapper">
+                    <section
+                        v-for="color in colors"
+                        @click="setColor(color)"
+                        :style="{ 'background-color': color }"
+                        :key="color"
+                    ></section>
+                </section>
+            </section>
+            <section v-if="cElementFocused" class="font-style-picker">
+                <h1>FONT STYLE</h1>
+                <section class="font-wrapper">
+                    <section v-for="font in fonts" :key="font.code">{{font.code}}</section>
+                </section>
+            </section>
+            <section v-if="cElementFocused" class="font-style-picker">
+                <h1>FONT SIZE</h1>
+                <input type="range" min="2" max="56">
             </section>
         </section>
     </section>
@@ -64,12 +93,13 @@ import blackCircle from "../../assets/svg/black-circle.vue"
 import { useTemplateStore } from "../../stores/template"
 import { utilService } from "../../services/utils-service"
 
-import { ref, defineEmits, onUpdated, watch } from "vue"
+import { ref, defineEmits, onUpdated, watch, computed } from "vue"
 
 let isCmpsOpen = ref(false)
 let isTemplatesOpen = ref(false)
 let isCmpEditorOpen = ref(false)
 let colors = ref(utilService.getEditColors())
+let fonts = ref(utilService.getFonts())
 
 const templateStore = useTemplateStore()
 const emit = defineEmits(["onAddCmp", "onToggleMenu", "onToggleCmpEditor"])
@@ -77,6 +107,7 @@ const { cmpEditorOpen, isElementFocused } = defineProps({
     cmpEditorOpen: Object,
     isElementFocused: Object,
 })
+const cElementFocused = ref(false)
 
 async function showCmps(cmpName) {
     await templateStore.loadFilteredCmps(cmpName)
@@ -101,7 +132,9 @@ function onAddCmp(cmp) {
 }
 
 watch(isElementFocused, () => {
-    console.log(isElementFocused.value);
+    cElementFocused.value = isElementFocused?.value.includes("site")
+        ? false
+        : isElementFocused
 })
 watch(cmpEditorOpen, () => {
     toggleCmpEditor()
