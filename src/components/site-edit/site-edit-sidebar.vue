@@ -12,7 +12,7 @@
                 <img src="../../assets/svg/palette.svg" alt="" />
                 <tooltip-cmp :text="'Edit Element'" />
             </button>
-            <button>
+            <button @click="toggleThemes()">
                 <img src="../../assets/svg/file-richtext.svg" alt="" />
                 <tooltip-cmp :text="'Change Theme'" />
             </button>
@@ -74,12 +74,22 @@
             <section v-if="cElementFocused" class="font-style-picker">
                 <h1>FONT STYLE</h1>
                 <section class="font-wrapper">
-                    <section v-for="font in fonts" :key="font.code">{{font.code}}</section>
+                    <section v-for="font in fonts" :key="font.code">
+                        {{ font.code }}
+                    </section>
                 </section>
             </section>
             <section v-if="cElementFocused" class="font-style-picker">
                 <h1>FONT SIZE</h1>
-                <input type="range" min="2" max="56">
+                <input type="range" min="2" max="56" />
+            </section>
+        </section>
+        <section class="theme-selector" :class="{ open: isThemesOpen }">
+            <h2>Choose Theme</h2>
+            <section @click="setTheme(theme)" v-for="theme in themes" :key="theme">
+                <button :style="{ 'background-color': theme['background-color'] }"></button>
+                <button :style="{ 'background-color': theme.color }"></button>
+                <button :style="{ 'background-color': theme.others }"></button>
             </section>
         </section>
     </section>
@@ -98,9 +108,10 @@ import { ref, defineEmits, onUpdated, watch, computed } from "vue"
 let isCmpsOpen = ref(false)
 let isTemplatesOpen = ref(false)
 let isCmpEditorOpen = ref(false)
+let isThemesOpen = ref(false)
 let colors = ref(utilService.getEditColors())
 let fonts = ref(utilService.getFonts())
-
+let themes = ref(utilService.getThemes())
 const templateStore = useTemplateStore()
 const emit = defineEmits(["onAddCmp", "onToggleMenu", "onToggleCmpEditor"])
 const { cmpEditorOpen, isElementFocused } = defineProps({
@@ -123,6 +134,14 @@ function toggleMenu() {
 
 function toggleCmpEditor() {
     isCmpEditorOpen.value = !isCmpEditorOpen.value
+    isCmpsOpen.value = false
+    isTemplatesOpen.value = false
+    isThemesOpen.value = false
+}
+
+function toggleThemes() {
+    isThemesOpen.value = !isThemesOpen.value
+    isCmpEditorOpen.value = false
     isCmpsOpen.value = false
     isTemplatesOpen.value = false
 }

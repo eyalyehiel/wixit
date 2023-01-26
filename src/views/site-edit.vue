@@ -22,6 +22,7 @@
 <script setup>
 import siteEditHeader from "../components/site-edit/site-edit-header.vue"
 import siteEditSidebar from "../components/site-edit/site-edit-sidebar.vue"
+
 import siteHeader from "../components/site-templates/site-header.vue"
 import siteHero from "../components/site-templates/site-hero.vue"
 import siteSection from "../components/site-templates/site-section.vue"
@@ -44,12 +45,12 @@ const cmpsToShow = {
     "site-contact": siteContact,
     "site-footer": siteFooter,
 }
+const cmpToEdit = ref(null)
+const isCmpEditorOpen = ref(false)
+const focusedElement = ref(false)
+const changeColor = ref(false)
+const displaySize = ref("desktop")
 
-let cmpToEdit = ref(null)
-let isCmpEditorOpen = ref(false)
-let focusedElement = ref(false)
-let changeColor = ref(false)
-let displaySize = ref("desktop")
 const isElementFocused = computed(() => focusedElement)
 const cmpEditorOpen = computed(() => isCmpEditorOpen)
 

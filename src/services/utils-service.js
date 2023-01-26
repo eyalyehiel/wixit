@@ -11,6 +11,7 @@ export const utilService = {
     format,
     getEditColors,
     getFonts,
+    getThemes
 };
 
 function makeId(length = 6) {
@@ -221,5 +222,15 @@ function getFonts(){
         {code: 'Aa', full: 'Arial'},
         {code: 'Aa', full: 'Arial'},
         {code: 'Aa', full: 'Arial'},
+    ]
+}
+
+function getThemes(){
+    return [
+        {'background-color': '#354F60',color: '#BC0E4C', others: '#FFC501'},
+        {'background-color': '#4e9aa0',color: '#eeede9', others: '#d55b49'},
+        {'background-color': '#0198a6',color: '#01375a', others: '#f0f1e4'},
+        {'background-color': '#a9b7a0',color: '#d6bfbb', others: '#e7e2de'},
+        {'background-color': '#e9e3db',color: '#353132', others: '#D84339'},
     ]
 }
