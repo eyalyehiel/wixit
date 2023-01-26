@@ -145,18 +145,19 @@
             gap: 16px;
             align-items: center;
             padding-inline: 20px;
+
             button {
                 border-radius: 5px;
                 padding: 8px 25px;
+
                 &:first-child {
                     color: #116dff;
-                    &:hover {
-                        color: #5999ff;
-                    }
                 }
+
                 &:last-child {
                     color: white;
                     background-color: #116dff;
+                    border-radius: 15px;
                     &:hover {
                         background-color: #5999ff;
                     }
@@ -294,7 +295,9 @@
                     width: 24px;
                 }
             }
-            .color-picker ,.font-color-picker,.font-style-picker{
+            .color-picker,
+            .font-color-picker,
+            .font-style-picker {
                 display: flex;
                 flex-direction: column;
                 gap: 12px;
@@ -341,7 +344,7 @@
                 padding-block: 50px;
             }
         }
-        .theme-selector{
+        .theme-selector {
             display: flex;
             flex-direction: column;
             width: 0;
@@ -357,12 +360,12 @@
             }
             section {
                 display: grid;
-                grid-template-columns: repeat(3,1fr);
+                grid-template-columns: repeat(3, 1fr);
                 width: 100%;
                 height: 30px;
                 position: relative;
                 overflow: hidden;
-                &:hover{
+                &:hover {
                     outline: 3px solid rgb(193, 192, 192);
                 }
             }
@@ -376,28 +379,10 @@
         overflow: auto;
         transition: all 0.4s;
 
-        // [contenteditable] {
-        //     position: relative;
+        [contenteditable]:focus {
+            outline: 1px solid #116dff;
+        }
 
-        //     &::after {
-        //         position: absolute;
-        //         content: '';
-        //         top: 0;
-        //         bottom: -100%;
-        //         left: 0;
-        //         right: -100%;
-        //         // height: 150%;
-        //         transform: translate(-25%, -25%);
-        //         opacity: 0;
-        //         // background-color: black;
-        //     }
-
-        //     &:focus ::after {
-        //         background-color: transparent;
-        //         border: 0;
-        //         outline: 0px solid red;
-        //     }
-        // }
         > *:hover {
             background-color: #6e56f91c !important;
             box-shadow: inset 3px 3px 0 0 #6e56f961,
@@ -419,7 +404,7 @@
             box-shadow: 0px 0px 20px 14px #ddd;
             border-radius: 2em;
 
-            .graphic-designer-header nav {
+            .site-header nav {
                 display: none;
             }
 

@@ -28,15 +28,8 @@
             <span @click="showCmps('contact')">Contact</span>
             <span @click="showCmps('video')">Video</span>
         </section>
-        <section
-            class="section-select section-templates"
-            :class="{ open: isTemplatesOpen }"
-        >
-            <span
-                v-for="cmp in templateStore.filteredCmps"
-                @click="onAddCmp(cmp)"
-                >{{ cmp.type }}</span
-            >
+        <section class="section-select section-templates" :class="{ open: isTemplatesOpen }">
+            <span v-for="cmp in templateStore.filteredCmps" @click="onAddCmp(cmp)">{{ cmp.type }}</span>
         </section>
 
         <section class="cmp-editor" :class="{ open: isCmpEditorOpen }">
@@ -48,12 +41,8 @@
             <section v-if="!cElementFocused" class="color-picker">
                 <h1>BACKGROUND COLOR</h1>
                 <section class="color-wrapper">
-                    <section
-                        v-for="color in colors"
-                        @click="setBacColor(color)"
-                        :style="{ 'background-color': color }"
-                        :key="color"
-                    ></section>
+                    <section v-for="color in colors" @click="changeCmpBgColor(color)"
+                        :style="{ 'background-color': color }" :key="color"></section>
                 </section>
             </section>
             <section v-if="!cElementFocused" class="upload-img">
@@ -63,12 +52,8 @@
             <section v-if="cElementFocused" class="font-color-picker">
                 <h1>TEXT COLOR</h1>
                 <section class="color-wrapper">
-                    <section
-                        v-for="color in colors"
-                        @click="setColor(color)"
-                        :style="{ 'background-color': color }"
-                        :key="color"
-                    ></section>
+                    <section v-for="color in colors" @click="setValueToKey('color', $event, color)"
+                        :style="{ 'background-color': color }" :key="color"></section>
                 </section>
             </section>
             <section v-if="cElementFocused" class="font-style-picker">
@@ -81,7 +66,7 @@
             </section>
             <section v-if="cElementFocused" class="font-style-picker">
                 <h1>FONT SIZE</h1>
-                <input type="range" min="2" max="56" />
+                <input type="range" min="2" max="56" @input="setValueToKey('fontSize', $event)" />
             </section>
         </section>
         <section class="theme-selector" :class="{ open: isThemesOpen }">
@@ -103,22 +88,24 @@ import blackCircle from "../../assets/svg/black-circle.vue";
 import { useTemplateStore } from "../../stores/template";
 import { utilService } from "../../services/utils-service";
 
-import { ref, defineEmits, onUpdated, watch, computed } from "vue";
+import { ref, defineEmits, watch } from "vue";
 
-let isCmpsOpen = ref(false)
-let isTemplatesOpen = ref(false)
-let isCmpEditorOpen = ref(false)
-let isThemesOpen = ref(false)
-let colors = ref(utilService.getEditColors())
-let fonts = ref(utilService.getFonts())
-let themes = ref(utilService.getThemes())
+const isCmpsOpen = ref(false)
+const isTemplatesOpen = ref(false)
+const isCmpEditorOpen = ref(false)
+const isThemesOpen = ref(false)
+const cElementFocused = ref(false);
+
+const colors = ref(utilService.getEditColors())
+const fonts = ref(utilService.getFonts())
+const themes = ref(utilService.getThemes())
+
 const templateStore = useTemplateStore()
-const emit = defineEmits(["onAddCmp", "onToggleMenu", "onToggleCmpEditor",'onSetTheme'])
+const emit = defineEmits(["onAddCmp", "onToggleMenu", "onToggleCmpEditor", 'onSetTheme', "onUpdateElement", "onChangeCmpBgColor"])
 const { cmpEditorOpen, isElementFocused } = defineProps({
     cmpEditorOpen: Object,
     isElementFocused: Object,
 });
-const cElementFocused = ref(false);
 
 async function showCmps(cmpName) {
     await templateStore.loadFilteredCmps(cmpName);
@@ -150,15 +137,15 @@ function onAddCmp(cmp) {
     emit("onAddCmp", cmp);
 }
 
-function setColor(color) {
-    emit("setColor", color);
+function setValueToKey(key, { target }, value) {
+    emit("onUpdateElement", key, key === 'fontSize' ? target.value + 'px' : value)
 }
-function setBacColor(color) {
-    console.log('color', color)
-    emit("setBacColor", color);
+
+function changeCmpBgColor(color) {
+    emit("onChangeCmpBgColor", color);
 }
-function setTheme(theme){
-    emit('onSetTheme',theme)
+function setTheme(theme) {
+    emit('onSetTheme', theme)
 }
 
 watch(isElementFocused, () => {

@@ -1,14 +1,16 @@
 <template>
-    <header class="graphic-designer-header" @click.stop="onEditElement($event, 'site-header')" :style="cmp.style">
+    <header class="site-header" @click.stop="onEditElement($event, 'site-header')" :style="cmp.style">
         <div class="logo-title">
             <img :src="cmp.style.logo">
-            <h1 :style="cmp.info.title.style" :contenteditable="isPreview" @click.stop="onEditElement($event, 'title')" @input="changeText($event, 'title')">{{
-                cmp.info.title.text
-            }}
+            <h1 :style="cmp.info.title.style" :contenteditable="isPreview" @click.stop="onEditElement($event, 'title')"
+                @input="changeText($event, 'title')">{{
+                    cmp.info.title.text
+                }}
             </h1>
         </div>
         <nav>
-            <a :style="style" :contenteditable="isPreview" @click.stop="onEditElement($event, 'link', idx)" :href="href" @input="changeText($event, 'links', idx)"
+            <a :style="style" :contenteditable="isPreview" @click.stop="onEditElement($event, 'links', idx)"
+                :href="href" @input="changeText($event, 'links', idx)"
                 v-for="({ text, style, href }, idx) in cmp.info.links">
                 {{ text }}
             </a>
@@ -29,11 +31,11 @@ const { cmp, isPreview } = defineProps({
         default: true
     }
 });
-const emit = defineEmits(['onSetTxtColor', 'onChangeText','editElement'])
+const emit = defineEmits(['onSetTxtColor', 'onChangeText', 'editElement'])
 
 let isOpen = ref(false);
-function onEditElement(ev, key) {
-    emit("editElement", key)
+function onEditElement(ev, key, idx) {
+    emit("editElement", key, idx)
 }
 
 function toggleMenu() {
