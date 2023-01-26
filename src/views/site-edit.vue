@@ -118,10 +118,24 @@ function setTheme(theme) {
     console.log("cmpToEdit.value", cmpToEdit.value)
     cmpToEdit.value.style["background-color"] = theme["background-color"]
     for (const key in cmpToEdit.value.info) {
-        if (key !== "images")
-            cmpToEdit.value.info[key].style["color"] = theme.color
-        if (key === "btn" || key === "card")
-            cmpToEdit.value.info[key].style["background-color"] = theme.others
+        switch (key) {
+            case 'title':
+            case 'subtitle':
+            case 'paragraph1':
+            case 'paragraph2':
+            case 'paragraph3':
+                cmpToEdit.value.info[key].style["color"] = theme.color
+                break;
+            case 'links':
+                 cmpToEdit.value.info.links.forEach((link,idx) => cmpToEdit.value.info.links[idx].style.color = theme.color)
+                break;
+            case 'btn':
+            case 'card':
+                cmpToEdit.value.info[key].style["background-color"] = theme.others
+                break;
+            default:
+                break;
+        }
     }
     updateCmp()
 }
