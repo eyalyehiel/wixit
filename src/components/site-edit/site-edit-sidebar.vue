@@ -113,7 +113,7 @@ let colors = ref(utilService.getEditColors())
 let fonts = ref(utilService.getFonts())
 let themes = ref(utilService.getThemes())
 const templateStore = useTemplateStore()
-const emit = defineEmits(["onAddCmp", "onToggleMenu", "onToggleCmpEditor"])
+const emit = defineEmits(["onAddCmp", "onToggleMenu", "onToggleCmpEditor",'onSetTheme'])
 const { cmpEditorOpen, isElementFocused } = defineProps({
     cmpEditorOpen: Object,
     isElementFocused: Object,
@@ -148,6 +148,9 @@ function toggleThemes() {
 
 function onAddCmp(cmp) {
     emit("onAddCmp", cmp)
+}
+function setTheme(theme){
+    emit('onSetTheme',theme)
 }
 
 watch(isElementFocused, () => {

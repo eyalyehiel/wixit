@@ -2,14 +2,26 @@
     <section v-if="siteStore.siteToShow" class="site-edit">
         <site-edit-header @onChangeDisplay="toggleDisplaySize" />
 
-        <site-edit-sidebar :cmpEditorOpen="cmpEditorOpen" :isElementFocused="isElementFocused"
-            @onToggleCmpEditor="toggleCmpEditor" @onAddCmp="addCmp" />
+        <site-edit-sidebar
+            :cmpEditorOpen="cmpEditorOpen"
+            :isElementFocused="isElementFocused"
+            @onToggleCmpEditor="toggleCmpEditor"
+            @onSetTheme="setTheme"
+            @onAddCmp="addCmp"
+        />
         <!-- @onToggleMenu="toggleMenu" -->
 
         <section class="site-display" :class="displaySize">
-            <component v-if="siteStore.siteToShow?.cmps?.length" v-for="cmp in siteStore.siteToShow.cmps"
-                :is="cmpsToShow[cmp.type]" :cmp="cmp" :class="{ 'cmp-selected': cmpToEdit?._id === cmp._id }"
-                @click="setCmpToEdit(cmp)" @editElement="editElement" @onChangeText="changeText">
+            <component
+                v-if="siteStore.siteToShow?.cmps?.length"
+                v-for="cmp in siteStore.siteToShow.cmps"
+                :is="cmpsToShow[cmp.type]"
+                :cmp="cmp"
+                :class="{ 'cmp-selected': cmpToEdit?._id === cmp._id }"
+                @click="setCmpToEdit(cmp)"
+                @editElement="editElement"
+                @onChangeText="changeText"
+            >
                 <!-- @onSetTxtColor="TxtColor" -->
             </component>
             <section v-else class="drag-area">
@@ -99,6 +111,19 @@ function updateCmp() {
 
 function editElement(key) {
     focusedElement.value = key
+}
+
+function setTheme(theme) {
+    console.log("theme", theme)
+    console.log("cmpToEdit.value", cmpToEdit.value)
+    cmpToEdit.value.style["background-color"] = theme["background-color"]
+    for (const key in cmpToEdit.value.info) {
+        if (key !== "images")
+            cmpToEdit.value.info[key].style["color"] = theme.color
+        if (key === "btn" || key === "card")
+            cmpToEdit.value.info[key].style["background-color"] = theme.others
+    }
+    updateCmp()
 }
 
 // function setBgColor(val) {
