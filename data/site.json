@@ -91,7 +91,8 @@
                 },
                 "theme": "theme-header-happy",
                 "style": {
-                    "background": "url(https://res.cloudinary.com/dirvusyaz/image/upload/v1674042414/header-bg.jpg_ajhisz.webp)"
+                    "background": "url(https://res.cloudinary.com/dirvusyaz/image/upload/v1674042414/header-bg.jpg_ajhisz.webp)",
+                    "background-color": ""
                 }
             },
             {
@@ -155,7 +156,7 @@
                     }
                 },
                 "theme": "theme-header-happy",
-                "style": { "background": "url()" }
+                "style": { "background": "url()", "background-color": "" }
             }
         ],
         "isPublic": true
@@ -252,7 +253,8 @@
                 },
                 "theme": "theme-header-happy",
                 "style": {
-                    "background": "url(https://res.cloudinary.com/dirvusyaz/image/upload/v1674062221/c837a6_02de7d4c43d44b7b890854049ed75da8f000_atfm5c.webp)"
+                    "background": "url(https://res.cloudinary.com/dirvusyaz/image/upload/v1674062221/c837a6_02de7d4c43d44b7b890854049ed75da8f000_atfm5c.webp)",
+                    "background-color": ""
                 }
             },
             {
@@ -449,7 +451,7 @@
                     ]
                 },
                 "theme": "theme-header-happy",
-                "style": { "background": "url()" }
+                "style": { "background": "url()", "background-color": "" }
             },
             {
                 "type": "site-footer",
@@ -474,7 +476,7 @@
                     }
                 },
                 "theme": "theme-header-happy",
-                "style": { "background": "url()" }
+                "style": { "background": "url()", "background-color": "" }
             }
         ],
         "isPublic": true
@@ -531,7 +533,7 @@
                     ]
                 },
                 "theme": "theme-header-happy",
-                "style": { "background": "url()" }
+                "style": { "background": "url()", "background-color": "" }
             },
             {
                 "type": "site-hero",
@@ -567,7 +569,8 @@
                 },
                 "theme": "theme-header-happy",
                 "style": {
-                    "background": "url(https://res.cloudinary.com/dirvusyaz/image/upload/v1674042414/header-bg.jpg_ajhisz.webp)"
+                    "background": "url(https://res.cloudinary.com/dirvusyaz/image/upload/v1674042414/header-bg.jpg_ajhisz.webp)",
+                    "background-color": ""
                 }
             },
             {
@@ -606,7 +609,7 @@
                     ]
                 },
                 "theme": "theme-header-happy",
-                "style": { "background": "url()" }
+                "style": { "background": "url()", "background-color": "" }
             },
             {
                 "type": "site-footer",
@@ -631,7 +634,7 @@
                     }
                 },
                 "theme": "theme-header-happy",
-                "style": { "background": "url()" }
+                "style": { "background": "url()", "background-color": "" }
             }
         ],
         "isPublic": true
