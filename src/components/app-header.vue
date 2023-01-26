@@ -5,7 +5,7 @@
             src="../assets/svg/wix-logo.svg.svg"
             alt=""
         /> -->
-        <p>w<span>ixit</span></p>
+        <p class="logo"  @click="navigate('/')">w<span>ixit</span></p>
         <div class="header-btns">
             <button v-if="!isLoginPath" @click="navigate('/login')">Log In</button>
             <button @click="navigate('/site')">Get Started</button>

@@ -50,7 +50,7 @@
                 <section class="color-wrapper">
                     <section
                         v-for="color in colors"
-                        @click="setColor(color)"
+                        @click="setBacColor(color)"
                         :style="{ 'background-color': color }"
                         :key="color"
                     ></section>
@@ -74,69 +74,79 @@
             <section v-if="cElementFocused" class="font-style-picker">
                 <h1>FONT STYLE</h1>
                 <section class="font-wrapper">
-                    <section v-for="font in fonts" :key="font.code">{{font.code}}</section>
+                    <section v-for="font in fonts" :key="font.code">
+                        {{ font.code }}
+                    </section>
                 </section>
             </section>
             <section v-if="cElementFocused" class="font-style-picker">
                 <h1>FONT SIZE</h1>
-                <input type="range" min="2" max="56">
+                <input type="range" min="2" max="56" />
             </section>
         </section>
     </section>
 </template>
 
 <script setup>
-import tooltipCmp from "../tooltip.vue"
-import plus from "../../assets/svg/plus.vue"
-import blackCircle from "../../assets/svg/black-circle.vue"
+import tooltipCmp from "../tooltip.vue";
+import plus from "../../assets/svg/plus.vue";
+import blackCircle from "../../assets/svg/black-circle.vue";
 
-import { useTemplateStore } from "../../stores/template"
-import { utilService } from "../../services/utils-service"
+import { useTemplateStore } from "../../stores/template";
+import { utilService } from "../../services/utils-service";
 
-import { ref, defineEmits, onUpdated, watch, computed } from "vue"
+import { ref, defineEmits, onUpdated, watch, computed } from "vue";
 
-let isCmpsOpen = ref(false)
-let isTemplatesOpen = ref(false)
-let isCmpEditorOpen = ref(false)
-let colors = ref(utilService.getEditColors())
-let fonts = ref(utilService.getFonts())
+let isCmpsOpen = ref(false);
+let isTemplatesOpen = ref(false);
+let isCmpEditorOpen = ref(false);
+let colors = ref(utilService.getEditColors());
+let fonts = ref(utilService.getFonts());
 
-const templateStore = useTemplateStore()
-const emit = defineEmits(["onAddCmp", "onToggleMenu", "onToggleCmpEditor"])
+const templateStore = useTemplateStore();
+const emit = defineEmits(["onAddCmp", "onToggleMenu", "onToggleCmpEditor"]);
 const { cmpEditorOpen, isElementFocused } = defineProps({
     cmpEditorOpen: Object,
     isElementFocused: Object,
-})
-const cElementFocused = ref(false)
+});
+const cElementFocused = ref(false);
 
 async function showCmps(cmpName) {
-    await templateStore.loadFilteredCmps(cmpName)
-    if (isTemplatesOpen.value) return templateStore.loadFilteredCmps(cmpName)
-    isTemplatesOpen.value = !isTemplatesOpen.value
+    await templateStore.loadFilteredCmps(cmpName);
+    if (isTemplatesOpen.value) return templateStore.loadFilteredCmps(cmpName);
+    isTemplatesOpen.value = !isTemplatesOpen.value;
 }
 
 function toggleMenu() {
-    isCmpsOpen.value = !isCmpsOpen.value
-    isTemplatesOpen.value = false
-    if (isCmpsOpen.value) isCmpEditorOpen.value = false
+    isCmpsOpen.value = !isCmpsOpen.value;
+    isTemplatesOpen.value = false;
+    if (isCmpsOpen.value) isCmpEditorOpen.value = false;
 }
 
 function toggleCmpEditor() {
-    isCmpEditorOpen.value = !isCmpEditorOpen.value
-    isCmpsOpen.value = false
-    isTemplatesOpen.value = false
+    isCmpEditorOpen.value = !isCmpEditorOpen.value;
+    isCmpsOpen.value = false;
+    isTemplatesOpen.value = false;
 }
 
 function onAddCmp(cmp) {
-    emit("onAddCmp", cmp)
+    emit("onAddCmp", cmp);
+}
+
+function setColor(color) {
+    emit("setColor", color);
+}
+function setBacColor(color) {
+    console.log('color', color)
+    emit("setBacColor", color);
 }
 
 watch(isElementFocused, () => {
     cElementFocused.value = isElementFocused?.value.includes("site")
         ? false
-        : isElementFocused
-})
+        : isElementFocused;
+});
 watch(cmpEditorOpen, () => {
-    toggleCmpEditor()
-})
+    toggleCmpEditor();
+});
 </script>

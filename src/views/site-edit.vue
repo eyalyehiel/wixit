@@ -2,14 +2,27 @@
     <section v-if="siteStore.siteToShow" class="site-edit">
         <site-edit-header @onChangeDisplay="toggleDisplaySize" />
 
-        <site-edit-sidebar :cmpEditorOpen="cmpEditorOpen" :isElementFocused="isElementFocused"
-            @onToggleCmpEditor="toggleCmpEditor" @onAddCmp="addCmp" />
+        <site-edit-sidebar
+            :cmpEditorOpen="cmpEditorOpen"
+            :isElementFocused="isElementFocused"
+            @onToggleCmpEditor="toggleCmpEditor"
+            @onAddCmp="addCmp"
+            @setColor="SetColorTxt"
+            @setBacColor="SetColorBac"
+        />
         <!-- @onToggleMenu="toggleMenu" -->
 
         <section class="site-display" :class="displaySize">
-            <component v-if="siteStore.siteToShow?.cmps?.length" v-for="cmp in siteStore.siteToShow.cmps"
-                :is="cmpsToShow[cmp.type]" :cmp="cmp" :class="{ 'cmp-selected': cmpToEdit?._id === cmp._id }"
-                @click="setCmpToEdit(cmp)" @editElement="editElement" @onChangeText="changeText">
+            <component
+                v-if="siteStore.siteToShow?.cmps?.length"
+                v-for="cmp in siteStore.siteToShow.cmps"
+                :is="cmpsToShow[cmp.type]"
+                :cmp="cmp"
+                :class="{ 'cmp-selected': cmpToEdit?._id === cmp._id }"
+                @click="setCmpToEdit(cmp)"
+                @editElement="editElement"
+                @onChangeText="changeText"
+            >
                 <!-- @onSetTxtColor="TxtColor" -->
             </component>
             <section v-else class="drag-area">
@@ -20,20 +33,20 @@
 </template>
 
 <script setup>
-import siteEditHeader from "../components/site-edit/site-edit-header.vue"
-import siteEditSidebar from "../components/site-edit/site-edit-sidebar.vue"
-import siteHeader from "../components/site-templates/site-header.vue"
-import siteHero from "../components/site-templates/site-hero.vue"
-import siteSection from "../components/site-templates/site-section.vue"
-import siteCards from "../components/site-templates/site-cards.vue"
-import siteGallery from "../components/site-templates/site-gallery.vue"
-import siteContact from "../components/site-templates/site-contact.vue"
-import siteFooter from "../components/site-templates/site-footer.vue"
+import siteEditHeader from "../components/site-edit/site-edit-header.vue";
+import siteEditSidebar from "../components/site-edit/site-edit-sidebar.vue";
+import siteHeader from "../components/site-templates/site-header.vue";
+import siteHero from "../components/site-templates/site-hero.vue";
+import siteSection from "../components/site-templates/site-section.vue";
+import siteCards from "../components/site-templates/site-cards.vue";
+import siteGallery from "../components/site-templates/site-gallery.vue";
+import siteContact from "../components/site-templates/site-contact.vue";
+import siteFooter from "../components/site-templates/site-footer.vue";
 
-import { onMounted, ref, computed } from "vue"
-import { useRoute } from "vue-router"
-import { useTemplateStore } from "../stores/template.js"
-import { useSiteStore } from "../stores/site.js"
+import { onMounted, ref, computed } from "vue";
+import { useRoute } from "vue-router";
+import { useTemplateStore } from "../stores/template.js";
+import { useSiteStore } from "../stores/site.js";
 
 const cmpsToShow = {
     "site-header": siteHeader,
@@ -43,67 +56,78 @@ const cmpsToShow = {
     "site-gallery": siteGallery,
     "site-contact": siteContact,
     "site-footer": siteFooter,
-}
+};
 
-let cmpToEdit = ref(null)
-let isCmpEditorOpen = ref(false)
-let focusedElement = ref(false)
-let changeColor = ref(false)
-let displaySize = ref("desktop")
-const isElementFocused = computed(() => focusedElement)
-const cmpEditorOpen = computed(() => isCmpEditorOpen)
+let cmpToEdit = ref(null);
+let isCmpEditorOpen = ref(false);
+let focusedElement = ref(false);
+let changeColor = ref(false);
+let displaySize = ref("desktop");
+const isElementFocused = computed(() => focusedElement);
+const cmpEditorOpen = computed(() => isCmpEditorOpen);
 
-const templateStore = useTemplateStore()
-const siteStore = useSiteStore()
-const route = useRoute()
+const templateStore = useTemplateStore();
+const siteStore = useSiteStore();
+const route = useRoute();
 
 onMounted(async () => {
-    const { id } = route.params
+    const { id } = route.params;
     let site = id
         ? await templateStore.getById(id)
-        : templateStore.getEmptySite()
-    siteStore.setSite(site)
-    console.log(siteStore.siteToShow)
-})
+        : templateStore.getEmptySite();
+    siteStore.setSite(site);
+    console.log(siteStore.siteToShow);
+});
 
 function toggleDisplaySize(val) {
-    displaySize.value = val
+    displaySize.value = val;
 }
 
 function toggleCmpEditor(val) {
-    if (isCmpEditorOpen.value === val) return
-    isCmpEditorOpen.value = val
-    if (!isCmpEditorOpen.value) return (cmpToEdit.value = null)
+    if (isCmpEditorOpen.value === val) return;
+    isCmpEditorOpen.value = val;
+    if (!isCmpEditorOpen.value) return (cmpToEdit.value = null);
 }
 
 function addCmp(cmp) {
-    siteStore.addCmp(cmp)
+    siteStore.addCmp(cmp);
 }
+
+
 
 function changeText(text, key, idx) {
     typeof cmpToEdit.value.info[key] === Array
         ? (cmpToEdit.value.info[key][idx].text = text)
-        : (cmpToEdit.value.info[key].text = text)
-    updateCmp()
+        : (cmpToEdit.value.info[key].text = text);
+    updateCmp();
 }
 
 function setCmpToEdit(cmp) {
-    cmpToEdit.value = cmp
-    isCmpEditorOpen.value = !isCmpEditorOpen.value
+    console.log("cmpToEdit", cmpToEdit);
+    cmpToEdit.value = cmp;
+    isCmpEditorOpen.value = !isCmpEditorOpen.value;
 }
 
 function updateCmp() {
-    siteStore.updateCmp(cmpToEdit.value)
+    siteStore.updateCmp(cmpToEdit.value);
 }
 
 function editElement(key) {
-    focusedElement.value = key
+    focusedElement.value = key;
+    console.log('focusedElement.value',focusedElement.value)
 }
 
-// function setBgColor(val) {
-//     cmpToEdit.value.style["background-color"] = val
-//     updateCmp()
-// }
+function SetColorTxt(color) {
+
+    cmpToEdit.value.info[focusedElement.value].style.color = color 
+    // console.log("cmpToEdit", cmpToEdit.value.info.title.style.color);
+}
+
+function SetColorBac(color) {
+    console.log(' cmpToEdit.value.style',  cmpToEdit.value.style)
+    cmpToEdit.value.style["background-color"] = color
+    updateCmp()
+}
 
 // function changeFontSize(ev) {
 //     const { value } = ev.target
