@@ -6,9 +6,10 @@
             :cmpEditorOpen="cmpEditorOpen"
             :isElementFocused="isElementFocused"
             @onToggleCmpEditor="toggleCmpEditor"
-            @onAddCmp="addCmp"
             @setColor="SetColorTxt"
             @setBacColor="SetColorBac"
+            @onSetTheme="setTheme"
+            @onAddCmp="addCmp"
         />
         <!-- @onToggleMenu="toggleMenu" -->
 
@@ -33,15 +34,16 @@
 </template>
 
 <script setup>
-import siteEditHeader from "../components/site-edit/site-edit-header.vue";
-import siteEditSidebar from "../components/site-edit/site-edit-sidebar.vue";
-import siteHeader from "../components/site-templates/site-header.vue";
-import siteHero from "../components/site-templates/site-hero.vue";
-import siteSection from "../components/site-templates/site-section.vue";
-import siteCards from "../components/site-templates/site-cards.vue";
-import siteGallery from "../components/site-templates/site-gallery.vue";
-import siteContact from "../components/site-templates/site-contact.vue";
-import siteFooter from "../components/site-templates/site-footer.vue";
+import siteEditHeader from "../components/site-edit/site-edit-header.vue"
+import siteEditSidebar from "../components/site-edit/site-edit-sidebar.vue"
+
+import siteHeader from "../components/site-templates/site-header.vue"
+import siteHero from "../components/site-templates/site-hero.vue"
+import siteSection from "../components/site-templates/site-section.vue"
+import siteCards from "../components/site-templates/site-cards.vue"
+import siteGallery from "../components/site-templates/site-gallery.vue"
+import siteContact from "../components/site-templates/site-contact.vue"
+import siteFooter from "../components/site-templates/site-footer.vue"
 
 import { onMounted, ref, computed } from "vue";
 import { useRoute } from "vue-router";
@@ -56,15 +58,15 @@ const cmpsToShow = {
     "site-gallery": siteGallery,
     "site-contact": siteContact,
     "site-footer": siteFooter,
-};
+}
+const cmpToEdit = ref(null)
+const isCmpEditorOpen = ref(false)
+const focusedElement = ref(false)
+const changeColor = ref(false)
+const displaySize = ref("desktop")
 
-let cmpToEdit = ref(null);
-let isCmpEditorOpen = ref(false);
-let focusedElement = ref(false);
-let changeColor = ref(false);
-let displaySize = ref("desktop");
-const isElementFocused = computed(() => focusedElement);
-const cmpEditorOpen = computed(() => isCmpEditorOpen);
+const isElementFocused = computed(() => focusedElement)
+const cmpEditorOpen = computed(() => isCmpEditorOpen)
 
 const templateStore = useTemplateStore();
 const siteStore = useSiteStore();
@@ -128,6 +130,37 @@ function SetColorBac(color) {
     cmpToEdit.value.style["background-color"] = color
     updateCmp()
 }
+function setTheme(theme) {
+    console.log("theme", theme)
+    console.log("cmpToEdit.value", cmpToEdit.value)
+    cmpToEdit.value.style["background-color"] = theme["background-color"]
+    for (const key in cmpToEdit.value.info) {
+        switch (key) {
+            case 'title':
+            case 'subtitle':
+            case 'paragraph1':
+            case 'paragraph2':
+            case 'paragraph3':
+                cmpToEdit.value.info[key].style["color"] = theme.color
+                break;
+            case 'links':
+                 cmpToEdit.value.info.links.forEach((link,idx) => cmpToEdit.value.info.links[idx].style.color = theme.color)
+                break;
+            case 'btn':
+            case 'card':
+                cmpToEdit.value.info[key].style["background-color"] = theme.others
+                break;
+            default:
+                break;
+        }
+    }
+    updateCmp()
+}
+
+// function setBgColor(val) {
+//     cmpToEdit.value.style["background-color"] = val
+//     updateCmp()
+// }
 
 // function changeFontSize(ev) {
 //     const { value } = ev.target

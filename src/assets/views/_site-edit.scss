@@ -341,6 +341,32 @@
                 padding-block: 50px;
             }
         }
+        .theme-selector{
+            display: flex;
+            flex-direction: column;
+            width: 0;
+            overflow: hidden;
+            gap: 20px;
+            height: 0;
+            &.open {
+                padding: 5px;
+                padding-top: 15px;
+                height: 100%;
+                width: 200px;
+                overflow: auto;
+            }
+            section {
+                display: grid;
+                grid-template-columns: repeat(3,1fr);
+                width: 100%;
+                height: 30px;
+                position: relative;
+                overflow: hidden;
+                &:hover{
+                    outline: 3px solid rgb(193, 192, 192);
+                }
+            }
+        }
     }
 
     .site-display {

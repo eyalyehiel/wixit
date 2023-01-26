@@ -12,7 +12,7 @@
                 <img src="../../assets/svg/palette.svg" alt="" />
                 <tooltip-cmp :text="'Edit Element'" />
             </button>
-            <button>
+            <button @click="toggleThemes()">
                 <img src="../../assets/svg/file-richtext.svg" alt="" />
                 <tooltip-cmp :text="'Change Theme'" />
             </button>
@@ -84,6 +84,14 @@
                 <input type="range" min="2" max="56" />
             </section>
         </section>
+        <section class="theme-selector" :class="{ open: isThemesOpen }">
+            <h2>Choose Theme</h2>
+            <section @click="setTheme(theme)" v-for="theme in themes" :key="theme">
+                <button :style="{ 'background-color': theme['background-color'] }"></button>
+                <button :style="{ 'background-color': theme.color }"></button>
+                <button :style="{ 'background-color': theme.others }"></button>
+            </section>
+        </section>
     </section>
 </template>
 
@@ -97,14 +105,15 @@ import { utilService } from "../../services/utils-service";
 
 import { ref, defineEmits, onUpdated, watch, computed } from "vue";
 
-let isCmpsOpen = ref(false);
-let isTemplatesOpen = ref(false);
-let isCmpEditorOpen = ref(false);
-let colors = ref(utilService.getEditColors());
-let fonts = ref(utilService.getFonts());
-
-const templateStore = useTemplateStore();
-const emit = defineEmits(["onAddCmp", "onToggleMenu", "onToggleCmpEditor"]);
+let isCmpsOpen = ref(false)
+let isTemplatesOpen = ref(false)
+let isCmpEditorOpen = ref(false)
+let isThemesOpen = ref(false)
+let colors = ref(utilService.getEditColors())
+let fonts = ref(utilService.getFonts())
+let themes = ref(utilService.getThemes())
+const templateStore = useTemplateStore()
+const emit = defineEmits(["onAddCmp", "onToggleMenu", "onToggleCmpEditor",'onSetTheme'])
 const { cmpEditorOpen, isElementFocused } = defineProps({
     cmpEditorOpen: Object,
     isElementFocused: Object,
@@ -124,9 +133,17 @@ function toggleMenu() {
 }
 
 function toggleCmpEditor() {
-    isCmpEditorOpen.value = !isCmpEditorOpen.value;
-    isCmpsOpen.value = false;
-    isTemplatesOpen.value = false;
+    isCmpEditorOpen.value = !isCmpEditorOpen.value
+    isCmpsOpen.value = false
+    isTemplatesOpen.value = false
+    isThemesOpen.value = false
+}
+
+function toggleThemes() {
+    isThemesOpen.value = !isThemesOpen.value
+    isCmpEditorOpen.value = false
+    isCmpsOpen.value = false
+    isTemplatesOpen.value = false
 }
 
 function onAddCmp(cmp) {
@@ -139,6 +156,9 @@ function setColor(color) {
 function setBacColor(color) {
     console.log('color', color)
     emit("setBacColor", color);
+}
+function setTheme(theme){
+    emit('onSetTheme',theme)
 }
 
 watch(isElementFocused, () => {
