@@ -14,7 +14,8 @@
                         "style": {
                             "color": "",
                             "font-family": "",
-                            "font-size": ""
+                            "font-size": "",
+                            "font-weight": ""
                         }
                     },
                     "links": [
@@ -24,7 +25,8 @@
                             "style": {
                                 "color": "",
                                 "font-family": "",
-                                "font-size": ""
+                                "font-size": "",
+                                "font-weight": ""
                             }
                         },
                         {
@@ -33,7 +35,8 @@
                             "style": {
                                 "color": "",
                                 "font-family": "",
-                                "font-size": ""
+                                "font-size": "",
+                                "font-weight": ""
                             }
                         },
                         {
@@ -42,13 +45,14 @@
                             "style": {
                                 "color": "",
                                 "font-family": "",
-                                "font-size": ""
+                                "font-size": "",
+                                "font-weight": ""
                             }
                         }
                     ]
                 },
                 "theme": "theme-header-happy",
-                "style": { "background": "" }
+                "style": { "background": "url()" }
             },
             {
                 "type": "site-hero",
@@ -58,7 +62,8 @@
                         "style": {
                             "color": "",
                             "font-family": "",
-                            "font-size": ""
+                            "font-size": "",
+                            "font-weight": ""
                         }
                     },
                     "subtitle": {
@@ -66,7 +71,8 @@
                         "style": {
                             "color": "",
                             "font-family": "",
-                            "font-size": ""
+                            "font-size": "",
+                            "font-weight": ""
                         }
                     },
                     "btn": {
@@ -74,13 +80,16 @@
                         "style": {
                             "color": "",
                             "font-family": "",
-                            "font-size": ""
+                            "font-size": "",
+                            "font-weight": ""
                         },
                         "href": ""
                     }
                 },
                 "theme": "theme-header-happy",
-                "style": { "background": "" }
+                "style": {
+                    "background": "url(https://res.cloudinary.com/dirvusyaz/image/upload/v1674042414/header-bg.jpg_ajhisz.webp)"
+                }
             },
             {
                 "type": "site-section",
@@ -90,7 +99,8 @@
                         "style": {
                             "color": "",
                             "font-family": "",
-                            "font-size": ""
+                            "font-size": "",
+                            "font-weight": ""
                         }
                     },
                     "paragraph1": {
@@ -98,7 +108,8 @@
                         "style": {
                             "color": "",
                             "font-family": "",
-                            "font-size": ""
+                            "font-size": "",
+                            "font-weight": ""
                         }
                     },
                     "paragraph2": {
@@ -106,7 +117,8 @@
                         "style": {
                             "color": "",
                             "font-family": "",
-                            "font-size": ""
+                            "font-size": "",
+                            "font-weight": ""
                         }
                     },
                     "images": [
@@ -115,7 +127,7 @@
                     ]
                 },
                 "theme": "theme-header-happy",
-                "style": { "background": "" }
+                "style": { "background": "url()" }
             },
             {
                 "type": "site-footer",
@@ -125,20 +137,22 @@
                         "style": {
                             "color": "",
                             "font-family": "",
-                            "font-size": ""
+                            "font-size": "",
+                            "font-weight": ""
                         }
                     },
                     "subtitle": {
-                        "text": "CoffeRights 2035 by Pucoffe. Proudly created with Wixit",
+                        "text": "CoffeRights 2035 by Pucoffe. Proudly created with Wicks.in",
                         "style": {
                             "color": "",
                             "font-family": "",
-                            "font-size": ""
+                            "font-size": "",
+                            "font-weight": ""
                         }
                     }
                 },
                 "theme": "theme-header-happy",
-                "style": { "background": "" }
+                "style": { "background": "url()" }
             }
         ],
         "isPublic": true
@@ -158,7 +172,8 @@
                         "style": {
                             "color": "",
                             "font-family": "",
-                            "font-size": ""
+                            "font-size": "",
+                            "font-weight": ""
                         }
                     },
                     "links": [
@@ -168,7 +183,8 @@
                             "style": {
                                 "color": "",
                                 "font-family": "",
-                                "font-size": ""
+                                "font-size": "",
+                                "font-weight": ""
                             }
                         },
                         {
@@ -177,7 +193,8 @@
                             "style": {
                                 "color": "",
                                 "font-family": "",
-                                "font-size": ""
+                                "font-size": "",
+                                "font-weight": ""
                             }
                         },
                         {
@@ -186,13 +203,14 @@
                             "style": {
                                 "color": "",
                                 "font-family": "",
-                                "font-size": ""
+                                "font-size": "",
+                                "font-weight": ""
                             }
                         }
                     ]
                 },
                 "theme": "theme-header-happy",
-                "style": { "background": "" }
+                "style": { "background": "url()" }
             },
             {
                 "type": "site-hero",
@@ -202,7 +220,8 @@
                         "style": {
                             "color": "",
                             "font-family": "",
-                            "font-size": ""
+                            "font-size": "",
+                            "font-weight": ""
                         }
                     },
                     "subtitle": {
@@ -210,7 +229,8 @@
                         "style": {
                             "color": "",
                             "font-family": "",
-                            "font-size": ""
+                            "font-size": "",
+                            "font-weight": ""
                         }
                     },
                     "btn": {
@@ -218,13 +238,16 @@
                         "style": {
                             "color": "",
                             "font-family": "",
-                            "font-size": ""
+                            "font-size": "",
+                            "font-weight": ""
                         },
                         "href": ""
                     }
                 },
                 "theme": "theme-header-happy",
-                "style": { "background": "" }
+                "style": {
+                    "background": "url(https://res.cloudinary.com/dirvusyaz/image/upload/v1674062221/c837a6_02de7d4c43d44b7b890854049ed75da8f000_atfm5c.webp)"
+                }
             },
             {
                 "type": "site-section",
@@ -234,7 +257,8 @@
                         "style": {
                             "color": "",
                             "font-family": "",
-                            "font-size": ""
+                            "font-size": "",
+                            "font-weight": ""
                         }
                     },
                     "paragraph1": {
@@ -242,7 +266,8 @@
                         "style": {
                             "color": "",
                             "font-family": "",
-                            "font-size": ""
+                            "font-size": "",
+                            "font-weight": ""
                         }
                     },
                     "paragraph2": {
@@ -250,7 +275,8 @@
                         "style": {
                             "color": "",
                             "font-family": "",
-                            "font-size": ""
+                            "font-size": "",
+                            "font-weight": ""
                         }
                     },
                     "images": [
@@ -258,7 +284,7 @@
                     ]
                 },
                 "theme": "theme-header-happy",
-                "style": { "background": "" }
+                "style": { "background": "url()" }
             },
             {
                 "type": "site-footer",
@@ -268,7 +294,8 @@
                         "style": {
                             "color": "",
                             "font-family": "",
-                            "font-size": ""
+                            "font-size": "",
+                            "font-weight": ""
                         }
                     },
                     "subtitle": {
@@ -276,12 +303,13 @@
                         "style": {
                             "color": "",
                             "font-family": "",
-                            "font-size": ""
+                            "font-size": "",
+                            "font-weight": ""
                         }
                     }
                 },
                 "theme": "theme-header-happy",
-                "style": { "background": "" }
+                "style": { "background": "url()" }
             }
         ],
         "isPublic": true
@@ -301,7 +329,8 @@
                         "style": {
                             "color": "",
                             "font-family": "",
-                            "font-size": ""
+                            "font-size": "",
+                            "font-weight": ""
                         }
                     },
                     "links": [
@@ -311,7 +340,8 @@
                             "style": {
                                 "color": "",
                                 "font-family": "",
-                                "font-size": ""
+                                "font-size": "",
+                                "font-weight": ""
                             }
                         },
                         {
@@ -320,7 +350,8 @@
                             "style": {
                                 "color": "",
                                 "font-family": "",
-                                "font-size": ""
+                                "font-size": "",
+                                "font-weight": ""
                             }
                         },
                         {
@@ -329,13 +360,14 @@
                             "style": {
                                 "color": "",
                                 "font-family": "",
-                                "font-size": ""
+                                "font-size": "",
+                                "font-weight": ""
                             }
                         }
                     ]
                 },
                 "theme": "theme-header-happy",
-                "style": { "background": "" }
+                "style": {}
             },
             {
                 "type": "site-hero",
@@ -345,7 +377,8 @@
                         "style": {
                             "color": "",
                             "font-family": "",
-                            "font-size": ""
+                            "font-size": "",
+                            "font-weight": ""
                         }
                     },
                     "subtitle": {
@@ -353,7 +386,8 @@
                         "style": {
                             "color": "",
                             "font-family": "",
-                            "font-size": ""
+                            "font-size": "",
+                            "font-weight": ""
                         }
                     },
                     "btn": {
@@ -361,13 +395,16 @@
                         "style": {
                             "color": "",
                             "font-family": "",
-                            "font-size": ""
+                            "font-size": "",
+                            "font-weight": ""
                         },
                         "href": ""
                     }
                 },
                 "theme": "theme-header-happy",
-                "style": { "background": "" }
+                "style": {
+                    "background": "url(https://res.cloudinary.com/dirvusyaz/image/upload/v1674063447/44.png_m5mjxc.webp)"
+                }
             },
             {
                 "type": "site-section",
@@ -377,7 +414,8 @@
                         "style": {
                             "color": "",
                             "font-family": "",
-                            "font-size": ""
+                            "font-size": "",
+                            "font-weight": ""
                         }
                     },
                     "paragraph1": {
@@ -385,7 +423,8 @@
                         "style": {
                             "color": "",
                             "font-family": "",
-                            "font-size": ""
+                            "font-size": "",
+                            "font-weight": ""
                         }
                     },
                     "paragraph2": {
@@ -393,7 +432,8 @@
                         "style": {
                             "color": "",
                             "font-family": "",
-                            "font-size": ""
+                            "font-size": "",
+                            "font-weight": ""
                         }
                     },
                     "images": [
@@ -402,7 +442,7 @@
                     ]
                 },
                 "theme": "theme-header-happy",
-                "style": { "background": "" }
+                "style": { "background": "url()" }
             },
             {
                 "type": "site-footer",
@@ -412,7 +452,8 @@
                         "style": {
                             "color": "",
                             "font-family": "",
-                            "font-size": ""
+                            "font-size": "",
+                            "font-weight": ""
                         }
                     },
                     "subtitle": {
@@ -420,12 +461,13 @@
                         "style": {
                             "color": "",
                             "font-family": "",
-                            "font-size": ""
+                            "font-size": "",
+                            "font-weight": ""
                         }
                     }
                 },
                 "theme": "theme-header-happy",
-                "style": { "background": "" }
+                "style": { "background": "url()" }
             }
         ],
         "isPublic": true
@@ -444,7 +486,8 @@
                         "style": {
                             "color": "",
                             "font-family": "",
-                            "font-size": ""
+                            "font-size": "",
+                            "font-weight": ""
                         }
                     },
                     "links": [
@@ -454,7 +497,8 @@
                             "style": {
                                 "color": "",
                                 "font-family": "",
-                                "font-size": ""
+                                "font-size": "",
+                                "font-weight": ""
                             }
                         },
                         {
@@ -463,7 +507,8 @@
                             "style": {
                                 "color": "",
                                 "font-family": "",
-                                "font-size": ""
+                                "font-size": "",
+                                "font-weight": ""
                             }
                         },
                         {
@@ -472,13 +517,14 @@
                             "style": {
                                 "color": "",
                                 "font-family": "",
-                                "font-size": ""
+                                "font-size": "",
+                                "font-weight": ""
                             }
                         }
                     ]
                 },
                 "theme": "theme-header-happy",
-                "style": { "background": "" }
+                "style": { "background": "url()" }
             },
             {
                 "type": "site-hero",
@@ -488,7 +534,8 @@
                         "style": {
                             "color": "",
                             "font-family": "",
-                            "font-size": ""
+                            "font-size": "",
+                            "font-weight": ""
                         }
                     },
                     "subtitle": {
@@ -496,7 +543,8 @@
                         "style": {
                             "color": "",
                             "font-family": "",
-                            "font-size": ""
+                            "font-size": "",
+                            "font-weight": ""
                         }
                     },
                     "btn": {
@@ -504,13 +552,16 @@
                         "style": {
                             "color": "",
                             "font-family": "",
-                            "font-size": ""
+                            "font-size": "",
+                            "font-weight": ""
                         },
                         "href": ""
                     }
                 },
                 "theme": "theme-header-happy",
-                "style": { "background": "" }
+                "style": {
+                    "background": "url(https://res.cloudinary.com/dirvusyaz/image/upload/v1674042414/header-bg.jpg_ajhisz.webp)"
+                }
             },
             {
                 "type": "site-section",
@@ -520,7 +571,8 @@
                         "style": {
                             "color": "",
                             "font-family": "",
-                            "font-size": ""
+                            "font-size": "",
+                            "font-weight": ""
                         }
                     },
                     "paragraph1": {
@@ -528,7 +580,8 @@
                         "style": {
                             "color": "",
                             "font-family": "",
-                            "font-size": ""
+                            "font-size": "",
+                            "font-weight": ""
                         }
                     },
                     "paragraph2": {
@@ -536,7 +589,8 @@
                         "style": {
                             "color": "",
                             "font-family": "",
-                            "font-size": ""
+                            "font-size": "",
+                            "font-weight": ""
                         }
                     },
                     "images": [
@@ -545,7 +599,7 @@
                     ]
                 },
                 "theme": "theme-header-happy",
-                "style": { "background": "" }
+                "style": { "background": "url()" }
             },
             {
                 "type": "site-footer",
@@ -555,7 +609,8 @@
                         "style": {
                             "color": "",
                             "font-family": "",
-                            "font-size": ""
+                            "font-size": "",
+                            "font-weight": ""
                         }
                     },
                     "subtitle": {
@@ -563,12 +618,13 @@
                         "style": {
                             "color": "",
                             "font-family": "",
-                            "font-size": ""
+                            "font-size": "",
+                            "font-weight": ""
                         }
                     }
                 },
                 "theme": "theme-header-happy",
-                "style": { "background": "" }
+                "style": { "background": "url()" }
             }
         ],
         "isPublic": true
