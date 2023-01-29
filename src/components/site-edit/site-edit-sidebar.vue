@@ -17,26 +17,25 @@
                 <tooltip-cmp :text="'Change Theme'" />
             </button>
         </nav>
-        <section class="section-select" :class="{ open: isCmpsOpen }">
-            <h2 class="title">Section</h2>
-            <span @click="showCmps('header')">Header</span>
-            <span @click="showCmps('hero')">Hero</span>
-            <span @click="showCmps('section')">Section</span>
-            <span @click="showCmps('gallery')">Gallery</span>
-            <span @click="showCmps('cards')">Cards</span>
-            <span @click="showCmps('testimonials')">Testimonials</span>
-            <span @click="showCmps('contact')">Contact</span>
-            <span @click="showCmps('video')">Video</span>
-        </section>
-        <section class="section-select section-templates" :class="{ open: isTemplatesOpen }">
-            <span v-for="cmp in templateStore.filteredCmps" @click="onAddCmp(cmp)">{{ cmp.type }}</span>
-        </section>
+
+        <div class="add-section" :class="{ open: isCmpsOpen }">
+            <header>
+                <h1>Add Section</h1>
+            </header>
+            <section class="section-select">
+                <button v-for="section in templateStore.sectionList" :class="{ active: currentSectionBtn === section }"
+                    @click="showCmps(section)">{{ section }}</button>
+            </section>
+            <section class="section-templates">
+                <button v-for="cmp in templateStore.filteredCmps" @click="onAddCmp(cmp)">{{ cmp.type }}</button>
+            </section>
+        </div>
 
         <section class="cmp-editor" :class="{ open: isCmpEditorOpen }">
-            <section class="title">
-                <h2>Edit</h2>
+            <header class="title">
+                <h1>Edit {{ 'Section'}}</h1>
                 <img src="../../assets/svg/trash.svg" alt="" />
-            </section>
+            </header>
 
             <section v-if="!cElementFocused" class="color-picker">
                 <h1>BACKGROUND COLOR</h1>
@@ -70,7 +69,9 @@
             </section>
         </section>
         <section class="theme-selector" :class="{ open: isThemesOpen }">
-            <h2>Choose Theme</h2>
+            <header>
+                <h1>Choose Theme</h1>
+            </header>
             <section @click="setTheme(theme)" v-for="theme in themes" :key="theme">
                 <button :style="{ 'background-color': theme['background-color'] }"></button>
                 <button :style="{ 'background-color': theme.color }"></button>
@@ -88,13 +89,14 @@ import blackCircle from "../../assets/svg/black-circle.vue";
 import { useTemplateStore } from "../../stores/template";
 import { utilService } from "../../services/utils-service";
 
-import { ref, defineEmits, watch } from "vue";
+import { ref, defineEmits, watch, onMounted } from "vue";
 
 const isCmpsOpen = ref(false)
 const isTemplatesOpen = ref(false)
 const isCmpEditorOpen = ref(false)
 const isThemesOpen = ref(false)
 const cElementFocused = ref(false);
+const currentSectionBtn = ref('header');
 
 const colors = ref(utilService.getEditColors())
 const fonts = ref(utilService.getFonts())
@@ -107,10 +109,21 @@ const { cmpEditorOpen, isElementFocused } = defineProps({
     isElementFocused: Object,
 });
 
+onMounted(() => {
+    templateStore.loadFilteredCmps('header');
+})
+
 async function showCmps(cmpName) {
-    await templateStore.loadFilteredCmps(cmpName);
-    if (isTemplatesOpen.value) return templateStore.loadFilteredCmps(cmpName);
-    isTemplatesOpen.value = !isTemplatesOpen.value;
+    let prevCurrentSectionBtn = currentSectionBtn.value
+    try {
+        currentSectionBtn.value = cmpName
+        await templateStore.loadFilteredCmps(cmpName);
+        if (isTemplatesOpen.value) return templateStore.loadFilteredCmps(cmpName);
+    }
+    catch (err) {
+        currentSectionBtn.value = prevCurrentSectionBtn
+        console.log('error', err)
+    }
 }
 
 function toggleMenu() {
