@@ -1,21 +1,17 @@
 <template>
-    <section class="my-projects"> 
-        my projectsasdasdasd22131
+    <section class="my-projects">
+        <header>
+            My Sites
+            <div class="action">
+                <button>Create New Site</button>
+            </div>
+        </header>
+        <input type="text" placeholder="Search for a website">
     </section>
 </template>
 
-<script>
-import { reactive, toRefs } from 'vue'
+<script setup>
+import { ref } from 'vue'
 
-export default {
-    setup () {
-        const state = reactive({
-            count: 0,
-        })
-    
-        return {
-            ...toRefs(state),
-        }
-    }
-}
+
 </script>
