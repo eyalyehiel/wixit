@@ -105,10 +105,19 @@ function editElement(key, idx) {
     focusedElement.value = key;
 }
 
+function SetColorTxt(color) {
+
+    cmpToEdit.value.info[focusedElement.value].style.color = color 
+    // console.log("cmpToEdit", cmpToEdit.value.info.title.style.color);
+    updateCmp()
+}
+
+
 function changeCmpBgColor(color) {
     cmpToEdit.value.style["background-color"] = color
     updateCmp()
 }
+
 function setTheme(theme) {
     console.log("theme", theme)
     console.log("cmpToEdit.value", cmpToEdit.value)

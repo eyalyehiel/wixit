@@ -4,8 +4,9 @@
     justify-content: space-between;
     align-items: center;
     height: 80px;
-    background-color: #ddd;
-    position: relative;
+    background-color: rgba(221, 221, 221, 0);
+    position: absolute;
+    width: 100%;
     nav {
         display: flex;
         gap: 50px;
@@ -20,6 +21,14 @@
         align-items: center;
         img {
             height: 50px;
+            width: 50px;
+        }
+        h1 {
+            // max-width: 100px;
+            margin-left: 15px;
+            font-weight: normal;
+            font-size: 16px;
+            max-width: 100px;
         }
     }
     .menu-btn {

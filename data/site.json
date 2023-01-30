@@ -485,6 +485,7 @@
     {
         "_id": "12836123",
         "name": "",
+        "background": "https://res.cloudinary.com/dirvusyaz/image/upload/v1675093288/22_awwumq.png",
         "imgUrls": [],
         "createdBy": { "_id": "", "fullname": "", "imgUrl": "" },
         "cmps": [
@@ -492,9 +493,10 @@
                 "type": "site-header",
                 "info": {
                     "title": {
-                        "text": "HairDresser Baluta",
+                        "text": "TrackMate Health Spa",
+                        "logo":"https://res.cloudinary.com/dirvusyaz/image/upload/v1675090972/serenity_ryjdh4.svg",
                         "style": {
-                            "color": "",
+                            "color": "#2D5661",
                             "font-family": "",
                             "font-size": "",
                             "font-weight": ""
@@ -502,30 +504,30 @@
                     },
                     "links": [
                         {
-                            "text": "Home",
+                            "text": "FAQ",
                             "href": "#",
                             "style": {
-                                "color": "",
+                                "color": "#2D5661",
                                 "font-family": "",
                                 "font-size": "",
                                 "font-weight": ""
                             }
                         },
                         {
-                            "text": "Shop",
+                            "text": "Log In",
                             "href": "#",
                             "style": {
-                                "color": "",
+                                "color": "#2D5661",
                                 "font-family": "",
                                 "font-size": "",
                                 "font-weight": ""
                             }
                         },
                         {
-                            "text": "About",
+                            "text": "Buy Now",
                             "href": "#",
                             "style": {
-                                "color": "",
+                                "color": "#2D5661",
                                 "font-family": "",
                                 "font-size": "",
                                 "font-weight": ""
@@ -540,16 +542,16 @@
                 "type": "site-hero",
                 "info": {
                     "title": {
-                        "text": "Unique Craft Cafe in NYC",
+                        "text": "WELCOME TO SERENITY",
                         "style": {
-                            "color": "",
+                            "color": "#2D5661",
                             "font-family": "",
                             "font-size": "",
                             "font-weight": ""
                         }
                     },
                     "subtitle": {
-                        "text": "Our coffee comes straight from the plantations of Brazil and Colombia, freshly picked and ground on site, with a smoky aroma and an intoxicating taste. We love coffee, people and good food.",
+                        "text": "",
                         "style": {
                             "color": "",
                             "font-family": "",
@@ -558,9 +560,9 @@
                         }
                     },
                     "btn": {
-                        "text": "View Menu",
+                        "text": "Buy Now",
                         "style": {
-                            "color": "",
+                            "color": "#2D5661",
                             "font-family": "",
                             "font-size": "",
                             "font-weight": ""
@@ -570,7 +572,7 @@
                 },
                 "theme": "theme-header-happy",
                 "style": {
-                    "background": "url(https://res.cloudinary.com/dirvusyaz/image/upload/v1674042414/header-bg.jpg_ajhisz.webp)",
+                    "background": "url(https://res.cloudinary.com/dirvusyaz/image/upload/v1675090097/c837a6_aa7c239e685b4a9989f2ab7fbbeb106b_mv2_he2elv.webp)",
                     "background-color": ""
                 }
             },
@@ -578,18 +580,18 @@
                 "type": "site-section",
                 "info": {
                     "title": {
-                        "text": "Coffee & Cakes",
+                        "text": "A CALM ESCAPE",
                         "style": {
-                            "color": "",
+                            "color": "#2D5661",
                             "font-family": "",
                             "font-size": "",
                             "font-weight": ""
                         }
                     },
                     "paragraph1": {
-                        "text": "Our coffee is rich in flavor and the espresso is a perfect balance of sweetness and acidity that functions well in milk drinks.",
+                        "text": "I'm a paragraph. Click here to add your own text and edit me. I’m a great place for you to tell a story and let your users know a little more about you.",
                         "style": {
-                            "color": "",
+                            "color": "#2D5661",
                             "font-family": "",
                             "font-size": "",
                             "font-weight": ""
@@ -598,15 +600,15 @@
                     "paragraph2": {
                         "text": "Quick can manor smart money hopes worth too. Comfort produce husband boy her had hearing. Law others theirs passed but wishes. You day real less till dear read. Considered use dispatched melancholy sympathize discretion led. Oh feel if up to till like.",
                         "style": {
-                            "color": "",
+                            "color": "#2D5661",
                             "font-family": "",
                             "font-size": "",
                             "font-weight": ""
                         }
                     },
                     "images": [
-                        "https://robohash.org/1?set=set5",
-                        "https://robohash.org/2?set=set5"
+                        
+                         "https://res.cloudinary.com/dirvusyaz/image/upload/v1675094395/c837a6_34fd7eac18f244648381d0e500d02cb6_mv2_ziq71h.webp",               "https://res.cloudinary.com/dirvusyaz/image/upload/v1675094401/c837a6_6a663c706362459b9f6839dff6fadce4_mv2_ju3bk0.webp"
                     ]
                 },
                 "theme": "theme-header-happy",
