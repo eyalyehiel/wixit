@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
     <section class="graphic-designer-hero" @click.stop="onEditElement($event, 'site-hero')" :style="cmp.style"
         style="background-size: cover; background-position: center;">
         <main>
@@ -15,6 +16,24 @@
                 {{ cmp.info.btn.text }}
             </button>
         </main>
+=======
+    <section class="site-hero" @click.stop="onEditElement($event, 'site-hero')" :style="cmp.style"
+        style="background-size: cover">
+        <!-- <main> -->
+        <h1 :style="cmp.info.title.style" @click.stop="onEditElement($event, 'title')"
+            @input="changeText($event, 'title')" contenteditable="true">
+            {{ cmp.info.title.text }}
+        </h1>
+        <p :style="cmp.info.subtitle.style" @click.stop="onEditElement($event, 'subtitle')"
+            @input="changeText($event, 'subtitle')" contenteditable="true">
+            {{ cmp.info.subtitle.text }}
+        </p>
+        <button :style="cmp.info.btn.style" @click.stop="onEditElement($event, 'btn')"
+            @input="changeText($event, 'btn')" contenteditable="true">
+            {{ cmp.info.btn.text }}
+        </button>
+        <!-- </main> -->
+>>>>>>> 26a04d7918a88a3942b0adb2d46befcdb722c61a
     </section>
 </template>
 

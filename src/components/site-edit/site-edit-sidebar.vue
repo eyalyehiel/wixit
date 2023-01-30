@@ -17,43 +17,31 @@
                 <tooltip-cmp :text="'Change Theme'" />
             </button>
         </nav>
-        <section class="section-select" :class="{ open: isCmpsOpen }">
-            <h2 class="title">Section</h2>
-            <span @click="showCmps('header')">Header</span>
-            <span @click="showCmps('hero')">Hero</span>
-            <span @click="showCmps('section')">Section</span>
-            <span @click="showCmps('gallery')">Gallery</span>
-            <span @click="showCmps('cards')">Cards</span>
-            <span @click="showCmps('testimonials')">Testimonials</span>
-            <span @click="showCmps('contact')">Contact</span>
-            <span @click="showCmps('video')">Video</span>
-        </section>
-        <section
-            class="section-select section-templates"
-            :class="{ open: isTemplatesOpen }"
-        >
-            <span
-                v-for="cmp in templateStore.filteredCmps"
-                @click="onAddCmp(cmp)"
-                >{{ cmp.type }}</span
-            >
-        </section>
+
+        <div class="add-section" :class="{ open: isCmpsOpen }">
+            <header>
+                <h1>Add Section</h1>
+            </header>
+            <section class="section-select">
+                <button v-for="section in templateStore.sectionList" :class="{ active: currentSectionBtn === section }"
+                    @click="showCmps(section)">{{ section }}</button>
+            </section>
+            <section class="section-templates">
+                <button v-for="cmp in templateStore.filteredCmps" @click="onAddCmp(cmp)">{{ cmp.type }}</button>
+            </section>
+        </div>
 
         <section class="cmp-editor" :class="{ open: isCmpEditorOpen }">
-            <section class="title">
-                <h2>Edit</h2>
+            <header class="title">
+                <h1>Edit {{ 'Section'}}</h1>
                 <img src="../../assets/svg/trash.svg" alt="" />
-            </section>
+            </header>
 
             <section v-if="!cElementFocused" class="color-picker">
                 <h1>BACKGROUND COLOR</h1>
                 <section class="color-wrapper">
-                    <section
-                        v-for="color in colors"
-                        @click="setBacColor(color)"
-                        :style="{ 'background-color': color }"
-                        :key="color"
-                    ></section>
+                    <section v-for="color in colors" @click="changeCmpBgColor(color)"
+                        :style="{ 'background-color': color }" :key="color"></section>
                 </section>
             </section>
             <section v-if="!cElementFocused" class="upload-img">
@@ -63,12 +51,8 @@
             <section v-if="cElementFocused" class="font-color-picker">
                 <h1>TEXT COLOR</h1>
                 <section class="color-wrapper">
-                    <section
-                        v-for="color in colors"
-                        @click="setColor(color)"
-                        :style="{ 'background-color': color }"
-                        :key="color"
-                    ></section>
+                    <section v-for="color in colors" @click="setValueToKey('color', $event, color)"
+                        :style="{ 'background-color': color }" :key="color"></section>
                 </section>
             </section>
             <section v-if="cElementFocused" class="font-style-picker">
@@ -81,11 +65,13 @@
             </section>
             <section v-if="cElementFocused" class="font-style-picker">
                 <h1>FONT SIZE</h1>
-                <input type="range" min="2" max="56" />
+                <input type="range" min="2" max="56" @input="setValueToKey('fontSize', $event)" />
             </section>
         </section>
         <section class="theme-selector" :class="{ open: isThemesOpen }">
-            <h2>Choose Theme</h2>
+            <header>
+                <h1>Choose Theme</h1>
+            </header>
             <section @click="setTheme(theme)" v-for="theme in themes" :key="theme">
                 <button :style="{ 'background-color': theme['background-color'] }"></button>
                 <button :style="{ 'background-color': theme.color }"></button>
@@ -103,27 +89,41 @@ import blackCircle from "../../assets/svg/black-circle.vue";
 import { useTemplateStore } from "../../stores/template";
 import { utilService } from "../../services/utils-service";
 
-import { ref, defineEmits, onUpdated, watch, computed } from "vue";
+import { ref, defineEmits, watch, onMounted } from "vue";
 
-let isCmpsOpen = ref(false)
-let isTemplatesOpen = ref(false)
-let isCmpEditorOpen = ref(false)
-let isThemesOpen = ref(false)
-let colors = ref(utilService.getEditColors())
-let fonts = ref(utilService.getFonts())
-let themes = ref(utilService.getThemes())
+const isCmpsOpen = ref(false)
+const isTemplatesOpen = ref(false)
+const isCmpEditorOpen = ref(false)
+const isThemesOpen = ref(false)
+const cElementFocused = ref(false);
+const currentSectionBtn = ref('header');
+
+const colors = ref(utilService.getEditColors())
+const fonts = ref(utilService.getFonts())
+const themes = ref(utilService.getThemes())
+
 const templateStore = useTemplateStore()
-const emit = defineEmits(["onAddCmp", "onToggleMenu", "onToggleCmpEditor",'onSetTheme'])
+const emit = defineEmits(["onAddCmp", "onToggleMenu", "onToggleCmpEditor", 'onSetTheme', "onUpdateElement", "onChangeCmpBgColor"])
 const { cmpEditorOpen, isElementFocused } = defineProps({
     cmpEditorOpen: Object,
     isElementFocused: Object,
 });
-const cElementFocused = ref(false);
+
+onMounted(() => {
+    templateStore.loadFilteredCmps('header');
+})
 
 async function showCmps(cmpName) {
-    await templateStore.loadFilteredCmps(cmpName);
-    if (isTemplatesOpen.value) return templateStore.loadFilteredCmps(cmpName);
-    isTemplatesOpen.value = !isTemplatesOpen.value;
+    let prevCurrentSectionBtn = currentSectionBtn.value
+    try {
+        currentSectionBtn.value = cmpName
+        await templateStore.loadFilteredCmps(cmpName);
+        if (isTemplatesOpen.value) return templateStore.loadFilteredCmps(cmpName);
+    }
+    catch (err) {
+        currentSectionBtn.value = prevCurrentSectionBtn
+        console.log('error', err)
+    }
 }
 
 function toggleMenu() {
@@ -150,15 +150,15 @@ function onAddCmp(cmp) {
     emit("onAddCmp", cmp);
 }
 
-function setColor(color) {
-    emit("setColor", color);
+function setValueToKey(key, { target }, value) {
+    emit("onUpdateElement", key, key === 'fontSize' ? target.value + 'px' : value)
 }
-function setBacColor(color) {
-    console.log('color', color)
-    emit("setBacColor", color);
+
+function changeCmpBgColor(color) {
+    emit("onChangeCmpBgColor", color);
 }
-function setTheme(theme){
-    emit('onSetTheme',theme)
+function setTheme(theme) {
+    emit('onSetTheme', theme)
 }
 
 watch(isElementFocused, () => {

@@ -1,5 +1,5 @@
 <template>
-    <section class="graphic-designer-video">
+    <section class="site-video">
         <h1>Check out our last video</h1>
         <p>
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet

@@ -2,28 +2,15 @@
     <section v-if="siteStore.siteToShow" class="site-edit">
         <site-edit-header @onChangeDisplay="toggleDisplaySize" />
 
-        <site-edit-sidebar
-            :cmpEditorOpen="cmpEditorOpen"
-            :isElementFocused="isElementFocused"
-            @onToggleCmpEditor="toggleCmpEditor"
-            @setColor="SetColorTxt"
-            @setBacColor="SetColorBac"
-            @onSetTheme="setTheme"
-            @onAddCmp="addCmp"
-        />
+        <site-edit-sidebar :cmpEditorOpen="cmpEditorOpen" :isElementFocused="isElementFocused"
+            @onToggleCmpEditor="toggleCmpEditor" @onChangeCmpBgColor="changeCmpBgColor" @onSetTheme="setTheme"
+            @onAddCmp="addCmp" @onUpdateElement="updateElement" />
         <!-- @onToggleMenu="toggleMenu" -->
 
         <section class="site-display" :class="displaySize">
-            <component
-                v-if="siteStore.siteToShow?.cmps?.length"
-                v-for="cmp in siteStore.siteToShow.cmps"
-                :is="cmpsToShow[cmp.type]"
-                :cmp="cmp"
-                :class="{ 'cmp-selected': cmpToEdit?._id === cmp._id }"
-                @click="setCmpToEdit(cmp)"
-                @editElement="editElement"
-                @onChangeText="changeText"
-            >
+            <component v-if="siteStore.siteToShow?.cmps?.length" v-for="cmp in siteStore.siteToShow.cmps"
+                :is="cmpsToShow[cmp.type]" :cmp="cmp" :class="{ 'cmp-selected': cmpToEdit?._id === cmp._id }"
+                @click="setCmpToEdit(cmp)" @editElement="editElement" @onChangeText="changeText">
                 <!-- @onSetTxtColor="TxtColor" -->
             </component>
             <section v-else class="drag-area">
@@ -45,7 +32,7 @@ import siteGallery from "../components/site-templates/site-gallery.vue"
 import siteContact from "../components/site-templates/site-contact.vue"
 import siteFooter from "../components/site-templates/site-footer.vue"
 
-import { onMounted, ref, computed } from "vue";
+import { onMounted, onUpdated, ref, computed } from "vue";
 import { useRoute } from "vue-router";
 import { useTemplateStore } from "../stores/template.js";
 import { useSiteStore } from "../stores/site.js";
@@ -62,7 +49,6 @@ const cmpsToShow = {
 const cmpToEdit = ref(null)
 const isCmpEditorOpen = ref(false)
 const focusedElement = ref(false)
-const changeColor = ref(false)
 const displaySize = ref("desktop")
 
 const isElementFocused = computed(() => focusedElement)
@@ -78,7 +64,6 @@ onMounted(async () => {
         ? await templateStore.getById(id)
         : templateStore.getEmptySite();
     siteStore.setSite(site);
-    console.log(siteStore.siteToShow);
 });
 
 function toggleDisplaySize(val) {
@@ -95,7 +80,10 @@ function addCmp(cmp) {
     siteStore.addCmp(cmp);
 }
 
-
+function updateElement(key, value) {
+    console.log(cmpToEdit.value, focusedElement.value)
+    cmpToEdit.value.info[focusedElement.value].style[key] = value
+}
 
 function changeText(text, key, idx) {
     typeof cmpToEdit.value.info[key] === Array
@@ -105,7 +93,6 @@ function changeText(text, key, idx) {
 }
 
 function setCmpToEdit(cmp) {
-    console.log("cmpToEdit", cmpToEdit);
     cmpToEdit.value = cmp;
     isCmpEditorOpen.value = !isCmpEditorOpen.value;
 }
@@ -114,9 +101,8 @@ function updateCmp() {
     siteStore.updateCmp(cmpToEdit.value);
 }
 
-function editElement(key) {
+function editElement(key, idx) {
     focusedElement.value = key;
-    console.log('focusedElement.value',focusedElement.value)
 }
 
 function SetColorTxt(color) {
@@ -126,8 +112,8 @@ function SetColorTxt(color) {
     updateCmp()
 }
 
-function SetColorBac(color) {
-    console.log(' cmpToEdit.value.style',  cmpToEdit.value.style)
+
+function changeCmpBgColor(color) {
     cmpToEdit.value.style["background-color"] = color
     updateCmp()
 }
@@ -146,7 +132,7 @@ function setTheme(theme) {
                 cmpToEdit.value.info[key].style["color"] = theme.color
                 break;
             case 'links':
-                 cmpToEdit.value.info.links.forEach((link,idx) => cmpToEdit.value.info.links[idx].style.color = theme.color)
+                cmpToEdit.value.info.links.forEach((link, idx) => cmpToEdit.value.info.links[idx].style.color = theme.color)
                 break;
             case 'btn':
             case 'card':

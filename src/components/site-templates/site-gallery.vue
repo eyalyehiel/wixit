@@ -1,5 +1,5 @@
 <template>
-    <section class="graphic-designer-gallery">
+    <section class="site-gallery">
         <img v-for="img in cmp.info.imgs" :src="img" alt="">
     </section>
 </template>

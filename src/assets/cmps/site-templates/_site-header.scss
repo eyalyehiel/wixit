@@ -1,4 +1,4 @@
-.graphic-designer-header {
+.site-header {
     padding-inline: 30px;
     display: flex;
     justify-content: space-between;
@@ -68,7 +68,7 @@
     }
 
     @media (max-width: 400px) {
-        .graphic-designer-header {
+        .site-header {
             .nav {
                 display: none;
             }

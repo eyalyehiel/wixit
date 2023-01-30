@@ -1,5 +1,5 @@
 <template>
-    <section class="graphic-designer-contact">
+    <section class="site-contact">
         <img :src="cmp.info.img" alt="">
         <form action="">
             <label>

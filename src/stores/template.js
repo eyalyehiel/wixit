@@ -5,6 +5,16 @@ import { templateService } from '../services/template-service';
 export const useTemplateStore = defineStore('template', () => {
     const templates = ref(null);
     const filteredCmps = ref(null);
+    const sectionList = ref([
+        'header',
+        'hero',
+        'section',
+        'gallery',
+        'cards',
+        'testimonials',
+        'contact',
+        'video',
+    ]);
 
     async function loadFilteredCmps(cmpName) {
         filteredCmps.value = await templateService.query({ cmpName });
@@ -31,6 +41,7 @@ export const useTemplateStore = defineStore('template', () => {
     const templateToShow = computed(() => templates);
 
     return {
+        sectionList,
         templates,
         filteredCmps,
         getById,

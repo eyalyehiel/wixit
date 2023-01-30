@@ -1,0 +1,24 @@
+.site-section {
+    // height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+
+    h1 {
+        font-size: 60px;
+    }
+
+    p {
+        max-width: 80ch;
+    }
+
+    button {
+        border-radius: 3em;
+        padding: 15px 35px;
+        align-self: center;
+        background-color: white;
+        color: rgb(117, 83, 40);
+    }
+}

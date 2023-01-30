@@ -1,4 +1,3 @@
-
 //SETUP
 @import './setup/variables';
 @import './setup/mixins';
@@ -12,6 +11,7 @@
 @import './views/site-app';
 @import './views/home-view';
 @import './views/site-edit';
+@import './views/my-sites';
 
 //CMPS
 @import './cmps/app-header';
@@ -21,7 +21,11 @@
 
 //SITE TEMPLATES
 @import './cmps/site-templates/site-header';
+@import './cmps/site-templates/site-section';
 @import './cmps/site-templates/site-footer';
 @import './cmps/site-templates/site-hero';
 @import './cmps/site-templates/site-cards';
 
+// MY SITES
+@import './cmps/my-sites/site-list';
+@import './cmps/my-sites/site-preview';
