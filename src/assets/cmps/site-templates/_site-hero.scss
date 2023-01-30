@@ -1,17 +1,23 @@
 .site-hero {
     height: 100%;
-<<<<<<< HEAD
     background-position: center;
-    main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    main {
         display: flex;
         flex-direction: column;
+        align-items: center;
+        justify-content: center;
         gap: 24px;
         text-align: center;
+
         h1 {
             font-size: 60px;
-            
         }
-        p{
+        p {
             // max-width: 700px;
         }
 
@@ -22,17 +28,6 @@
             background-color: rgba(255, 255, 255, 0.418);
             color: rgb(117, 83, 40);
         }
-=======
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 24px;
-    text-align: center;
-
-    h1 {
-        font-size: 60px;
->>>>>>> 26a04d7918a88a3942b0adb2d46befcdb722c61a
     }
 
     p {
