@@ -11,6 +11,7 @@
 @import './views/site-app';
 @import './views/home-view';
 @import './views/site-edit';
+@import './views/my-sites';
 
 //CMPS
 @import './cmps/app-header';
@@ -24,3 +25,7 @@
 @import './cmps/site-templates/site-footer';
 @import './cmps/site-templates/site-hero';
 @import './cmps/site-templates/site-cards';
+
+// MY SITES
+@import './cmps/my-sites/site-list';
+@import './cmps/my-sites/site-preview';

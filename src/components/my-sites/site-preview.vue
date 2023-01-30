@@ -1,16 +1,28 @@
 <template>
-    <article class="site-preview">
-        <img src="" alt="">
+    <article v-if="site" class="site-preview">
+        <div class="image-container">
+            <img src="" :alt="site._id">
+            <div class="site-preview-cover">
+
+            </div>
+        </div>
         <div class="actions">
-            <h2>{{ site.name }}</h2>
-            <h3>{{ site.status }}</h3>
-            <button class="more-actions">
-                ...
+            <div class="title">
+                <h3>{{ site.name }}</h3>
+                <p>{{ site.status || 'Not Published' }}</p>
+            </div>
+            <button class="more-actions-btn">
+                <threeDots />
+                <!-- <img src="../../assets/svg/three-dots.svg" alt=""> -->
             </button>
         </div>
     </article>
 </template>
 
 <script setup>
+import { defineProps } from 'vue';
 
+import threeDots from '../../assets/svg/three-dots.vue';
+
+const { site } = defineProps({ site: Object })
 </script>
