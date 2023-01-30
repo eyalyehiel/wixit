@@ -8,24 +8,41 @@
         justify-content: space-between;
         padding-block: 35px;
 
-        .title {
-            h1 {
-                font-size: em(36px, 16px);
-            }
+        .title h1 {
+            font-size: em(36px, 16px);
+            margin-bottom: 5px;
         }
     }
 
     .main-content {
         background-color: #f0f4f7;
         min-height: 100%;
-        input {
-            border-radius: 15px;
-            border: 1px solid #c5e6fe;
-            padding: 5px 10px;
 
-            &:focus {
-                outline: 2px solid #aadbfc;
+        .site-filter {
+            padding-block: 36px;
+            input {
+                border-radius: 15px;
+                border: 1px solid #c5e6fe;
+                padding: 5px 10px;
+                width: 300px;
+
+                &:focus {
+                    outline: 2px solid #aadbfc;
+                }
             }
+        }
+    }
+
+    .btn-pill-blue {
+        background-color: #3899ec;
+        color: white;
+        padding-inline: 23px;
+        border-radius: 18px;
+        height: 36px;
+        transition: background-color 0.2s;
+
+        &:hover {
+            background-color: #4eb7f5;
         }
     }
 }

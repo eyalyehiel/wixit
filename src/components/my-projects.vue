@@ -6,11 +6,13 @@
                 <h4>Select a site to edit, view and open its dashboard.</h4>
             </div>
             <div class="action">
-                <button>Create New Site</button>
+                <button class="btn-pill-blue">Create New Site</button>
             </div>
         </header>
         <main class="main-content">
-            <input type="text" placeholder="Search for a website">
+            <div class="site-filter">
+                <input type="text" placeholder="Search for a website">
+            </div>
             <site-list :sites="siteStore.sites" />
         </main>
     </section>
