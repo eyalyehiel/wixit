@@ -1,7 +1,7 @@
 <template>
     <header class="graphic-designer-header" @click.stop="onEditElement($event, 'site-header')" :style="cmp.style">
         <div class="logo-title">
-            <img :src="cmp.style.logo">
+            <img :src="cmp.info.title.logo">
             <h1 :style="cmp.info.title.style" :contenteditable="isPreview" @click.stop="onEditElement($event, 'title')" @input="changeText($event, 'title')">{{
                 cmp.info.title.text
             }}

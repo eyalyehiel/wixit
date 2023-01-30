@@ -3,6 +3,7 @@
     display: grid;
     place-items: center;
     height: 100%;
+    background-position: center;
     main{
         display: flex;
         flex-direction: column;
@@ -10,6 +11,7 @@
         text-align: center;
         h1 {
             font-size: 60px;
+            
         }
         p{
             // max-width: 700px;
@@ -19,7 +21,7 @@
             border-radius: 3em;
             padding: 15px 35px;
             align-self: center;
-            background-color: white;
+            background-color: rgba(255, 255, 255, 0.418);
             color: rgb(117, 83, 40);
         }
     }

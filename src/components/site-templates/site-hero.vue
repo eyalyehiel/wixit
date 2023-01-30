@@ -1,6 +1,6 @@
 <template>
     <section class="graphic-designer-hero" @click.stop="onEditElement($event, 'site-hero')" :style="cmp.style"
-        style="background-size: cover">
+        style="background-size: cover; background-position: center;">
         <main>
             <h1 :style="cmp.info.title.style" @click.stop="onEditElement($event, 'title')"
                 @input="changeText($event, 'title')" contenteditable="true">
