@@ -1,23 +1,26 @@
 <template>
     <h2>Choose a template for your website</h2>
-    <section v-if="templateStore.templates" class="template-selector">
-        <article>
-            <section class="article-cover" style="background-color: antiquewhite;">
-                <div>
-                    <button class="edit-btn" @click="() => router.push(`site/edit`)">Edit</button>
+    <section v-if="templateStore.templates" class="template-list">
+        <article class="template-preview">
+            <section class="article-cover">
+                <div class="actions">
+                    <button class="btn-edit btn-pill-blue" @click="() => router.push(`site/edit`)">Edit</button>
                 </div>
             </section>
             Empty
         </article>
-        <article v-for="template in templateStore.templateToShow.value"
-            :style="{ 'background-image': `url( ${template.background})` }">
+        <!-- :style="{ 'background-image': `url( ${template.background})` }" -->
+        <article class="template-preview" v-for="template in templateStore.templateToShow.value">
+            <img :src="template.background" alt="">
+            <p>{{ template.name || 'coffee shop' }}</p>
             <section class="article-cover">
-                <div>
-                    <button @click="() => router.push(`site/${template._id}`)" class="preview-btn">Preview</button>
-                    <button @click="() => router.push(`site/edit/${template._id}`)" class="edit-btn">Edit</button>
+                <div class="actions">
+                    <button @click="() => router.push(`site/edit/${template._id}`)"
+                        class="btn-edit btn-pill-blue">Edit</button>
+                    <button @click="() => router.push(`site/${template._id}`)"
+                        class="btn-view btn-pill-blue">View</button>
                 </div>
             </section>
-            {{ template.name || 'coffee shop' }}
         </article>
     </section>
 </template>

@@ -45,10 +45,16 @@ ul {
 .cmp-selected {
     box-shadow: inset 3px 3px 0 0 #6f56f9, inset -3px -3px 0 0 #6f56f9;
 }
-//MAIN LAYOUT
-// #app {
-//     min-height: 100vh;
-//     display: grid;
-//     position: relative;
-//     grid-template-rows: 80px 1fr;
-// }
+
+.btn-pill-blue {
+    background-color: #3899ec;
+    color: white;
+    padding-inline: 23px;
+    border-radius: 18px;
+    height: 36px;
+    transition: background-color 0.2s;
+
+    &:hover {
+        background-color: #4eb7f5;
+    }
+}
