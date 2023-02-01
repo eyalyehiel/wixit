@@ -6,6 +6,7 @@
             @onToggleCmpEditor="toggleCmpEditor" @onChangeCmpBgColor="changeCmpBgColor" @onSetTheme="setTheme"
             @onAddCmp="addCmp" @onUpdateElement="updateElement" />
         <!-- @onToggleMenu="toggleMenu" -->
+        <!-- <section> -->
 
         <section class="site-display" :class="displaySize">
             <component v-if="siteStore.siteToShow?.cmps?.length" v-for="cmp in siteStore.siteToShow.cmps"
@@ -17,6 +18,7 @@
                 <h1>Place Element Here</h1>
             </section>
         </section>
+        <!-- </section> -->
     </section>
 </template>
 
@@ -81,7 +83,6 @@ function addCmp(cmp) {
 }
 
 function updateElement(key, value) {
-    console.log(cmpToEdit.value, focusedElement.value)
     cmpToEdit.value.info[focusedElement.value].style[key] = value
 }
 
@@ -107,8 +108,7 @@ function editElement(key, idx) {
 
 function SetColorTxt(color) {
 
-    cmpToEdit.value.info[focusedElement.value].style.color = color 
-    // console.log("cmpToEdit", cmpToEdit.value.info.title.style.color);
+    cmpToEdit.value.info[focusedElement.value].style.color = color
     updateCmp()
 }
 
@@ -119,28 +119,12 @@ function changeCmpBgColor(color) {
 }
 
 function setTheme(theme) {
-    console.log("theme", theme)
-    console.log("cmpToEdit.value", cmpToEdit.value)
     cmpToEdit.value.style["background-color"] = theme["background-color"]
     for (const key in cmpToEdit.value.info) {
-        switch (key) {
-            case 'title':
-            case 'subtitle':
-            case 'paragraph1':
-            case 'paragraph2':
-            case 'paragraph3':
-                cmpToEdit.value.info[key].style["color"] = theme.color
-                break;
-            case 'links':
-                cmpToEdit.value.info.links.forEach((link, idx) => cmpToEdit.value.info.links[idx].style.color = theme.color)
-                break;
-            case 'btn':
-            case 'card':
-                cmpToEdit.value.info[key].style["background-color"] = theme.others
-                break;
-            default:
-                break;
-        }
+
+        if (key === 'links') cmpToEdit.value.info.links.forEach((link, idx) => cmpToEdit.value.info.links[idx].style.color = theme.color)
+        else if (key === 'btn' || key === 'card') cmpToEdit.value.info[key].style["background-color"] = theme.others
+        else cmpToEdit.value.info[key].style["color"] = theme.color
     }
     updateCmp()
 }

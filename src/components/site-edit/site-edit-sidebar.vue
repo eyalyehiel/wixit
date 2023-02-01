@@ -65,7 +65,7 @@
             </section>
             <section v-if="cElementFocused" class="font-style-picker">
                 <h1>FONT SIZE</h1>
-                <input type="range" min="2" max="56" @input="setValueToKey('fontSize', $event)" />
+                <input type="range" min="2" max="100" @input="setValueToKey('fontSize', $event)" />
             </section>
         </section>
         <section class="theme-selector" :class="{ open: isThemesOpen }">
