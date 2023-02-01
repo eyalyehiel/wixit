@@ -11,9 +11,11 @@
         </header>
         <main class="main-content">
             <div class="site-filter">
-                <input type="text" placeholder="Search for a website">
+                <p v-if="filterByName">Search results for "{{ filterByName }}"</p>
+                <input type="text" placeholder="Search for a website" v-model="filterByName">
             </div>
-            <site-list :sites="siteStore.sites" />
+            <site-list
+                :sites="siteStore.sites?.filter(site => site.name.toLowerCase().includes(filterByName.toLowerCase()))" />
         </main>
     </section>
 </template>
@@ -22,9 +24,11 @@
 import SiteList from './my-sites/site-list.vue';
 
 import { useSiteStore } from "../stores/site.js";
-import { onMounted } from 'vue';
+import { ref, onMounted } from 'vue';
 
 const siteStore = useSiteStore()
+
+const filterByName = ref('')
 
 onMounted(() => {
     siteStore.loadSites()

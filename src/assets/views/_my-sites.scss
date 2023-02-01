@@ -20,6 +20,9 @@
 
         .site-filter {
             padding-block: 36px;
+            display: flex;
+            justify-content: space-between;
+
             input {
                 border-radius: 15px;
                 border: 1px solid #c5e6fe;
@@ -29,6 +32,9 @@
                 &:focus {
                     outline: 2px solid #aadbfc;
                 }
+            }
+            p {
+                justify-self: end;
             }
         }
     }

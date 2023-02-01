@@ -1,7 +1,8 @@
 <template>
     <article v-if="site" class="site-preview">
         <div class="image-container">
-            <img src="https://robohash.org/123?set=set5" :alt="site._id">
+            <!-- <img src="https://robohash.org/123?set=set5" :alt="site._id"> -->
+            <img :src="site.background" :alt="site._id">
             <div class="site-preview-cover">
                 <button class="btn-pill-blue">Edit Site</button>
             </div>
