@@ -1,8 +1,8 @@
 [
     {
         "_id": "hdu1i29y39",
-        "name": "Cafe Baluta",
-        "background": "https://res.cloudinary.com/dirvusyaz/image/upload/v1674070871/coffe_har7o3.png",
+        "name": " Emily Fox Fitness",
+        "background": "https://res.cloudinary.com/dirvusyaz/image/upload/v1675292474/emyli_jysf31.webp",
         "imgUrls": [],
         "createdBy": { "_id": "", "fullname": "", "imgUrl": "" },
         "cmps": [
@@ -10,9 +10,10 @@
                 "type": "site-header",
                 "info": {
                     "title": {
-                        "text": "Cafe Baluta",
+                        "text": "Emily Fox Fitness",
+                        "logo":"https://res.cloudinary.com/dirvusyaz/image/upload/v1675292821/emily_ztcmkg.svg",
                         "style": {
-                            "color": "",
+                            "color": "#253c57",
                             "font-family": "",
                             "font-size": "",
                             "font-weight": ""
@@ -20,30 +21,30 @@
                     },
                     "links": [
                         {
-                            "text": "Home",
+                            "text": "Meet Emily",
                             "href": "#",
                             "style": {
-                                "color": "",
+                                "color": "#253c57",
                                 "font-family": "",
                                 "font-size": "",
                                 "font-weight": ""
                             }
                         },
                         {
-                            "text": "Shop",
+                            "text": "Plans & Pricing",
                             "href": "#",
                             "style": {
-                                "color": "",
+                                "color": "#253c57",
                                 "font-family": "",
                                 "font-size": "",
                                 "font-weight": ""
                             }
                         },
                         {
-                            "text": "About",
+                            "text": "Contact",
                             "href": "#",
                             "style": {
-                                "color": "",
+                                "color": "#253c57",
                                 "font-family": "",
                                 "font-size": "",
                                 "font-weight": ""
@@ -54,14 +55,14 @@
                 "theme": "theme-header-happy",
                 "style": {
                     "background": "url()",
-                    "background-color": "rgba(20, 2, 0, 0.8)"
+                    "background-color": "#ffffff"
                 }
             },
             {
                 "type": "site-hero",
                 "info": {
                     "title": {
-                        "text": "Start your day with a black Coffee",
+                        "text": "Emily Fox",
                         "style": {
                             "color": "",
                             "font-family": "",
@@ -70,7 +71,7 @@
                         }
                     },
                     "subtitle": {
-                        "text": "Our coffee comes straight from the plantations of Brazil and Colombia, freshly picked and ground on site, with a smoky aroma and an intoxicating taste. We love coffee, people and good food.",
+                        "text": "Discover Your Power Through Online Coaching",
                         "style": {
                             "color": "",
                             "font-family": "",
@@ -91,7 +92,7 @@
                 },
                 "theme": "theme-header-happy",
                 "style": {
-                    "background": "url(https://res.cloudinary.com/dirvusyaz/image/upload/v1674042414/header-bg.jpg_ajhisz.webp)",
+                    "background": "url(https://res.cloudinary.com/dirvusyaz/image/upload/v1675292474/emyli_jysf31.webp)",
                     "background-color": ""
                 }
             },
@@ -174,10 +175,12 @@
                     "title": {
                         "text": "AUTONO",
                         "style": {
-                            "color": "",
+                            "color": "#000000",
                             "font-family": "",
-                            "font-size": "",
-                            "font-weight": ""
+                            "font-size": "20px",
+                            "letter-spacing":"0.35em",
+                            "max-width":"130px",
+                            "font-weight": "600"
                         }
                     },
                     "links": [
@@ -216,7 +219,7 @@
                 "theme": "theme-header-happy",
                 "style": {
                     "background": "url()",
-                    "background-color": "#a7b6c7"
+                    "background-color": ""
                 }
             },
             {
@@ -225,26 +228,28 @@
                     "title": {
                         "text": "THE FUTURE OF  MOBILITY IS HERE",
                         "style": {
-                            "color": "",
+                            "color": "#000000",
                             "background-color": "",
                             "font-family": "",
-                            "font-size": "",
+                            "font-size": "64px",
+                            "letter-spacing":"0.08em",
                             "font-weight": ""
                         }
                     },
                     "subtitle": {
                         "text": "Discover the safest self-driving experience with Autono.",
                         "style": {
-                            "color": "",
+                            "color": "#000000",
                             "font-family": "",
-                            "font-size": "",
+                            "font-size": "24px",
+                            "letter-spacing":"0.05em",
                             "font-weight": ""
                         }
                     },
                     "btn": {
                         "text": "View Menu",
                         "style": {
-                            "color": "",
+                            "color": "#000000",
                             "font-family": "",
                             "font-size": "",
                             "font-weight": ""
@@ -264,7 +269,7 @@
                     "title": {
                         "text": "VISION",
                         "style": {
-                            "color": "",
+                            "color": "#ffffff",
                             "font-family": "",
                             "font-size": "",
                             "font-weight": ""
@@ -273,7 +278,7 @@
                     "paragraph1": {
                         "text": "We’re Changing the Way the World Thinks About Cars",
                         "style": {
-                            "color": "",
+                            "color": "#ffffff",
                             "font-family": "",
                             "font-size": "",
                             "font-weight": ""
@@ -282,7 +287,7 @@
                     "paragraph2": {
                         "text": "I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me to add your own content and make changes to the font. I’m a great place for you to tell a story and let your users know a little more about you.",
                         "style": {
-                            "color": "",
+                            "color": "#ffffff",
                             "font-family": "",
                             "font-size": "",
                             "font-weight": ""
@@ -293,7 +298,7 @@
                     ]
                 },
                 "theme": "theme-header-happy",
-                "style": { "background": "url()", "background-color": "#fff" }
+                "style": { "background": "url()", "background-color": "#111" }
             },
             {
                 "type": "site-footer",
@@ -318,7 +323,7 @@
                     }
                 },
                 "theme": "theme-header-happy",
-                "style": { "background": "url()", "background-color": "#fff" }
+                "style": { "background": "url()", "background-color": "#000000" }
             }
         ],
         "isPublic": true
@@ -613,6 +618,168 @@
                 },
                 "theme": "theme-header-happy",
                 "style": { "background": "url()", "background-color": "" }
+            },
+            {
+                "type": "site-footer",
+                "info": {
+                    "title": {
+                        "text": "COFFEE",
+                        "style": {
+                            "color": "",
+                            "font-family": "",
+                            "font-size": "",
+                            "font-weight": ""
+                        }
+                    },
+                    "subtitle": {
+                        "text": "CoffeRights 2035 by Pucoffe. Proudly created with Wicks.in",
+                        "style": {
+                            "color": "",
+                            "font-family": "",
+                            "font-size": "",
+                            "font-weight": ""
+                        }
+                    }
+                },
+                "theme": "theme-header-happy",
+                "style": { "background": "url()", "background-color": "" }
+            }
+        ],
+        "isPublic": true
+    },
+    {
+        "_id": "hdu1i29y34",
+        "name": "Cafe Baluta",
+        "background": "https://res.cloudinary.com/dirvusyaz/image/upload/v1674070871/coffe_har7o3.png",
+        "imgUrls": [],
+        "createdBy": { "_id": "", "fullname": "", "imgUrl": "" },
+        "cmps": [
+            {
+                "type": "site-header",
+                "info": {
+                    "title": {
+                        "text": "Cafe Baluta",
+                        "style": {
+                            "color": "",
+                            "font-family": "",
+                            "font-size": "",
+                            "font-weight": ""
+                        }
+                    },
+                    "links": [
+                        {
+                            "text": "Home",
+                            "href": "#",
+                            "style": {
+                                "color": "",
+                                "font-family": "",
+                                "font-size": "",
+                                "font-weight": ""
+                            }
+                        },
+                        {
+                            "text": "Shop",
+                            "href": "#",
+                            "style": {
+                                "color": "",
+                                "font-family": "",
+                                "font-size": "",
+                                "font-weight": ""
+                            }
+                        },
+                        {
+                            "text": "About",
+                            "href": "#",
+                            "style": {
+                                "color": "",
+                                "font-family": "",
+                                "font-size": "",
+                                "font-weight": ""
+                            }
+                        }
+                    ]
+                },
+                "theme": "theme-header-happy",
+                "style": {
+                    "background": "url()",
+                    "background-color": "rgba(20, 2, 0, 0.8)"
+                }
+            },
+            {
+                "type": "site-hero",
+                "info": {
+                    "title": {
+                        "text": "Start your day with a black Coffee",
+                        "style": {
+                            "color": "",
+                            "font-family": "",
+                            "font-size": "",
+                            "font-weight": ""
+                        }
+                    },
+                    "subtitle": {
+                        "text": "Our coffee comes straight from the plantations of Brazil and Colombia, freshly picked and ground on site, with a smoky aroma and an intoxicating taste. We love coffee, people and good food.",
+                        "style": {
+                            "color": "",
+                            "font-family": "",
+                            "font-size": "",
+                            "font-weight": ""
+                        }
+                    },
+                    "btn": {
+                        "text": "BUY NOW",
+                        "style": {
+                            "color": "",
+                            "font-family": "",
+                            "font-size": "",
+                            "font-weight": ""
+                        },
+                        "href": ""
+                    }
+                },
+                "theme": "theme-header-happy",
+                "style": {
+                    "background": "url(https://res.cloudinary.com/dirvusyaz/image/upload/v1674042414/header-bg.jpg_ajhisz.webp)",
+                    "background-color": ""
+                }
+            },
+            {
+                "type": "site-section",
+                "info": {
+                    "title": {
+                        "text": "Coffee & Cakes",
+                        "style": {
+                            "color": "",
+                            "font-family": "",
+                            "font-size": "",
+                            "font-weight": ""
+                        }
+                    },
+                    "paragraph1": {
+                        "text": "Our coffee is rich in flavor and the espresso is a perfect balance of sweetness and acidity that functions well in milk drinks.",
+                        "style": {
+                            "color": "",
+                            "font-family": "",
+                            "font-size": "",
+                            "font-weight": ""
+                        }
+                    },
+                    "paragraph2": {
+                        "text": "Quick can manor smart money hopes worth too. Comfort produce husband boy her had hearing. Law others theirs passed but wishes. You day real less till dear read. Considered use dispatched melancholy sympathize discretion led. Oh feel if up to till like.",
+                        "style": {
+                            "color": "",
+                            "font-family": "",
+                            "font-size": "",
+                            "font-weight": ""
+                        }
+                    },
+                    "images": [
+                        "https://res.cloudinary.com/dirvusyaz/image/upload/v1674045504/b2.jpg_v16hmf.webp",
+                        "https://res.cloudinary.com/dirvusyaz/image/upload/v1674045504/b1.jpg_n3fxam.webp"
+                    ]
+                },
+                "theme": "theme-header-happy",
+                "style": { "background": "url()", "background-color": "#fff" }
             },
             {
                 "type": "site-footer",

@@ -16,6 +16,7 @@
                 <div class="preview-top">
                     <threeDots />
                 </div>
+                <!-- <img src="https://res.cloudinary.com/dirvusyaz/image/upload/v1675292474/emyli_jysf31.webp" alt=""> -->
                 <section class="article-cover">
                     <div class="actions">
                         <button class="btn-edit btn-pill-blue" @click="() => router.push(`site/edit`)">Edit</button>

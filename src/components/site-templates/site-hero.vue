@@ -15,6 +15,7 @@
                 {{ cmp.info.btn.text }}
             </button>
         </main>
+        <div class="fadeBottom"></div>
     </section>
 </template>
 

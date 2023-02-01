@@ -8,17 +8,19 @@
     // gap: 24px;
     display: grid;
     grid-template-columns: repeat(4, auto);
-    grid-auto-rows: minmax(100px, auto);
+    grid-auto-rows: minmax(180px, 50px);
     grid-template-areas:
-        "txt .. .. img2"
-        "txt2 img1 .. img2"
+        ".. .. .. img2"
+        "txt img1 .. img2"
         ".. img1 .. .. ";
 
     .txt-section {
-        
-        // position: absolute;
+        grid-area: txt;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         h2 {
-            grid-area: txt;
+            grid-area: txt1;
             text-align: center;
             font-size: 50px;
         }
