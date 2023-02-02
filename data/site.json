@@ -11,7 +11,7 @@
                 "info": {
                     "title": {
                         "text": "Emily Fox Fitness",
-                        "logo":"https://res.cloudinary.com/dirvusyaz/image/upload/v1675292821/emily_ztcmkg.svg",
+                        "logo": "https://res.cloudinary.com/dirvusyaz/image/upload/v1675292821/emily_ztcmkg.svg",
                         "style": {
                             "color": "#253c57",
                             "font-family": "",
@@ -178,8 +178,8 @@
                             "color": "#000000",
                             "font-family": "",
                             "font-size": "20px",
-                            "letter-spacing":"0.35em",
-                            "max-width":"130px",
+                            "letter-spacing": "0.35em",
+                            "max-width": "130px",
                             "font-weight": "600"
                         }
                     },
@@ -232,7 +232,7 @@
                             "background-color": "",
                             "font-family": "",
                             "font-size": "64px",
-                            "letter-spacing":"0.08em",
+                            "letter-spacing": "0.08em",
                             "font-weight": ""
                         }
                     },
@@ -242,7 +242,7 @@
                             "color": "#000000",
                             "font-family": "",
                             "font-size": "24px",
-                            "letter-spacing":"0.05em",
+                            "letter-spacing": "0.05em",
                             "font-weight": ""
                         }
                     },
@@ -323,7 +323,10 @@
                     }
                 },
                 "theme": "theme-header-happy",
-                "style": { "background": "url()", "background-color": "#000000" }
+                "style": {
+                    "background": "url()",
+                    "background-color": "#000000"
+                }
             }
         ],
         "isPublic": true
@@ -499,7 +502,7 @@
                 "info": {
                     "title": {
                         "text": "TrackMate Health Spa",
-                        "logo":"https://res.cloudinary.com/dirvusyaz/image/upload/v1675090972/serenity_ryjdh4.svg",
+                        "logo": "https://res.cloudinary.com/dirvusyaz/image/upload/v1675090972/serenity_ryjdh4.svg",
                         "style": {
                             "color": "#2D5661",
                             "font-family": "",
@@ -612,8 +615,8 @@
                         }
                     },
                     "images": [
-                        
-                         "https://res.cloudinary.com/dirvusyaz/image/upload/v1675094395/c837a6_34fd7eac18f244648381d0e500d02cb6_mv2_ziq71h.webp",               "https://res.cloudinary.com/dirvusyaz/image/upload/v1675094401/c837a6_6a663c706362459b9f6839dff6fadce4_mv2_ju3bk0.webp"
+                        "https://res.cloudinary.com/dirvusyaz/image/upload/v1675094395/c837a6_34fd7eac18f244648381d0e500d02cb6_mv2_ziq71h.webp",
+                        "https://res.cloudinary.com/dirvusyaz/image/upload/v1675094401/c837a6_6a663c706362459b9f6839dff6fadce4_mv2_ju3bk0.webp"
                     ]
                 },
                 "theme": "theme-header-happy",

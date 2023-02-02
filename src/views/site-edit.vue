@@ -4,7 +4,7 @@
 
         <site-edit-sidebar :cmpEditorOpen="cmpEditorOpen" :isElementFocused="isElementFocused"
             @onToggleCmpEditor="toggleCmpEditor" @onChangeCmpBgColor="changeCmpBgColor" @onSetTheme="setTheme"
-            @onAddCmp="addCmp" @onUpdateElement="updateElement" />
+            @onAddCmp="addCmp" @onUpdateElement="updateElement" @onRemoveCmp="removeCmp" />
         <!-- @onToggleMenu="toggleMenu" -->
         <!-- <section> -->
 
@@ -86,6 +86,11 @@ function updateElement(key, value) {
     cmpToEdit.value.info[focusedElement.value].style[key] = value
 }
 
+function removeCmp() {
+    console.log(cmpToEdit.value._id)
+    siteStore.removeCmp(cmpToEdit.value._id)
+}
+
 function changeText(text, key, idx) {
     typeof cmpToEdit.value.info[key] === Array
         ? (cmpToEdit.value.info[key][idx].text = text)
@@ -96,6 +101,7 @@ function changeText(text, key, idx) {
 function setCmpToEdit(cmp) {
     cmpToEdit.value = cmp;
     isCmpEditorOpen.value = !isCmpEditorOpen.value;
+    console.log(cmpToEdit.value._id)
 }
 
 function updateCmp() {

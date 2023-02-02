@@ -31,7 +31,7 @@ export const useSiteStore = defineStore('sites', () => {
     }
 
     function removeCmp(id) {
-        const idx = site.value.cmps.findIndex((cmp) => cmp.id === id);
+        const idx = site.value.cmps.findIndex((cmp) => cmp._id === id);
         site.value.cmps.splice(idx, 1);
     }
 

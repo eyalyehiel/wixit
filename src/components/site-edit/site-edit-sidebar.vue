@@ -34,7 +34,9 @@
         <section class="cmp-editor" :class="{ open: isCmpEditorOpen }">
             <header class="title">
                 <h1>Edit {{ 'Section'}}</h1>
-                <img src="../../assets/svg/trash.svg" alt="" />
+                <button @click="emit('onRemoveCmp')">
+                    <img src="../../assets/svg/trash.svg" alt="" />
+                </button>
             </header>
 
             <section v-if="!cElementFocused" class="color-picker">
@@ -103,7 +105,7 @@ const fonts = ref(utilService.getFonts())
 const themes = ref(utilService.getThemes())
 
 const templateStore = useTemplateStore()
-const emit = defineEmits(["onAddCmp", "onToggleMenu", "onToggleCmpEditor", 'onSetTheme', "onUpdateElement", "onChangeCmpBgColor"])
+const emit = defineEmits(["onAddCmp", "onToggleMenu", "onToggleCmpEditor", 'onSetTheme', "onUpdateElement", "onChangeCmpBgColor", "onRemoveCmp"])
 const { cmpEditorOpen, isElementFocused } = defineProps({
     cmpEditorOpen: Object,
     isElementFocused: Object,
