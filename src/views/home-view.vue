@@ -9,7 +9,9 @@
             </h3>
             <button @click="navigate">Get Started</button>
             <p>Try WixIt. No credit card required.</p>
-            <!-- <img src="" alt="image" /> -->
+            <div>
+                <img src="../assets/svg/main.svg" style="width: 790px;" />
+            </div>
         </section>
         <section class="one-platform">
             <h1>One platform, infinite possibilities</h1>

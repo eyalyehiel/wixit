@@ -1,0 +1,16 @@
+<svg preserveAspectRatio="xMidYMid meet" data-bbox="0.65 0.65 889.7 566.7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 891 568" height="568" width="770" data-type="ugc" role="presentation" aria-hidden="true">
+    <g>
+        <g filter="url(#svgcid--f2wif592qg1b)">
+            <path fill-opacity=".2" fill="#ffffff" d="M890 11v546c0 5.523-4.477 10-10 10H11c-5.523 0-10-4.477-10-10V11C1 5.477 5.477 1 11 1h869c5.523 0 10 4.477 10 10z"></path>
+            <path stroke-linejoin="round" stroke-width=".7" stroke="#ffffff" d="M890.35 11v546c0 5.716-4.634 10.35-10.35 10.35H11C5.284 567.35.65 562.716.65 557V11C.65 5.284 5.284.65 11 .65h869c5.716 0 10.35 4.634 10.35 10.35z" fill="none"></path>
+        </g>
+        <defs fill="none">
+            <filter color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse" height="595.4" width="918.4" y="-13.7" x="-13.7" id="svgcid--f2wif592qg1b">
+                <feFlood result="BackgroundImageFix" flood-opacity="0"></feFlood>
+                <feGaussianBlur stdDeviation="7" in="BackgroundImageFix"></feGaussianBlur>
+                <feComposite result="effect1_backgroundBlur_1582_15647" operator="in" in2="SourceAlpha"></feComposite>
+                <feBlend result="shape" in2="effect1_backgroundBlur_1582_15647" in="SourceGraphic"></feBlend>
+            </filter>
+        </defs>
+    </g>
+</svg>

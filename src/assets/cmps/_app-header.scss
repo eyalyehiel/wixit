@@ -1,4 +1,3 @@
-
 .main-header {
     display: flex;
     justify-content: space-between;
@@ -14,10 +13,10 @@
     }
     .logo {
         // font-family: sans-serif;
-        font-family: 'Fredoka One';
+        font-family: "Fredoka One";
         p {
             // font-family: 'Kavoon', sans-serif;
-            font-family: 'Fredoka One';
+            font-family: "Fredoka One";
             font-weight: 600;
             font-size: 70px;
             color: #166aea;
@@ -28,31 +27,32 @@
                 color: #000;
             }
         }
-        .header-btns {
-            font-family: sans-serif;
-            font-size: 16px;
-            line-height: 40px;
-            min-width: 128px;
-            border: none;
+    }
+    
+    .header-btns {
+        font-family: sans-serif;
+        font-size: 16px;
+        line-height: 40px;
+        min-width: 128px;
+        border: none;
 
-            button:first-child {
-                background-color: rgba(255, 255, 255, 0);
-                color: #000;
-                font-size: 16px;
-                margin-left: 18px;
-                text-decoration: underline;
-                border: none;
-            }
-            button:last-child {
-                background-color: #166aea;
-                color: #fff;
-                margin-left: 18px;
-                line-height: 40px;
-                min-width: 147px;
-                border: none;
-                border-radius: 100px;
-                font-size: 16px;
-            }
+        button:first-child {
+            background-color: rgba(255, 255, 255, 0);
+            color: #000;
+            font-size: 16px;
+            margin-left: 18px;
+            text-decoration: underline;
+            border: none;
+        }
+        button:last-child {
+            background-color: #166aea;
+            color: #fff;
+            margin-left: 18px;
+            line-height: 40px;
+            min-width: 147px;
+            border: none;
+            border-radius: 100px;
+            font-size: 16px;
         }
     }
 }
