@@ -26,9 +26,27 @@
         align-items: center;
         padding-block: 35px;
 
-        .title h1 {
-            font-size: em(36px, 16px);
-            margin-bottom: 5px;
+        .title {
+            h1 {
+                font-size: em(36px, 16px);
+                margin-bottom: 5px;
+                color: #162d3d;
+            }
+
+            p {
+                color: #20455e;
+            }
+        }
+
+        .action button {
+            display: flex;
+            align-items: center;
+            padding-left: 10px;
+
+            svg {
+                width: 30px;
+                fill: white;
+            }
         }
     }
 
@@ -39,20 +57,22 @@
         .site-filter {
             padding-block: 36px;
             display: flex;
-            justify-content: space-between;
+            // justify-content: end;
 
             input {
                 border-radius: 15px;
                 border: 1px solid #c5e6fe;
                 padding: 5px 10px;
                 width: 300px;
+                // display: flex;
+                justify-self: center;
 
                 &:focus {
                     outline: 2px solid #aadbfc;
                 }
             }
             p {
-                justify-self: end;
+                justify-self: start;
             }
         }
     }

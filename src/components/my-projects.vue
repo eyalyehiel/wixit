@@ -3,10 +3,13 @@
         <header>
             <div class="title">
                 <h1>My Sites</h1>
-                <h4>Select a site to edit, view and open its dashboard.</h4>
+                <p>Select a site to edit, view and open its dashboard.</p>
             </div>
             <div class="action">
-                <button class="btn-pill-blue" @click="navigate('templates')">Create New Site</button>
+                <button class="btn-pill-blue" @click="navigate('templates')">
+                    <Plus />
+                    Create New Site
+                </button>
             </div>
         </header>
         <main class="main-content full">
@@ -33,6 +36,7 @@ import SiteList from "./my-sites/site-list.vue"
 import { useSiteStore } from "../stores/site.js"
 import { ref, onMounted } from "vue"
 import { useRouter } from "vue-router";
+import Plus from "../assets/svg/plus.vue";
 
 const siteStore = useSiteStore()
 const router = useRouter()

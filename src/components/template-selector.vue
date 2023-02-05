@@ -1,9 +1,9 @@
 <template>
     <section class="template-selector">
-        <header>
+        <header class="template-selector-header">
             <div>
                 <h2>Pick the Website Template You Love</h2>
-                <button class="btn-pill-blue">Already have a site?</button>
+                <button class="btn-pill-blue" @click="navigate('sites')">Already have a site?</button>
             </div>
             <input type="text" placeholder="Search all templates..." v-model="filterByName">
         </header>
@@ -65,4 +65,8 @@ onMounted(async () => {
     await templateStore.loadTemplates()
     console.log(templateStore.templates)
 })
+
+function navigate(to) {
+    router.push(to)
+}
 </script>
