@@ -5,20 +5,16 @@
         <site-edit-sidebar :cmpEditorOpen="cmpEditorOpen" :isElementFocused="isElementFocused"
             @onToggleCmpEditor="toggleCmpEditor" @onChangeCmpBgColor="changeCmpBgColor" @onSetTheme="setTheme"
             @onAddCmp="addCmp" @onUpdateElement="updateElement" @onRemoveCmp="removeCmp" />
-        <!-- @onToggleMenu="toggleMenu" -->
-        <!-- <section> -->
 
         <section class="site-display" :class="displaySize">
             <component v-if="siteStore.siteToShow?.cmps?.length" v-for="cmp in siteStore.siteToShow.cmps"
                 :is="cmpsToShow[cmp.type]" :cmp="cmp" :class="{ 'cmp-selected': cmpToEdit?._id === cmp._id }"
                 @click="setCmpToEdit(cmp)" @editElement="editElement" @onChangeText="changeText">
-                <!-- @onSetTxtColor="TxtColor" -->
             </component>
             <section v-else class="drag-area">
                 <h1>Place Element Here</h1>
             </section>
         </section>
-        <!-- </section> -->
     </section>
 </template>
 
