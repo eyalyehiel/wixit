@@ -1,7 +1,7 @@
 <template>
     <section class="site-display" :class="displaySize">
         <component v-if="siteStore.siteToShow?.cmps?.length" v-for="cmp in siteStore.siteToShow.cmps"
-            :is="cmpsToShow[cmp.type]" :cmp="cmp" />
+            :is="cmpsToShow[cmp.type]" :cmp="cmp" :isEdit="false" />
         <section v-else>
             <h1>No Site Found please try again later</h1>
         </section>

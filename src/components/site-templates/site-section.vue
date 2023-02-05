@@ -32,8 +32,9 @@
 <script setup>
 import { defineProps, defineEmits } from "vue"
 
-const { cmp } = defineProps({ cmp: Object })
-const emit = defineEmits(["onChangeText", "editElement"])
+const { cmp, isEdit } = defineProps({ cmp: Object, isEdit: Boolean });
+
+const emit = defineEmits(["onChangeText", "editElement"]);
 
 function onEditElement(ev, key) {
     emit("editElement", key)

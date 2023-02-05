@@ -9,7 +9,7 @@
         <section class="site-display" :class="displaySize">
             <component v-if="siteStore.siteToShow?.cmps?.length" v-for="cmp in siteStore.siteToShow.cmps"
                 :is="cmpsToShow[cmp.type]" :cmp="cmp" :class="{ 'cmp-selected': cmpToEdit?._id === cmp._id }"
-                @click="setCmpToEdit(cmp)" @editElement="editElement" @onChangeText="changeText">
+                :isEdit="true" @click="setCmpToEdit(cmp)" @editElement="editElement" @onChangeText="changeText">
             </component>
             <section v-else class="drag-area">
                 <h1>Place Element Here</h1>

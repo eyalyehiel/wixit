@@ -7,5 +7,5 @@
 <script setup>
 import { defineProps } from 'vue';
 
-const { cmp } = defineProps({ cmp: Object })
+const { cmp, isEdit } = defineProps({ cmp: Object, isEdit: Boolean })
 </script>

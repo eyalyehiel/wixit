@@ -2,14 +2,14 @@
     <header class="site-header" @click.stop="onEditElement($event, 'site-header')" :style="cmp.style">
         <div class="logo-title">
             <img v-if="cmp.info.title.logo" :src="cmp.info.title.logo">
-            <h1 :style="cmp.info.title.style" :contenteditable="isPreview" @click.stop="onEditElement($event, 'title')"
+            <h1 :style="cmp.info.title.style" :contenteditable="isEdit" @click.stop="onEditElement($event, 'title')"
                 @input="changeText($event, 'title')">
                 {{ cmp.info.title.text }}
             </h1>
         </div>
         <nav>
             <a v-for="({ text, style, href }, idx) in cmp.info.links" :style="style" :href="href"
-                :contenteditable="isPreview" @click.stop="onEditElement($event, 'links', idx)"
+                :contenteditable="isEdit" @click.stop="onEditElement($event, 'links', idx)"
                 @input="changeText($event, 'links', idx)">
                 {{ text }}
             </a>
@@ -23,12 +23,9 @@
 <script setup>
 import { watch, ref, defineProps, defineEmits, onMounted } from "vue";
 
-const { cmp, isPreview } = defineProps({
+const { cmp, isEdit } = defineProps({
     cmp: Object,
-    isPreview: {
-        type: Boolean,
-        default: true
-    }
+    isEdit: Boolean,
 });
 const emit = defineEmits(['onSetTxtColor', 'onChangeText', 'editElement'])
 
