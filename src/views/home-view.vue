@@ -11,6 +11,7 @@
             <p>Try WixIt. No credit card required.</p>
             <div>
                 <img src="../assets/svg/main.svg" style="width: 790px;" />
+            
             </div>
         </section>
         <section class="one-platform">

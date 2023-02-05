@@ -1,6 +1,10 @@
 .template-selector {
     > * {
-        padding: 40px 72px;
+        padding: 20px 36px;
+
+        @media(min-width: 700px){
+            padding: 40px 72px;
+        }
     }
 
     header {
@@ -50,9 +54,16 @@
 
     .template-list {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(1, 1fr);
         background-color: #f5f7f7;
         gap: 38px 60px;
+
+        @media(min-width:700px){
+            grid-template-columns: repeat(2, 1fr);
+        }
+        @media(min-width: 1000px){
+            grid-template-columns: repeat(3, 1fr);
+        }
 
         @media (max-width: 400px) {
             article {

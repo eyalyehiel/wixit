@@ -12,23 +12,39 @@
         cursor: pointer;
     }
     .logo {
+        display: flex;
+        align-items: center;
         // font-family: sans-serif;
-        font-family: "Fredoka One";
-        p {
-            // font-family: 'Kavoon', sans-serif;
-            font-family: "Fredoka One";
-            font-weight: 600;
-            font-size: 70px;
-            color: #166aea;
-
-            span {
-                font-size: 45px;
-                font-weight: 600;
-                color: #000;
-            }
+        // font-family: "Fredoka One";
+        img:first-child {
+            height: 35px;
         }
+        img:last-child {
+            padding-left: 7px;
+            height: 18px;
+        }
+        p {
+            padding-left: 7px;
+            font-family: unset;
+            font-weight: 800;
+            font-size: 39px;
+            color: #13bcb4;
+        }
+        // p {
+        //     // font-family: 'Kavoon', sans-serif;
+        //     font-family: "Fredoka One";
+        //     font-weight: 600;
+        //     font-size: 70px;
+        //     color: #166aea;
+
+        //     span {
+        //         font-size: 45px;
+        //         font-weight: 600;
+        //         color: #000;
+        //     }
+        // }
     }
-    
+
     .header-btns {
         font-family: sans-serif;
         font-size: 16px;
