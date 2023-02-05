@@ -2,12 +2,12 @@
     display: flex;
     flex-direction: column;
     font-size: 24px;
-    @media(max-width: 480px){
+    @media (max-width: 480px) {
         font-size: 18px;
     }
-    >* {
+    > * {
         padding-inline: 80px;
-        @media(max-width: 480px){
+        @media (max-width: 480px) {
             padding-inline: 20px;
         }
     }
@@ -17,13 +17,25 @@
         justify-content: center;
         flex-direction: column;
         gap: 40px;
-        // background-color: #2f40ad;
-        // background: linear-gradient(#e66465, #9198e5);
         color: white;
         min-height: 76vh;
         padding-block: 50px;
-        background: linear-gradient(148deg, #2F40AD 27.90508270263672%, #394FB7 39.71376419067383%, #2A3BA9 50.911521911621094%, #394FB7 63.58194351196289%, #354AB5 91.60547256469727%);
-    
+        background: linear-gradient(
+            148deg,
+            #2f40ad 27.90508270263672%,
+            #394fb7 39.71376419067383%,
+            #2a3ba9 50.911521911621094%,
+            #394fb7 63.58194351196289%,
+            #354ab5 91.60547256469727%
+        );
+        // background: linear-gradient(
+        //     126deg,
+        //     #2f40ad 27.90508270263672%,
+        //     #394fb7 39.71376419067383%,
+        //     #2a3ba9 50.911521911621094%,
+        //     #394fb7 63.58194351196289%,
+        //     #354ab5 91.60547256469727%
+        // );
 
         h1 {
             // font-size: em(92px, 16px);

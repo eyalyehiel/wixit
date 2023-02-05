@@ -11,6 +11,8 @@
             <p>Try WixIt. No credit card required.</p>
             <div>
                 <img src="../assets/svg/main.svg" style="width: 790px;" />
+                <!-- <img src="https://static.wixstatic.com/media/0784b1_636e025454fa4d40a2374266c91e07b8~mv2.jpg/v1/fill/w_728,h_455,al_c,q_80,enc_auto/cans-reduced.jpg"
+                    style="width: 790px;" /> -->
 
             </div>
         </section>
