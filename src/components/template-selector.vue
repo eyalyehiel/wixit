@@ -37,9 +37,9 @@
                 <p>{{ template.name || 'coffee shop' }}</p>
                 <section class="article-cover">
                     <div class="actions">
-                        <button @click="() => router.push(`site/edit/${template._id}`)"
+                        <button @click="() => router.push(`/site/edit/${template._id}`)"
                             class="btn-edit btn-pill-blue">Edit</button>
-                        <button @click="() => router.push(`site/${template._id}`)"
+                        <button @click="() => router.push(`/site/${template._id}`)"
                             class="btn-view btn-pill-blue">View</button>
                     </div>
                 </section>
