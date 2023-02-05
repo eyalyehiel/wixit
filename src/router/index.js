@@ -4,6 +4,8 @@ import siteApp from '../views/site-app.vue';
 import siteEdit from '../views/site-edit.vue';
 import siteLogin from '../components/login.vue';
 import siteSignup from '../components/signUp.vue';
+import templateSelector from '../components/template-selector.vue';
+import myProjects from '../components/my-projects.vue';
 import siteEditDisplay from '../components/site-edit/site-edit-display.vue';
 
 const router = createRouter({
@@ -25,9 +27,24 @@ const router = createRouter({
             component: siteSignup,
         },
         {
-            path: '/site',
-            name: 'site',
-            component: siteApp,
+            path: '/select/templates',
+            // name: 'select',
+            component: templateSelector,
+            // children: [
+            //     {
+            //         path: 'templates',
+            //         component: templateSelector,
+            //     },
+            //     {
+            //         path: 'site',
+            //         component: myProjects,
+            //     },
+            // ],
+        },
+        {
+            path: '/select/sites',
+            // name: 'select',
+            component: myProjects,
         },
         {
             path: '/site/edit/:id?',

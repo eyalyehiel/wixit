@@ -2,11 +2,7 @@
     <header class="main-header">
 
         <div class="logo">
-            <img
-                @click="navigate('/')"
-                src="../assets/svg/logo3.png"
-                alt=""
-            />
+            <img @click="navigate('/')" src="../assets/svg/logo3.png" alt="" />
             <p>wixit</p>
             <!-- <img src="../assets/svg/unnamed (1).png" alt="" /> -->
         </div>
@@ -16,7 +12,7 @@
             <button v-if="!isLoginPath" @click="navigate('/login')">
                 Log In
             </button>
-            <button @click="navigate('/site')">Get Started</button>
+            <button @click="navigate('/select/templates')">Get Started</button>
         </div>
     </header>
 </template>

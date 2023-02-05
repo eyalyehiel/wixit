@@ -1,7 +1,10 @@
 <template>
     <section class="template-selector">
         <header>
-            <h2>Pick the Website Template You Love</h2>
+            <div>
+                <h2>Pick the Website Template You Love</h2>
+                <button class="btn-pill-blue">Already have a site?</button>
+            </div>
             <input type="text" placeholder="Search all templates..." v-model="filterByName">
         </header>
 
@@ -16,7 +19,8 @@
                 <div class="preview-top">
                     <threeDots />
                 </div>
-                <img src="https://res.cloudinary.com/dirvusyaz/image/upload/v1675331709/without_limits_xigo1z.png" alt="">
+                <img src="https://res.cloudinary.com/dirvusyaz/image/upload/v1675331709/without_limits_xigo1z.png"
+                    alt="">
                 <section class="article-cover">
                     <div class="actions">
                         <button class="btn-edit btn-pill-blue" @click="() => router.push(`site/edit`)">Edit</button>

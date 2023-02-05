@@ -2,7 +2,7 @@
     > * {
         padding: 20px 36px;
 
-        @media(min-width: 700px){
+        @media (min-width: 700px) {
             padding: 40px 72px;
         }
     }
@@ -14,6 +14,7 @@
 
         h2 {
             font-size: em(26px, 16px);
+            margin-bottom: 10px;
         }
 
         input {
@@ -58,10 +59,10 @@
         background-color: #f5f7f7;
         gap: 38px 60px;
 
-        @media(min-width:700px){
+        @media (min-width: 700px) {
             grid-template-columns: repeat(2, 1fr);
         }
-        @media(min-width: 1000px){
+        @media (min-width: 1000px) {
             grid-template-columns: repeat(3, 1fr);
         }
 

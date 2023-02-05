@@ -11,7 +11,7 @@
             <p>Try WixIt. No credit card required.</p>
             <div>
                 <img src="../assets/svg/main.svg" style="width: 790px;" />
-            
+
             </div>
         </section>
         <section class="one-platform">
@@ -52,7 +52,7 @@
             <button @click="navigate">Get Started</button>
             <!-- carrousel -->
         </section>
-        
+
     </main>
 </template>
 
@@ -61,6 +61,6 @@ import { useRouter } from "vue-router"
 const router = useRouter()
 
 function navigate() {
-    router.push("/site")
+    router.push("/select/templates")
 }
 </script>
