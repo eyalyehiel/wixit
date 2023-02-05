@@ -19,6 +19,7 @@ import siteHeader from "../site-templates/site-header.vue"
 
 import { useSiteStore } from "../../stores/site"
 import { useRoute } from "vue-router"
+import { onMounted, watch, ref } from "vue"
 
 const cmpsToShow = {
     "site-header": siteHeader,
@@ -33,13 +34,13 @@ const cmpsToShow = {
 const siteStore = useSiteStore()
 const route = useRoute()
 
-// const cmpToEdit = ref(null)
-// const focusedElement = ref(null)
-// const isCmpEditorOpen = ref(false)
-// const isPreview = ref(false)
+const cmpToEdit = ref(null)
+const focusedElement = ref(null)
+const isCmpEditorOpen = ref(false)
+const isPreview = ref(false)
 
 onMounted(() => {
-    console.log(siteStore.siteToShow)
+    console.log(siteStore.site)
     isPreview.value = route.path.includes('preview')
 })
 
@@ -47,19 +48,19 @@ watch(route, () => {
     isPreview.value = route.path.includes('preview')
 })
 
-// function setCmpToEdit(cmp) {
-//     cmpToEdit.value = cmp
-//     isCmpEditorOpen.value = !isCmpEditorOpen.value
-// }
+function setCmpToEdit(cmp) {
+    cmpToEdit.value = cmp
+    isCmpEditorOpen.value = !isCmpEditorOpen.value
+}
 
-// function editElement(key) {
-//     focusedElement.value = key
-// }
+function editElement(key) {
+    focusedElement.value = key
+}
 
-// function changeText(text, key, idx) {
-//     typeof cmpToEdit.value.info[key] === Array
-//         ? (cmpToEdit.value.info[key][idx].text = text)
-//         : (cmpToEdit.value.info[key].text = text)
-//     updateCmp()
-// }
+function changeText(text, key, idx) {
+    typeof cmpToEdit.value.info[key] === Array
+        ? (cmpToEdit.value.info[key][idx].text = text)
+        : (cmpToEdit.value.info[key].text = text)
+    updateCmp()
+}
 </script>
