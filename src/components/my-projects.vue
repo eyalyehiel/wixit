@@ -11,24 +11,37 @@
         </header>
         <main class="main-content">
             <div class="site-filter">
-                <p v-if="filterByName">Search results for "{{ filterByName }}"</p>
-                <input type="text" placeholder="Search for a website" v-model="filterByName">
+                <p v-if="filterByName">
+                    Search results for "{{ filterByName }}"
+                </p>
+                <input
+                    type="text"
+                    placeholder="Search for a website"
+                    v-model="filterByName"
+                />
             </div>
             <site-list
-                :sites="siteStore.sites?.filter(site => site.name.toLowerCase().includes(filterByName.toLowerCase()))" />
+                :sites="
+                    siteStore.sites?.filter((site) =>
+                        site.name
+                            .toLowerCase()
+                            .includes(filterByName.toLowerCase())
+                    )
+                "
+            />
         </main>
     </section>
 </template>
 
 <script setup>
-import SiteList from './my-sites/site-list.vue';
+import SiteList from "./my-sites/site-list.vue"
 
-import { useSiteStore } from "../stores/site.js";
-import { ref, onMounted } from 'vue';
+import { useSiteStore } from "../stores/site.js"
+import { ref, onMounted } from "vue"
 
 const siteStore = useSiteStore()
 
-const filterByName = ref('')
+const filterByName = ref("")
 
 onMounted(() => {
     siteStore.loadSites()
