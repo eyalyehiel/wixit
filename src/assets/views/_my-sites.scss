@@ -1,6 +1,23 @@
 .my-sites {
-    > * {
-        padding-inline: 108px;
+    $max-width-lg: 1590px;
+    $max-width-md: 1184px;
+
+    > *:not(.full) {
+        margin: auto;
+        max-width: $max-width-lg;
+
+        @media (max-width: 1690px) {
+            max-width: $max-width-md;
+        }
+    }
+
+    .full > * {
+        max-width: $max-width-lg;
+        margin: auto;
+
+        @media (max-width: 1690px) {
+            max-width: $max-width-md;
+        }
     }
 
     header {

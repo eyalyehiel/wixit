@@ -9,7 +9,7 @@
                 <button class="btn-pill-blue" @click="navigate('templates')">Create New Site</button>
             </div>
         </header>
-        <main class="main-content">
+        <main class="main-content full">
             <div class="site-filter">
                 <p v-if="filterByName">
                     Search results for "{{ filterByName }}"
