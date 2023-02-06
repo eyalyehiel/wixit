@@ -2,7 +2,7 @@
     <header class="main-header">
 
         <div class="logo">
-            <img @click="navigate('/')" src="https://res.cloudinary.com/dirvusyaz/image/upload/v1675671431/logo.cdcb6c8_z31mxx.svg" alt="" />
+            <img @click="navigate('/')" src="https://res.cloudinary.com/dirvusyaz/image/upload/v1675691887/best-logo_lds4ap.png" alt="" />
             
             <!-- <img src="../assets/svg/unnamed (1).png" alt="" /> -->
         </div>

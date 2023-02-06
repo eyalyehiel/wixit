@@ -107,11 +107,22 @@
                 top: 10px;
             }
             img:nth-child(3) {
+                z-index: 3;
                 object-fit: cover;
                 position: absolute;
-                top: 100%;
-                left: 50%;
+                top: 50%;
+                left: 100%;
                 transform: translate(-50%, -50%);
+            }
+            img:nth-child(4) {
+                border-radius: 20px;
+                z-index: 2;
+                position: absolute;
+                top: -15%;
+                left: 83%;
+                transform: perspective(200px) rotate3d(0, 1, 0, 356deg);
+                width: 210px;
+                height: 491px;
             }
         }
     }

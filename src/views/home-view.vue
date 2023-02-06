@@ -18,7 +18,8 @@
                 
                 
                     
-                <!-- <img src="../assets/svg/img_0.png" alt="" /> -->
+                <img src="../assets/svg/img_0.png" alt="" />
+                <img src="https://res.cloudinary.com/dirvusyaz/image/upload/v1675688248/min_pic_umjvl8.png" alt="">
             </div>
         </section>
         <section class="one-platform">
