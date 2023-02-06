@@ -295,7 +295,18 @@
                 width: 0;
                 display: flex;
                 flex-direction: column;
-                gap: 40px;
+                gap: 34px;
+
+                button {
+                    border-radius: 3px;
+                    border: 1px solid #dfe5eb;
+                    transition: all 0.3s ease-in-out;
+
+                    &:hover {
+                        transform: translateY(-3px);
+                        box-shadow: 0 10px 15px -14px rgb(49 53 59 / 24%);
+                    }
+                }
             }
             &.open {
                 > * {
