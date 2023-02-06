@@ -1,5 +1,5 @@
 <template>
-    <footer class="site-footer" @click.stop="onEditElement($event, 'site-footer')" :style="cmp.info.style">
+    <footer class="site-footer" @click.stop="onEditElement($event, 'site-footer')" :style="cmp.style">
         <h1 :style="cmp.info.title.style" @click.stop="onEditElement($event, 'title')" :contenteditable="isEdit">{{
             cmp.info.title.text
         }}</h1>

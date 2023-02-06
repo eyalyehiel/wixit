@@ -2,7 +2,7 @@
     <section v-if="siteStore.siteToShow" class="site-edit">
         <site-edit-header @onChangeDisplay="toggleDisplaySize" @onPublishSite="publishSite" />
 
-        <site-edit-sidebar :cmpEditorOpen="cmpEditorOpen" :isElementFocused="isElementFocused"
+        <site-edit-sidebar :cmpEditorOpen="cmpEditorOpen" :selectedElementKey="selectedElementKey"
             @onToggleCmpEditor="toggleCmpEditor" @onChangeCmpBgColor="changeCmpBgColor" @onSetTheme="setTheme"
             @onAddCmp="addCmp" @onUpdateElement="updateElement" @onRemoveCmp="removeCmp" />
 
@@ -49,7 +49,7 @@ const isCmpEditorOpen = ref(false)
 const focusedElement = ref(false)
 const displaySize = ref("desktop")
 
-const isElementFocused = computed(() => focusedElement)
+const selectedElementKey = computed(() => focusedElement)
 const cmpEditorOpen = computed(() => isCmpEditorOpen)
 
 const templateStore = useTemplateStore();
@@ -128,7 +128,6 @@ function changeCmpBgColor(color) {
 function setTheme(theme) {
     cmpToEdit.value.style["background-color"] = theme["background-color"]
     for (const key in cmpToEdit.value.info) {
-
         if (key === 'links') cmpToEdit.value.info.links.forEach((link, idx) => cmpToEdit.value.info.links[idx].style.color = theme.color)
         else if (key === 'btn' || key === 'card') cmpToEdit.value.info[key].style["background-color"] = theme.others
         else cmpToEdit.value.info[key].style["color"] = theme.color
