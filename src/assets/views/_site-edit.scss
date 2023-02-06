@@ -268,7 +268,7 @@
                 flex-direction: column;
                 gap: 2px;
                 width: 0;
-                overflow: hidden;
+                // overflow: hidden;
                 background-color: #f7f8f8;
 
                 &::-webkit-scrollbar {
@@ -325,7 +325,8 @@
                 }
 
                 header {
-                    width: 100%;
+                    max-width: 100%;
+                    width: auto;
                     padding: 0 24px;
                     border-top: 5px solid #6f56f9;
                 }
