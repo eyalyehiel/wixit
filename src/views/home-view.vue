@@ -9,21 +9,23 @@
             </h3>
             <button @click="navigate">Get Started</button>
             <p>Try WixIt. No credit card required.</p>
-            <div class="main-pic ">
-                <div class="preview-top">
-                    <ThreeDots />
-                </div>
+            <div class="main-pic">
+                <!-- <div class="preview-top"><ThreeDots /></div> -->
+                
                 <img src="../assets/svg/main.svg" style="width: 790px;" />
-                <img src="../assets/svg/img_0.png" alt="" />
+                
+                <img src="https://res.cloudinary.com/dirvusyaz/image/upload/v1675684964/new_img_xeg1p9.png" alt="">
+                
+                
+                    
+                <!-- <img src="../assets/svg/img_0.png" alt="" /> -->
             </div>
-
         </section>
         <section class="one-platform">
             <h1>One platform, infinite possibilities</h1>
             <div class="info-container">
-
                 <div class="info-preview">
-                    <img src="../assets/svg/icon1.png" alt="">
+                    <img src="../assets/svg/icon1.png" alt="" />
                     <h4>Unlimited creation</h4>
                     <p>
                         Create a website with a complete suite of advanced
@@ -32,7 +34,7 @@
                 </div>
 
                 <div class="info-preview">
-                    <img src="../assets/svg/icon2.png" alt="">
+                    <img src="../assets/svg/icon2.png" alt="" />
                     <h4>Powerful infrastructure</h4>
                     <p>
                         Get an enterprise-grade foundation, engineered for your
@@ -41,14 +43,13 @@
                 </div>
 
                 <div class="info-preview">
-                    <img src="../assets/svg/icon3.png" alt="">
+                    <img src="../assets/svg/icon3.png" alt="" />
                     <h4>The place for growth</h4>
                     <p>
                         Convert and scale seamlessly with built-in marketing and
                         business solutions.
                     </p>
                 </div>
-
             </div>
             <button @click="navigate">Get Started</button>
         </section>
