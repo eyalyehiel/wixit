@@ -128,7 +128,7 @@ const isCmpEditorOpen = ref(false)
 const isThemesOpen = ref(false)
 const cElementFocused = ref(false)
 const currentSectionBtn = ref("header")
-
+var stopper = 0
 const colors = ref(utilService.getEditColors())
 const fonts = ref(utilService.getFonts())
 const themes = ref(utilService.getThemes())
@@ -174,6 +174,7 @@ function toggleMenu() {
 
 function toggleCmpEditor() {
     isCmpEditorOpen.value = !isCmpEditorOpen.value
+    emit('onToggleCmpEditor',isCmpEditorOpen.value)
     isCmpsOpen.value = false
     // isTemplatesOpen.value = false
     isThemesOpen.value = false
@@ -212,6 +213,8 @@ watch(selectedElementKey, () => {
     console.log('selectedElementKey',selectedElementKey)
 })
 watch(cmpEditorOpen, () => {
+    stopper++
+    if(stopper === 2) return stopper = 0
     toggleCmpEditor()
 })
 </script>
