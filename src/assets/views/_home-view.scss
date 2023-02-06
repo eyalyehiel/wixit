@@ -66,6 +66,13 @@
             font-size: 24px;
         }
         .main-pic {
+            position: relative;
+            display: flex;
+            width: fit-content;
+            height: 60vh;
+            align-self: center;
+            justify-content: center;
+
             .preview-top {
                 height: 14px;
                 background-color: #333a47;
@@ -90,14 +97,15 @@
             }
             img:nth-child(1) {
                 z-index: 2;
+                aspect-ratio: 1.569/1;
+                width: 706px;
+                max-width: 706px;
             }
             img:nth-child(2) {
-                height: 435px;
-                object-fit: cover;
+                aspect-ratio: 1.6/1;
+                max-width: 688px;
                 position: absolute;
-                top: 98%;
-                left: 50%;
-                transform: translate(-50%, -50%);
+                top: 10px;
             }
             img:nth-child(3) {
                 object-fit: cover;
