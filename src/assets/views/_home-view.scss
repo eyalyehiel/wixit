@@ -66,7 +66,29 @@
             font-size: 24px;
         }
         .main-pic {
-            img:first-child {
+            .preview-top {
+                height: 14px;
+                background-color: #333a47;
+                display: flex;
+                align-items: center;
+
+                svg {
+                    height: 35px;
+
+                    :first-child {
+                        fill: #ff0063;
+                    }
+
+                    :nth-child(2) {
+                        fill: #e0b443;
+                    }
+
+                    :nth-child(3) {
+                        fill: #00cbd7;
+                    }
+                }
+            }
+            img:nth-child(2) {
                 z-index: 2;
             }
             img:last-child {

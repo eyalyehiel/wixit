@@ -10,10 +10,13 @@
             <button @click="navigate">Get Started</button>
             <p>Try WixIt. No credit card required.</p>
             <div class="main-pic ">
+                <div class="preview-top">
+                    <ThreeDots />
+                </div>
                 <img src="../assets/svg/main.svg" style="width: 790px;" />
                 <img src="../assets/svg/img_0.png" alt="" />
             </div>
-            
+
         </section>
         <section class="one-platform">
             <h1>One platform, infinite possibilities</h1>
@@ -65,6 +68,7 @@
 
 <script setup>
 import { useRouter } from "vue-router";
+import ThreeDots from "../assets/svg/three-dots.vue";
 const router = useRouter();
 
 function navigate() {
