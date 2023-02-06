@@ -73,7 +73,7 @@ function toggleDisplaySize(val) {
 }
 
 function toggleCmpEditor(val) {
-    if (isCmpEditorOpen.value === val) return;
+    // if (isCmpEditorOpen.value === val) return;
     isCmpEditorOpen.value = val;
     if (!isCmpEditorOpen.value) return (cmpToEdit.value = null);
 }
@@ -101,7 +101,7 @@ function changeText(text, key, idx) {
 
 function setCmpToEdit(cmp) {
     cmpToEdit.value = cmp;
-    isCmpEditorOpen.value = !isCmpEditorOpen.value;
+    isCmpEditorOpen.value = true;
     console.log(cmpToEdit.value._id)
 }
 
