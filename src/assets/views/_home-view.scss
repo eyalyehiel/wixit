@@ -69,7 +69,7 @@
             position: relative;
             display: flex;
             width: fit-content;
-            height: 60vh;
+            // height: 60vh;
             align-self: center;
             justify-content: center;
 
@@ -104,8 +104,7 @@
                 aspect-ratio: 1.6/1;
                 max-width: 688px;
                 position: absolute;
-                transform: translate(0%, 18%);
-                // top: 10px;
+                top: 10px;
             }
             img:nth-child(3) {
                 object-fit: cover;
