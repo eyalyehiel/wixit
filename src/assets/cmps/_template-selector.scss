@@ -11,6 +11,10 @@
         display: flex;
         justify-content: space-between;
         box-shadow: 0 2px 7px 0 rgb(0 0 0 / 5%);
+        @media(max-width:400px){
+            flex-direction: column;
+            gap: 1em;
+        }
 
         h2 {
             font-size: em(26px, 16px);
@@ -22,10 +26,15 @@
             border-bottom: 1px solid #000;
             text-overflow: ellipsis;
             outline: none;
+            align-self: flex-end;
             transition: all 0.3s;
-            padding-block: 14px;
+            padding-block: 14px 4px;
             width: 100%;
             max-width: 250px;
+
+            @media(max-width:400px) {
+                align-self: flex-start;
+            }
 
             &:hover {
                 border-color: #116dff;
