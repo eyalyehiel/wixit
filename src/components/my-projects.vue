@@ -14,8 +14,8 @@
         </header>
         <main class="main-content full">
             <div class="site-filter">
-                <p v-if="filterByName">
-                    Search results for "{{ filterByName }}"
+                <p>
+                    {{ filterByName? `Search results for "${filterByName}"` : ''}}
                 </p>
                 <input type="text" placeholder="Search for a website" v-model="filterByName" />
             </div>
