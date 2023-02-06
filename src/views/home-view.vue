@@ -9,37 +9,43 @@
             </h3>
             <button @click="navigate">Get Started</button>
             <p>Try WixIt. No credit card required.</p>
-            <div>
+            <div class="main-pic ">
                 <img src="../assets/svg/main.svg" style="width: 790px;" />
-                <!-- <img src="https://static.wixstatic.com/media/0784b1_636e025454fa4d40a2374266c91e07b8~mv2.jpg/v1/fill/w_728,h_455,al_c,q_80,enc_auto/cans-reduced.jpg"
-                    style="width: 790px;" /> -->
-
+                <img src="../assets/svg/img_0.png" alt="" />
             </div>
+            
         </section>
         <section class="one-platform">
             <h1>One platform, infinite possibilities</h1>
             <div class="info-container">
+
                 <div class="info-preview">
+                    <img src="../assets/svg/icon1.png" alt="">
                     <h4>Unlimited creation</h4>
                     <p>
                         Create a website with a complete suite of advanced
                         functionalities and bring your vision to life.
                     </p>
                 </div>
+
                 <div class="info-preview">
+                    <img src="../assets/svg/icon2.png" alt="">
                     <h4>Powerful infrastructure</h4>
                     <p>
                         Get an enterprise-grade foundation, engineered for your
                         limitless scalability and peace of mind.
                     </p>
                 </div>
+
                 <div class="info-preview">
+                    <img src="../assets/svg/icon3.png" alt="">
                     <h4>The place for growth</h4>
                     <p>
                         Convert and scale seamlessly with built-in marketing and
                         business solutions.
                     </p>
                 </div>
+
             </div>
             <button @click="navigate">Get Started</button>
         </section>
@@ -54,15 +60,14 @@
             <button @click="navigate">Get Started</button>
             <!-- carrousel -->
         </section>
-
     </main>
 </template>
 
 <script setup>
-import { useRouter } from "vue-router"
-const router = useRouter()
+import { useRouter } from "vue-router";
+const router = useRouter();
 
 function navigate() {
-    router.push("/select/templates")
+    router.push("/select/templates");
 }
 </script>
