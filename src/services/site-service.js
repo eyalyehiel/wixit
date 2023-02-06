@@ -26,6 +26,7 @@ async function remove(id) {
 }
 
 async function save(site) {
+    console.log(site);
     return site._id
         ? await storageService.put(KEY, site)
         : await storageService.post(KEY, site);

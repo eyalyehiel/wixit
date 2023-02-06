@@ -9,6 +9,7 @@ export const useSiteStore = defineStore('sites', () => {
 
     function setSite(newSite) {
         newSite.cmps.forEach((cmp) => (cmp._id = utilService.makeId()));
+        delete newSite._id;
         site.value = newSite;
     }
 
@@ -35,6 +36,11 @@ export const useSiteStore = defineStore('sites', () => {
         site.value.cmps.splice(idx, 1);
     }
 
+    function publishSite() {
+        console.log(site.value);
+        siteService.save(site.value);
+    }
+
     const siteToShow = computed(() => site.value);
 
     return {
@@ -46,6 +52,7 @@ export const useSiteStore = defineStore('sites', () => {
         updateCmp,
         getById,
         setSite,
+        publishSite,
         siteToShow,
     };
 });

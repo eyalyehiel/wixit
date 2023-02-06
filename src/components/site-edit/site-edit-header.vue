@@ -27,7 +27,7 @@
         </section>
         <section class="publish">
             <button @click="$router.push(`${params.id}/preview`)">Preview</button>
-            <button>Publish</button>
+            <button @click="emit('onPublishSite')">Publish</button>
         </section>
     </header>
 </template>
@@ -44,9 +44,12 @@ import { useRouter, useRoute } from "vue-router"
 
 const router = useRouter()
 const { params } = useRoute()
-const emit = defineEmits(['onChangeDisplay'])
+const emit = defineEmits(['onChangeDisplay', 'onPublishSite'])
 let displaySize = ref("desktop")
 
+// function publishSite() {
+//     emit('onPublishSite')
+// }
 
 function toggleDisplaySize(val) {
     displaySize.value = val

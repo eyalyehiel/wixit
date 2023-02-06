@@ -1,6 +1,6 @@
 <template>
     <section v-if="siteStore.siteToShow" class="site-edit">
-        <site-edit-header @onChangeDisplay="toggleDisplaySize" />
+        <site-edit-header @onChangeDisplay="toggleDisplaySize" @onPublishSite="publishSite" />
 
         <site-edit-sidebar :cmpEditorOpen="cmpEditorOpen" :isElementFocused="isElementFocused"
             @onToggleCmpEditor="toggleCmpEditor" @onChangeCmpBgColor="changeCmpBgColor" @onSetTheme="setTheme"
@@ -63,6 +63,15 @@ onMounted(async () => {
         : templateStore.getEmptySite();
     siteStore.setSite(site);
 });
+
+// onUpdated(() => {
+//     console.log(siteStore.site)
+// })
+
+function publishSite() {
+    console.log(siteStore.site)
+    siteStore.publishSite()
+}
 
 function toggleDisplaySize(val) {
     displaySize.value = val;
