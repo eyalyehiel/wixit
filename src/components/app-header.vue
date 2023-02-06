@@ -2,8 +2,8 @@
     <header class="main-header">
 
         <div class="logo">
-            <img @click="navigate('/')" src="../assets/svg/logo3.png" alt="" />
-            <p>wixit</p>
+            <img @click="navigate('/')" src="https://res.cloudinary.com/dirvusyaz/image/upload/v1675671431/logo.cdcb6c8_z31mxx.svg" alt="" />
+            
             <!-- <img src="../assets/svg/unnamed (1).png" alt="" /> -->
         </div>
         <!-- <p class="logo"  @click="navigate('/')">w<span>ixit</span></p> -->
