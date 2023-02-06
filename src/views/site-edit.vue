@@ -85,6 +85,7 @@ function updateElement(key, value) {
 function removeCmp() {
     siteStore.removeCmp(cmpToEdit.value._id)
     cmpToEdit.value = null
+    toggleCmpEditor()
 }
 
 function changeText(text, key, idx) {
