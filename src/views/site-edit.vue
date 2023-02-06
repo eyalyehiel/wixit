@@ -83,8 +83,8 @@ function updateElement(key, value) {
 }
 
 function removeCmp() {
-    console.log(cmpToEdit.value._id)
     siteStore.removeCmp(cmpToEdit.value._id)
+    cmpToEdit.value = null
 }
 
 function changeText(text, key, idx) {
