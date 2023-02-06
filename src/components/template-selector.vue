@@ -61,9 +61,8 @@ const templateStore = useTemplateStore()
 
 const filterByName = ref('')
 
-onMounted(async () => {
-    await templateStore.loadTemplates()
-    console.log(templateStore.templates)
+onMounted(() => {
+    templateStore.loadTemplates()
 })
 
 function navigate(to) {
