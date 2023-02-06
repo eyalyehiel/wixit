@@ -18,8 +18,8 @@ import siteHero from "../site-templates/site-hero.vue"
 import siteHeader from "../site-templates/site-header.vue"
 
 import { useSiteStore } from "../../stores/site"
-// import { useRoute } from "vue-router"
-// import { onMounted, watch, ref } from "vue"
+import { onMounted, watch, ref } from "vue"
+import { useRoute } from "vue-router"
 
 const cmpsToShow = {
     "site-header": siteHeader,
@@ -32,17 +32,16 @@ const cmpsToShow = {
 }
 
 const siteStore = useSiteStore()
-// const route = useRoute()
+const route = useRoute()
 
 // const cmpToEdit = ref(null)
 // const focusedElement = ref(null)
 // const isCmpEditorOpen = ref(false)
 // const isPreview = ref(false)
 
-// onMounted(() => {
-//     console.log(siteStore.site)
-//     isPreview.value = route.path.includes('preview')
-// })
+onMounted(() => {
+    console.log(route.params.id)
+})
 
 // watch(route, () => {
 //     isPreview.value = route.path.includes('preview')

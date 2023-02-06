@@ -31,7 +31,7 @@ import siteContact from "../components/site-templates/site-contact.vue"
 import siteFooter from "../components/site-templates/site-footer.vue"
 
 import { onMounted, onUpdated, ref, computed } from "vue";
-import { useRoute } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 import { useTemplateStore } from "../stores/template.js";
 import { useSiteStore } from "../stores/site.js";
 
@@ -64,12 +64,7 @@ onMounted(async () => {
     siteStore.setSite(site);
 });
 
-// onUpdated(() => {
-//     console.log(siteStore.site)
-// })
-
 function publishSite() {
-    console.log(siteStore.site)
     siteStore.publishSite()
 }
 

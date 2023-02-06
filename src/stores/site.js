@@ -37,7 +37,6 @@ export const useSiteStore = defineStore('sites', () => {
     }
 
     function publishSite() {
-        console.log(site.value);
         siteService.save(site.value);
     }
 

@@ -11,44 +11,36 @@ function query(entityType, delay = 300) {
     return new Promise((resolve) => setTimeout(() => resolve(entities), delay));
 }
 
-function get(entityType, entityId) {
-    return query(entityType).then((entities) => {
-        const entity = entities.find((entity) => entity._id === entityId);
-        if (!entity) throw new Error(`Unknown Entity ${entityId}`);
-        return entity;
-    });
+async function get(entityType, entityId) {
+    const entities = await query(entityType);
+    const entity = entities.find((entity_1) => entity_1._id === entityId);
+    if (!entity) throw new Error(`Unknown Entity ${entityId}`);
+    return entity;
 }
 
-function post(entityType, newEntity, append = true) {
+async function post(entityType, newEntity, append = true) {
     newEntity._id = _makeId();
-    return query(entityType).then((entities) => {
-        append ? entities.unshift(newEntity) : entities.unshift(newEntity);
-        _save(entityType, entities);
-        return newEntity;
-    });
+    const entities = await query(entityType);
+    append ? entities.unshift(newEntity) : entities.unshift(newEntity);
+    _save(entityType, entities);
+    return newEntity;
 }
 
-function put(entityType, updatedEntity) {
-    return query(entityType).then((entities) => {
-        const idx = entities.findIndex(
-            (entity) => entity._id === updatedEntity._id
-        );
-        entities.splice(idx, 1, updatedEntity);
-        _save(entityType, entities);
-        return updatedEntity;
-    });
+async function put(entityType, updatedEntity) {
+    const entities = await query(entityType);
+    const idx = entities.findIndex(({ _id }) => _id === updatedEntity._id);
+    entities.splice(idx, 1, updatedEntity);
+    _save(entityType, entities);
+    return updatedEntity;
 }
 
-function remove(entityType, entityId) {
-    return query(entityType).then((entities) => {
-        const idx = entities.findIndex((entity) => entity._id === entityId);
-        if (idx < 0) throw new Error(`Unknown Entity ${entityId}`);
-        entities.splice(idx, 1);
-        _save(entityType, entities);
-    });
+async function remove(entityType, entityId) {
+    const entities = await query(entityType);
+    const idx = entities.findIndex((entity) => entity._id === entityId);
+    if (idx < 0) throw new Error(`Unknown Entity ${entityId}`);
+    entities.splice(idx, 1);
+    _save(entityType, entities);
 }
-
-// Private functions
 
 function _save(entityType, entities) {
     localStorage.setItem(entityType, JSON.stringify(entities));
