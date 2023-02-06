@@ -23,7 +23,7 @@
                     alt="">
                 <section class="article-cover">
                     <div class="actions">
-                        <button class="btn-edit btn-pill-blue" @click="() => router.push(`site/edit`)">Edit</button>
+                        <button class="btn-edit btn-pill-blue" @click="() => router.push(`/site/edit`)">Edit</button>
                     </div>
                 </section>
                 Empty
