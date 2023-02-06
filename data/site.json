@@ -2,7 +2,7 @@
     {
         "_id": "hdu1i29y39",
         "name": " Emily Fox Fitness",
-        "background": "https://res.cloudinary.com/dirvusyaz/image/upload/v1675292474/emyli_jysf31.webp",
+        "background": "https://res.cloudinary.com/dirvusyaz/image/upload/v1675708238/emyli-web_jcucx9.png",
         "imgUrls": [],
         "createdBy": { "_id": "", "fullname": "", "imgUrl": "" },
         "cmps": [
@@ -16,7 +16,8 @@
                             "color": "#253c57",
                             "font-family": "",
                             "font-size": "",
-                            "font-weight": ""
+                            "font-weight": "",
+                            "max-width": "150px"
                         }
                     },
                     "links": [
@@ -179,7 +180,7 @@
                             "font-family": "",
                             "font-size": "20px",
                             "letter-spacing": "0.35em",
-                            "max-width": "130px",
+                            "max-width": "135px",
                             "font-weight": "600"
                         }
                     },
@@ -334,7 +335,7 @@
     {
         "_id": "1234190912",
         "name": "Ponto Pet",
-        "background": "https://res.cloudinary.com/dirvusyaz/image/upload/v1674064175/55_kmt26b.png",
+        "background": "https://res.cloudinary.com/dirvusyaz/image/upload/v1675707328/pet-web_zyg5ie.png",
         "imgUrls": [],
         "createdBy": { "_id": "", "fullname": "", "imgUrl": "" },
         "cmps": [
@@ -343,6 +344,7 @@
                 "info": {
                     "title": {
                         "text": "Ponto Pet",
+                        "logo": "https://res.cloudinary.com/dirvusyaz/image/upload/v1675707124/pet-logo_jo3b5i.svg",
                         "style": {
                             "color": "",
                             "font-family": "",
